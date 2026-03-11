@@ -254,6 +254,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
             nights,
             total,
             guests,
+            city: property.city,
           }}
           onClose={() => setShowModal(false)}
         />

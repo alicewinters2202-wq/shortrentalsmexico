@@ -5,27 +5,48 @@ import { formatMXN } from '@/types/preview';
 import { useT } from '@/lib/i18n';
 import { useLang } from '@/store/lang.store';
 
-// ─── Datos de los agentes ────────────────────────────────────────────────────
-// Reemplaza `wa` con el número real de cada agente (formato: 52XXXXXXXXXX)
-// Reemplaza `photo` con la URL de la foto real o déjalo en null para el avatar
-const AGENTS = [
+const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001';
+
+export const AGENTS = [
   {
     id: 1,
     name: 'Alicia Beneviento',
     zone: 'CDMX',
+    cities: ['Ciudad de México', 'Monterrey', 'Santiago', 'Chapala'],
     wa: '525563783517',
-    photo: `${process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001'}/imagenes/Agentes/Alicia Beneviento.png` as string | null,
+    photo: `${BACKEND}/imagenes/Agentes/Alicia Beneviento.png` as string | null,
     initials: 'AB',
     color: '#C9A84C',
   },
   {
     id: 2,
+    name: 'Sofia Navarro',
+    zone: 'CDMX',
+    cities: ['Ciudad de México', 'Monterrey', 'Santiago', 'Chapala'],
+    wa: '525662648748',
+    photo: `${BACKEND}/imagenes/Agentes/Sofia Navarro.png` as string | null,
+    initials: 'SN',
+    color: '#A84C9C',
+  },
+  {
+    id: 3,
     name: 'Santiago Garcia',
     zone: 'Guadalajara',
+    cities: ['Guadalajara'],
     wa: '523329599295',
-    photo: `${process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001'}/imagenes/Agentes/Santiago Garcia.png` as string | null,
-    initials: 'SB',
+    photo: `${BACKEND}/imagenes/Agentes/Santiago Garcia.png` as string | null,
+    initials: 'SG',
     color: '#4A9C8A',
+  },
+  {
+    id: 4,
+    name: 'Daniel Ortega',
+    zone: 'Guadalajara',
+    cities: ['Guadalajara'],
+    wa: '523329587681',
+    photo: `${BACKEND}/imagenes/Agentes/Daniel Ortega.png` as string | null,
+    initials: 'DO',
+    color: '#4A6C9C',
   },
 ];
 
@@ -36,6 +57,7 @@ interface Quote {
   nights: number;
   total: number;
   guests: number;
+  city?: string;
 }
 
 interface Props {
@@ -64,14 +86,17 @@ export default function AgentModal({ quote, onClose }: Props) {
   const { lang } = useLang();
   const t = useT(lang);
 
-  // Cerrar con Escape
+  // Filtrar agentes según la ciudad de la propiedad
+  const agents = quote.city
+    ? AGENTS.filter((a) => a.cities.includes(quote.city!))
+    : AGENTS;
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [onClose]);
 
-  // Bloquear scroll del body
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = ''; };
@@ -82,10 +107,8 @@ export default function AgentModal({ quote, onClose }: Props) {
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
-      {/* Modal */}
       <div
         className="relative w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden"
         style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}
@@ -105,15 +128,12 @@ export default function AgentModal({ quote, onClose }: Props) {
           </button>
         </div>
 
-        {/* Resumen de la cotización */}
+        {/* Resumen */}
         <div className="px-6 pt-5 pb-4">
           <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: 'var(--muted)' }}>
             {t.quoteLabel}
           </p>
-          <div
-            className="rounded-2xl p-4 grid grid-cols-2 gap-3 text-sm"
-            style={{ backgroundColor: 'var(--cream)' }}
-          >
+          <div className="rounded-2xl p-4 grid grid-cols-2 gap-3 text-sm" style={{ backgroundColor: 'var(--cream)' }}>
             <div>
               <p className="text-xs" style={{ color: 'var(--muted)' }}>{t.checkInLabel}</p>
               <p className="font-semibold mt-0.5" style={{ color: 'var(--ink)' }}>{quote.checkIn}</p>
@@ -144,8 +164,8 @@ export default function AgentModal({ quote, onClose }: Props) {
           <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: 'var(--muted)' }}>
             {t.agentsTitle}
           </p>
-          <div className="grid grid-cols-2 gap-3">
-            {AGENTS.map((agent) => {
+          <div className={`grid gap-3 ${agents.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
+            {agents.map((agent) => {
               const msg = buildWaMessage(agent, quote, lang);
               const url = `https://wa.me/${agent.wa}?text=${msg}`;
               return (
@@ -157,34 +177,22 @@ export default function AgentModal({ quote, onClose }: Props) {
                   className="rounded-2xl p-4 flex flex-col items-center gap-3 transition-colors hover:opacity-90"
                   style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)' }}
                 >
-                  {/* Avatar / foto */}
                   {agent.photo ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={agent.photo}
-                      alt={agent.name}
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
+                    <img src={agent.photo} alt={agent.name} className="w-16 h-16 rounded-full object-cover" />
                   ) : (
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center font-serif text-xl font-bold text-white"
-                      style={{ backgroundColor: agent.color }}
-                    >
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center font-serif text-xl font-bold text-white"
+                      style={{ backgroundColor: agent.color }}>
                       {agent.initials}
                     </div>
                   )}
-
                   <div className="text-center">
                     <p className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{agent.name}</p>
                     <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{t.agentRole}</p>
                     <p className="text-[10px] mt-1 font-semibold tracking-widest uppercase" style={{ color: 'var(--gold)' }}>📍 {agent.zone}</p>
                   </div>
-
-                  {/* Botón WhatsApp */}
-                  <div
-                    className="w-full flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold text-white"
-                    style={{ backgroundColor: '#25D366' }}
-                  >
+                  <div className="w-full flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold text-white"
+                    style={{ backgroundColor: '#25D366' }}>
                     <span>💬</span>
                     <span>{t.sendQuote}</span>
                   </div>

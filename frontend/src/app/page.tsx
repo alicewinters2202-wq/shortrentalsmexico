@@ -2,6 +2,7 @@ import Link from 'next/link';
 import SearchBar from '@/components/home/SearchBar';
 import LangToggle from '@/components/layout/LangToggle';
 import ReviewsSection from '@/components/home/ReviewsSection';
+import AgentsSection from '@/components/home/AgentsSection';
 import UpcomingDestinations from '@/components/home/UpcomingDestinations';
 import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
@@ -201,6 +202,9 @@ export default async function Home() {
 
       {/* ─── PRÓXIMOS DESTINOS ──────────────────────────────────────────── */}
       <UpcomingDestinations t={t} />
+
+      {/* ─── AGENTES ────────────────────────────────────────────────────── */}
+      <AgentsSection t={t} />
 
       {/* ─── RESEÑAS + CONTACTO ─────────────────────────────────────────── */}
       <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
