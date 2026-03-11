@@ -61,14 +61,13 @@ export class PropertiesService {
     'washington 1414',
     'notredame 126',
     'notre dame 126',
+    'paseo de la marina 121',
+    'francisco medina ascencio 2485',
+    'francisco medina ascencio 2495',
   ];
 
   // Estas propiedades siempre se muestran ocupadas sin importar el randomizador
-  private readonly NEVER_AVAILABLE = [
-    'paseo de la marina 121',
-    'francisco medina ascencio 2495',
-    'francisco medina ascencio 2485',
-  ];
+  private readonly NEVER_AVAILABLE: string[] = [];
 
   getPreview(): PropertyPreview[] {
     const IGNORE = ['Agentes'];
