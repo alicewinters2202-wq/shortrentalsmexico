@@ -43,6 +43,9 @@ export default async function Home() {
             <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-80">México</p>
           </div>
           <div className="flex items-center gap-6">
+            <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
+              {t.aboutNav}
+            </Link>
             <LangToggle currentLang={lang} className="text-white/70 hover:text-white" />
           </div>
         </nav>
@@ -215,6 +218,7 @@ export default async function Home() {
           </div>
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
             <Link href="/properties" className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
+            <Link href="/about" className="hover:opacity-80 transition-opacity">{t.aboutNav}</Link>
           </div>
         </div>
       </footer>

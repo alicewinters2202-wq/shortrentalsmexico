@@ -29,8 +29,8 @@ export default async function PropertiesPage({
             TempRentals México
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/contact" className="text-xs transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>
-              {t.contact}
+            <Link href="/about" className="text-xs transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>
+              {t.aboutNav}
             </Link>
             <LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" />
           </div>
