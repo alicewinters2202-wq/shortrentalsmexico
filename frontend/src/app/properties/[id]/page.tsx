@@ -37,7 +37,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ id: s
           </Link>
           <span style={{ color: 'var(--border)' }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: 'var(--ink)' }}>
-            TempRentals México
+            ShortStayMX
           </Link>
           <div className="ml-auto">
             <LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" />

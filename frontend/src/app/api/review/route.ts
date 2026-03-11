@@ -20,7 +20,7 @@ export async function POST(req: Request) {
   const today   = new Date().toISOString().split('T')[0];
 
   await transporter.sendMail({
-    from: `"TempRentals Reseñas" <${process.env.EMAIL_USER}>`,
+    from: `"ShortStayMX Reseñas" <${process.env.EMAIL_USER}>`,
     to: 'alicewinters2202@gmail.com',
     subject: `Nueva reseña pendiente de aprobación — ${starStr}`,
     html: `

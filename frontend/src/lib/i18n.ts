@@ -22,7 +22,7 @@ const T = {
     // collage & featured
     taglineQuote: 'Para quienes no se conforman',
     taglineQuoteEm: ' con lo ordinario.',
-    taglineSub2: 'Cada propiedad en TempRentals México es verificada personalmente. Si la publicamos, es porque la habitaríamos nosotros mismos.',
+    taglineSub2: 'Cada propiedad en ShortStayMX es verificada personalmente. Si la publicamos, es porque la habitaríamos nosotros mismos.',
     featuredProps: 'Propiedades destacadas',
     totalProps: (n: number) => `${n} propiedades en total`,
     viewAll: 'Ver todas →',
@@ -222,7 +222,7 @@ const T = {
     properties: (n: number) => `${n} propert${n !== 1 ? 'ies' : 'y'}`,
     taglineQuote: 'For those who refuse to settle',
     taglineQuoteEm: ' for the ordinary.',
-    taglineSub2: 'Every property on TempRentals México is personally verified. If we list it, it\'s because we\'d stay there ourselves.',
+    taglineSub2: 'Every property on ShortStayMX is personally verified. If we list it, it\'s because we\'d stay there ourselves.',
     featuredProps: 'Featured properties',
     totalProps: (n: number) => `${n} properties total`,
     viewAll: 'View all →',

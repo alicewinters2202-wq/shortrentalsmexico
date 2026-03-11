@@ -20,9 +20,9 @@ export async function POST(req: Request) {
     from: `"${name}" <${process.env.EMAIL_USER}>`,
     to: 'alicewinters2202@gmail.com',
     replyTo: email,
-    subject: `Contacto desde TempRentals — ${name}`,
+    subject: `Contacto desde ShortStayMX — ${name}`,
     html: `
-      <h2>Nuevo mensaje desde TempRentals México</h2>
+      <h2>Nuevo mensaje desde ShortStayMX</h2>
       <p><strong>Nombre:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Mensaje:</strong></p>

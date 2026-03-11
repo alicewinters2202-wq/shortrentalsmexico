@@ -15,7 +15,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'TempRentals México — Estancias extraordinarias',
+  title: 'ShortStayMX — Estancias extraordinarias',
   description: 'Las mejores casas vacacionales en CDMX, Monterrey, Baja California y Guadalajara.',
 };
 
