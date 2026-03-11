@@ -46,6 +46,11 @@ export default function AgentsSection({ t }: { t: TType }) {
                   <p className="text-[10px] mt-1 font-semibold tracking-widest uppercase" style={{ color: 'var(--gold)' }}>
                     📍 {agent.zone}
                   </p>
+                  <div className="flex items-center justify-center gap-0.5 mt-1">
+                    {agent.languages.map((flag) => (
+                      <span key={flag} className="text-sm">{flag}</span>
+                    ))}
+                  </div>
                 </div>
                 <span className="text-[10px] font-semibold px-3 py-1 rounded-full transition-colors"
                   style={{ backgroundColor: 'var(--border)', color: 'var(--muted)' }}>

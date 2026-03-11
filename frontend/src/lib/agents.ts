@@ -10,6 +10,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Alicia Beneviento.png` as string | null,
     initials: 'AB',
     color: '#C9A84C',
+    languages: ['🇪🇸', '🇬🇧'],
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Sofia Navarro.png` as string | null,
     initials: 'SN',
     color: '#A84C9C',
+    languages: ['🇪🇸', '🇬🇧'],
   },
   {
     id: 5,
@@ -30,6 +32,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Daniela Villaseñor.png` as string | null,
     initials: 'DV',
     color: '#9C4A6C',
+    languages: ['🇪🇸', '🇬🇧'],
   },
   {
     id: 3,
@@ -40,6 +43,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Santiago Garcia.png` as string | null,
     initials: 'SG',
     color: '#4A9C8A',
+    languages: ['🇪🇸', '🇬🇧'],
   },
   {
     id: 4,
@@ -50,7 +54,14 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Daniel Ortega.png` as string | null,
     initials: 'DO',
     color: '#4A6C9C',
+    languages: ['🇪🇸', '🇬🇧', '🇧🇷'],
   },
 ];
+
+export const CAMILA = {
+  name: 'Camila Delacour',
+  photo: `${BACKEND}/imagenes/Agentes/Camila Delacour.png`,
+  languages: ['🇪🇸', '🇬🇧', '🇫🇷'],
+};
 
 export type Agent = typeof AGENTS[0];

@@ -63,6 +63,11 @@ export default async function AgentsPage() {
                   <p className="text-xs mt-2 font-semibold tracking-widest uppercase" style={{ color: 'var(--gold)' }}>
                     📍 {agent.zone}
                   </p>
+                  <div className="flex items-center justify-center gap-1 mt-2">
+                    {agent.languages.map((flag) => (
+                      <span key={flag} className="text-lg">{flag}</span>
+                    ))}
+                  </div>
                 </div>
                 <Link
                   href={`/properties?city=${encodeURIComponent(city)}`}
