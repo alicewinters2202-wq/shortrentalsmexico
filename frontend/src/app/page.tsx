@@ -213,7 +213,7 @@ export default async function Home() {
       <section className="py-16 px-6" style={{ backgroundColor: 'var(--card)' }}>
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
-            {lang === 'en' ? 'Specialized attention' : 'Atención especializada'}
+            {lang === 'en' ? 'Customer service' : 'Atención a cliente'}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: 'var(--ink)' }}>
             {lang === 'en' ? 'We help you find your ideal stay' : 'Te ayudamos a encontrar tu estancia ideal'}
