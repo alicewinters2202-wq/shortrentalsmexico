@@ -229,7 +229,7 @@ export default async function Home() {
           <div className="inline-flex flex-col items-center gap-4 mb-8">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={CAMILA.photo}
+              src={CAMILA.photo ?? ''}
               alt={CAMILA.name}
               draggable="false"
               style={{ pointerEvents: 'none', userSelect: 'none' }}
