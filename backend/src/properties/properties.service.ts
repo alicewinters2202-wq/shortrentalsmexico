@@ -137,11 +137,15 @@ export class PropertiesService {
       properties.forEach((p) => {
         if (this.isPinned(p.address)) return; // siempre disponible
         if (this.isNeverAvailable(p.address)) {
-          // mantener ocupada con la fecha del JSON o regenerar si no existe
+          p.available = false;
           const entry = availability[String(p.id)];
-          if (entry) {
-            p.available = false;
+          if (entry?.availableFrom) {
             p.availableFrom = entry.availableFrom;
+          } else {
+            const days = 30 + Math.floor(Math.random() * 120);
+            const d = new Date();
+            d.setDate(d.getDate() + days);
+            p.availableFrom = d.toISOString().split('T')[0];
           }
           return;
         }

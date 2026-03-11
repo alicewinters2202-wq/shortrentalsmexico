@@ -132,6 +132,7 @@ const T = {
     contactSent: '¡Mensaje enviado! Te contactamos pronto.',
     // availability
     occupiedUntil: (date: string) => `Ocupada · hasta ${date}`,
+    occupiedRange: (from: string, to: string) => `Ocupada: ${from} – ${to}`,
     availableFrom: (date: string) => `Disponible a partir del ${date}`,
     occupiedBanner: 'Esta propiedad está ocupada',
     availableTag: 'Disponible',
@@ -528,6 +529,7 @@ const T = {
     ],
     // availability
     occupiedUntil: (date: string) => `Occupied · until ${date}`,
+    occupiedRange: (from: string, to: string) => `Occupied: ${from} – ${to}`,
     availableFrom: (date: string) => `Available from ${date}`,
     occupiedBanner: 'This property is currently occupied',
     availableTag: 'Available',

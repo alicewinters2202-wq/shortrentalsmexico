@@ -204,7 +204,10 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
             <p className="font-semibold text-sm text-red-400">{t.occupiedBanner}</p>
             {property.availableFrom && (
               <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                {t.availableFrom(new Date(property.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { day: 'numeric', month: 'long', year: 'numeric' }))}
+                {t.occupiedRange(
+                  new Date().toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long' }),
+                  new Date(property.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long', year: 'numeric' }),
+                )}
               </p>
             )}
           </div>
