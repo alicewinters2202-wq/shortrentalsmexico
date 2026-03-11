@@ -208,22 +208,6 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           </div>
         )}
 
-        {/* WhatsApp — más de 3 meses */}
-        <a
-          href={waUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 rounded-2xl p-4 transition-colors hover:opacity-90"
-          style={{ backgroundColor: 'rgba(37,211,102,0.12)', border: '1px solid rgba(37,211,102,0.3)' }}
-        >
-          <span className="text-2xl">💬</span>
-          <div className="flex-1">
-            <p className="text-xs font-semibold" style={{ color: 'var(--ink)' }}>{t.moreThanPanel}</p>
-            <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>{t.moreThanPanelSub}</p>
-          </div>
-          <span className="text-xs font-semibold whitespace-nowrap" style={{ color: '#25D366' }}>{t.writeUs}</span>
-        </a>
-
         {/* Contacto especial — 3+ meses */}
         <a
           href={`https://wa.me/525563783517?text=${encodeURIComponent(

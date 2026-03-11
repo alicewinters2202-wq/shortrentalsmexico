@@ -206,25 +206,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ id: s
                 🧹 {t.cleaningFeeNote}
               </p>
 
-              {/* WhatsApp — disponibilidad agente */}
-              <a
-                href={waMoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 flex items-center gap-4 rounded-2xl p-5 transition-colors hover:opacity-90"
-                style={{ backgroundColor: 'rgba(37,211,102,0.1)', border: '1px solid rgba(37,211,102,0.25)' }}
-              >
-                <span className="text-3xl">💬</span>
-                <div className="flex-1">
-                  <p className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{t.moreThan1Month}</p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{t.moreThan1MonthSub}</p>
-                </div>
-                <span className="flex-shrink-0 text-xs font-semibold px-4 py-2 rounded-full text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: '#25D366' }}>
-                  {t.openWA}
-                </span>
-              </a>
-
               {/* Contacto especial — 3+ meses */}
               <a
                 href={`https://wa.me/525563783517?text=${encodeURIComponent(
