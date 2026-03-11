@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { AGENTS } from '@/components/AgentModal';
+import { AGENTS } from '@/lib/agents';
 import type { TType } from '@/lib/i18n';
 
 export default function AgentsSection({ t }: { t: TType }) {
