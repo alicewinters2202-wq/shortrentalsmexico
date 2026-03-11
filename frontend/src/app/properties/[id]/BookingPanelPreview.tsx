@@ -208,7 +208,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           </div>
         )}
 
-        {/* WhatsApp — más de 1 mes */}
+        {/* WhatsApp — más de 3 meses */}
         <a
           href={waUrl}
           target="_blank"
@@ -222,6 +222,26 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
             <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>{t.moreThanPanelSub}</p>
           </div>
           <span className="text-xs font-semibold whitespace-nowrap" style={{ color: '#25D366' }}>{t.writeUs}</span>
+        </a>
+
+        {/* Contacto especial — 3+ meses */}
+        <a
+          href={`https://wa.me/525563783517?text=${encodeURIComponent(
+            lang === 'en'
+              ? `Hello, I'm interested in a long-term stay (3+ months) at ${property.address}. Could you give me more information about special conditions?`
+              : `Hola, me interesa una estancia larga (más de 3 meses) en ${property.address}. ¿Me pueden dar información sobre las condiciones especiales?`
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 rounded-2xl p-4 transition-colors hover:opacity-90"
+          style={{ backgroundColor: 'rgba(180,130,255,0.08)', border: '1px solid rgba(180,130,255,0.25)' }}
+        >
+          <span className="text-2xl">🏠</span>
+          <div className="flex-1">
+            <p className="text-xs font-semibold" style={{ color: 'var(--ink)' }}>{t.longStayPanelTitle}</p>
+            <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>{t.longStayPanelSub}</p>
+          </div>
+          <span className="text-xs font-semibold whitespace-nowrap" style={{ color: 'var(--gold)' }}>{t.writeUs}</span>
         </a>
 
         {/* Badges */}
