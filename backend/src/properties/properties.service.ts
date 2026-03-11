@@ -199,8 +199,10 @@ export class PropertiesService {
   }
 
   private isPinned(address: string): boolean {
-    const lower = address.toLowerCase();
-    return this.ALWAYS_AVAILABLE.some((pin) => lower.includes(pin));
+    const normalize = (s: string) =>
+      s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const normalized = normalize(address);
+    return this.ALWAYS_AVAILABLE.some((pin) => normalized.includes(normalize(pin)));
   }
 
   private loadAvailability(): Record<string, AvailabilityEntry> {
