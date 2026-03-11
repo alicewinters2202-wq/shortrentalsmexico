@@ -1,18 +1,18 @@
 import type { TType } from '@/lib/i18n';
 
 const UPCOMING = [
-  { city: 'Los Cabos',              gradient: 'from-amber-700 to-orange-900',   emoji: '🏜️' },
-  { city: 'Puerto Escondido',       gradient: 'from-cyan-800 to-blue-900',      emoji: '🌊' },
-  { city: 'San Miguel de Allende',  gradient: 'from-orange-800 to-rose-900',    emoji: '⛪' },
-  { city: 'Tulum',                  gradient: 'from-emerald-800 to-teal-900',   emoji: '🌴' },
-  { city: 'Cancún',                 gradient: 'from-sky-700 to-cyan-900',       emoji: '🏖️' },
-  { city: 'Oaxaca',                 gradient: 'from-rose-800 to-red-900',       emoji: '🏛️' },
-  { city: 'Playa del Carmen',       gradient: 'from-teal-700 to-emerald-900',   emoji: '🐠' },
-  { city: 'Mérida',                 gradient: 'from-yellow-700 to-amber-900',   emoji: '🌺' },
-  { city: 'Tijuana',                gradient: 'from-slate-700 to-zinc-900',     emoji: '🌆' },
-  { city: 'Ensenada',               gradient: 'from-blue-800 to-indigo-900',    emoji: '⚓' },
-  { city: 'Rosarito',               gradient: 'from-violet-800 to-purple-900',  emoji: '🌅' },
-  { city: 'Nayarit',                gradient: 'from-green-700 to-teal-900',     emoji: '🌿' },
+  { city: 'Los Cabos',              bg: 'linear-gradient(135deg,#b45309,#7c2d12)',  emoji: '🐋' },
+  { city: 'Puerto Escondido',       bg: 'linear-gradient(135deg,#0e7490,#1e3a5f)',  emoji: '🌊' },
+  { city: 'San Miguel de Allende',  bg: 'linear-gradient(135deg,#9a3412,#881337)',  emoji: '⛪' },
+  { city: 'Tulum',                  bg: 'linear-gradient(135deg,#065f46,#134e4a)',  emoji: '🌴' },
+  { city: 'Cancún',                 bg: 'linear-gradient(135deg,#0369a1,#164e63)',  emoji: '🏖️' },
+  { city: 'Oaxaca',                 bg: 'linear-gradient(135deg,#9f1239,#7f1d1d)',  emoji: '🏛️' },
+  { city: 'Playa del Carmen',       bg: 'linear-gradient(135deg,#0f766e,#064e3b)',  emoji: '🐠' },
+  { city: 'Mérida',                 bg: 'linear-gradient(135deg,#a16207,#92400e)',  emoji: '🌺' },
+  { city: 'Tijuana',                bg: 'linear-gradient(135deg,#334155,#18181b)',  emoji: '🌆' },
+  { city: 'Ensenada',               bg: 'linear-gradient(135deg,#1d4ed8,#312e81)',  emoji: '⚓' },
+  { city: 'Rosarito',               bg: 'linear-gradient(135deg,#6d28d9,#4c1d95)',  emoji: '🌅' },
+  { city: 'Nayarit',                bg: 'linear-gradient(135deg,#15803d,#134e4a)',  emoji: '🌿' },
 ];
 
 interface Props {
@@ -29,7 +29,8 @@ export default function UpcomingDestinations({ t }: Props) {
         {UPCOMING.map((d) => (
           <div
             key={d.city}
-            className={`relative rounded-2xl aspect-[3/2] overflow-hidden bg-gradient-to-br ${d.gradient} flex flex-col items-center justify-center gap-2 cursor-not-allowed`}
+            className="relative rounded-2xl aspect-[3/2] overflow-hidden flex flex-col items-center justify-center gap-2 cursor-not-allowed"
+            style={{ background: d.bg }}
           >
             <span className="text-4xl">{d.emoji}</span>
             <p className="text-white font-serif text-lg font-medium">{d.city}</p>
