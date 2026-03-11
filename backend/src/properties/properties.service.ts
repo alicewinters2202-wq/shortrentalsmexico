@@ -63,6 +63,13 @@ export class PropertiesService {
     'notre dame 126',
   ];
 
+  // Estas propiedades siempre se muestran ocupadas sin importar el randomizador
+  private readonly NEVER_AVAILABLE = [
+    'paseo de la marina 121',
+    'francisco medina ascencio 2495',
+    'francisco medina ascencio 2485',
+  ];
+
   getPreview(): PropertyPreview[] {
     const IGNORE = ['Agentes'];
     const cities = fs
@@ -113,7 +120,7 @@ export class PropertiesService {
     // Merge availability state
     const availability = this.loadAvailability();
 
-    // If no availability file yet, initialize with ~67% available
+    // If no availability file yet, initialize with ~45% available
     if (Object.keys(availability).length === 0) {
       const addrMap: Record<number, string> = {};
       properties.forEach((p) => { addrMap[p.id] = p.address; });
@@ -129,6 +136,15 @@ export class PropertiesService {
     } else {
       properties.forEach((p) => {
         if (this.isPinned(p.address)) return; // siempre disponible
+        if (this.isNeverAvailable(p.address)) {
+          // mantener ocupada con la fecha del JSON o regenerar si no existe
+          const entry = availability[String(p.id)];
+          if (entry) {
+            p.available = false;
+            p.availableFrom = entry.availableFrom;
+          }
+          return;
+        }
         const entry = availability[String(p.id)];
         if (entry) {
           p.available = entry.available;
@@ -179,16 +195,25 @@ export class PropertiesService {
   private generateAvailability(ids: number[], addresses?: Record<number, string>): Record<string, AvailabilityEntry> {
     const result: Record<string, AvailabilityEntry> = {};
     ids.forEach((id) => {
-      // Si la dirección está en la lista de siempre disponibles, no tocarla
-      if (addresses && this.isPinned(addresses[id] ?? '')) {
+      const addr = addresses?.[id] ?? '';
+      // Siempre disponibles
+      if (this.isPinned(addr)) {
         result[String(id)] = { available: true, availableFrom: null };
         return;
       }
-      const available = Math.random() < 0.67;
+      // Siempre ocupadas
+      if (this.isNeverAvailable(addr)) {
+        const days = 7 + Math.floor(Math.random() * 143); // hasta ~5 meses
+        const d = new Date();
+        d.setDate(d.getDate() + days);
+        result[String(id)] = { available: false, availableFrom: d.toISOString().split('T')[0] };
+        return;
+      }
+      const available = Math.random() < 0.45;
       if (available) {
         result[String(id)] = { available: true, availableFrom: null };
       } else {
-        const days = 7 + Math.floor(Math.random() * 84);
+        const days = 7 + Math.floor(Math.random() * 143); // hasta ~5 meses
         const d = new Date();
         d.setDate(d.getDate() + days);
         result[String(id)] = {
@@ -205,6 +230,13 @@ export class PropertiesService {
       s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const normalized = normalize(address);
     return this.ALWAYS_AVAILABLE.some((pin) => normalized.includes(normalize(pin)));
+  }
+
+  private isNeverAvailable(address: string): boolean {
+    const normalize = (s: string) =>
+      s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const normalized = normalize(address);
+    return this.NEVER_AVAILABLE.some((pin) => normalized.includes(normalize(pin)));
   }
 
   private loadAvailability(): Record<string, AvailabilityEntry> {
