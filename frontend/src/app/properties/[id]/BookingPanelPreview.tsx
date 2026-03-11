@@ -160,8 +160,8 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
             style={{ backgroundColor: withCleaning ? 'var(--gold)' : 'var(--border)' }}
           >
             <span
-              className="absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200"
-              style={{ transform: withCleaning ? 'translateX(22px)' : 'translateX(2px)' }}
+              className="absolute top-[2px] w-5 h-5 rounded-full bg-white shadow transition-all duration-200"
+              style={{ left: withCleaning ? '22px' : '2px' }}
             />
           </button>
         </div>
