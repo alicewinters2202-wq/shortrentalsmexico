@@ -17,6 +17,7 @@ export interface PropertyPreview {
   wifiSpeed: number;
   available: boolean;
   availableFrom: string | null;
+  occupiedSince: string | null;
 }
 
 const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001';

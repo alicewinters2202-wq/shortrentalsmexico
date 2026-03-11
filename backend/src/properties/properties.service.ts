@@ -22,11 +22,13 @@ export interface PropertyPreview {
   wifiSpeed: number;
   available: boolean;
   availableFrom: string | null;
+  occupiedSince: string | null;
 }
 
 interface AvailabilityEntry {
   available: boolean;
   availableFrom: string | null;
+  occupiedSince?: string | null;
 }
 
 @Injectable()
@@ -112,6 +114,7 @@ export class PropertiesService {
           wifiSpeed: this.WIFI_SPEEDS[globalId % this.WIFI_SPEEDS.length],
           available: true,
           availableFrom: null,
+          occupiedSince: null,
         });
       });
     }
@@ -130,6 +133,7 @@ export class PropertiesService {
         if (entry) {
           p.available = entry.available;
           p.availableFrom = entry.availableFrom;
+          p.occupiedSince = entry.occupiedSince ?? null;
         }
       });
     } else {
@@ -140,6 +144,7 @@ export class PropertiesService {
           const entry = availability[String(p.id)];
           if (entry?.availableFrom) {
             p.availableFrom = entry.availableFrom;
+            p.occupiedSince = entry.occupiedSince ?? null;
           } else {
             const days = 30 + Math.floor(Math.random() * 120);
             const d = new Date();
@@ -152,6 +157,7 @@ export class PropertiesService {
         if (entry) {
           p.available = entry.available;
           p.availableFrom = entry.availableFrom;
+          p.occupiedSince = entry.occupiedSince ?? null;
         }
       });
     }
@@ -218,11 +224,16 @@ export class PropertiesService {
       } else {
         // disponible entre junio y agosto (82–173 días desde hoy)
         const days = 82 + Math.floor(Math.random() * 92);
-        const d = new Date();
-        d.setDate(d.getDate() + days);
+        const until = new Date();
+        until.setDate(until.getDate() + days);
+        // inicio ocupación: entre 1 y 5 meses atrás
+        const pastDays = 30 + Math.floor(Math.random() * 120);
+        const since = new Date();
+        since.setDate(since.getDate() - pastDays);
         result[String(id)] = {
           available: false,
-          availableFrom: d.toISOString().split('T')[0],
+          availableFrom: until.toISOString().split('T')[0],
+          occupiedSince: since.toISOString().split('T')[0],
         };
       }
     });

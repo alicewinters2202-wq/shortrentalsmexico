@@ -168,7 +168,7 @@ export default async function Home() {
                     {!p.available && p.availableFrom && (
                       <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-red-600/90 text-white">
                         {t.occupiedRange(
-                          new Date().toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'short' }),
+                          new Date((p.occupiedSince ?? p.availableFrom!) + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'short' }),
                           new Date(p.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'short', year: 'numeric' }),
                         )}
                       </span>

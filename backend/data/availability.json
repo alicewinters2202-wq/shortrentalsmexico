@@ -1,254 +1,317 @@
 {
   "1": {
-    "available": false,
-    "availableFrom": "2026-08-20"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "2": {
     "available": false,
-    "availableFrom": "2026-06-15"
+    "availableFrom": "2026-07-14",
+    "occupiedSince": "2025-11-22"
   },
   "3": {
     "available": false,
-    "availableFrom": "2026-07-29"
+    "availableFrom": "2026-08-30",
+    "occupiedSince": "2025-12-04"
   },
   "4": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "5": {
     "available": false,
-    "availableFrom": "2026-07-30"
+    "availableFrom": "2026-06-08",
+    "occupiedSince": "2025-12-20"
   },
   "6": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "7": {
-    "available": true,
-    "availableFrom": null
+    "available": false,
+    "availableFrom": "2026-08-22",
+    "occupiedSince": "2025-11-23"
   },
   "8": {
     "available": false,
-    "availableFrom": "2026-07-27"
+    "availableFrom": "2026-08-04",
+    "occupiedSince": "2025-10-26"
   },
   "9": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "10": {
     "available": false,
-    "availableFrom": "2026-06-28"
+    "availableFrom": "2026-06-03",
+    "occupiedSince": "2025-12-02"
   },
   "11": {
     "available": false,
-    "availableFrom": "2026-07-03"
+    "availableFrom": "2026-06-13",
+    "occupiedSince": "2025-10-23"
   },
   "12": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "13": {
     "available": false,
-    "availableFrom": "2026-08-27"
+    "availableFrom": "2026-07-23",
+    "occupiedSince": "2026-01-09"
   },
   "14": {
     "available": false,
-    "availableFrom": "2026-08-07"
+    "availableFrom": "2026-06-08",
+    "occupiedSince": "2025-10-17"
   },
   "15": {
-    "available": false,
-    "availableFrom": "2026-06-18"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "16": {
     "available": false,
-    "availableFrom": "2026-08-02"
+    "availableFrom": "2026-06-24",
+    "occupiedSince": "2026-02-05"
   },
   "17": {
     "available": false,
-    "availableFrom": "2026-07-20"
+    "availableFrom": "2026-08-24",
+    "occupiedSince": "2025-11-02"
   },
   "18": {
     "available": false,
-    "availableFrom": "2026-08-18"
+    "availableFrom": "2026-06-21",
+    "occupiedSince": "2026-01-03"
   },
   "19": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "20": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "21": {
-    "available": false,
-    "availableFrom": "2026-08-14"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "22": {
-    "available": false,
-    "availableFrom": "2026-08-28"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "23": {
-    "available": false,
-    "availableFrom": "2026-08-24"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "24": {
     "available": false,
-    "availableFrom": "2026-06-22"
+    "availableFrom": "2026-08-04",
+    "occupiedSince": "2025-11-12"
   },
   "25": {
-    "available": false,
-    "availableFrom": "2026-08-04"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "26": {
     "available": false,
-    "availableFrom": "2026-06-07"
+    "availableFrom": "2026-08-11",
+    "occupiedSince": "2025-12-28"
   },
   "27": {
     "available": false,
-    "availableFrom": "2026-08-03"
+    "availableFrom": "2026-07-13",
+    "occupiedSince": "2025-12-07"
   },
   "28": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "29": {
     "available": false,
-    "availableFrom": "2026-06-14"
+    "availableFrom": "2026-08-13",
+    "occupiedSince": "2025-11-30"
   },
   "30": {
-    "available": true,
-    "availableFrom": null
+    "available": false,
+    "availableFrom": "2026-06-28",
+    "occupiedSince": "2026-01-27"
   },
   "31": {
     "available": false,
-    "availableFrom": "2026-06-10"
+    "availableFrom": "2026-08-06",
+    "occupiedSince": "2025-11-30"
   },
   "32": {
     "available": false,
-    "availableFrom": "2026-07-20"
+    "availableFrom": "2026-06-26",
+    "occupiedSince": "2025-10-30"
   },
   "33": {
     "available": false,
-    "availableFrom": "2026-08-03"
+    "availableFrom": "2026-08-21",
+    "occupiedSince": "2026-02-04"
   },
   "34": {
     "available": false,
-    "availableFrom": "2026-07-27"
+    "availableFrom": "2026-06-02",
+    "occupiedSince": "2026-01-05"
   },
   "35": {
     "available": false,
-    "availableFrom": "2026-08-28"
+    "availableFrom": "2026-07-13",
+    "occupiedSince": "2025-10-27"
   },
   "36": {
     "available": false,
-    "availableFrom": "2026-06-18"
+    "availableFrom": "2026-07-19",
+    "occupiedSince": "2025-11-25"
   },
   "37": {
     "available": false,
-    "availableFrom": "2026-07-26"
+    "availableFrom": "2026-06-17",
+    "occupiedSince": "2026-01-22"
   },
   "38": {
     "available": false,
-    "availableFrom": "2026-06-22"
+    "availableFrom": "2026-07-26",
+    "occupiedSince": "2025-11-19"
   },
   "39": {
-    "available": false,
-    "availableFrom": "2026-06-08"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "40": {
     "available": false,
-    "availableFrom": "2026-08-29"
+    "availableFrom": "2026-07-09",
+    "occupiedSince": "2025-10-26"
   },
   "41": {
     "available": false,
-    "availableFrom": "2026-08-31"
+    "availableFrom": "2026-08-26",
+    "occupiedSince": "2025-12-21"
   },
   "42": {
     "available": false,
-    "availableFrom": "2026-07-30"
+    "availableFrom": "2026-07-30",
+    "occupiedSince": "2025-12-06"
   },
   "43": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "44": {
     "available": false,
-    "availableFrom": "2026-08-24"
+    "availableFrom": "2026-06-24",
+    "occupiedSince": "2026-01-28"
   },
   "45": {
     "available": false,
-    "availableFrom": "2026-06-01"
+    "availableFrom": "2026-08-07",
+    "occupiedSince": "2026-02-04"
   },
   "46": {
     "available": false,
-    "availableFrom": "2026-06-15"
+    "availableFrom": "2026-07-23",
+    "occupiedSince": "2025-11-17"
   },
   "47": {
     "available": false,
-    "availableFrom": "2026-07-27"
+    "availableFrom": "2026-06-06",
+    "occupiedSince": "2026-01-24"
   },
   "48": {
     "available": false,
-    "availableFrom": "2026-08-03"
+    "availableFrom": "2026-06-06",
+    "occupiedSince": "2026-01-19"
   },
   "49": {
     "available": false,
-    "availableFrom": "2026-07-11"
+    "availableFrom": "2026-07-04",
+    "occupiedSince": "2025-10-18"
   },
   "50": {
     "available": false,
-    "availableFrom": "2026-06-11"
+    "availableFrom": "2026-06-04",
+    "occupiedSince": "2026-01-06"
   },
   "51": {
     "available": false,
-    "availableFrom": "2026-06-06"
+    "availableFrom": "2026-07-18",
+    "occupiedSince": "2026-01-07"
   },
   "52": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "53": {
     "available": false,
-    "availableFrom": "2026-06-27"
+    "availableFrom": "2026-08-28",
+    "occupiedSince": "2026-01-19"
   },
   "54": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "55": {
     "available": false,
-    "availableFrom": "2026-08-05"
+    "availableFrom": "2026-07-20",
+    "occupiedSince": "2026-02-02"
   },
   "56": {
     "available": false,
-    "availableFrom": "2026-06-23"
+    "availableFrom": "2026-08-24",
+    "occupiedSince": "2025-12-04"
   },
   "57": {
-    "available": false,
-    "availableFrom": "2026-08-25"
+    "available": true,
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "58": {
     "available": false,
-    "availableFrom": "2026-07-04"
+    "availableFrom": "2026-08-22",
+    "occupiedSince": "2025-10-21"
   },
   "59": {
     "available": false,
-    "availableFrom": "2026-08-13"
+    "availableFrom": "2026-07-10",
+    "occupiedSince": "2025-12-26"
   },
   "60": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "61": {
     "available": true,
-    "availableFrom": null
+    "availableFrom": null,
+    "occupiedSince": null
   },
   "62": {
     "available": false,
-    "availableFrom": "2026-08-19"
+    "availableFrom": "2026-08-11",
+    "occupiedSince": "2026-01-31"
   },
   "63": {
-    "available": true,
-    "availableFrom": null
+    "available": false,
+    "availableFrom": "2026-08-18",
+    "occupiedSince": "2026-01-29"
   }
 }

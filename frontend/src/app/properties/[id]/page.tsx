@@ -71,7 +71,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ id: s
           {!property.available && property.availableFrom && (
             <p className="text-sm mt-2 font-medium" style={{ color: 'var(--gold)' }}>
               {t.occupiedRange(
-                new Date().toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long' }),
+                new Date((property.occupiedSince ?? property.availableFrom!) + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long' }),
                 new Date(property.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long', year: 'numeric' }),
               )}
             </p>
