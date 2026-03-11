@@ -130,15 +130,20 @@ export default async function PropertiesPage({
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural} · {p.sqMeters} {t.sqm}
                   </p>
 
-                  <div className="mt-3 pt-3 flex items-baseline justify-between"
+                  {/* Badges WiFi + extras */}
+                  <div className="flex gap-1 mt-2 flex-wrap">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">📶 {p.wifiSpeed} Mbps</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
+                    {p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>}
+                    {p.balcony    && <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-900/30 text-emerald-400">🌿</span>}
+                  </div>
+
+                  <div className="mt-3 pt-3 flex items-end justify-between"
                     style={{ borderTop: '1px solid var(--border)' }}>
                     <div>
-                      <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                      <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth + 2000)}</span>
                       <span className="text-xs ml-1" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
-                    </div>
-                    <div className="flex gap-1">
-                      {p.petFriendly && <span className="text-xs px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>}
-                      {p.balcony    && <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-900/30 text-emerald-400">🌿</span>}
+                      <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$2,000 {t.cleaningFee}</p>
                     </div>
                   </div>
                 </div>

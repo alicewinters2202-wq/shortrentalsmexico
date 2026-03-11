@@ -169,10 +169,15 @@ export default async function Home() {
                   <p className="text-xs" style={{ color: 'var(--muted)' }}>
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural}
                   </p>
-                  <div className="flex items-baseline gap-2 mt-1">
-                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                  <div className="flex gap-1 mt-1.5 flex-wrap">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">📶 {p.wifiSpeed} Mbps</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1.5">
+                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth + 2000)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
+                  <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$2,000 {t.cleaningFee}</p>
                 </div>
               </Link>
             );
