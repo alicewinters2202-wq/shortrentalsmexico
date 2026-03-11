@@ -144,9 +144,9 @@ export default async function PropertiesPage({
                   <div className="mt-3 pt-3 flex items-end justify-between"
                     style={{ borderTop: '1px solid var(--border)' }}>
                     <div>
-                      <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                      <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth + 2000)}</span>
                       <span className="text-xs ml-1" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
-                      <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$500 {lang === 'en' ? 'per week (cleaning)' : 'por semana (limpieza)'}</p>
+                      <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$2,000 {t.cleaningFee}</p>
                     </div>
                   </div>
                 </div>

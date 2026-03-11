@@ -28,6 +28,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
   const [checkOut, setCheckOut] = useState('');
   const [guests,   setGuests]   = useState(1);
   const [showModal, setShowModal] = useState(false);
+  const [withCleaning, setWithCleaning] = useState(true);
 
   const nights =
     checkIn && checkOut
@@ -37,8 +38,8 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
   const tooShort    = nights > 0 && nights < MIN_NIGHTS;
   const validStay   = nights >= MIN_NIGHTS;
   const rentTotal   = validStay ? Math.round(dailyRate * nights) : null;
-  const cleaningFee = validStay ? Math.ceil(nights / 7) * 500 : null;
-  const total       = rentTotal !== null && cleaningFee !== null ? rentTotal + cleaningFee : null;
+  const cleaningFee = validStay && withCleaning ? Math.ceil(nights / 7) * 500 : 0;
+  const total       = rentTotal !== null ? rentTotal + cleaningFee : null;
 
   function handleCheckInChange(val: string) {
     setCheckIn(val);
@@ -139,17 +140,43 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>{t.maxGuests(property.maxGuests)}</p>
         </div>
 
+        {/* Toggle limpieza */}
+        <div
+          className="rounded-xl p-3 flex items-center justify-between gap-3"
+          style={{ border: '1px solid var(--border)' }}
+        >
+          <div>
+            <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>🧹 {t.cleaningFee}</p>
+            <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>
+              $500 {lang === 'en' ? 'per week · towel & sheet change' : 'por semana · cambio de toallas y sábanas'}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setWithCleaning((v) => !v)}
+            className="flex-shrink-0 w-11 h-6 rounded-full transition-colors duration-200 relative"
+            style={{ backgroundColor: withCleaning ? 'var(--gold)' : 'var(--border)' }}
+          >
+            <span
+              className="absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200"
+              style={{ transform: withCleaning ? 'translateX(22px)' : 'translateX(2px)' }}
+            />
+          </button>
+        </div>
+
         {/* Desglose */}
-        {total !== null && rentTotal !== null && cleaningFee !== null && (
+        {total !== null && rentTotal !== null && (
           <div className="rounded-xl p-4 space-y-2" style={{ border: '1px solid var(--border)' }}>
             <div className="flex justify-between text-sm">
               <span style={{ color: 'var(--muted)' }}>{formatMXN(Math.round(dailyRate))} × {nights} {t.nightsLabel}</span>
               <span style={{ color: 'var(--ink)' }}>{formatMXN(rentTotal)}</span>
             </div>
-            <div className="flex justify-between text-sm">
-              <span style={{ color: 'var(--muted)' }}>🧹 {t.cleaningFee} ({Math.ceil(nights / 7)} sem)</span>
-              <span style={{ color: 'var(--ink)' }}>{formatMXN(cleaningFee)}</span>
-            </div>
+            {withCleaning && cleaningFee > 0 && (
+              <div className="flex justify-between text-sm">
+                <span style={{ color: 'var(--muted)' }}>🧹 {t.cleaningFee} ({Math.ceil(nights / 7)} sem)</span>
+                <span style={{ color: 'var(--ink)' }}>{formatMXN(cleaningFee)}</span>
+              </div>
+            )}
             <div className="flex justify-between font-semibold pt-2" style={{ borderTop: '1px solid var(--border)' }}>
               <span style={{ color: 'var(--ink)' }}>Total</span>
               <span className="font-serif text-lg" style={{ color: 'var(--gold)' }}>{formatMXN(total)}</span>

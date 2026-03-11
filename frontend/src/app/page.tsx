@@ -180,10 +180,10 @@ export default async function Home() {
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
                   </div>
                   <div className="flex items-baseline gap-2 mt-1.5">
-                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth + 2000)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
-                  <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$500 {lang === 'en' ? 'per week (cleaning)' : 'por semana (limpieza)'}</p>
+                  <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$2,000 {t.cleaningFee}</p>
                 </div>
               </Link>
             );
