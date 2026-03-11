@@ -29,6 +29,8 @@ export default function AgentsSection({ t }: { t: TType }) {
                     src={agent.photo}
                     alt={agent.name}
                     className="w-16 h-16 rounded-full object-cover ring-2 ring-transparent group-hover:ring-[var(--gold)] transition-all"
+                    draggable="false"
+                    style={{ pointerEvents: 'none', userSelect: 'none' }}
                   />
                 ) : (
                   <div

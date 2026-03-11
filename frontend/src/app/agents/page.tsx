@@ -48,7 +48,9 @@ export default async function AgentsPage() {
                 {agent.photo ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img src={agent.photo} alt={agent.name}
-                    className="w-24 h-24 rounded-full object-cover ring-2 ring-[var(--gold)]" />
+                    className="w-24 h-24 rounded-full object-cover ring-2 ring-[var(--gold)]"
+                    draggable="false"
+                    style={{ pointerEvents: 'none', userSelect: 'none' }} />
                 ) : (
                   <div className="w-24 h-24 rounded-full flex items-center justify-center font-serif text-2xl font-bold text-white"
                     style={{ backgroundColor: agent.color }}>

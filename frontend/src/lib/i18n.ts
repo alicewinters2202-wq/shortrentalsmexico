@@ -103,7 +103,7 @@ const T = {
     agentsTitle: 'Elige tu agente',
     sendQuote: 'Enviar cotización',
     agentRole: 'Asesor Inmobiliario',
-    agentsSectionTitle: 'Nuestros asesores',
+    agentsSectionTitle: 'Nuestro equipo',
     agentsSectionSub: 'Cada ciudad tiene un equipo dedicado para atenderte',
     agentsViewProps: 'Ver propiedades',
     // search bar
@@ -362,7 +362,7 @@ const T = {
     agentsTitle: 'Choose your agent',
     sendQuote: 'Send quote',
     agentRole: 'Real Estate Advisor',
-    agentsSectionTitle: 'Our advisors',
+    agentsSectionTitle: 'Our team',
     agentsSectionSub: 'Each city has a dedicated team ready to assist you',
     agentsViewProps: 'View properties',
     destinationLabel: 'Destination',
