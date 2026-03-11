@@ -3,7 +3,7 @@ import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
-const CITIES = ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala'];
+const CITIES = ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala', 'Puerto Vallarta'];
 
 export default async function PropertiesPage({
   searchParams,

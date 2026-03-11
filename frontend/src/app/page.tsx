@@ -14,6 +14,7 @@ const CITIES = [
   { name: 'Monterrey',        label: 'Monterrey' },
   { name: 'Santiago',         label: 'Santiago' },
   { name: 'Chapala',          label: 'Chapala' },
+  { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
 ];
 
 export default async function Home() {
