@@ -206,17 +206,18 @@ export class PropertiesService {
       }
       // Siempre ocupadas
       if (this.isNeverAvailable(addr)) {
-        const days = 7 + Math.floor(Math.random() * 143); // hasta ~5 meses
+        const days = 30 + Math.floor(Math.random() * 240); // hasta ~9 meses
         const d = new Date();
         d.setDate(d.getDate() + days);
         result[String(id)] = { available: false, availableFrom: d.toISOString().split('T')[0] };
         return;
       }
-      const available = Math.random() < 0.45;
+      const available = Math.random() < 0.15;
       if (available) {
         result[String(id)] = { available: true, availableFrom: null };
       } else {
-        const days = 7 + Math.floor(Math.random() * 143); // hasta ~5 meses
+        // disponible entre junio y agosto (82–173 días desde hoy)
+        const days = 82 + Math.floor(Math.random() * 92);
         const d = new Date();
         d.setDate(d.getDate() + days);
         result[String(id)] = {
