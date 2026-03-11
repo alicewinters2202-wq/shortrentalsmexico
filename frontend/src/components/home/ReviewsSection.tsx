@@ -40,6 +40,12 @@ const REVIEWS: Review[] = [
   { text: 'Loved the neighborhood. Lots of great restaurants nearby.',                                    date: '2025-11-19', initials: 'PQ', color: '#7C3AED', stars: 5 },
   { text: 'Quiet, clean, and very comfortable place to stay.',                                            date: '2026-01-08', initials: 'LN', color: '#DB2777', stars: 4 },
   { text: 'Fantastic experience overall. I would absolutely stay here again.',                             date: '2026-03-01', initials: 'JR', color: '#2563EB', stars: 5 },
+  { text: 'El departamento superó nuestras expectativas. Muy espacioso y con todo lo necesario para una estancia larga.', date: '2026-03-04', initials: 'MS', color: '#C9A84C', stars: 5 },
+  { text: 'Increíble relación calidad-precio. Sin duda la mejor opción que encontramos en la ciudad.',    date: '2026-03-06', initials: 'TC', color: '#059669', stars: 5 },
+  { text: 'The neighborhood is wonderful — safe, walkable, and full of great spots. Highly recommend.',   date: '2026-03-07', initials: 'AH', color: '#7C3AED', stars: 5 },
+  { text: 'Nos quedamos tres semanas y todo fue impecable. El equipo de atención siempre muy atento.',    date: '2026-03-08', initials: 'RF', color: '#DB2777', stars: 5 },
+  { text: 'Perfect for a long stay. The apartment had everything — great kitchen, fast wifi, and a very comfortable bed.', date: '2026-03-09', initials: 'CB', color: '#6B7280', stars: 5 },
+  { text: 'Muy buen lugar, limpio, tranquilo y bien ubicado. Lo recomendaría ampliamente.',               date: '2026-03-10', initials: 'NE', color: '#2563EB', stars: 4 },
 ];
 
 const AVG = (REVIEWS.reduce((s, r) => s + r.stars, 0) / REVIEWS.length).toFixed(1);
