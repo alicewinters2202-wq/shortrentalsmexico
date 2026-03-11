@@ -1,0 +1,30 @@
+import type { Metadata } from 'next';
+import { Playfair_Display, DM_Sans } from 'next/font/google';
+import './globals.css';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  title: 'TempRentals México — Estancias extraordinarias',
+  description: 'Las mejores casas vacacionales en CDMX, Monterrey, Baja California y Guadalajara.',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="es">
+      <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
+}
