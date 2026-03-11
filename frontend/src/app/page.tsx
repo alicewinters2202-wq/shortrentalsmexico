@@ -46,6 +46,9 @@ export default async function Home() {
             <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.aboutNav}
             </Link>
+            <Link href="/requirements" className="text-white/70 hover:text-white text-xs transition-colors">
+              {t.reqNav}
+            </Link>
             <LangToggle currentLang={lang} className="text-white/70 hover:text-white" />
           </div>
         </nav>
@@ -224,6 +227,7 @@ export default async function Home() {
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
             <Link href="/properties" className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
             <Link href="/about" className="hover:opacity-80 transition-opacity">{t.aboutNav}</Link>
+            <Link href="/requirements" className="hover:opacity-80 transition-opacity">{t.reqNav}</Link>
           </div>
         </div>
       </footer>

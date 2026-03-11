@@ -120,6 +120,72 @@ const T = {
     availableFrom: (date: string) => `Disponible a partir del ${date}`,
     occupiedBanner: 'Esta propiedad está ocupada',
     availableTag: 'Disponible',
+    // requirements
+    reqNav: 'Requisitos',
+    reqTitle: 'Nuestros requisitos',
+    reqSub: 'Para reservar cualquiera de nuestras propiedades, necesitamos lo siguiente',
+    reqSections: [
+      {
+        icon: '🪪',
+        title: 'Identificación oficial',
+        items: [
+          'Mexicanos: INE vigente.',
+          'Extranjeros: pasaporte vigente al menos hasta el último día de tu estancia.',
+        ],
+      },
+      {
+        icon: '🐾',
+        title: 'Mascotas',
+        items: [
+          'Si viajas con mascotas que no son de México, es necesario presentar su cartilla de vacunación con cobertura de al menos los últimos 3 meses.',
+        ],
+      },
+      {
+        icon: '📄',
+        title: 'Contrato',
+        items: [
+          'El contrato se firma en español. Si requieres otro idioma podemos proporcionarlo; sin embargo, por razones legales, el contrato se firma únicamente en español.',
+        ],
+      },
+      {
+        icon: '🏠',
+        title: 'Comprobante de domicilio',
+        items: [
+          'Comprobante de domicilio de la persona que firmará el contrato.',
+        ],
+      },
+      {
+        icon: '📋',
+        title: 'Reglamento del condominio',
+        items: [
+          'Se requiere la lectura y aceptación del reglamento del condominio.',
+        ],
+      },
+      {
+        icon: '💰',
+        title: 'Anticipo — estancias de corta duración',
+        items: [
+          'Se requiere un anticipo del 50% al 100% del total de la estancia para reservar las fechas y marcarlas como no disponibles.',
+          'Esto depende de la duración de tu estadía.',
+          'El porcentaje restante deberá pagarse a más tardar el día de llegada. De no completarse el pago, los días pendientes serán liberados y nuevamente disponibles.',
+        ],
+      },
+      {
+        icon: '🧾',
+        title: 'Comprobante de pago',
+        items: [
+          'Una vez recibido tu pago, se te proporcionará un recibo firmado como comprobante.',
+        ],
+      },
+      {
+        icon: '🏦',
+        title: 'Forma de pago',
+        items: [
+          'Por tu seguridad y la nuestra, únicamente aceptamos pagos mediante transferencia bancaria.',
+          'El contrato se firma electrónicamente, generalmente dentro de las 24 a 72 horas posteriores al pago, según la disponibilidad del propietario.',
+        ],
+      },
+    ],
     // about
     aboutNav: 'Nosotros',
     aboutTitle: 'Sobre nosotros',
@@ -238,6 +304,72 @@ const T = {
     messageLabel: 'Message',
     sendBtn: 'Send message',
     contactSent: 'Message sent! We\'ll be in touch soon.',
+    // requirements
+    reqNav: 'Requirements',
+    reqTitle: 'Our requirements',
+    reqSub: 'To book any of our properties, we need the following',
+    reqSections: [
+      {
+        icon: '🪪',
+        title: 'Official Identification',
+        items: [
+          'Mexican nationals: a valid INE (official ID).',
+          'Foreigners: a passport valid at least through the last day of your stay.',
+        ],
+      },
+      {
+        icon: '🐾',
+        title: 'Pets',
+        items: [
+          'If you are traveling with pets that are not from Mexico, it is necessary to present their vaccination record covering at least the last 3 months.',
+        ],
+      },
+      {
+        icon: '📄',
+        title: 'Contract',
+        items: [
+          'The contract is signed in Spanish. If you require it in another language, we can provide it; however, for legal reasons, the contract is signed only in Spanish.',
+        ],
+      },
+      {
+        icon: '🏠',
+        title: 'Proof of Address',
+        items: [
+          'Proof of address of the person who will sign the contract.',
+        ],
+      },
+      {
+        icon: '📋',
+        title: 'Condominium Rules',
+        items: [
+          'Reading and acceptance of the condominium rules is required.',
+        ],
+      },
+      {
+        icon: '💰',
+        title: 'Advance Payment — Short-Term Stays',
+        items: [
+          '50% to 100% advance payment of the total stay is required to reserve the dates and mark them as unavailable.',
+          'This depends on how long you are staying with us.',
+          'The remaining balance must be paid no later than the day of arrival. If payment is not completed, the unpaid days will be released and made available again.',
+        ],
+      },
+      {
+        icon: '🧾',
+        title: 'Proof of Payment',
+        items: [
+          'Once your payment is received, you will be provided with a signed receipt as proof of payment.',
+        ],
+      },
+      {
+        icon: '🏦',
+        title: 'Payment Method',
+        items: [
+          'For your safety and ours, we only accept payments via bank transfer.',
+          'The contract is signed electronically, usually within 24 to 72 hours after payment, depending on the owner\'s availability.',
+        ],
+      },
+    ],
     // about
     aboutNav: 'About us',
     aboutTitle: 'About us',

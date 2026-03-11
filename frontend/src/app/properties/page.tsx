@@ -32,6 +32,9 @@ export default async function PropertiesPage({
             <Link href="/about" className="text-xs transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>
               {t.aboutNav}
             </Link>
+            <Link href="/requirements" className="text-xs transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>
+              {t.reqNav}
+            </Link>
             <LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" />
           </div>
         </div>
