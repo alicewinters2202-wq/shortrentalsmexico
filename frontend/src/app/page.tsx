@@ -44,6 +44,9 @@ export default async function Home() {
             <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-80">México</p>
           </div>
           <div className="flex items-center gap-6">
+            <Link href="/agents" className="text-white/70 hover:text-white text-xs transition-colors">
+              {t.agentsSectionTitle}
+            </Link>
             <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.aboutNav}
             </Link>
