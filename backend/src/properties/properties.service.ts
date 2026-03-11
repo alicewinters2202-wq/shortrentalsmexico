@@ -89,7 +89,7 @@ export class PropertiesService {
 
         properties.push({
           id: globalId++,
-          city: String(row[0] ?? '').trim(),
+          city: this.normalizeCity(String(row[0] ?? '').trim()),
           address: String(row[1] ?? '').trim(),
           pricePerMonth: Number(row[2]) || 0,
           bedrooms: Number(row[3]) || 0,
@@ -252,6 +252,18 @@ export class PropertiesService {
       .filter((f) => imageExts.includes(path.extname(f).toLowerCase()))
       .sort()
       .map((f) => `/imagenes/${cityFolder.replace(/ /g, '%20')}/${folderNumber}/${encodeURIComponent(f)}`);
+  }
+
+  private normalizeCity(raw: string): string {
+    const lower = ['de', 'del', 'la', 'las', 'los', 'el', 'y', 'e'];
+    return raw
+      .split(/\s+/)
+      .map((w, i) =>
+        i === 0 || !lower.includes(w.toLowerCase())
+          ? w.charAt(0).toUpperCase() + w.slice(1)
+          : w.toLowerCase(),
+      )
+      .join(' ');
   }
 
   private parseAmenities(raw: unknown): string[] {
