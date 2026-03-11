@@ -57,7 +57,9 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
 
   const badges = [
     property.balcony      && { label: t.balcony,             icon: '🌿' },
-    property.petFriendly  && { label: t.petFriendly,         icon: '🐾' },
+    property.petFriendlyNegotiable
+      ? { label: t.petFriendlyNeg, icon: '🐾' }
+      : property.petFriendly && { label: t.petFriendly, icon: '🐾' },
     property.parkingSpots > 0 && { label: t.parking(property.parkingSpots), icon: '🚗' },
     property.sqMeters     > 0 && { label: `${property.sqMeters} m²`,        icon: '📐' },
   ].filter(Boolean) as { label: string; icon: string }[];

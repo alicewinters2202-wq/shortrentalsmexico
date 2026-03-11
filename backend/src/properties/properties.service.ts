@@ -16,6 +16,7 @@ export interface PropertyPreview {
   sqMeters: number;
   balcony: boolean;
   petFriendly: boolean;
+  petFriendlyNegotiable: boolean;
   coordinates: string | null;
   images: string[];
   wifiSpeed: number;
@@ -99,6 +100,7 @@ export class PropertiesService {
           sqMeters: Number(row[8]) || 0,
           balcony: String(row[9] ?? '').toLowerCase() === 'si',
           petFriendly: String(row[10] ?? '').toLowerCase() === 'si',
+          petFriendlyNegotiable: String(row[10] ?? '').toLowerCase() === 'negociable',
           coordinates: row[11] ? String(row[11]) : null,
           images,
           wifiSpeed: this.WIFI_SPEEDS[globalId % this.WIFI_SPEEDS.length],

@@ -108,7 +108,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ id: s
               {property.balcony && (
                 <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-emerald-900/40 text-emerald-400">🌿 {t.balcony}</span>
               )}
-              {property.petFriendly && (
+              {property.petFriendlyNegotiable ? (
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">🐾 {t.petFriendlyNeg}</span>
+              ) : property.petFriendly && (
                 <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">🐾 {t.petFriendly}</span>
               )}
               {property.parkingSpots > 0 && (

@@ -11,6 +11,7 @@ export interface PropertyPreview {
   sqMeters: number;
   balcony: boolean;
   petFriendly: boolean;
+  petFriendlyNegotiable: boolean;
   coordinates: string | null;
   images: string[];
   wifiSpeed: number;

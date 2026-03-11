@@ -52,6 +52,7 @@ const T = {
     // badges
     balcony: 'Balcón',
     petFriendly: 'Pet friendly',
+    petFriendlyNeg: 'Pet friendly negociable',
     parking: (n: number) => `${n} estacionamiento${n > 1 ? 's' : ''}`,
     // amenities
     amenities: 'Lo que incluye',
@@ -316,6 +317,7 @@ const T = {
     sqm: 'm²',
     balcony: 'Balcony',
     petFriendly: 'Pet friendly',
+    petFriendlyNeg: 'Pet friendly (negotiable)',
     parking: (n: number) => `${n} parking spot${n > 1 ? 's' : ''}`,
     amenities: "What's included",
     priceTitle: 'Rental pricing',

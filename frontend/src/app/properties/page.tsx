@@ -137,7 +137,10 @@ export default async function PropertiesPage({
                   <div className="flex gap-1 mt-2 flex-wrap">
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">📶 {p.wifiSpeed} Mbps</span>
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
-                    {p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>}
+                    {p.petFriendlyNegotiable
+                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾 {t.petFriendlyNeg}</span>
+                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
+                    }
                     {p.balcony    && <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-900/30 text-emerald-400">🌿</span>}
                   </div>
 
