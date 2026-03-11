@@ -37,10 +37,56 @@ export default async function AgentsPage() {
         </p>
       </section>
 
-      {/* Agentes */}
+      {/* Agente especializada */}
+      {(() => {
+        const camila = AGENTS.find((a) => a.specialist);
+        if (!camila) return null;
+        return (
+          <section className="max-w-4xl mx-auto px-6 pb-8">
+            <div className="rounded-3xl p-10 flex flex-col sm:flex-row items-center gap-8"
+              style={{ backgroundColor: 'var(--card)', border: '1px solid rgba(180,130,255,0.3)', background: 'linear-gradient(135deg, var(--card) 80%, rgba(180,130,255,0.07))' }}>
+              {camila.photo ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={camila.photo} alt={camila.name}
+                  className="w-32 h-32 rounded-full object-cover ring-4 ring-[var(--gold)] flex-shrink-0"
+                  draggable="false"
+                  style={{ pointerEvents: 'none', userSelect: 'none' }} />
+              ) : (
+                <div className="w-32 h-32 rounded-full flex items-center justify-center font-serif text-3xl font-bold text-white flex-shrink-0"
+                  style={{ backgroundColor: camila.color }}>
+                  {camila.initials}
+                </div>
+              )}
+              <div className="text-center sm:text-left flex-1">
+                <p className="text-xs tracking-widest uppercase font-semibold mb-1" style={{ color: 'var(--gold)' }}>
+                  {lang === 'en' ? 'Specialized agent' : 'Agente especializada'}
+                </p>
+                <p className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>{camila.name}</p>
+                <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{t.agentRole}</p>
+                <div className="flex items-center gap-1 mt-2 justify-center sm:justify-start">
+                  {camila.languages.map((flag) => (
+                    <span key={flag} className="text-xl">{flag}</span>
+                  ))}
+                </div>
+              </div>
+              <a
+                href={`https://wa.me/${camila.wa}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 px-7 py-3 rounded-full text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: 'var(--gold)' }}
+              >
+                {lang === 'en' ? 'Contact' : 'Contactar'} →
+              </a>
+            </div>
+          </section>
+        );
+      })()}
+
+      {/* Equipo */}
       <section className="max-w-4xl mx-auto px-6 pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {AGENTS.map((agent) => {
+          {AGENTS.filter((a) => !a.specialist).map((agent) => {
             const city = agent.cities[0];
             return (
               <div key={agent.id} className="rounded-3xl p-8 flex flex-col items-center gap-5"

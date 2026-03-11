@@ -2,6 +2,18 @@ const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001';
 
 export const AGENTS = [
   {
+    id: 6,
+    name: 'Camila Delacour',
+    zone: 'Nacional',
+    cities: ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala'],
+    wa: '525563783517',
+    photo: `${BACKEND}/imagenes/Agentes/Camila Delacour.png` as string | null,
+    initials: 'CD',
+    color: '#7C5CBF',
+    languages: ['🇲🇽', '🇺🇸', '🇫🇷'],
+    specialist: true,
+  },
+  {
     id: 1,
     name: 'Alicia Beneviento',
     zone: 'CDMX',
@@ -10,7 +22,8 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Alicia Beneviento.png` as string | null,
     initials: 'AB',
     color: '#C9A84C',
-    languages: ['🇪🇸', '🇬🇧'],
+    languages: ['🇲🇽', '🇺🇸'],
+    specialist: false,
   },
   {
     id: 2,
@@ -21,7 +34,8 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Sofia Navarro.png` as string | null,
     initials: 'SN',
     color: '#A84C9C',
-    languages: ['🇪🇸', '🇬🇧'],
+    languages: ['🇲🇽', '🇺🇸'],
+    specialist: false,
   },
   {
     id: 5,
@@ -32,7 +46,8 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Daniela Villaseñor.png` as string | null,
     initials: 'DV',
     color: '#9C4A6C',
-    languages: ['🇪🇸', '🇬🇧'],
+    languages: ['🇲🇽', '🇺🇸'],
+    specialist: false,
   },
   {
     id: 3,
@@ -43,7 +58,8 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Santiago Garcia.png` as string | null,
     initials: 'SG',
     color: '#4A9C8A',
-    languages: ['🇪🇸', '🇬🇧'],
+    languages: ['🇲🇽', '🇺🇸'],
+    specialist: false,
   },
   {
     id: 4,
@@ -54,14 +70,11 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Daniel Ortega.png` as string | null,
     initials: 'DO',
     color: '#4A6C9C',
-    languages: ['🇪🇸', '🇬🇧', '🇧🇷'],
+    languages: ['🇲🇽', '🇺🇸', '🇧🇷'],
+    specialist: false,
   },
 ];
 
-export const CAMILA = {
-  name: 'Camila Delacour',
-  photo: `${BACKEND}/imagenes/Agentes/Camila Delacour.png`,
-  languages: ['🇪🇸', '🇬🇧', '🇫🇷'],
-};
+export const CAMILA = AGENTS[0];
 
 export type Agent = typeof AGENTS[0];
