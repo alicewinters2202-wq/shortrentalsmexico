@@ -215,7 +215,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
 
         {/* Contacto especial — 3+ meses */}
         <a
-          href={`https://wa.me/525563783517?text=${encodeURIComponent(
+          href={`https://wa.me/525662548748?text=${encodeURIComponent(
             lang === 'en'
               ? `Hello, I'm interested in a long-term stay (3+ months) at ${property.address}. Could you give me more information about special conditions?`
               : `Hola, me interesa una estancia larga (más de 3 meses) en ${property.address}. ¿Me pueden dar información sobre las condiciones especiales?`

@@ -251,7 +251,7 @@ export default async function Home() {
 
           <div className="flex justify-center">
             <a
-              href="https://wa.me/525563783517"
+              href="https://wa.me/525662548748"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm tracking-wide text-white transition-opacity hover:opacity-90"
