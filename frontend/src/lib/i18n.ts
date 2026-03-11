@@ -120,6 +120,52 @@ const T = {
     availableFrom: (date: string) => `Disponible a partir del ${date}`,
     occupiedBanner: 'Esta propiedad está ocupada',
     availableTag: 'Disponible',
+    // faq
+    faqNav: 'FAQ',
+    faqTitle: 'Preguntas frecuentes',
+    faqSub: 'Todo lo que necesitas saber antes de reservar',
+    faqItems: [
+      {
+        q: '¿Qué tipo de estancias ofrecen?',
+        a: 'Nos especializamos en estancias de corto y mediano plazo, típicamente de 2 semanas a varios meses. Nuestras propiedades son ideales para viajeros, nómadas digitales, trabajadores remotos y profesionales que se reubican temporalmente en México.',
+      },
+      {
+        q: '¿Qué incluye la renta?',
+        a: 'Todas nuestras rentas incluyen servicios, internet de alta velocidad y mantenimiento regular. Algunos inmuebles también incluyen servicio de limpieza semanal por un costo adicional. Cada listado especifica claramente qué está incluido.',
+      },
+      {
+        q: '¿Las propiedades están completamente amuebladas?',
+        a: 'Sí. Todas nuestras propiedades están completamente amuebladas y listas para habitar, incluyendo cocinas equipadas, ropa de cama, electrodomésticos y artículos esenciales del hogar.',
+      },
+      {
+        q: '¿Se requiere depósito?',
+        a: 'Generalmente se requiere un depósito de seguridad antes del check-in, únicamente en estancias de mayor duración. Este depósito es reembolsable al final de tu estadía, siempre que no haya daños ni cargos pendientes. El reembolso se realiza dentro de las 72 horas.',
+      },
+      {
+        q: '¿Cuál es la estancia mínima?',
+        a: 'Nuestra estancia mínima habitual es de 10 días a dos semanas, aunque algunas propiedades pueden requerir un mínimo de 30 días dependiendo de las regulaciones del edificio.',
+      },
+      {
+        q: '¿Se permiten mascotas?',
+        a: 'La mayoría de nuestras propiedades son pet-friendly, mientras que otras no lo son debido a las políticas del edificio. Consulta el listado de la propiedad para conocer la política específica. Algunas propiedades son negociables dependiendo de la cantidad y el tamaño de la mascota.',
+      },
+      {
+        q: '¿Qué pasa si algo se rompe durante mi estadía?',
+        a: 'Nuestro equipo está disponible para asistirte con mantenimiento o problemas que puedan surgir. Simplemente contáctanos y coordinaremos una solución lo más rápido posible.',
+      },
+      {
+        q: '¿Cómo funciona el check-in y check-out?',
+        a: 'Los detalles del check-in se proporcionarán una vez confirmada tu reserva. Muchas de nuestras propiedades ofrecen self check-in por comodidad, mientras que otras pueden incluir una bienvenida personalizada.',
+      },
+      {
+        q: '¿Puedo extender mi estadía?',
+        a: 'Sí, las extensiones son posibles según disponibilidad. Te recomendamos contactarnos con la mayor anticipación posible si deseas extender tu reserva.',
+      },
+      {
+        q: 'Política de reembolso y cancelación',
+        a: 'Los huéspedes pueden cancelar su reserva sujeto a las siguientes condiciones:\n\n• Reembolso del 100% si la cancelación se solicita 60 días o más antes del check-in.\n\n• Reembolso del 50% si la cancelación se solicita menos de 60 días antes del check-in.\n\n• Reembolso del 25% si la cancelación se solicita dentro de los 14 días previos al check-in.\n\nTodas las solicitudes de cancelación deben enviarse por escrito y ser confirmadas por nuestro equipo. Los reembolsos se enviarán a la misma cuenta que realizó el pago.',
+      },
+    ],
     // requirements
     reqNav: 'Requisitos',
     reqTitle: 'Nuestros requisitos',
@@ -304,6 +350,52 @@ const T = {
     messageLabel: 'Message',
     sendBtn: 'Send message',
     contactSent: 'Message sent! We\'ll be in touch soon.',
+    // faq
+    faqNav: 'FAQ',
+    faqTitle: 'Frequently Asked Questions',
+    faqSub: 'Everything you need to know before booking',
+    faqItems: [
+      {
+        q: 'What types of stays do you offer?',
+        a: 'We specialize in short-term and mid-term stays, typically ranging from 2 weeks to several months. Our properties are ideal for travelers, digital nomads, remote workers, and professionals relocating temporarily to Mexico.',
+      },
+      {
+        q: 'What is included in the rent?',
+        a: 'All of our rentals include utilities, high-speed internet, and regular maintenance. Some properties also include weekly cleaning services for an extra fee. Each listing clearly specifies what is included.',
+      },
+      {
+        q: 'Are the properties fully furnished?',
+        a: 'Yes. All of our properties are fully furnished and move-in ready, including equipped kitchens, bedding, appliances, and essential household items.',
+      },
+      {
+        q: 'Is a deposit required?',
+        a: 'A security deposit is typically required before check-in only on longer term stays. This deposit is refundable at the end of your stay, provided there are no damages or outstanding charges. Refunds are processed within 72 hours.',
+      },
+      {
+        q: 'What is the minimum stay?',
+        a: 'Our typical minimum stay is 10 days to two weeks, though some properties may require a 30-day minimum depending on the building regulations.',
+      },
+      {
+        q: 'Are pets allowed?',
+        a: 'Most properties are pet-friendly, while others are not due to building policies. Please check the property listing for specific pet policies. Some properties are negotiable depending on the number and size of the pet.',
+      },
+      {
+        q: 'What happens if something breaks during my stay?',
+        a: 'Our team is available to assist with maintenance or issues that may arise during your stay. Simply contact us and we will coordinate a solution as quickly as possible.',
+      },
+      {
+        q: 'How do check-in and check-out work?',
+        a: 'Check-in details will be provided after your booking is confirmed. Many of our properties offer self check-in for convenience, while others may include a personal welcome.',
+      },
+      {
+        q: 'Can I extend my stay?',
+        a: 'Yes, extensions are possible depending on availability. We recommend contacting us as early as possible if you would like to extend your reservation.',
+      },
+      {
+        q: 'Refund & Cancellation Policy',
+        a: '• 100% refund if cancellation is requested 60 days or more before check-in.\n\n• 50% refund if cancellation is requested less than 60 days before check-in.\n\n• 25% refund if cancellation is requested within 14 days of check-in.\n\nAll cancellation requests must be submitted in writing and confirmed by our team. Refunds will be sent to the same account that made the booking.',
+      },
+    ],
     // requirements
     reqNav: 'Requirements',
     reqTitle: 'Our requirements',
