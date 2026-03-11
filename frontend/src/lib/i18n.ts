@@ -223,6 +223,15 @@ const T = {
         ],
       },
       {
+        icon: '🔐',
+        title: 'Depósito de seguridad — estancias largas',
+        items: [
+          'Para estancias de cuatro meses o más, se requiere un depósito de seguridad equivalente a un mes y medio de renta, en lugar del anticipo habitual.',
+          'En caso de que el huésped tenga mascotas, el depósito requerido será equivalente a dos meses de renta.',
+          'Este depósito tiene como finalidad cubrir posibles daños o cargos pendientes durante la estancia. Siempre que la propiedad sea entregada en buenas condiciones y no existan adeudos, el depósito será reembolsado en su totalidad dentro de un plazo de 24 a 72 horas después del check-out.',
+        ],
+      },
+      {
         icon: '🧾',
         title: 'Comprobante de pago',
         items: [
@@ -456,6 +465,15 @@ const T = {
           '50% to 100% advance payment of the total stay is required to reserve the dates and mark them as unavailable.',
           'This depends on how long you are staying with us.',
           'The remaining balance must be paid no later than the day of arrival. If payment is not completed, the unpaid days will be released and made available again.',
+        ],
+      },
+      {
+        icon: '🔐',
+        title: 'Security Deposit — Long-Term Stays',
+        items: [
+          'For stays of four months or more, a security deposit equivalent to one and a half months of rent is required, instead of the standard advance payment.',
+          'If the guest has pets, the required deposit is equivalent to two months of rent.',
+          'This deposit is intended to cover any potential damages or outstanding charges during the stay. Provided the property is returned in good condition with no outstanding balances, the deposit will be fully refunded within 24 to 72 hours after check-out.',
         ],
       },
       {
