@@ -9,7 +9,7 @@ const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
   { name: 'Guadalajara',      label: 'Guadalajara' },
   { name: 'Monterrey',        label: 'Monterrey' },
-  { name: 'Santiago',         label: 'Santiago N.L.' },
+  { name: 'Santiago',         label: 'Santiago' },
   { name: 'Chapala',          label: 'Chapala' },
 ];
 

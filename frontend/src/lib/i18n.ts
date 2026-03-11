@@ -17,7 +17,13 @@ const T = {
     cityTagline: (name: string) =>
       name === 'Ciudad de México'
         ? 'Penthouses, lofts y casas en la capital'
-        : 'Arquitectura colonial y espíritu tapatío',
+        : name === 'Guadalajara'
+        ? 'Arquitectura colonial y espíritu tapatío'
+        : name === 'Monterrey'
+        ? 'La ciudad de las montañas y los negocios'
+        : name === 'Santiago'
+        ? 'Tranquilidad y naturaleza cerca de Monterrey'
+        : 'Orillas del lago, clima único y vida relajada',
     properties: (n: number) => `${n} propiedad${n !== 1 ? 'es' : ''}`,
     // collage & featured
     taglineQuote: 'Para quienes no se conforman',
@@ -264,7 +270,13 @@ const T = {
     cityTagline: (name: string) =>
       name === 'Ciudad de México'
         ? 'Penthouses, lofts and homes in the capital'
-        : 'Colonial architecture and tapatío spirit',
+        : name === 'Guadalajara'
+        ? 'Colonial architecture and tapatío spirit'
+        : name === 'Monterrey'
+        ? 'The city of mountains and business'
+        : name === 'Santiago'
+        ? 'Serenity and nature just outside Monterrey'
+        : 'Lakeside living, unique climate and relaxed lifestyle',
     properties: (n: number) => `${n} propert${n !== 1 ? 'ies' : 'y'}`,
     taglineQuote: 'For those who refuse to settle',
     taglineQuoteEm: ' for the ordinary.',
