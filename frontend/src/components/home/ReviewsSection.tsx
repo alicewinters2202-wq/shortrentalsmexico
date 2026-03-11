@@ -86,7 +86,7 @@ export default function ReviewsSection({ t, lang }: Props) {
           <Stars count={5} size={16} />
           <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{AVG}</span>
           <span className="text-sm" style={{ color: 'var(--muted)' }}>
-            · {REVIEWS.length} {lang === 'es' ? 'reseñas' : 'reviews'}
+            · 67 {lang === 'es' ? 'reseñas' : 'reviews'}
           </span>
         </div>
       </div>

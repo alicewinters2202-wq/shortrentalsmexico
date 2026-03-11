@@ -1,10 +1,18 @@
 import type { TType } from '@/lib/i18n';
 
 const UPCOMING = [
-  { city: 'Puerto Vallarta', gradient: 'from-cyan-800 to-blue-900',     emoji: '🌊' },
-  { city: 'Los Cabos',       gradient: 'from-amber-700 to-orange-900',  emoji: '🏜️' },
-  { city: 'Tulum',           gradient: 'from-emerald-800 to-teal-900',  emoji: '🌴' },
-  { city: 'Oaxaca',          gradient: 'from-rose-800 to-red-900',      emoji: '🏛️' },
+  { city: 'Los Cabos',              gradient: 'from-amber-700 to-orange-900',   emoji: '🏜️' },
+  { city: 'Puerto Escondido',       gradient: 'from-cyan-800 to-blue-900',      emoji: '🌊' },
+  { city: 'San Miguel de Allende',  gradient: 'from-orange-800 to-rose-900',    emoji: '⛪' },
+  { city: 'Tulum',                  gradient: 'from-emerald-800 to-teal-900',   emoji: '🌴' },
+  { city: 'Cancún',                 gradient: 'from-sky-700 to-cyan-900',       emoji: '🏖️' },
+  { city: 'Oaxaca',                 gradient: 'from-rose-800 to-red-900',       emoji: '🏛️' },
+  { city: 'Playa del Carmen',       gradient: 'from-teal-700 to-emerald-900',   emoji: '🐠' },
+  { city: 'Mérida',                 gradient: 'from-yellow-700 to-amber-900',   emoji: '🌺' },
+  { city: 'Tijuana',                gradient: 'from-slate-700 to-zinc-900',     emoji: '🌆' },
+  { city: 'Ensenada',               gradient: 'from-blue-800 to-indigo-900',    emoji: '⚓' },
+  { city: 'Rosarito',               gradient: 'from-violet-800 to-purple-900',  emoji: '🌅' },
+  { city: 'Nayarit',                gradient: 'from-green-700 to-teal-900',     emoji: '🌿' },
 ];
 
 interface Props {
