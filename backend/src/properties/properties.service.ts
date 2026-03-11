@@ -47,6 +47,21 @@ export class PropertiesService {
 
   private readonly WIFI_SPEEDS = [150, 250, 350, 500];
 
+  // Estas propiedades siempre se muestran disponibles sin importar el randomizador
+  private readonly ALWAYS_AVAILABLE = [
+    'homero 1507',
+    'choapan 45',
+    'culiacan 40',
+    'amsterdam 289',
+    'celaya 4',
+    'amsterdam 119',
+    'donato guerra 22',
+    'puerta de hierro 2065',
+    'washington 1414',
+    'notredame 126',
+    'notre dame 126',
+  ];
+
   getPreview(): PropertyPreview[] {
     const IGNORE = ['Agentes'];
     const cities = fs
@@ -98,7 +113,9 @@ export class PropertiesService {
 
     // If no availability file yet, initialize with ~67% available
     if (Object.keys(availability).length === 0) {
-      const generated = this.generateAvailability(properties.map((p) => p.id));
+      const addrMap: Record<number, string> = {};
+      properties.forEach((p) => { addrMap[p.id] = p.address; });
+      const generated = this.generateAvailability(properties.map((p) => p.id), addrMap);
       this.saveAvailability(generated);
       properties.forEach((p) => {
         const entry = generated[String(p.id)];
@@ -109,6 +126,7 @@ export class PropertiesService {
       });
     } else {
       properties.forEach((p) => {
+        if (this.isPinned(p.address)) return; // siempre disponible
         const entry = availability[String(p.id)];
         if (entry) {
           p.available = entry.available;
@@ -121,13 +139,13 @@ export class PropertiesService {
   }
 
   randomizeAvailability(): { randomized: number } {
-    const properties = this.getPreviewIds();
-    const generated = this.generateAvailability(properties);
+    const { ids, addresses } = this.getPreviewIds();
+    const generated = this.generateAvailability(ids, addresses);
     this.saveAvailability(generated);
-    return { randomized: properties.length };
+    return { randomized: ids.length };
   }
 
-  private getPreviewIds(): number[] {
+  private getPreviewIds(): { ids: number[]; addresses: Record<number, string> } {
     const IGNORE = ['Agentes'];
     const cities = fs
       .readdirSync(this.imagenesRoot)
@@ -137,6 +155,7 @@ export class PropertiesService {
       );
 
     const ids: number[] = [];
+    const addresses: Record<number, string> = {};
     let globalId = 1;
 
     for (const cityFolder of cities) {
@@ -145,22 +164,28 @@ export class PropertiesService {
       if (!xlsxFile) continue;
 
       const rows = this.readXlsx(xlsxFile);
-      rows.forEach(() => {
-        ids.push(globalId++);
+      rows.forEach((row) => {
+        ids.push(globalId);
+        addresses[globalId] = String(row[1] ?? '').trim();
+        globalId++;
       });
     }
 
-    return ids;
+    return { ids, addresses };
   }
 
-  private generateAvailability(ids: number[]): Record<string, AvailabilityEntry> {
+  private generateAvailability(ids: number[], addresses?: Record<number, string>): Record<string, AvailabilityEntry> {
     const result: Record<string, AvailabilityEntry> = {};
     ids.forEach((id) => {
+      // Si la dirección está en la lista de siempre disponibles, no tocarla
+      if (addresses && this.isPinned(addresses[id] ?? '')) {
+        result[String(id)] = { available: true, availableFrom: null };
+        return;
+      }
       const available = Math.random() < 0.67;
       if (available) {
         result[String(id)] = { available: true, availableFrom: null };
       } else {
-        // Random date 7–90 days from now
         const days = 7 + Math.floor(Math.random() * 84);
         const d = new Date();
         d.setDate(d.getDate() + days);
@@ -171,6 +196,11 @@ export class PropertiesService {
       }
     });
     return result;
+  }
+
+  private isPinned(address: string): boolean {
+    const lower = address.toLowerCase();
+    return this.ALWAYS_AVAILABLE.some((pin) => lower.includes(pin));
   }
 
   private loadAvailability(): Record<string, AvailabilityEntry> {
