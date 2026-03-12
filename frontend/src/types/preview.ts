@@ -18,6 +18,7 @@ export interface PropertyPreview {
   available: boolean;
   availableFrom: string | null;
   occupiedSince: string | null;
+  minStay: number;
 }
 
 const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001';

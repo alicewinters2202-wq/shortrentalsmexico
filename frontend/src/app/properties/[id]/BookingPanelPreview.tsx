@@ -6,7 +6,7 @@ import { useLang } from '@/store/lang.store';
 import { useT } from '@/lib/i18n';
 import AgentModal from '@/components/AgentModal';
 
-const MIN_NIGHTS = 10;
+// MIN_NIGHTS se obtiene de property.minStay
 const WA_NUMBER  = '525572716417';
 
 function addDays(date: string, days: number): string {
@@ -23,6 +23,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
   const { lang }   = useLang();
   const t          = useT(lang);
   const dailyRate  = property.pricePerMonth / 30;
+  const MIN_NIGHTS = property.minStay ?? 10;
 
   const [checkIn,  setCheckIn]  = useState('');
   const [checkOut, setCheckOut] = useState('');

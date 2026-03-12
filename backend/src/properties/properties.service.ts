@@ -23,12 +23,14 @@ export interface PropertyPreview {
   available: boolean;
   availableFrom: string | null;
   occupiedSince: string | null;
+  minStay: number;
 }
 
 interface AvailabilityEntry {
   available: boolean;
   availableFrom: string | null;
   occupiedSince?: string | null;
+  minStay: number;
 }
 
 @Injectable()
@@ -115,6 +117,7 @@ export class PropertiesService {
           available: true,
           availableFrom: null,
           occupiedSince: null,
+          minStay: 10,
         });
       });
     }
@@ -134,6 +137,7 @@ export class PropertiesService {
           p.available = entry.available;
           p.availableFrom = entry.availableFrom;
           p.occupiedSince = entry.occupiedSince ?? null;
+          p.minStay = entry.minStay;
         }
       });
     } else {
@@ -158,6 +162,7 @@ export class PropertiesService {
           p.available = entry.available;
           p.availableFrom = entry.availableFrom;
           p.occupiedSince = entry.occupiedSince ?? null;
+          p.minStay = entry.minStay ?? 10;
         }
       });
     }
@@ -205,9 +210,13 @@ export class PropertiesService {
     const result: Record<string, AvailabilityEntry> = {};
     ids.forEach((id) => {
       const addr = addresses?.[id] ?? '';
+      // minStay: 10% → 30 días, 30% → 14 días, 60% → 10 días
+      const r = Math.random();
+      const minStay = r < 0.10 ? 30 : r < 0.40 ? 14 : 10;
+
       // Siempre disponibles
       if (this.isPinned(addr)) {
-        result[String(id)] = { available: true, availableFrom: null };
+        result[String(id)] = { available: true, availableFrom: null, minStay };
         return;
       }
       // Siempre ocupadas
@@ -215,12 +224,12 @@ export class PropertiesService {
         const days = 30 + Math.floor(Math.random() * 240); // hasta ~9 meses
         const d = new Date();
         d.setDate(d.getDate() + days);
-        result[String(id)] = { available: false, availableFrom: d.toISOString().split('T')[0] };
+        result[String(id)] = { available: false, availableFrom: d.toISOString().split('T')[0], minStay };
         return;
       }
       const available = Math.random() < 0.15;
       if (available) {
-        result[String(id)] = { available: true, availableFrom: null };
+        result[String(id)] = { available: true, availableFrom: null, minStay };
       } else {
         // disponible entre junio y agosto (82–173 días desde hoy)
         const days = 82 + Math.floor(Math.random() * 92);
@@ -234,6 +243,7 @@ export class PropertiesService {
           available: false,
           availableFrom: until.toISOString().split('T')[0],
           occupiedSince: since.toISOString().split('T')[0],
+          minStay,
         };
       }
     });
