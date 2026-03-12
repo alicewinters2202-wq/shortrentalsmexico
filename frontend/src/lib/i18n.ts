@@ -234,11 +234,20 @@ const T = {
       },
       {
         icon: '🔐',
-        title: 'Depósito de seguridad — estancias largas',
+        title: 'Estancias largas — Depósito de seguridad',
         items: [
           'Para estancias de cuatro meses o más, se requiere un depósito de seguridad equivalente a un mes y medio de renta, en lugar del anticipo habitual.',
           'En caso de que el huésped tenga mascotas, el depósito requerido será equivalente a dos meses de renta.',
           'Este depósito tiene como finalidad cubrir posibles daños o cargos pendientes durante la estancia. Siempre que la propiedad sea entregada en buenas condiciones y no existan adeudos, el depósito será reembolsado en su totalidad dentro de un plazo de 24 a 72 horas después del check-out.',
+        ],
+      },
+      {
+        icon: '📊',
+        title: 'Estancias largas — Comprobante de ingresos',
+        items: [
+          'Para estancias de cuatro meses o más, se solicita un comprobante de ingresos reciente.',
+          'Se aceptan: estados de cuenta bancarios de los últimos 3 meses, carta laboral vigente, nóminas o comprobante de actividad empresarial.',
+          'Este documento nos permite garantizar una relación contractual transparente y estable para ambas partes.',
         ],
       },
       {
@@ -488,11 +497,20 @@ const T = {
       },
       {
         icon: '🔐',
-        title: 'Security Deposit — Long-Term Stays',
+        title: 'Long-Term Stays — Security Deposit',
         items: [
           'For stays of four months or more, a security deposit equivalent to one and a half months of rent is required, instead of the standard advance payment.',
           'If the guest has pets, the required deposit is equivalent to two months of rent.',
           'This deposit is intended to cover any potential damages or outstanding charges during the stay. Provided the property is returned in good condition with no outstanding balances, the deposit will be fully refunded within 24 to 72 hours after check-out.',
+        ],
+      },
+      {
+        icon: '📊',
+        title: 'Long-Term Stays — Proof of Income',
+        items: [
+          'For stays of four months or more, a recent proof of income is required.',
+          'Accepted documents include: bank statements from the last 3 months, a current employment letter, pay stubs, or proof of business activity.',
+          'This document helps us ensure a transparent and stable contractual relationship for both parties.',
         ],
       },
       {
