@@ -122,7 +122,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ id: s
                 </span>
               )}
               <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-violet-900/40 text-violet-400">
-                📶 {t.wifiLabel} {property.wifiSpeed} Mbps
+                🛜 {t.wifiLabel} {property.wifiSpeed} Mbps
               </span>
             </div>
 
