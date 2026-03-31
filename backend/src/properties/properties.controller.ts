@@ -5,6 +5,11 @@ import { PropertiesService } from './properties.service';
 export class PropertiesController {
   constructor(private readonly propertiesService: PropertiesService) {}
 
+  @Get()
+  getAll() {
+    return this.propertiesService.getPreview();
+  }
+
   @Get('preview')
   getPreview() {
     return this.propertiesService.getPreview();
@@ -15,3 +20,4 @@ export class PropertiesController {
     return this.propertiesService.randomizeAvailability();
   }
 }
+// test
