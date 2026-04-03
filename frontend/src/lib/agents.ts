@@ -97,6 +97,18 @@ export const AGENTS = [
     languages: ['🇲🇽', '🇺🇸', '🇧🇷'],
     specialist: false,
   },
+  {
+    id: 9,
+    name: 'Rafael Cervantes',
+    zone: 'Cancún',
+    cities: ['Cancún'],
+    wa: '529844806753',
+    photo: null,
+    initials: 'RC',
+    color: '#0E7490',
+    languages: ['🇲🇽', '🇺🇸'],
+    specialist: false,
+  },
 ];
 
 export const CAMILA = AGENTS[0];

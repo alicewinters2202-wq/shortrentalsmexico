@@ -5,7 +5,6 @@ const UPCOMING = [
   { city: 'Puerto Escondido',       bg: 'linear-gradient(135deg,#0e7490,#1e3a5f)',  emoji: '🌊' },
   { city: 'San Miguel de Allende',  bg: 'linear-gradient(135deg,#9a3412,#881337)',  emoji: '⛪' },
   { city: 'Tulum',                  bg: 'linear-gradient(135deg,#065f46,#134e4a)',  emoji: '🌴' },
-  { city: 'Cancún',                 bg: 'linear-gradient(135deg,#0369a1,#164e63)',  emoji: '🏖️' },
   { city: 'Oaxaca',                 bg: 'linear-gradient(135deg,#9f1239,#7f1d1d)',  emoji: '🏛️' },
   { city: 'Playa del Carmen',       bg: 'linear-gradient(135deg,#0f766e,#064e3b)',  emoji: '🐠' },
   { city: 'Mérida',                 bg: 'linear-gradient(135deg,#a16207,#92400e)',  emoji: '🌺' },
