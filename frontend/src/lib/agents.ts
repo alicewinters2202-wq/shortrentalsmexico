@@ -109,6 +109,18 @@ export const AGENTS = [
     languages: ['🇲🇽', '🇺🇸'],
     specialist: false,
   },
+  {
+    id: 10,
+    name: 'Alonso Ramírez',
+    zone: 'Mérida',
+    cities: ['Mérida'],
+    wa: '529844806878',
+    photo: null,
+    initials: 'AR',
+    color: '#0E7490',
+    languages: ['🇲🇽', '🇺🇸'],
+    specialist: false,
+  },
 ];
 
 export const CAMILA = AGENTS[0];
