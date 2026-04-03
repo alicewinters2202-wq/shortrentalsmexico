@@ -7,7 +7,6 @@ const UPCOMING = [
   { city: 'Tulum',                  bg: 'linear-gradient(135deg,#065f46,#134e4a)',  emoji: '🌴' },
   { city: 'Oaxaca',                 bg: 'linear-gradient(135deg,#9f1239,#7f1d1d)',  emoji: '🏛️' },
   { city: 'Playa del Carmen',       bg: 'linear-gradient(135deg,#0f766e,#064e3b)',  emoji: '🐠' },
-  { city: 'Mérida',                 bg: 'linear-gradient(135deg,#a16207,#92400e)',  emoji: '🌺' },
   { city: 'Tijuana',                bg: 'linear-gradient(135deg,#334155,#18181b)',  emoji: '🌆' },
   { city: 'Ensenada',               bg: 'linear-gradient(135deg,#1d4ed8,#312e81)',  emoji: '⚓' },
   { city: 'Rosarito',               bg: 'linear-gradient(135deg,#6d28d9,#4c1d95)',  emoji: '🌅' },
