@@ -15,16 +15,16 @@ const CITIES = [
   { name: 'Santiago',         label: 'Santiago' },
   { name: 'Chapala',          label: 'Chapala' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
-  { name: 'San Miguel de Allende', label: 'San Miguel' },
-  { name: 'Mérida',          label: 'Mérida' },
-  { name: 'Cancún',          label: 'Cancún' },
+  { name: 'Mérida',           label: 'Mérida' },
+  { name: 'Cancún',           label: 'Cancún' },
 ];
 
 export default async function Home() {
   const { t, lang } = await getT();
   const properties  = await fetchPreview();
-  const withImages  = properties.filter((p) => p.images.length > 0);
-  const featured    = withImages.slice(0, 6);
+  const withImages   = properties.filter((p) => p.images.length > 0);
+  const newest       = withImages.slice(-8).reverse();
+  const featured     = [...withImages].sort((a, b) => b.pricePerMonth - a.pricePerMonth).slice(0, 6);
   const collageProps = withImages.filter((_, i) => [2, 7, 14].includes(i));
 
   return (
@@ -135,6 +135,51 @@ export default async function Home() {
                 <div className="absolute inset-0 flex items-end p-4">
                   <span className="text-white text-xs font-medium">{street}</span>
                 </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ─── NUEVAS PROPIEDADES ─────────────────────────────────────────── */}
+      <section style={{ backgroundColor: 'var(--card)' }} className="px-6 pb-24 max-w-7xl mx-auto">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>
+              {lang === 'es' ? 'Nuevas propiedades' : 'New properties'}
+            </h2>
+            <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>
+              {lang === 'es' ? 'Recién incorporadas a ShortStayMX' : 'Recently added to ShortStayMX'}
+            </p>
+          </div>
+          <Link href="/properties" style={{ color: 'var(--gold)' }} className="text-sm font-medium hover:underline hidden sm:block">
+            {t.viewAll}
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {newest.map((p) => {
+            const { street, neighborhood } = parseAddress(p.address);
+            return (
+              <Link key={p.id} href={`/properties/${p.id}`} className="group block">
+                <div className="rounded-2xl overflow-hidden aspect-[4/3] relative mb-3"
+                  style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
+                  {p.images[0] && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={imageUrl(p.images[0])} alt={street}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  )}
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded-full text-white"
+                      style={{ backgroundColor: 'var(--gold)' }}>
+                      {lang === 'es' ? 'Nuevo' : 'New'}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'var(--muted)' }}>{p.city}</p>
+                <p className="font-serif text-lg leading-tight mb-1" style={{ color: 'var(--ink)' }}>{street}</p>
+                <p className="text-xs mb-2" style={{ color: 'var(--muted)' }}>{neighborhood}</p>
+                <p className="text-sm font-semibold" style={{ color: 'var(--gold)' }}>{formatMXN(p.pricePerMonth)} / mes</p>
               </Link>
             );
           })}
