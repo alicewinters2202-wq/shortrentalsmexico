@@ -1,6 +1,19 @@
+'use client';
+import { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 
 export default function ContactPage() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = () => {
+    if (!name || !message) return;
+    const text = `Hola, me contacto desde ShortStayMX.\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`;
+    const url = `https://wa.me/525563783517?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <>
       <Navbar />
@@ -12,16 +25,18 @@ export default function ContactPage() {
           <span className="text-4xl">📞</span>
           <div>
             <p className="text-sm text-gray-500">Línea de atención</p>
-            <p className="text-2xl font-bold text-rose-600">01 800 000 0000</p>
+            <p className="text-2xl font-bold text-rose-600">+52 55 6378 3517</p>
             <p className="text-sm text-gray-500">Lun – Dom, 8am – 10pm</p>
           </div>
         </div>
 
-        <form className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
             <input
               type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full border border-gray-300 rounded-xl px-4 py-2 outline-none focus:border-rose-400"
               placeholder="Tu nombre"
             />
@@ -30,6 +45,8 @@ export default function ContactPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full border border-gray-300 rounded-xl px-4 py-2 outline-none focus:border-rose-400"
               placeholder="tu@email.com"
             />
@@ -38,17 +55,19 @@ export default function ContactPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
             <textarea
               rows={5}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full border border-gray-300 rounded-xl px-4 py-2 outline-none focus:border-rose-400"
               placeholder="¿En qué podemos ayudarte?"
             />
           </div>
           <button
-            type="submit"
+            onClick={handleSubmit}
             className="bg-rose-500 text-white px-6 py-3 rounded-full hover:bg-rose-600 transition-colors font-medium"
           >
-            Enviar mensaje
+            Enviar por WhatsApp
           </button>
-        </form>
+        </div>
       </main>
     </>
   );
