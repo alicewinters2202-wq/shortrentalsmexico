@@ -323,11 +323,17 @@ export class PropertiesService {
       .join(' ');
   }
 
-  private parseAmenities(raw: unknown): string[] {
-    if (!raw) return [];
-    return String(raw)
-      .split(',')
-      .map((a) => a.trim())
-      .filter((a) => a && a.toLowerCase() !== 'no');
+  getOne(id: number): PropertyPreview | null {
+    const all = this.getPreview();
+    return all.find(p => p.id === id) || null;
   }
-}
+
+  remove(id: number): { deleted: boolean } {
+    const availability = this.loadAvailability();
+    if (availability[String(id)]) {
+      availability[String(id)].available = false;
+      this.saveAvailability(availability);
+      return { deleted: true };
+    }
+    return { deleted: false };
+  }
