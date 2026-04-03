@@ -1,0 +1,30 @@
+﻿const fs = require('fs');
+const path = require('path');
+
+const filePath = path.join(__dirname, 'data', 'availability.json');
+let av = {};
+try { av = JSON.parse(fs.readFileSync(filePath, 'utf-8')); } catch {}
+
+// Merida IDs: 54-69 (16 propiedades)
+const meridaIds = Array.from({length: 16}, (_, i) => i + 54);
+
+meridaIds.forEach((id, i) => {
+  const occupied = i < 13; // 13 de 16 = 81% ocupadas
+  if (occupied) {
+    const daysOut = 15 + Math.floor(Math.random() * 195);
+    const daysIn  = 15 + Math.floor(Math.random() * 240);
+    const avFrom = new Date(); avFrom.setDate(avFrom.getDate() + daysOut);
+    const since  = new Date(); since.setDate(since.getDate() - daysIn);
+    av[String(id)] = {
+      available: false,
+      availableFrom: avFrom.toISOString().split('T')[0],
+      occupiedSince: since.toISOString().split('T')[0],
+      minStay: 10
+    };
+  } else {
+    av[String(id)] = { available: true, availableFrom: null, minStay: 10 };
+  }
+});
+
+fs.writeFileSync(filePath, JSON.stringify(av, null, 2));
+console.log('Listo! 13/16 propiedades de Merida ocupadas.');

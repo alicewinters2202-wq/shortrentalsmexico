@@ -318,81 +318,96 @@
     "minStay": 10
   },
   "54": {
-    "available": true,
-    "availableFrom": null,
-    "occupiedSince": null,
-    "minStay": 14
+    "available": false,
+    "availableFrom": "2026-06-12",
+    "occupiedSince": "2025-09-07",
+    "minStay": 10
   },
   "55": {
     "available": false,
-    "availableFrom": "2026-06-26",
-    "occupiedSince": "2026-01-22",
-    "minStay": 30
+    "availableFrom": "2026-10-16",
+    "occupiedSince": "2025-10-14",
+    "minStay": 10
   },
   "56": {
     "available": false,
-    "availableFrom": "2026-06-07",
-    "occupiedSince": "2025-11-22",
+    "availableFrom": "2026-09-15",
+    "occupiedSince": "2026-01-01",
     "minStay": 10
   },
   "57": {
     "available": false,
-    "availableFrom": "2026-07-19",
-    "occupiedSince": "2025-12-01",
-    "minStay": 30
+    "availableFrom": "2026-10-04",
+    "occupiedSince": "2026-03-03",
+    "minStay": 10
   },
   "58": {
     "available": false,
-    "availableFrom": "2026-08-12",
-    "occupiedSince": "2025-12-04",
-    "minStay": 14
+    "availableFrom": "2026-04-27",
+    "occupiedSince": "2026-03-14",
+    "minStay": 10
   },
   "59": {
-    "available": true,
-    "availableFrom": null,
-    "occupiedSince": null,
+    "available": false,
+    "availableFrom": "2026-09-04",
+    "occupiedSince": "2026-03-04",
     "minStay": 10
   },
   "60": {
-    "available": true,
-    "availableFrom": null,
-    "occupiedSince": null,
+    "available": false,
+    "availableFrom": "2026-08-24",
+    "occupiedSince": "2025-11-04",
     "minStay": 10
   },
   "61": {
-    "available": true,
-    "availableFrom": null,
-    "occupiedSince": null,
-    "minStay": 30
+    "available": false,
+    "availableFrom": "2026-07-05",
+    "occupiedSince": "2025-12-30",
+    "minStay": 10
   },
   "62": {
     "available": false,
-    "availableFrom": "2026-07-31",
-    "occupiedSince": "2025-11-05",
+    "availableFrom": "2026-06-15",
+    "occupiedSince": "2025-10-19",
     "minStay": 10
   },
   "63": {
-    "available": true,
-    "availableFrom": null,
-    "occupiedSince": null,
+    "available": false,
+    "availableFrom": "2026-08-13",
+    "occupiedSince": "2025-08-18",
     "minStay": 10
   },
   "64": {
-    "available": true,
-    "availableFrom": null,
-    "occupiedSince": null,
+    "available": false,
+    "availableFrom": "2026-10-12",
+    "occupiedSince": "2025-11-27",
     "minStay": 10
   },
   "65": {
     "available": false,
-    "availableFrom": "2026-08-06",
-    "occupiedSince": "2026-02-06",
+    "availableFrom": "2026-10-15",
+    "occupiedSince": "2025-12-01",
     "minStay": 10
   },
   "66": {
     "available": false,
-    "availableFrom": "2026-08-16",
-    "occupiedSince": "2025-12-09",
+    "availableFrom": "2026-07-08",
+    "occupiedSince": "2025-11-22",
+    "minStay": 10
+  },
+  "67": {
+    "available": true,
+    "availableFrom": null,
+    "minStay": 10
+  },
+  "68": {
+    "available": true,
+    "availableFrom": null,
+    "minStay": 10
+  },
+  "69": {
+    "available": true,
+    "availableFrom": null,
     "minStay": 10
   },
   "87": {
