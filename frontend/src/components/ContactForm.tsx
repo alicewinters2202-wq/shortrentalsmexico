@@ -11,37 +11,16 @@ export default function ContactForm() {
   const [name,    setName]    = useState('');
   const [email,   setEmail]   = useState('');
   const [message, setMessage] = useState('');
-  const [sending, setSending] = useState(false);
-  const [sent,    setSent]    = useState(false);
-  const [error,   setError]   = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSending(true);
-    setError('');
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
-      if (!res.ok) throw new Error();
-      setSent(true);
-    } catch {
-      setError(lang === 'es' ? 'Error al enviar. Intenta de nuevo.' : 'Failed to send. Please try again.');
-    } finally {
-      setSending(false);
-    }
+    if (!name || !message) return;
+    const text = lang === 'es'
+      ? `Hola, me contacto desde ShortStayMX.\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`
+      : `Hello, I'm contacting from ShortStayMX.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    const url = `https://wa.me/525563783517?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
   };
-
-  if (sent) {
-    return (
-      <div className="text-center py-10">
-        <p className="text-4xl mb-3">✉️</p>
-        <p className="font-serif text-xl" style={{ color: 'var(--ink)' }}>{t.contactSent}</p>
-      </div>
-    );
-  }
 
   const inputStyle = {
     backgroundColor: 'var(--cream)',
@@ -94,15 +73,12 @@ export default function ContactForm() {
         />
       </div>
 
-      {error && <p className="text-sm text-red-400">{error}</p>}
-
       <button
         type="submit"
-        disabled={sending}
-        className="px-8 py-3 rounded-full text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+        className="px-8 py-3 rounded-full text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90"
         style={{ backgroundColor: 'var(--gold)' }}
       >
-        {sending ? '...' : t.sendBtn}
+        {t.sendBtn}
       </button>
     </form>
   );
