@@ -3,7 +3,6 @@ import type { TType } from '@/lib/i18n';
 const UPCOMING = [
   { city: 'Los Cabos',              bg: 'linear-gradient(135deg,#b45309,#7c2d12)',  emoji: '🐋' },
   { city: 'Puerto Escondido',       bg: 'linear-gradient(135deg,#0e7490,#1e3a5f)',  emoji: '🌊' },
-  { city: 'San Miguel de Allende',  bg: 'linear-gradient(135deg,#9a3412,#881337)',  emoji: '⛪' },
   { city: 'Tulum',                  bg: 'linear-gradient(135deg,#065f46,#134e4a)',  emoji: '🌴' },
   { city: 'Oaxaca',                 bg: 'linear-gradient(135deg,#9f1239,#7f1d1d)',  emoji: '🏛️' },
   { city: 'Playa del Carmen',       bg: 'linear-gradient(135deg,#0f766e,#064e3b)',  emoji: '🐠' },
