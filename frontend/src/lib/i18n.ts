@@ -27,6 +27,12 @@ const T = {
         ? 'Playas paradisíacas y vida nocturna vibrante'
         : name === 'Mérida'
         ? 'Historia colonial y cultura maya vibrante'
+        : name === 'Chapala'
+        ? 'Vista al lago más grande de México'
+        : name === 'Puerto Vallarta'
+        ? 'Costa dorada y sol eterno'
+        : name === 'San Miguel de Allende'
+        ? 'Arte, cultura y arquitectura colonial'
         : 'Orillas del lago, clima único y vida relajada',
     properties: (n: number) => `${n} propiedad${n !== 1 ? 'es' : ''}`,
     // collage & featured
