@@ -33,26 +33,25 @@ export class PropertiesService {
 
   // Siempre disponibles
   private readonly ALWAYS_AVAILABLE = [
-    'homero 1507',
     'choapan 45',
     'culiacan 40',
     'amsterdam 289',
-    'celaya 4',
     'amsterdam 119',
-    'donato guerra 22',
-    'puerta de hierro 2065',
-    'washington 1414',
-    'notredame 126',
-    'notre dame 126',
-    'paseo de la marina 121',
+    'celaya 4',
+    'avenida bonampak',
+    'mza 27',
+    'kukulcan boulevard',
+    'marina puerto cancun',
+    'real de acueducto',
+    'dolores hidalgo',
     'francisco medina ascencio 2485',
-    'francisco medina ascencio 2495',
+    'paseo de la marina 121',
   ];
 
   // Siempre ocupadas
   private readonly NEVER_AVAILABLE: string[] = [];
 
-  // Seed determinista basado en id � siempre produce el mismo n�mero para el mismo id
+  // Seed determinista basado en id — siempre produce el mismo número para el mismo id
   private seededRandom(seed: number): () => number {
     let s = seed;
     return () => {
@@ -174,7 +173,6 @@ export class PropertiesService {
     return properties;
   }
 
-  // Mantenemos el endpoint pero ya no hace nada da�ino
   randomizeAvailability(): { randomized: number } {
     const props = this.getPreview();
     return { randomized: props.length };
@@ -185,8 +183,6 @@ export class PropertiesService {
   }
 
   remove(id: number): { deleted: boolean } {
-    // Sin archivo, no hay nada que borrar del JSON
-    // Retornamos true para no romper el contrato del endpoint
     return { deleted: true };
   }
 
