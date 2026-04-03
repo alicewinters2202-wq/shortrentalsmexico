@@ -23,6 +23,10 @@ const T = {
         ? 'La ciudad de las montañas y los negocios'
         : name === 'Santiago'
         ? 'Tranquilidad y naturaleza cerca de Monterrey'
+        : name === 'Cancún'
+        ? 'Playas paradisíacas y vida nocturna vibrante'
+        : name === 'Mérida'
+        ? 'Historia colonial y cultura maya vibrante'
         : 'Orillas del lago, clima único y vida relajada',
     properties: (n: number) => `${n} propiedad${n !== 1 ? 'es' : ''}`,
     // collage & featured
