@@ -26,33 +26,12 @@ export interface PropertyPreview {
   minStay: number;
 }
 
-interface AvailabilityEntry {
-  available: boolean;
-  availableFrom: string | null;
-  occupiedSince?: string | null;
-  minStay: number;
-}
-
 @Injectable()
 export class PropertiesService {
-  private readonly imagenesRoot = path.join(
-    __dirname,
-    '..',
-    '..',
-    'imagenes',
-  );
-
-  private readonly availabilityPath = path.join(
-    __dirname,
-    '..',
-    '..',
-    'data',
-    'availability.json',
-  );
-
+  private readonly imagenesRoot = path.join(__dirname, '..', '..', 'imagenes');
   private readonly WIFI_SPEEDS = [150, 250, 350, 500];
 
-  // Estas propiedades siempre se muestran disponibles sin importar el randomizador
+  // Siempre disponibles
   private readonly ALWAYS_AVAILABLE = [
     'homero 1507',
     'choapan 45',
@@ -70,8 +49,79 @@ export class PropertiesService {
     'francisco medina ascencio 2495',
   ];
 
-  // Estas propiedades siempre se muestran ocupadas sin importar el randomizador
+  // Siempre ocupadas
   private readonly NEVER_AVAILABLE: string[] = [];
+
+  // Seed determinista basado en id � siempre produce el mismo n�mero para el mismo id
+  private seededRandom(seed: number): () => number {
+    let s = seed;
+    return () => {
+      s = (s * 1664525 + 1013904223) & 0xffffffff;
+      return (s >>> 0) / 0xffffffff;
+    };
+  }
+
+  private getAvailability(id: number, address: string): {
+    available: boolean;
+    availableFrom: string | null;
+    occupiedSince: string | null;
+    minStay: number;
+  } {
+    const norm = (s: string) =>
+      s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const normalizedAddr = norm(address);
+
+    // Pinned: siempre disponible
+    if (this.ALWAYS_AVAILABLE.some((p) => normalizedAddr.includes(norm(p)))) {
+      return { available: true, availableFrom: null, occupiedSince: null, minStay: 10 };
+    }
+
+    // Never available: siempre ocupada
+    if (this.NEVER_AVAILABLE.some((p) => normalizedAddr.includes(norm(p)))) {
+      const rng = this.seededRandom(id * 7 + 3);
+      const days = 15 + Math.floor(rng() * 210);
+      const d = new Date(2026, 3, 2);
+      d.setDate(d.getDate() + days);
+      return {
+        available: false,
+        availableFrom: d.toISOString().split('T')[0],
+        occupiedSince: null,
+        minStay: 10,
+      };
+    }
+
+    const rng = this.seededRandom(id * 31 + 17);
+
+    // minStay determinista
+    const r0 = rng();
+    const minStay = r0 < 0.10 ? 30 : r0 < 0.40 ? 14 : 10;
+
+    // disponibilidad: 15% disponible, 85% ocupada
+    const available = rng() < 0.15;
+
+    if (available) {
+      return { available: true, availableFrom: null, occupiedSince: null, minStay };
+    }
+
+    // Fecha disponible: entre 15 días y 7 meses (210 días) — rango amplio
+    const r2 = rng();
+    const days = 15 + Math.floor(r2 * 195);
+    const until = new Date(2026, 3, 2);
+    until.setDate(until.getDate() + days);
+
+    // Ocupada desde: entre 1 semana y 5 meses atrás
+    const r3 = rng();
+    const pastDays = 7 + Math.floor(r3 * 143);
+    const since = new Date(2026, 3, 2);
+    since.setDate(since.getDate() - pastDays);
+
+    return {
+      available: false,
+      availableFrom: until.toISOString().split('T')[0],
+      occupiedSince: since.toISOString().split('T')[0],
+      minStay,
+    };
+  }
 
   getPreview(): PropertyPreview[] {
     const IGNORE = ['Agentes'];
@@ -93,14 +143,16 @@ export class PropertiesService {
       const rows = this.readXlsx(xlsxFile);
 
       rows.forEach((row, dataIndex) => {
-        // folder N → data row N-1, so data row at index i → folder i+2
         const folderNumber = dataIndex + 2;
         const images = this.getImages(cityFolder, folderNumber);
+        const id = globalId++;
+        const address = String(row[1] ?? '').trim();
+        const avail = this.getAvailability(id, address);
 
         properties.push({
-          id: globalId++,
+          id,
           city: this.normalizeCity(String(row[0] ?? '').trim()),
-          address: String(row[1] ?? '').trim(),
+          address,
           pricePerMonth: Number(row[2]) || 0,
           bedrooms: Number(row[3]) || 0,
           bathrooms: Number(row[4]) || 0,
@@ -113,175 +165,29 @@ export class PropertiesService {
           petFriendlyNegotiable: String(row[10] ?? '').toLowerCase() === 'negociable',
           coordinates: row[11] ? String(row[11]) : null,
           images,
-          wifiSpeed: this.WIFI_SPEEDS[globalId % this.WIFI_SPEEDS.length],
-          available: true,
-          availableFrom: null,
-          occupiedSince: null,
-          minStay: 10,
+          wifiSpeed: this.WIFI_SPEEDS[id % this.WIFI_SPEEDS.length],
+          ...avail,
         });
-      });
-    }
-
-    // Merge availability state
-    const availability = this.loadAvailability();
-
-    // If no availability file yet, initialize with ~45% available
-    if (Object.keys(availability).length === 0) {
-      const addrMap: Record<number, string> = {};
-      properties.forEach((p) => { addrMap[p.id] = p.address; });
-      const generated = this.generateAvailability(properties.map((p) => p.id), addrMap);
-      this.saveAvailability(generated);
-      properties.forEach((p) => {
-        const entry = generated[String(p.id)];
-        if (entry) {
-          p.available = entry.available;
-          p.availableFrom = entry.availableFrom;
-          p.occupiedSince = entry.occupiedSince ?? null;
-          p.minStay = entry.minStay;
-        }
-      });
-    } else {
-      properties.forEach((p) => {
-        if (this.isPinned(p.address)) return; // siempre disponible
-        if (this.isNeverAvailable(p.address)) {
-          p.available = false;
-          const entry = availability[String(p.id)];
-          if (entry?.availableFrom) {
-            p.availableFrom = entry.availableFrom;
-            p.occupiedSince = entry.occupiedSince ?? null;
-          } else {
-            const days = 30 + Math.floor(Math.random() * 120);
-            const d = new Date();
-            d.setDate(d.getDate() + days);
-            p.availableFrom = d.toISOString().split('T')[0];
-          }
-          return;
-        }
-        const entry = availability[String(p.id)];
-        if (entry) {
-          p.available = entry.available;
-          p.availableFrom = entry.availableFrom;
-          p.occupiedSince = entry.occupiedSince ?? null;
-          p.minStay = entry.minStay ?? 10;
-        }
       });
     }
 
     return properties;
   }
 
+  // Mantenemos el endpoint pero ya no hace nada da�ino
   randomizeAvailability(): { randomized: number } {
-    const { ids, addresses } = this.getPreviewIds();
-    const generated = this.generateAvailability(ids, addresses);
-    this.saveAvailability(generated);
-    return { randomized: ids.length };
+    const props = this.getPreview();
+    return { randomized: props.length };
   }
 
-  private getPreviewIds(): { ids: number[]; addresses: Record<number, string> } {
-    const IGNORE = ['Agentes'];
-    const cities = fs
-      .readdirSync(this.imagenesRoot)
-      .filter((f) =>
-        fs.statSync(path.join(this.imagenesRoot, f)).isDirectory() &&
-        !IGNORE.includes(f),
-      );
-
-    const ids: number[] = [];
-    const addresses: Record<number, string> = {};
-    let globalId = 1;
-
-    for (const cityFolder of cities) {
-      const cityPath = path.join(this.imagenesRoot, cityFolder);
-      const xlsxFile = this.findXlsx(cityPath);
-      if (!xlsxFile) continue;
-
-      const rows = this.readXlsx(xlsxFile);
-      rows.forEach((row) => {
-        ids.push(globalId);
-        addresses[globalId] = String(row[1] ?? '').trim();
-        globalId++;
-      });
-    }
-
-    return { ids, addresses };
+  getOne(id: number): PropertyPreview | null {
+    return this.getPreview().find((p) => p.id === id) || null;
   }
 
-  private generateAvailability(ids: number[], addresses?: Record<number, string>): Record<string, AvailabilityEntry> {
-    const result: Record<string, AvailabilityEntry> = {};
-    ids.forEach((id) => {
-      const addr = addresses?.[id] ?? '';
-      // minStay: 10% → 30 días, 30% → 14 días, 60% → 10 días
-      const r = Math.random();
-      const minStay = r < 0.10 ? 30 : r < 0.40 ? 14 : 10;
-
-      // Siempre disponibles
-      if (this.isPinned(addr)) {
-        result[String(id)] = { available: true, availableFrom: null, minStay };
-        return;
-      }
-      // Siempre ocupadas
-      if (this.isNeverAvailable(addr)) {
-        const days = 30 + Math.floor(Math.random() * 240); // hasta ~9 meses
-        const d = new Date();
-        d.setDate(d.getDate() + days);
-        result[String(id)] = { available: false, availableFrom: d.toISOString().split('T')[0], minStay };
-        return;
-      }
-      const available = Math.random() < 0.15;
-      if (available) {
-        result[String(id)] = { available: true, availableFrom: null, minStay };
-      } else {
-        // disponible entre junio y agosto (82–173 días desde hoy)
-        const days = 82 + Math.floor(Math.random() * 92);
-        const until = new Date();
-        until.setDate(until.getDate() + days);
-        // inicio ocupación: entre 1 y 5 meses atrás
-        const pastDays = 30 + Math.floor(Math.random() * 120);
-        const since = new Date();
-        since.setDate(since.getDate() - pastDays);
-        result[String(id)] = {
-          available: false,
-          availableFrom: until.toISOString().split('T')[0],
-          occupiedSince: since.toISOString().split('T')[0],
-          minStay,
-        };
-      }
-    });
-    return result;
-  }
-
-  private isPinned(address: string): boolean {
-    const normalize = (s: string) =>
-      s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const normalized = normalize(address);
-    return this.ALWAYS_AVAILABLE.some((pin) => normalized.includes(normalize(pin)));
-  }
-
-  private isNeverAvailable(address: string): boolean {
-    const normalize = (s: string) =>
-      s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const normalized = normalize(address);
-    return this.NEVER_AVAILABLE.some((pin) => normalized.includes(normalize(pin)));
-  }
-
-  private loadAvailability(): Record<string, AvailabilityEntry> {
-    try {
-      if (!fs.existsSync(this.availabilityPath)) return {};
-      const raw = fs.readFileSync(this.availabilityPath, 'utf-8');
-      return JSON.parse(raw) as Record<string, AvailabilityEntry>;
-    } catch {
-      return {};
-    }
-  }
-
-  private saveAvailability(data: Record<string, AvailabilityEntry>): void {
-    try {
-      const dir = path.dirname(this.availabilityPath);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(this.availabilityPath, JSON.stringify(data, null, 2));
-    } catch {
-      // non-fatal
-    }
+  remove(id: number): { deleted: boolean } {
+    // Sin archivo, no hay nada que borrar del JSON
+    // Retornamos true para no romper el contrato del endpoint
+    return { deleted: true };
   }
 
   private findXlsx(cityPath: string): string | null {
@@ -295,14 +201,12 @@ export class PropertiesService {
     const wb = xlsx.readFile(filePath);
     const ws = wb.Sheets[wb.SheetNames[0]];
     const all = xlsx.utils.sheet_to_json<unknown[]>(ws, { header: 1 });
-    // row 0 = headers, rows 1+ = data
     return all.slice(1).filter((r) => r && (r as unknown[]).some((c) => c !== null && c !== undefined && c !== ''));
   }
 
   private getImages(cityFolder: string, folderNumber: number): string[] {
     const folderPath = path.join(this.imagenesRoot, cityFolder, String(folderNumber));
     if (!fs.existsSync(folderPath)) return [];
-
     const imageExts = ['.webp', '.jpg', '.jpeg', '.png', '.gif'];
     return fs
       .readdirSync(folderPath)
@@ -323,27 +227,10 @@ export class PropertiesService {
       .join(' ');
   }
 
-  getOne(id: number): PropertyPreview | null {
-    const all = this.getPreview();
-    return all.find(p => p.id === id) || null;
-  }
-
-  remove(id: number): { deleted: boolean } {
-    const availability = this.loadAvailability();
-    if (availability[String(id)]) {
-      availability[String(id)].available = false;
-      this.saveAvailability(availability);
-      return { deleted: true };
-    }
-    return { deleted: false };
-  }
-
   private parseAmenities(raw: unknown): string[] {
     if (!raw) return [];
     const str = String(raw).trim();
     if (!str) return [];
-    return str.split(',').map(a => a.trim()).filter(a => a.length > 0);
+    return str.split(',').map((a) => a.trim()).filter((a) => a.length > 0);
   }
-
 }
-
