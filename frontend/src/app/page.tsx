@@ -25,7 +25,13 @@ export default async function Home() {
   const { t, lang } = await getT();
   const properties  = await fetchPreview();
   const withImages   = properties.filter((p) => p.images.length > 0);
-  const newest       = withImages.slice(-8).reverse();
+  const weekNumber = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
+  const cities = [...new Set(withImages.map(p => p.city))];
+  const newest = cities.flatMap(city => {
+    const cityProps = withImages.filter(p => p.city === city);
+    const offset = weekNumber % cityProps.length;
+    return cityProps.slice(offset, offset + 1);
+  }).slice(0, 8);
   const featured     = [...withImages].sort((a, b) => b.pricePerMonth - a.pricePerMonth).slice(0, 6);
   const collageProps = withImages.filter((_, i) => [2, 7, 14].includes(i));
 
