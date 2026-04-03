@@ -7,6 +7,25 @@ import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { getUSDRate, formatUSD } from '@/lib/exchange';
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const properties = await fetchPreview();
+  const property = properties.find((p) => p.id === Number(id));
+  if (!property) return {};
+
+  const { street, neighborhood } = parseAddress(property.address);
+
+  return {
+    title: `Renta amueblada en ${street}, ${property.city} | ShortStayMX`,
+    description: `${property.bedrooms} recámaras, ${property.bathrooms} baños, ${property.sqMeters}m² en ${neighborhood}, ${property.city}. Renta mensual desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN. Disponible en ShortStayMX.`,
+    openGraph: {
+      title: `${street} — ${property.city} | ShortStayMX`,
+      description: `Renta temporal amueblada en ${property.city}. ${property.bedrooms} rec, ${property.bathrooms} baños, WiFi ${property.wifiSpeed} Mbps.`,
+      images: property.images[0] ? [{ url: property.images[0] }] : [],
+    },
+  };
+}
+
 export default async function PropertyPage({ params }: { params: Promise<{ id: string }> }) {
   const { id }     = await params;
   const { t, lang } = await getT();

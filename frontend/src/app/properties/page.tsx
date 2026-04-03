@@ -3,7 +3,17 @@ import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
-const CITIES = ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala', 'Puerto Vallarta', 'San Miguel de Allende', 'Mérida'];
+const CITIES = ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala', 'Puerto Vallarta', 'Mérida'];
+
+export const metadata = {
+  title: 'Todas las propiedades | ShortStayMX',
+  description: 'Explora departamentos y casas amuebladas para renta temporal en Ciudad de México, Guadalajara, Monterrey, Cancún, Mérida y más ciudades de México.',
+  openGraph: {
+    title: 'Propiedades en renta temporal | ShortStayMX',
+    description: 'Encuentra tu próximo hogar temporal en México. Propiedades amuebladas verificadas en las mejores ciudades.',
+    url: 'https://shortstaymx.com/properties',
+  },
+};
 
 export default async function PropertiesPage({
   searchParams,
