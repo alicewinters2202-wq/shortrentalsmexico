@@ -337,3 +337,13 @@ export class PropertiesService {
     }
     return { deleted: false };
   }
+
+  private parseAmenities(raw: unknown): string[] {
+    if (!raw) return [];
+    const str = String(raw).trim();
+    if (!str) return [];
+    return str.split(',').map(a => a.trim()).filter(a => a.length > 0);
+  }
+
+}
+
