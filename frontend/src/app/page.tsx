@@ -17,6 +17,7 @@ const CITIES = [
   { name: 'Santiago',         label: 'Santiago' },
   { name: 'Chapala',          label: 'Chapala' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
+  { name: 'San Miguel de Allende', label: 'San Miguel' },
   { name: 'Mérida',           label: 'Mérida' },
   { name: 'Cancún',           label: 'Cancún' },
 ];
@@ -285,7 +286,6 @@ export default async function Home() {
               : 'Nuestro equipo está disponible para acompañarte en cada paso, desde elegir la propiedad hasta tu llegada.'}
           </p>
 
-          {/* Camila card */}
           <div className="inline-flex flex-col items-center gap-4 mb-8">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -306,7 +306,7 @@ export default async function Home() {
           </div>
 
           <div className="flex justify-center">
-            <a
+            
               href="https://wa.me/525662548748"
               target="_blank"
               rel="noopener noreferrer"
@@ -325,11 +325,9 @@ export default async function Home() {
       {/* ─── RESEÑAS + CONTACTO ─────────────────────────────────────────── */}
       <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Reseñas */}
           <div>
             <ReviewsSection t={t} lang={lang} />
           </div>
-          {/* Contacto */}
           <div>
             <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.contactTitle}</h2>
             <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.contactSub}</p>

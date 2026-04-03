@@ -24,13 +24,13 @@ const T = {
         : name === 'Santiago'
         ? 'Tranquilidad y naturaleza cerca de Monterrey'
         : name === 'Cancún'
-        ? 'Playas paradisíacas y vida nocturna vibrante'
+        ? 'Playas paradisíacas, zona hotelera y mar turquesa'
         : name === 'Mérida'
         ? 'Historia colonial y cultura maya vibrante'
         : name === 'Chapala'
-        ? 'Vista al lago más grande de México'
+        ? 'Orillas del lago más grande de México, clima único'
         : name === 'Puerto Vallarta'
-        ? 'Costa dorada y sol eterno'
+        ? 'Costa del Pacífico, playas y vida nocturna vibrante'
         : name === 'San Miguel de Allende'
         ? 'Arte, cultura y arquitectura colonial'
         : 'Orillas del lago, clima único y vida relajada',
@@ -314,6 +314,16 @@ const T = {
         ? 'The city of mountains and business'
         : name === 'Santiago'
         ? 'Serenity and nature just outside Monterrey'
+        : name === 'Cancún'
+        ? 'Paradise beaches, hotel zone and turquoise sea'
+        : name === 'Mérida'
+        ? 'Colonial history and vibrant Mayan culture'
+        : name === 'Chapala'
+        ? 'Shores of Mexico\'s largest lake, unique climate'
+        : name === 'Puerto Vallarta'
+        ? 'Pacific coast, beaches and vibrant nightlife'
+        : name === 'San Miguel de Allende'
+        ? 'Art, culture and colonial architecture'
         : 'Lakeside living, unique climate and relaxed lifestyle',
     properties: (n: number) => `${n} propert${n !== 1 ? 'ies' : 'y'}`,
     taglineQuote: 'For those who refuse to settle',
@@ -389,19 +399,14 @@ const T = {
     chooseCity: 'Choose a city',
     searchBtn: 'Search →',
     footerTagline: 'Extraordinary stays at the best destinations',
-    // reviews
     reviewsTitle: 'What our guests say',
     reviewsSub: 'Verified reviews from real stays',
-    // upcoming
     upcomingTitle: 'Coming soon',
     upcomingSub: 'Expanding to new cities across Mexico',
     comingSoon: 'Coming soon',
-    // cleaning
     cleaningFee: 'Weekly cleaning',
     cleaningFeeNote: 'Towel & sheet change · $500 MXN per week',
-    // wifi
     wifiLabel: 'WiFi',
-    // contact
     contactTitle: 'Contact us',
     contactSub: 'We respond within 24 hours',
     nameLabel: 'Your name',
@@ -409,7 +414,6 @@ const T = {
     messageLabel: 'Message',
     sendBtn: 'Send message',
     contactSent: 'Message sent! We\'ll be in touch soon.',
-    // faq
     faqNav: 'FAQ',
     faqTitle: 'Frequently Asked Questions',
     faqSub: 'Everything you need to know before booking',
@@ -455,7 +459,6 @@ const T = {
         a: '• 100% refund if cancellation is requested 60 days or more before check-in.\n\n• 50% refund if cancellation is requested less than 60 days before check-in.\n\n• 25% refund if cancellation is requested within 14 days of check-in.\n\nAll cancellation requests must be submitted in writing and confirmed by our team. Refunds will be sent to the same account that made the booking.',
       },
     ],
-    // requirements
     reqNav: 'Requirements',
     reqTitle: 'Our requirements',
     reqSub: 'To book any of our properties, we need the following',
@@ -539,7 +542,6 @@ const T = {
         ],
       },
     ],
-    // about
     aboutNav: 'About us',
     aboutTitle: 'About us',
     aboutSub: 'Professional hospitality at the best destinations in Mexico',
@@ -555,7 +557,6 @@ const T = {
       { icon: '🧹', title: 'Professional cleaning', desc: 'Weekly cleaning service included in your stay.' },
       { icon: '💬', title: 'Guest support', desc: 'An agent available to assist you at any time.' },
     ],
-    // availability
     occupiedUntil: (date: string) => `Occupied · until ${date}`,
     occupiedRange: (from: string, to: string) => `Occupied: ${from} – ${to}`,
     availableFrom: (date: string) => `Available from ${date}`,
