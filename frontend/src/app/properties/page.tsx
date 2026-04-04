@@ -4,6 +4,8 @@ import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
 const CITIES = ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala', 'Puerto Vallarta', 'San Miguel de Allende', 'Mérida', 'Cancún', 'Nuevo Vallarta'];
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Todas las propiedades | ShortStayMX',
   description: 'Explora departamentos y casas amuebladas para renta temporal en Ciudad de México, Guadalajara, Monterrey, Cancún, Mérida y más ciudades de México.',
