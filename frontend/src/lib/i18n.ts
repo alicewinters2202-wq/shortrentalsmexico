@@ -324,6 +324,8 @@ const T = {
         ? 'Pacific coast, beaches and vibrant nightlife'
         : name === 'San Miguel de Allende'
         ? 'Art, culture and colonial architecture'
+        : name === 'Nuevo Vallarta'
+        ? 'Riviera Nayarit, beaches, marinas and resort living'
         : 'Lakeside living, unique climate and relaxed lifestyle',
     properties: (n: number) => `${n} propert${n !== 1 ? 'ies' : 'y'}`,
     taglineQuote: 'For those who refuse to settle',
