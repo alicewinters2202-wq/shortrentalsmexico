@@ -306,7 +306,7 @@ export default async function Home() {
           </div>
 
           <div className="flex justify-center">
-            
+            <a
               href="https://wa.me/525662548748"
               target="_blank"
               rel="noopener noreferrer"
