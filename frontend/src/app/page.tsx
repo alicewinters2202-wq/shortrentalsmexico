@@ -20,6 +20,7 @@ const CITIES = [
   { name: 'San Miguel de Allende', label: 'San Miguel' },
   { name: 'Mérida',           label: 'Mérida' },
   { name: 'Cancún',           label: 'Cancún' },
+  { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
 ];
 
 export default async function Home() {
