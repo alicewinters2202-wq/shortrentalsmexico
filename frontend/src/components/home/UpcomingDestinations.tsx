@@ -29,3 +29,15 @@ export default function UpcomingDestinations({ t }: Props) {
           >
             <span className="text-4xl">{d.emoji}</span>
             <p className="text-white font-serif text-lg font-medium">{d.city}</p>
+            <span
+              className="text-[10px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full"
+              style={{ backgroundColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.8)' }}
+            >
+              {t.comingSoon}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
