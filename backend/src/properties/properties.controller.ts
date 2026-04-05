@@ -16,5 +16,21 @@ export class PropertiesController {
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate');
     res.set('CDN-Cache-Control', 'no-store');
     res.set('Vercel-CDN-Cache-Control', 'no-store');
-    res.json(this.propertiesService.getPreview());
+    return res.json(this.propertiesService.getPreview());
   }
+
+  @Get(':id')
+  getOne(@Param('id', ParseIntPipe) id: number) {
+    return this.propertiesService.getOne(id);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.propertiesService.remove(id);
+  }
+
+  @Post('randomize-availability')
+  randomizeAvailability() {
+    return this.propertiesService.randomizeAvailability();
+  }
+}
