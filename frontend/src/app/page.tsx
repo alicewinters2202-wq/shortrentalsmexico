@@ -8,8 +8,6 @@ import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
 
-export const revalidate = 0;
-
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
   { name: 'Guadalajara',      label: 'Guadalajara' },
@@ -18,23 +16,17 @@ const CITIES = [
   { name: 'Chapala',          label: 'Chapala' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
   { name: 'San Miguel de Allende', label: 'San Miguel' },
-  { name: 'Mérida',           label: 'Mérida' },
-  { name: 'Cancún',           label: 'Cancún' },
+  { name: 'Mérida',          label: 'Mérida' },
+  { name: 'Cancún',          label: 'Cancún' },
   { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
+  { name: 'Tulum',            label: 'Tulum' },
 ];
 
 export default async function Home() {
   const { t, lang } = await getT();
   const properties  = await fetchPreview();
-  const withImages   = properties.filter((p) => p.images.length > 0);
-  const weekNumber = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
-  const cities = [...new Set(withImages.map(p => p.city))];
-  const newest = cities.flatMap(city => {
-    const cityProps = withImages.filter(p => p.city === city);
-    const offset = weekNumber % cityProps.length;
-    return cityProps.slice(offset, offset + 1);
-  }).slice(0, 8);
-  const featured     = [...withImages].sort((a, b) => b.pricePerMonth - a.pricePerMonth).slice(0, 6);
+  const withImages  = properties.filter((p) => p.images.length > 0);
+  const featured    = withImages.slice(0, 6);
   const collageProps = withImages.filter((_, i) => [2, 7, 14].includes(i));
 
   return (
@@ -91,7 +83,7 @@ export default async function Home() {
         <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.popularDests}</h2>
         <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.exploreDests}</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {CITIES.map((c) => {
             const cityProps = properties.filter((p) => p.city.trim() === c.name);
             const coverImg  = cityProps.find((p) => p.images.length > 0);
@@ -145,51 +137,6 @@ export default async function Home() {
                 <div className="absolute inset-0 flex items-end p-4">
                   <span className="text-white text-xs font-medium">{street}</span>
                 </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ─── NUEVAS PROPIEDADES ─────────────────────────────────────────── */}
-      <section style={{ backgroundColor: 'var(--card)' }} className="px-6 pb-24 max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <h2 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>
-              {lang === 'es' ? 'Nuevas propiedades' : 'New properties'}
-            </h2>
-            <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>
-              {lang === 'es' ? 'Recién incorporadas a ShortStayMX' : 'Recently added to ShortStayMX'}
-            </p>
-          </div>
-          <Link href="/properties" style={{ color: 'var(--gold)' }} className="text-sm font-medium hover:underline hidden sm:block">
-            {t.viewAll}
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {newest.map((p) => {
-            const { street, neighborhood } = parseAddress(p.address);
-            return (
-              <Link key={p.id} href={`/properties/${p.id}`} className="group block">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] relative mb-3"
-                  style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
-                  {p.images[0] && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={imageUrl(p.images[0])} alt={street}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  )}
-                  <div className="absolute top-3 left-3">
-                    <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded-full text-white"
-                      style={{ backgroundColor: 'var(--gold)' }}>
-                      {lang === 'es' ? 'Nuevo' : 'New'}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'var(--muted)' }}>{p.city}</p>
-                <p className="font-serif text-lg leading-tight mb-1" style={{ color: 'var(--ink)' }}>{street}</p>
-                <p className="text-xs mb-2" style={{ color: 'var(--muted)' }}>{neighborhood}</p>
-                <p className="text-sm font-semibold" style={{ color: 'var(--gold)' }}>{formatMXN(p.pricePerMonth)} / mes</p>
               </Link>
             );
           })}
@@ -287,6 +234,7 @@ export default async function Home() {
               : 'Nuestro equipo está disponible para acompañarte en cada paso, desde elegir la propiedad hasta tu llegada.'}
           </p>
 
+          {/* Camila card */}
           <div className="inline-flex flex-col items-center gap-4 mb-8">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -307,7 +255,7 @@ export default async function Home() {
           </div>
 
           <div className="flex justify-center">
-            <a
+            
               href="https://wa.me/525662548748"
               target="_blank"
               rel="noopener noreferrer"
@@ -343,7 +291,7 @@ export default async function Home() {
           <div className="text-center sm:text-left">
             <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>ShortStayMX</p>
             <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-              © 2021–{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
+              © 2023–{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
             </p>
           </div>
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
