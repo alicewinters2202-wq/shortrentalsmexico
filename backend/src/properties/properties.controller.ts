@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Delete, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Param, ParseIntPipe, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { PropertiesService } from './properties.service';
 
 @Controller('properties')
@@ -11,22 +12,9 @@ export class PropertiesController {
   }
 
   @Get('preview')
-  getPreview() {
-    return this.propertiesService.getPreview();
+  getPreview(@Res() res: Response) {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+    res.set('CDN-Cache-Control', 'no-store');
+    res.set('Vercel-CDN-Cache-Control', 'no-store');
+    res.json(this.propertiesService.getPreview());
   }
-
-  @Get(':id')
-  getOne(@Param('id', ParseIntPipe) id: number) {
-    return this.propertiesService.getOne(id);
-  }
-
-  @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return this.propertiesService.remove(id);
-  }
-
-  @Post('randomize-availability')
-  randomizeAvailability() {
-    return this.propertiesService.randomizeAvailability();
-  }
-}
