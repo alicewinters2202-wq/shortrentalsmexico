@@ -36,7 +36,6 @@ export default async function Home() {
     .filter((p) => !usedIds.has(p.id))
     .sort(() => Math.random() - 0.5)
     .slice(0, 6);
-  const collageProps = withImages.filter((_, i) => [2, 7, 14].includes(i));
 
   return (
     <>
@@ -124,30 +123,7 @@ export default async function Home() {
           <p className="text-sm max-w-xl" style={{ color: 'var(--muted)' }}>{t.taglineSub2}</p>
         </div>
       </section>
-
-      {/* COLLAGE */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-3 gap-3 h-72">
-          {collageProps.map((p) => {
-            const { street } = parseAddress(p.address);
-            return (
-              <Link key={p.id} href={`/properties/${p.id}`}
-                className="group rounded-2xl overflow-hidden relative" style={{ backgroundColor: 'var(--card)' }}>
-                {p.images[0] && (
-                  <img src={imageUrl(p.images[0])} alt={street}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                )}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                <div className="absolute inset-0 flex items-end p-4">
-                  <span className="text-white text-xs font-medium">{street}</span>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* PROPIEDADES DESTACADAS */}
+{/* PROPIEDADES DESTACADAS */}
       <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 pb-24 max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-10">
           <div>
