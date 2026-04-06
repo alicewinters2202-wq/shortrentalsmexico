@@ -90,7 +90,7 @@ export default async function PropertiesPage({
             const mainImage = p.images[0];
 
             return (
-              <Link key={p.id} href={`/properties/${p.id}`} className="group block">
+              <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
                 {/* Imagen */}
                 <div
                   className="relative aspect-[4/3] rounded-2xl overflow-hidden"
