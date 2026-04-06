@@ -32,9 +32,10 @@ export default async function Home() {
   const mid3        = sorted.slice(Math.floor(sorted.length * 0.3), Math.floor(sorted.length * 0.3) + 3);
   const featured    = [...top3, ...mid3];
   const usedIds     = new Set(featured.map((p) => p.id));
-  const newProps    = withImages
+  const weekSeed    = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
+const newProps    = withImages
     .filter((p) => !usedIds.has(p.id))
-    .sort(() => Math.random() - 0.5)
+    .sort((a, b) => ((a.id * weekSeed) % 97) - ((b.id * weekSeed) % 97))
     .slice(0, 6);
 
   return (
