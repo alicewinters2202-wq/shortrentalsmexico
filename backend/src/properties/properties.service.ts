@@ -5,6 +5,7 @@ import * as path from 'path';
 
 export interface PropertyPreview {
   id: number;
+  slug: string;
   city: string;
   address: string;
   pricePerMonth: number;
@@ -31,7 +32,6 @@ export class PropertiesService {
   private readonly imagenesRoot = path.join(__dirname, '..', '..', 'imagenes');
   private readonly WIFI_SPEEDS = [150, 250, 350, 500];
 
-  // Siempre disponibles
   private readonly ALWAYS_AVAILABLE = [
     'choapan 45',
     'culiacan 40',
@@ -48,16 +48,27 @@ export class PropertiesService {
     'paseo de la marina 121',
   ];
 
-  // Siempre ocupadas
   private readonly NEVER_AVAILABLE: string[] = [];
 
-  // Seed determinista basado en id — siempre produce el mismo número para el mismo id
   private seededRandom(seed: number): () => number {
     let s = seed;
     return () => {
       s = (s * 1664525 + 1013904223) & 0xffffffff;
       return (s >>> 0) / 0xffffffff;
     };
+  }
+
+  private generateSlug(city: string, address: string, id: number): string {
+    const normalize = (s: string) =>
+      s.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+    const citySlug = normalize(city);
+    const parts = address.split(',');
+    const streetSlug = normalize(parts[0] ?? address).slice(0, 40);
+    return `${citySlug}-${streetSlug}-${id}`;
   }
 
   private getAvailability(id: number, address: string): {
@@ -70,12 +81,10 @@ export class PropertiesService {
       s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const normalizedAddr = norm(address);
 
-    // Pinned: siempre disponible
     if (this.ALWAYS_AVAILABLE.some((p) => normalizedAddr.includes(norm(p)))) {
       return { available: true, availableFrom: null, occupiedSince: null, minStay: 10 };
     }
 
-    // Never available: siempre ocupada
     if (this.NEVER_AVAILABLE.some((p) => normalizedAddr.includes(norm(p)))) {
       const rng = this.seededRandom(id * 7 + 3);
       const days = 15 + Math.floor(rng() * 210);
@@ -90,25 +99,19 @@ export class PropertiesService {
     }
 
     const rng = this.seededRandom(id * 31 + 17);
-
-    // minStay determinista
     const r0 = rng();
     const minStay = r0 < 0.10 ? 30 : r0 < 0.40 ? 14 : 10;
-
-    // disponibilidad: 15% disponible, 85% ocupada
     const available = rng() < 0.15;
 
     if (available) {
       return { available: true, availableFrom: null, occupiedSince: null, minStay };
     }
 
-    // Fecha disponible: entre 15 días y 7 meses (210 días) — rango amplio
     const r2 = rng();
     const days = 15 + Math.floor(r2 * 195);
     const until = new Date(2026, 3, 2);
     until.setDate(until.getDate() + days);
 
-    // Ocupada desde: entre 1 semana y 5 meses atrás
     const r3 = rng();
     const pastDays = 7 + Math.floor(r3 * 143);
     const since = new Date(2026, 3, 2);
@@ -146,11 +149,13 @@ export class PropertiesService {
         const images = this.getImages(cityFolder, folderNumber);
         const id = globalId++;
         const address = String(row[1] ?? '').trim();
+        const city = this.normalizeCity(String(row[0] ?? '').trim());
         const avail = this.getAvailability(id, address);
 
         properties.push({
           id,
-          city: this.normalizeCity(String(row[0] ?? '').trim()),
+          slug: this.generateSlug(city, address, id),
+          city,
           address,
           pricePerMonth: Number(row[2]) || 0,
           bedrooms: Number(row[3]) || 0,
@@ -180,6 +185,10 @@ export class PropertiesService {
 
   getOne(id: number): PropertyPreview | null {
     return this.getPreview().find((p) => p.id === id) || null;
+  }
+
+  getBySlug(slug: string): PropertyPreview | null {
+    return this.getPreview().find((p) => p.slug === slug) || null;
   }
 
   remove(id: number): { deleted: boolean } {
