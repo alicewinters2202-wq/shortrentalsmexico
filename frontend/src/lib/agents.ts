@@ -101,7 +101,7 @@ export const AGENTS = [
     id: 9,
     name: 'Rafael Cervantes',
     zone: 'Cancún',
-   cities: ['Cancún', 'Tulum'],
+   cities: ['Cancún', 'Tulum', 'Playa del Carmen'],
     wa: '529844806753',
     photo: null,
     initials: 'RC',
