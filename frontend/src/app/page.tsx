@@ -141,7 +141,7 @@ const newProps    = pool
           {featured.map((p) => {
             const { street, neighborhood } = parseAddress(p.address);
             return (
-              <Link key={p.id} href={`/properties/${p.id}`} className="group block">
+              <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
                   <img src={imageUrl(p.images[0])} alt={street}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -213,7 +213,7 @@ const newProps    = pool
           {newProps.map((p) => {
             const { street, neighborhood } = parseAddress(p.address);
             return (
-              <Link key={p.id} href={`/properties/${p.id}`} className="group block">
+              <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--cream)' }}>
                   <img src={imageUrl(p.images[0])} alt={street}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
