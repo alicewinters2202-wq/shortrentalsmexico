@@ -1,5 +1,6 @@
 export interface PropertyPreview {
   id: number;
+  slug: string;
   city: string;
   address: string;
   pricePerMonth: number;
