@@ -7,10 +7,10 @@ import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { getUSDRate, formatUSD } from '@/lib/exchange';
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const properties = await fetchPreview();
-  const property = properties.find((p) => p.id === Number(id));
+  const property = properties.find((p) => p.slug === slug);
   if (!property) return {};
 
   const { street, neighborhood } = parseAddress(property.address);
@@ -26,11 +26,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-export default async function PropertyPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id }     = await params;
+export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug }     = await params;
   const { t, lang } = await getT();
   const [properties, usdRate] = await Promise.all([fetchPreview(), getUSDRate()]);
-  const property   = properties.find((p) => p.id === Number(id));
+  const property   = properties.find((p) => p.slug === slug);
   if (!property) notFound();
 
   const { street, neighborhood } = parseAddress(property.address);
