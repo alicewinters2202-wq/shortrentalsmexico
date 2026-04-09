@@ -170,7 +170,10 @@ export class PropertiesService {
           coordinates: row[11] ? String(row[11]) : null,
           images,
           wifiSpeed: this.WIFI_SPEEDS[id % this.WIFI_SPEEDS.length],
-          ...avail,
+          available: avail.available || (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()),
+availableFrom: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.availableFrom,
+occupiedSince: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.occupiedSince,
+minStay: avail.minStay,
         });
       });
     }
