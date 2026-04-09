@@ -4,7 +4,7 @@ export default async function sitemap() {
   const properties = await fetchPreview();
 
   const propertyUrls = properties.map((p) => ({
-    url: `https://shortstaymx.com/properties/${p.id}`,
+    url: `https://shortstaymx.com/properties/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
