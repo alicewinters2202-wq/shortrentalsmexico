@@ -10,7 +10,7 @@ import { getUSDRate, formatUSD } from '@/lib/exchange';
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const properties = await fetchPreview();
-  const property = properties.find((p) => p.slug === slug);
+  const property = properties.find((p) => p.slug === slug) ?? properties.find((p) => p.id === Number(slug));
   if (!property) return {};
 
   const { street, neighborhood } = parseAddress(property.address);
@@ -27,10 +27,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug }     = await params;
+  const { slug }   = await params;
   const { t, lang } = await getT();
   const [properties, usdRate] = await Promise.all([fetchPreview(), getUSDRate()]);
-  const property   = properties.find((p) => p.slug === slug);
+  const property   = properties.find((p) => p.slug === slug) ?? properties.find((p) => p.id === Number(slug));
   if (!property) notFound();
 
   const { street, neighborhood } = parseAddress(property.address);
@@ -45,7 +45,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
   return (
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
-      {/* Navbar */}
       <nav
         className="sticky top-0 z-40 backdrop-blur-md"
         style={{ backgroundColor: 'rgba(28,28,30,0.9)', borderBottom: '1px solid var(--border)' }}
@@ -65,7 +64,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
       </nav>
 
       <div className="max-w-7xl mx-auto px-6 py-10">
-        {/* Header */}
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
             <span className="text-xs tracking-widest uppercase font-medium" style={{ color: 'var(--muted)' }}>
@@ -97,15 +95,10 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
           )}
         </div>
 
-        {/* Galería */}
         <ImageGallery images={property.images} address={street} />
 
-        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Columna izquierda */}
           <div className="lg:col-span-2 space-y-8">
-
-            {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { label: t.guests,    value: String(property.maxGuests), sub: null },
@@ -125,7 +118,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               ))}
             </div>
 
-            {/* Características */}
             <div className="flex flex-wrap gap-2">
               {property.balcony && (
                 <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-emerald-900/40 text-emerald-400">🌿 {t.balcony}</span>
@@ -145,7 +137,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               </span>
             </div>
 
-            {/* Amenidades */}
             {property.amenities.length > 0 && (
               <div>
                 <h2 className="font-serif text-2xl mb-4" style={{ color: 'var(--ink)' }}>{t.amenities}</h2>
@@ -164,7 +155,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               </div>
             )}
 
-            {/* Tabla de precios */}
             <div>
               <h2 className="font-serif text-2xl mb-1" style={{ color: 'var(--ink)' }}>{t.priceTitle}</h2>
               <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>
@@ -230,8 +220,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 🧹 {t.cleaningFeeNote}
               </p>
 
-              {/* Contacto especial — 3+ meses */}
-              <a
+              
                 href={`https://wa.me/525662548748?text=${encodeURIComponent(
                   lang === 'en'
                     ? `Hello, I'm interested in a long-term stay (3+ months) at ${street}. Could you share the special conditions?`
@@ -254,7 +243,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               </a>
             </div>
 
-            {/* Google Maps */}
             <div>
               <h2 className="font-serif text-2xl mb-4" style={{ color: 'var(--ink)' }}>{t.locationTitle}</h2>
               <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
@@ -273,7 +261,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
           </div>
 
-          {/* Panel lateral */}
           <div className="lg:col-span-1">
             <BookingPanelPreview property={property} />
           </div>
