@@ -221,7 +221,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               </p>
 
               
-                href={`https://wa.me/525662548748?text=${encodeURIComponent(
+                <a href={`https://wa.me/525662548748?text=${encodeURIComponent(
                   lang === 'en'
                     ? `Hello, I'm interested in a long-term stay (3+ months) at ${street}. Could you share the special conditions?`
                     : `Hola, me interesa una estancia larga (más de 3 meses) en ${street}. ¿Me pueden compartir las condiciones especiales?`
