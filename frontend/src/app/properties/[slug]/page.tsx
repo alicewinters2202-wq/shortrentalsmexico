@@ -228,7 +228,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 flex items-center gap-4 rounded-2xl p-5 transition-colors hover:opacity-90">
+                className="mt-3 flex items-center gap-4 rounded-2xl p-5">
                 <span className="text-3xl">🏠</span>
                 <div className="flex-1">
                   <p className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{t.longStayTitle}</p>
