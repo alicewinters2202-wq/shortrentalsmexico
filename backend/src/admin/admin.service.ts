@@ -5,6 +5,7 @@ import * as path from 'path';
 export interface PropertyOverride {
   available?: boolean;
   availableFrom?: string | null;
+  occupiedSince?: string | null;
   pricePerMonth?: number;
 }
 
