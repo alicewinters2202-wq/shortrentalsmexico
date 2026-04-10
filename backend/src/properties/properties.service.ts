@@ -71,6 +71,30 @@ export class PropertiesService {
     return `${citySlug}-${streetSlug}-${id}`;
   }
 
+  private getOverrides(): Record<string, { available?: boolean; availableFrom?: string | null; pricePerMonth?: number }> {
+    try {
+      const overridesPath = path.join(__dirname, '..', '..', 'overrides.json');
+      if (!fs.existsSync(overridesPath)) return {};
+      return JSON.parse(fs.readFileSync(overridesPath, 'utf-8'));
+    } catch {
+      return {};
+    }
+  }
+
+  private applyOverrides(properties: PropertyPreview[]): PropertyPreview[] {
+    const overrides = this.getOverrides();
+    return properties.map(p => {
+      const o = overrides[String(p.id)];
+      if (!o) return p;
+      return {
+        ...p,
+        available: o.available !== undefined ? o.available : p.available,
+        availableFrom: o.availableFrom !== undefined ? o.availableFrom : p.availableFrom,
+        pricePerMonth: o.pricePerMonth !== undefined ? o.pricePerMonth : p.pricePerMonth,
+      };
+    });
+  }
+
   private getAvailability(id: number, address: string): {
     available: boolean;
     availableFrom: string | null;
@@ -171,14 +195,14 @@ export class PropertiesService {
           images,
           wifiSpeed: this.WIFI_SPEEDS[id % this.WIFI_SPEEDS.length],
           available: avail.available || (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()),
-availableFrom: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.availableFrom,
-occupiedSince: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.occupiedSince,
-minStay: avail.minStay,
+          availableFrom: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.availableFrom,
+          occupiedSince: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.occupiedSince,
+          minStay: avail.minStay,
         });
       });
     }
 
-    return properties;
+    return this.applyOverrides(properties);
   }
 
   randomizeAvailability(): { randomized: number } {
