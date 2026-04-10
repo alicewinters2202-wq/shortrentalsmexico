@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+﻿import { Injectable } from '@nestjs/common';
 import * as xlsx from 'xlsx';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -90,8 +90,7 @@ export class PropertiesService {
         ...p,
         available: o.available !== undefined ? o.available : p.available,
         availableFrom: o.availableFrom !== undefined ? o.availableFrom : p.availableFrom,
-       occupiedSince: o.occupiedSince !== undefined ? o.occupiedSince : p.occupiedSince,
-        pricePerMonth: o.pricePerMonth !== undefined ? o.pricePerMonth : p.pricePerMonth,
+               pricePerMonth: o.pricePerMonth !== undefined ? o.pricePerMonth : p.pricePerMonth,
       };
     });
   }
