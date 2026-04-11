@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 
 const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://shortrentalsmexico-backend.onrender.com';
@@ -39,7 +39,7 @@ export default function AdminPage() {
       const res = await fetch(`${BACKEND}/api/admin/properties`, {
         headers: { 'x-admin-password': password },
       });
-      if (!res.ok) { setError('Contraseña incorrecta'); setLoading(false); return; }
+      if (!res.ok) { setError('ContraseÃ±a incorrecta'); setLoading(false); return; }
       const data = await res.json();
       setProperties(data);
       setAuthed(true);
@@ -101,7 +101,7 @@ export default function AdminPage() {
           <h1 className="font-serif text-2xl mb-6" style={{ color: 'var(--ink)' }}>Admin Panel</h1>
           <input
             type="password"
-            placeholder="Contraseña"
+            placeholder="ContraseÃ±a"
             value={password}
             onChange={e => setPassword(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && login()}
@@ -127,7 +127,7 @@ export default function AdminPage() {
 
         <input
           type="text"
-          placeholder="Buscar por ciudad o dirección..."
+          placeholder="Buscar por ciudad o direcciÃ³n..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="w-full px-4 py-3 rounded-xl mb-6 text-sm outline-none"
@@ -149,22 +149,22 @@ export default function AdminPage() {
                     </div>
                     <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>{p.address}</p>
                     <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                      ${(p.pricePerMonth || 0).toLocaleString('es-MX')} MXN/mes ·
-                      {p.available ? ' ✅ Disponible' : ` 🔴 Ocupada${p.occupiedSince ? ` desde ${p.occupiedSince}` : ''} hasta ${p.availableFrom || '?'}`}
+                      ${(p.pricePerMonth || 0).toLocaleString('es-MX')} MXN/mes Â·
+                      {p.available ? ' âœ… Disponible' : ` ðŸ”´ Ocupada${p.occupiedSince ? ` desde ${p.occupiedSince}` : ''} hasta ${p.availableFrom || '?'}`}
                     </p>
                   </div>
 
                   <div className="flex items-center gap-2 flex-wrap">
                     {edit.mode === 'view' && (
                       <>
-                        <button onClick={() => update(p.id, { available: true, availableFrom: null, occupiedSince: null })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
-                          ✅ Disponible
+                        <button onClick={() => update(p.id, { available: true })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
+                          âœ… Disponible
                         </button>
                         <button onClick={() => setEdit(p.id, { mode: 'ocupada' })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-900/40 text-red-400">
-                          🔴 Ocupada
+                          ðŸ”´ Ocupada
                         </button>
                         <button onClick={() => setEdit(p.id, { mode: 'precio' })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-900/40 text-blue-400">
-                          💰 Precio
+                          ðŸ’° Precio
                         </button>
                         {p.override && (
                           <button onClick={() => clear(p.id)} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
