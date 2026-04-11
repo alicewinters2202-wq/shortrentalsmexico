@@ -1,12 +1,11 @@
 ﻿import { Module } from '@nestjs/common';
 import { PropertiesController } from './properties.controller';
 import { PropertiesService } from './properties.service';
-import { AdminModule } from '../admin/admin.module';
+import { AdminService } from '../admin/admin.service';
 
 @Module({
-  imports: [AdminModule],
   controllers: [PropertiesController],
-  providers: [PropertiesService],
+  providers: [PropertiesService, AdminService],
   exports: [PropertiesService],
 })
 export class PropertiesModule {}
