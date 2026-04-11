@@ -149,7 +149,7 @@ export default function AdminPage() {
                     </div>
                     <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>{p.address}</p>
                     <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                      ${p.pricePerMonth.toLocaleString('es-MX')} MXN/mes ·
+                      ${(p.pricePerMonth || 0).toLocaleString('es-MX')} MXN/mes ·
                       {p.available ? ' ✅ Disponible' : ` 🔴 Ocupada${p.occupiedSince ? ` desde ${p.occupiedSince}` : ''} hasta ${p.availableFrom || '?'}`}
                     </p>
                   </div>
