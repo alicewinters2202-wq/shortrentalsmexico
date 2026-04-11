@@ -39,7 +39,7 @@ export default function AdminPage() {
       const res = await fetch(`${BACKEND}/api/admin/properties`, {
         headers: { 'x-admin-password': password },
       });
-      if (!res.ok) { setError('ContraseÃ±a incorrecta'); setLoading(false); return; }
+      if (!res.ok) { setError('Contrasena incorrecta'); setLoading(false); return; }
       const data = await res.json();
       setProperties(data);
       setAuthed(true);
@@ -50,29 +50,42 @@ export default function AdminPage() {
   }
 
   async function reload() {
-    const res = await fetch(`${BACKEND}/api/admin/properties`, { headers: { 'x-admin-password': password } });
-    setProperties(await res.json());
+    try {
+      const res = await fetch(`${BACKEND}/api/admin/properties`, { headers: { 'x-admin-password': password } });
+      setProperties(await res.json());
+    } catch {
+      alert('Error al recargar. El backend puede estar dormido, espera 30 segundos.');
+    }
   }
 
   async function update(id: number, changes: object) {
     setSaving(id);
-    await fetch(`${BACKEND}/api/admin/properties/${id}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
-      body: JSON.stringify(changes),
-    });
-    await reload();
+    try {
+      const res = await fetch(`${BACKEND}/api/admin/properties/${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+        body: JSON.stringify(changes),
+      });
+      if (!res.ok) { alert('Error al guardar: ' + res.status); setSaving(null); return; }
+      await reload();
+    } catch {
+      alert('Error conectando al servidor. El backend puede estar dormido, espera 30 segundos.');
+    }
     setSaving(null);
     setEditing(e => ({ ...e, [id]: { ...e[id], mode: 'view' } }));
   }
 
   async function clear(id: number) {
     setSaving(id);
-    await fetch(`${BACKEND}/api/admin/properties/${id}/clear`, {
-      method: 'POST',
-      headers: { 'x-admin-password': password },
-    });
-    await reload();
+    try {
+      await fetch(`${BACKEND}/api/admin/properties/${id}/clear`, {
+        method: 'POST',
+        headers: { 'x-admin-password': password },
+      });
+      await reload();
+    } catch {
+      alert('Error al resetear.');
+    }
     setSaving(null);
   }
 
@@ -101,7 +114,7 @@ export default function AdminPage() {
           <h1 className="font-serif text-2xl mb-6" style={{ color: 'var(--ink)' }}>Admin Panel</h1>
           <input
             type="password"
-            placeholder="ContraseÃ±a"
+            placeholder="Contrasena"
             value={password}
             onChange={e => setPassword(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && login()}
@@ -127,7 +140,7 @@ export default function AdminPage() {
 
         <input
           type="text"
-          placeholder="Buscar por ciudad o direcciÃ³n..."
+          placeholder="Buscar por ciudad o direccion..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="w-full px-4 py-3 rounded-xl mb-6 text-sm outline-none"
@@ -149,8 +162,8 @@ export default function AdminPage() {
                     </div>
                     <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>{p.address}</p>
                     <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                      ${(p.pricePerMonth || 0).toLocaleString('es-MX')} MXN/mes Â·
-                      {p.available ? ' âœ… Disponible' : ` ðŸ”´ Ocupada${p.occupiedSince ? ` desde ${p.occupiedSince}` : ''} hasta ${p.availableFrom || '?'}`}
+                      ${(p.pricePerMonth || 0).toLocaleString('es-MX')} MXN/mes ·
+                      {p.available ? ' Disponible' : ` Ocupada${p.occupiedSince ? ` desde ${p.occupiedSince}` : ''} hasta ${p.availableFrom || '?'}`}
                     </p>
                   </div>
 
@@ -158,13 +171,13 @@ export default function AdminPage() {
                     {edit.mode === 'view' && (
                       <>
                         <button onClick={() => update(p.id, { available: true })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
-                          âœ… Disponible
+                          {saving === p.id ? '...' : 'Disponible'}
                         </button>
                         <button onClick={() => setEdit(p.id, { mode: 'ocupada' })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-900/40 text-red-400">
-                          ðŸ”´ Ocupada
+                          Ocupada
                         </button>
                         <button onClick={() => setEdit(p.id, { mode: 'precio' })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-900/40 text-blue-400">
-                          ðŸ’° Precio
+                          Precio
                         </button>
                         {p.override && (
                           <button onClick={() => clear(p.id)} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
