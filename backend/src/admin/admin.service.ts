@@ -1,6 +1,10 @@
 ﻿import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
-import * as path from 'path';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.SUPABASE_URL || '',
+  process.env.SUPABASE_KEY || '',
+);
 
 export interface PropertyOverride {
   available?: boolean;
@@ -11,26 +15,33 @@ export interface PropertyOverride {
 
 @Injectable()
 export class AdminService {
-  private readonly overridesPath = path.join(__dirname, '..', '..', 'overrides.json');
 
-  getOverrides(): Record<string, PropertyOverride> {
-    try {
-      if (!fs.existsSync(this.overridesPath)) return {};
-      return JSON.parse(fs.readFileSync(this.overridesPath, 'utf-8'));
-    } catch {
-      return {};
+  async getOverrides(): Promise<Record<string, PropertyOverride>> {
+    const { data } = await supabase.from('overrides').select('*');
+    if (!data) return {};
+    const result: Record<string, PropertyOverride> = {};
+    for (const row of data) {
+      result[String(row.id)] = {
+        available: row.available,
+        availableFrom: row.available_from,
+        occupiedSince: row.occupied_since,
+        pricePerMonth: row.price_per_month,
+      };
     }
+    return result;
   }
 
-  setOverride(id: number, override: PropertyOverride): void {
-    const overrides = this.getOverrides();
-    overrides[String(id)] = { ...overrides[String(id)], ...override };
-    fs.writeFileSync(this.overridesPath, JSON.stringify(overrides, null, 2));
+  async setOverride(id: number, override: PropertyOverride): Promise<void> {
+    await supabase.from('overrides').upsert({
+      id,
+      available: override.available,
+      available_from: override.availableFrom,
+      occupied_since: override.occupiedSince,
+      price_per_month: override.pricePerMonth,
+    });
   }
 
-  clearOverride(id: number): void {
-    const overrides = this.getOverrides();
-    delete overrides[String(id)];
-    fs.writeFileSync(this.overridesPath, JSON.stringify(overrides, null, 2));
+  async clearOverride(id: number): Promise<void> {
+    await supabase.from('overrides').delete().eq('id', id);
   }
 }
