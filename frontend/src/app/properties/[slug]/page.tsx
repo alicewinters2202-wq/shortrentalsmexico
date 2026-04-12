@@ -177,10 +177,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                   </thead>
                   <tbody>
                     {[10, 15, 20, 30].map((n) => {
-                      const weeks       = Math.ceil(n / 7);
-                      const cleaning    = weeks * 500;
+                      const weeks       = Math.ceil(n / 7);                  
                       const rentTotal   = dailyRate * n;
-                      const grandTotal  = rentTotal + cleaning;
+                      const grandTotal  = rentTotal;
                       return (
                         <tr key={n} className="transition-colors" style={{ borderBottom: '1px solid var(--border)' }}>
                           <td className="px-4 py-4" style={{ color: 'var(--ink)' }}>
@@ -219,7 +218,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                 🧹 {t.cleaningFeeNote}
               </p>
-
               
                 <a href={`https://wa.me/525662548748?text=${encodeURIComponent(
                   lang === 'en'
