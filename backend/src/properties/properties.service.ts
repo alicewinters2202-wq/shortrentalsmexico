@@ -72,13 +72,7 @@ export class PropertiesService {
   }
 
   private getOverrides(): Record<string, { available?: boolean; availableFrom?: string | null; occupiedSince?: string | null; pricePerMonth?: number }> {
-    try {
-      const overridesPath = path.join(__dirname, '..', '..', 'overrides.json');
-      if (!fs.existsSync(overridesPath)) return {};
-      return JSON.parse(fs.readFileSync(overridesPath, 'utf-8'));
-    } catch {
-      return {};
-    }
+    return {};
   }
 
   private applyOverrides(properties: PropertyPreview[]): PropertyPreview[] {
