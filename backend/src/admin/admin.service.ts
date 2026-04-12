@@ -32,16 +32,15 @@ export class AdminService {
   }
 
   async setOverride(id: number, override: PropertyOverride): Promise<void> {
-    const row: Record<string, unknown> = { id };
-    if (override.available !== undefined) row.available = override.available;
-    if (override.available === true) {
-      row.available_from = null;
-      row.occupied_since = null;
-    } else {
-      if (override.availableFrom !== undefined) row.available_from = override.availableFrom;
-      if (override.occupiedSince !== undefined) row.occupied_since = override.occupiedSince;
-    }
-    if (override.pricePerMonth !== undefined) row.price_per_month = override.pricePerMonth;
+    const existing = await supabase.from('overrides').select('*').eq('id', id).single();
+    const current = existing.data || {};
+    const row: Record<string, unknown> = {
+      id,
+      available: override.available !== undefined ? override.available : current.available,
+      available_from: override.availableFrom !== undefined ? override.availableFrom : current.available_from,
+      occupied_since: override.occupiedSince !== undefined ? override.occupiedSince : current.occupied_since,
+      price_per_month: override.pricePerMonth !== undefined ? override.pricePerMonth : current.price_per_month,
+    };
     await supabase.from('overrides').upsert(row);
   }
 
