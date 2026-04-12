@@ -27,10 +27,10 @@ export class PropertiesController {
       if (!o) return p;
       return {
         ...p,
-        available: o.available !== undefined ? o.available : p.available,
-        availableFrom: o.availableFrom !== undefined ? o.availableFrom : p.availableFrom,
-        occupiedSince: o.occupiedSince !== undefined ? o.occupiedSince : p.occupiedSince,
-        pricePerMonth: o.pricePerMonth !== undefined ? o.pricePerMonth : p.pricePerMonth,
+        available: (o.available !== undefined && o.available !== null) ? o.available : p.available,
+        availableFrom: (o.availableFrom !== undefined && o.availableFrom !== null) ? o.availableFrom : p.availableFrom,
+        occupiedSince: (o.occupiedSince !== undefined && o.occupiedSince !== null) ? o.occupiedSince : p.occupiedSince,
+        pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.pricePerMonth : p.pricePerMonth,
       };
     });
     return res.json(result);
