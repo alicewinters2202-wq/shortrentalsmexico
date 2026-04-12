@@ -71,7 +71,7 @@ export class PropertiesService {
     return `${citySlug}-${streetSlug}-${id}`;
   }
 
-  private getOverrides(): Record<string, { available?: boolean; availableFrom?: string | null; pricePerMonth?: number }> {
+  private getOverrides(): Record<string, { available?: boolean; availableFrom?: string | null; occupiedSince?: string | null; pricePerMonth?: number }> {
     try {
       const overridesPath = path.join(__dirname, '..', '..', 'overrides.json');
       if (!fs.existsSync(overridesPath)) return {};
@@ -90,7 +90,8 @@ export class PropertiesService {
         ...p,
         available: o.available !== undefined ? o.available : p.available,
         availableFrom: o.availableFrom !== undefined ? o.availableFrom : p.availableFrom,
-               pricePerMonth: o.pricePerMonth !== undefined ? o.pricePerMonth : p.pricePerMonth,
+occupiedSince: o.occupiedSince !== undefined ? o.occupiedSince : p.occupiedSince,
+pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.pricePerMonth : p.pricePerMonth,
       };
     });
   }
@@ -266,4 +267,3 @@ export class PropertiesService {
     return str.split(',').map((a) => a.trim()).filter((a) => a.length > 0);
   }
 }
-
