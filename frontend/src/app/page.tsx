@@ -8,7 +8,6 @@ import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
 import WhyUs from '@/components/home/WhyUs';
-import WhyUs from '@/components/home/WhyUs';;
 
 const CITIES = [
   { name: 'Ciudad de MÃ©xico', label: 'CDMX' },
