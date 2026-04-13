@@ -7,6 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
+import WhyUs from '@/components/home/WhyUs';;
 
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
@@ -241,6 +242,7 @@ const newProps    = pool
         </div>
       </section>
 
+      <WhyUs lang={lang} />
       {/* PRÓXIMOS DESTINOS */}
       <UpcomingDestinations t={t} />
 
