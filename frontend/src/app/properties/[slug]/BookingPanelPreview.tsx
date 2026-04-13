@@ -29,7 +29,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
   const [checkOut, setCheckOut] = useState('');
   const [guests,   setGuests]   = useState(1);
   const [showModal, setShowModal] = useState(false);
-  const [withCleaning, setWithCleaning] = useState(true);
+  const [withCleaning, setWithCleaning] = useState(false);
 
   const nights =
     checkIn && checkOut
