@@ -62,7 +62,8 @@ const newProps    = pool
             <Link href="/agents" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.agentsSectionTitle}
             </Link>
-            <Link href="/why-us" className="text-white/70 hover:text-white text-xs transition-colors">{lang === 'en' ? 'Why us' : 'Por que nosotros'}</Link>`n            <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
+            <Link href="/why-us" className="text-white/70 hover:text-white text-xs transition-colors">{lang === 'en' ? 'Why us' : 'Por que nosotros'}</Link>
+            <Link href="/about"} className="text-white/70 hover:text-white text-xs transition-colors">
               {t.aboutNav}
             </Link>
             <Link href="/requirements" className="text-white/70 hover:text-white text-xs transition-colors">
@@ -242,7 +243,6 @@ const newProps    = pool
         </div>
       </section>
 
-      <WhyUs lang={lang} />
       {/* PRÃ“XIMOS DESTINOS */}
       <UpcomingDestinations t={t} />
 
