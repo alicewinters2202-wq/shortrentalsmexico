@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import SearchBar from '@/components/home/SearchBar';
 import LangToggle from '@/components/layout/LangToggle';
 import ReviewsSection from '@/components/home/ReviewsSection';
@@ -7,18 +7,19 @@ import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
+import WhyUs from '@/components/home/WhyUs';
 import WhyUs from '@/components/home/WhyUs';;
 
 const CITIES = [
-  { name: 'Ciudad de México', label: 'CDMX' },
+  { name: 'Ciudad de MÃ©xico', label: 'CDMX' },
   { name: 'Guadalajara',      label: 'Guadalajara' },
   { name: 'Monterrey',        label: 'Monterrey' },
   { name: 'Santiago',         label: 'Santiago' },
   { name: 'Chapala',          label: 'Chapala' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
   { name: 'San Miguel de Allende', label: 'San Miguel' },
-  { name: 'Mérida',          label: 'Mérida' },
-  { name: 'Cancún',          label: 'Cancún' },
+  { name: 'MÃ©rida',          label: 'MÃ©rida' },
+  { name: 'CancÃºn',          label: 'CancÃºn' },
   { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
   { name: 'Tulum',            label: 'Tulum' },
   { name: 'Playa del Carmen', label: 'Playa del Carmen' },
@@ -56,13 +57,13 @@ const newProps    = pool
         <nav className="relative z-10 flex items-center justify-between px-8 py-6">
           <div className="text-center">
             <p className="text-white text-[10px] tracking-[0.4em] uppercase font-medium opacity-80">ShortStayMX</p>
-            <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-80">México</p>
+            <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-80">MÃ©xico</p>
           </div>
           <div className="flex items-center gap-6">
             <Link href="/agents" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.agentsSectionTitle}
             </Link>
-            <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
+            <Link href="/why-us" className="text-white/70 hover:text-white text-xs transition-colors">{lang === 'en' ? 'Why us' : 'Por que nosotros'}</Link>`n            <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.aboutNav}
             </Link>
             <Link href="/requirements" className="text-white/70 hover:text-white text-xs transition-colors">
@@ -150,7 +151,7 @@ const newProps    = pool
                   <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
-                      {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
+                      {p.city.trim() === 'Ciudad de MÃ©xico' ? 'CDMX' : p.city.trim()}
                     </span>
                     {!p.available && p.availableFrom && (
                       <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-red-600/90 text-white">
@@ -168,21 +169,21 @@ const newProps    = pool
                 </div>
                 <div className="mt-3 px-1">
                   <p className="text-xs" style={{ color: 'var(--muted)' }}>
-                    {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural}
+                    {p.bedrooms} {t.rec} Â· {p.bathrooms} {t.baths} Â· {p.maxGuests} {t.guestsPlural}
                   </p>
                   <div className="flex gap-1 mt-1.5 flex-wrap">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">🛜 {p.wifiSpeed} Mbps</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">ðŸ›œ {p.wifiSpeed} Mbps</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">ðŸ§¹ {t.cleaningFee}</span>
                     {p.petFriendlyNegotiable
-                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾 {t.petFriendlyNeg}</span>
-                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
+                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">ðŸ¾ {t.petFriendlyNeg}</span>
+                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">ðŸ¾</span>
                     }
                   </div>
                   <div className="flex items-baseline gap-2 mt-1.5">
                     <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth + 2000)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
-                  <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$2,000 {t.cleaningFee}</p>
+                  <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>ðŸ§¹ +$2,000 {t.cleaningFee}</p>
                 </div>
               </Link>
             );
@@ -222,7 +223,7 @@ const newProps    = pool
                   <div className="absolute top-3 right-3">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
-                      {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
+                      {p.city.trim() === 'Ciudad de MÃ©xico' ? 'CDMX' : p.city.trim()}
                     </span>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
@@ -243,14 +244,14 @@ const newProps    = pool
       </section>
 
       <WhyUs lang={lang} />
-      {/* PRÓXIMOS DESTINOS */}
+      {/* PRÃ“XIMOS DESTINOS */}
       <UpcomingDestinations t={t} />
 
-      {/* ATENCIÓN ESPECIALIZADA */}
+      {/* ATENCIÃ“N ESPECIALIZADA */}
       <section className="py-16 px-6" style={{ backgroundColor: 'var(--card)' }}>
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
-            {lang === 'en' ? 'Customer service' : 'Atención a cliente'}
+            {lang === 'en' ? 'Customer service' : 'AtenciÃ³n a cliente'}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: 'var(--ink)' }}>
             {lang === 'en' ? 'We help you find your ideal stay' : 'Te ayudamos a encontrar tu estancia ideal'}
@@ -258,7 +259,7 @@ const newProps    = pool
           <p className="text-sm mb-8" style={{ color: 'var(--muted)' }}>
             {lang === 'en'
               ? 'Our team is available to guide you through every step, from choosing the right property to move-in day.'
-              : 'Nuestro equipo está disponible para acompañarte en cada paso, desde elegir la propiedad hasta tu llegada.'}
+              : 'Nuestro equipo estÃ¡ disponible para acompaÃ±arte en cada paso, desde elegir la propiedad hasta tu llegada.'}
           </p>
 
           <div className="inline-flex flex-col items-center gap-4 mb-8">
@@ -294,7 +295,7 @@ const newProps    = pool
         </div>
       </section>
 
-      {/* RESEÑAS + CONTACTO */}
+      {/* RESEÃ‘AS + CONTACTO */}
       <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
@@ -314,7 +315,7 @@ const newProps    = pool
           <div className="text-center sm:text-left">
             <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>ShortStayMX</p>
             <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-              © 2023–{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
+              Â© 2023â€“{new Date().getFullYear()} ShortStayMX S.A. de C.V. Â· {t.footerTagline}
             </p>
           </div>
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
