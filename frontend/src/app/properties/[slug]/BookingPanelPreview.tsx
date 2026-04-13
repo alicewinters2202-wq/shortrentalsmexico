@@ -78,7 +78,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           </span>
           <span className="text-sm ml-1" style={{ color: 'var(--muted)' }}>{t.perDay}</span>
           <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-            ({formatMXN(property.pricePerMonth)} {t.perMonth} · 🧹 {t.cleaningFee})
+            ({formatMXN(property.pricePerMonth)} {t.perMonth})
           </p>
         </div>
 
