@@ -33,6 +33,12 @@ const T = {
         ? 'Costa del Pacífico, playas y vida nocturna vibrante'
         : name === 'San Miguel de Allende'
         ? 'Arte, cultura y arquitectura colonial'
+        : name === 'Nuevo Vallarta'
+        ? 'Riviera Nayarit, playas, marinas y vida de resort'
+        : name === 'Tulum'
+        ? 'Cenotes, selva y el Caribe más místico de México'
+        : name === 'Playa del Carmen'
+        ? 'La Quinta Avenida, playa y vida cosmopolita'
         : 'Orillas del lago, clima único y vida relajada',
     properties: (n: number) => `${n} propiedad${n !== 1 ? 'es' : ''}`,
     // collage & featured
@@ -324,8 +330,6 @@ const T = {
         ? 'Pacific coast, beaches and vibrant nightlife'
         : name === 'San Miguel de Allende'
         ? 'Art, culture and colonial architecture'
-        : name === 'Nuevo Vallarta'
-        ? 'Riviera Nayarit, beaches, marinas and resort living'
         : 'Lakeside living, unique climate and relaxed lifestyle',
     properties: (n: number) => `${n} propert${n !== 1 ? 'ies' : 'y'}`,
     taglineQuote: 'For those who refuse to settle',
