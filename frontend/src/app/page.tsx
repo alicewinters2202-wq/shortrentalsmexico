@@ -7,6 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
+import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
 
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
@@ -242,6 +243,7 @@ export default async function Home() {
         </div>
       </section>
 
+      <NeighborhoodsSection lang={lang} />
       {/* PRÓXIMOS DESTINOS */}
       <UpcomingDestinations t={t} />
 
