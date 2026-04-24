@@ -35,6 +35,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "RealEstateAgent",
+              "name": "ShortStayMX",
+              "url": "https://shortstaymx.com",
+              "logo": "https://shortstaymx.com/logo.png",
+              "description": "Rentas temporales amuebladas en México. Departamentos y casas para estancias de corto y mediano plazo en Ciudad de México, Guadalajara, Monterrey, Cancún, Tulum y más.",
+              "foundingDate": "2021",
+              "numberOfEmployees": { "@type": "QuantitativeValue", "value": 40 },
+              "areaServed": "México",
+              "telephone": "+52-55-6378-3517",
+              "email": "shortstaymx2021@gmail.com",
+              "sameAs": ["https://shortstaymx.com"],
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "MX"
+              }
+            })
+          }}
+        />
         {children}
       </body>
     </html>
