@@ -45,6 +45,39 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
   return (
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Apartment",
+            "name": `${street}, ${property.city}`,
+            "description": `Departamento amueblado de ${property.bedrooms} recámaras y ${property.bathrooms} baños en ${neighborhood}, ${property.city}. ${property.sqMeters} m². WiFi ${property.wifiSpeed} Mbps incluido.`,
+            "url": `https://shortstaymx.com/properties/${property.slug}`,
+            "image": property.images[0] ? `https://shortrentalsmexico-backend.onrender.com${property.images[0]}` : undefined,
+            "numberOfRooms": property.bedrooms,
+            "floorSize": { "@type": "QuantitativeValue", "value": property.sqMeters, "unitCode": "MTK" },
+            "petsAllowed": property.petFriendly,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": property.address,
+              "addressLocality": property.city,
+              "addressCountry": "MX"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": property.pricePerMonth,
+              "priceCurrency": "MXN",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": property.pricePerMonth,
+                "priceCurrency": "MXN",
+                "unitText": "MONTH"
+              }
+            }
+          })
+        }}
+      />
       <nav
         className="sticky top-0 z-40 backdrop-blur-md"
         style={{ backgroundColor: 'rgba(28,28,30,0.9)', borderBottom: '1px solid var(--border)' }}
