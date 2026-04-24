@@ -97,6 +97,15 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
         <ImageGallery images={property.images} address={street} />
 
+      {/* DESCRIPCIÓN AUTOMÁTICA */}
+<div className="mb-8">
+  <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
+    {lang === 'en'
+      ? `This fully furnished ${property.bedrooms}-bedroom, ${property.bathrooms}-bathroom apartment is located in ${neighborhood}, ${property.city}. With ${property.sqMeters} m² of living space${property.balcony ? ', a private balcony' : ''}${property.parkingSpots > 0 ? ` and ${property.parkingSpots} parking spot${property.parkingSpots > 1 ? 's' : ''}` : ''}, it accommodates up to ${property.maxGuests} guests. ${property.petFriendly ? 'Pets are welcome. ' : ''}${property.amenities.length > 0 ? `Amenities include ${property.amenities.join(', ')}.` : ''} High-speed WiFi of ${property.wifiSpeed} Mbps included. Available for short and mid-term rentals starting at ${Math.round(property.pricePerMonth).toLocaleString('en-US')} MXN per month.`
+      : `Departamento amueblado de ${property.bedrooms} recámaras y ${property.bathrooms} baños ubicado en ${neighborhood}, ${property.city}. Con ${property.sqMeters} m² de superficie${property.balcony ? ', balcón privado' : ''}${property.parkingSpots > 0 ? ` y ${property.parkingSpots} lugar${property.parkingSpots > 1 ? 'es' : ''} de estacionamiento` : ''}, con capacidad para hasta ${property.maxGuests} huéspedes. ${property.petFriendly ? 'Se aceptan mascotas. ' : ''}${property.amenities.length > 0 ? `Cuenta con ${property.amenities.join(', ')}.` : ''} WiFi de alta velocidad de ${property.wifiSpeed} Mbps incluido. Disponible para renta temporal desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN al mes.`
+    }
+  </p>
+</div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-8">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
