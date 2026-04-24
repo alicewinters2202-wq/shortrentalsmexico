@@ -12,7 +12,7 @@ export default async function HipodromoPage() {
   const { lang } = await getT();
   const properties = await fetchPreview();
   const colonia = properties.filter(p =>
-    p.city === "Ciudad de Mexico" &&
+    p.city === "Ciudad de México" &&
     (p.address.toLowerCase().includes("hipodromo") ||
      p.address.toLowerCase().includes("chicontepec") ||
      p.address.toLowerCase().includes("culiacan") ||
@@ -83,3 +83,4 @@ export default async function HipodromoPage() {
     </div>
   );
 }
+

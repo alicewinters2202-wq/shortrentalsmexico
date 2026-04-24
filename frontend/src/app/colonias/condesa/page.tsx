@@ -12,7 +12,7 @@ export default async function CondesaPage() {
   const { lang } = await getT();
   const properties = await fetchPreview();
   const colonia = properties.filter(p =>
-    p.city === "Ciudad de Mexico" &&
+    p.city === "Ciudad de México" &&
     (p.address.toLowerCase().includes("condesa") ||
      p.address.toLowerCase().includes("tlaxcala") ||
      p.address.toLowerCase().includes("juan de la barrera") ||
@@ -84,3 +84,4 @@ export default async function CondesaPage() {
     </div>
   );
 }
+

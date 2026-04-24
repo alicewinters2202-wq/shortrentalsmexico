@@ -12,7 +12,7 @@ export default async function JuarezPage() {
   const { lang } = await getT();
   const properties = await fetchPreview();
   const colonia = properties.filter(p =>
-    p.city === "Ciudad de Mexico" &&
+    p.city === "Ciudad de México" &&
     (p.address.toLowerCase().includes("juarez") ||
      p.address.toLowerCase().includes("reforma") ||
      p.address.toLowerCase().includes("hamburgo") ||
@@ -85,3 +85,4 @@ export default async function JuarezPage() {
     </div>
   );
 }
+

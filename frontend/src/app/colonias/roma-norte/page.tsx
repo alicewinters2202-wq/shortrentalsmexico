@@ -12,7 +12,7 @@ export default async function RomaNortePage() {
   const { lang } = await getT();
   const properties = await fetchPreview();
   const colonia = properties.filter(p =>
-    p.city === "Ciudad de Mexico" &&
+    p.city === "Ciudad de México" &&
     (p.address.toLowerCase().includes("roma") ||
      p.address.toLowerCase().includes("cordoba") ||
      p.address.toLowerCase().includes("queretaro") ||
@@ -87,3 +87,4 @@ export default async function RomaNortePage() {
     </div>
   );
 }
+
