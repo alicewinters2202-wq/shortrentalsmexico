@@ -3,7 +3,7 @@
 export default function WhatsAppButton() {
   return (
     <Link
-      href="https://wa.me/525662548748"
+      href="https://wa.me/5215662548748"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-110"
@@ -16,3 +16,4 @@ export default function WhatsAppButton() {
     </Link>
   );
 }
+
