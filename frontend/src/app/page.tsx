@@ -11,6 +11,15 @@ import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
 
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
+  { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
+  { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
+  { name: 'Cancún',          label: 'Cancún' },
+  { name: 'Tulum',            label: 'Tulum' },
+  { name: 'Playa del Carmen', label: 'Playa del Carmen' },
+];
+
+const ALL_CITIES = [
+  { name: 'Ciudad de México', label: 'CDMX' },
   { name: 'Guadalajara',      label: 'Guadalajara' },
   { name: 'Monterrey',        label: 'Monterrey' },
   { name: 'Santiago',         label: 'Santiago' },
@@ -120,6 +129,38 @@ export default async function Home() {
         </div>
       </section>
 
+         {/* TODOS LOS DESTINOS */}
+      <section style={{ backgroundColor: 'var(--card)' }} className="px-6 py-20 max-w-7xl mx-auto">
+        <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>
+          {lang === 'en' ? 'All destinations' : 'Todos los destinos'}
+        </h2>
+        <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>
+          {lang === 'en' ? 'Explore all cities where we operate' : 'Explora todas las ciudades donde operamos'}
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {ALL_CITIES.map((c) => {
+            const cityProps = properties.filter((p) => p.city.trim() === c.name);
+            const coverImg  = cityProps.find((p) => p.images.length > 0);
+            const count     = cityProps.length;
+            return (
+              <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
+                className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
+                {coverImg ? (
+                  <img src={imageUrl(coverImg.images[0])} alt={c.label}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600" />
+                )}
+                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <p className="text-white font-serif text-xl font-medium">{c.label}</p>
+                  <p className="text-white/50 text-xs mt-1">{t.properties(count)}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
       {/* TAGLINE */}
       <section className="py-20 px-6" style={{ backgroundColor: 'var(--card)' }}>
         <div className="max-w-4xl mx-auto">
