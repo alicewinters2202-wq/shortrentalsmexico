@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import './globals.css';
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
