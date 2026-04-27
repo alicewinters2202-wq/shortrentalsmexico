@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import './globals.css';
@@ -16,19 +16,33 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'ShortStayMX – Rentas temporales amuebladas en México',
+  title: 'ShortStayMX — Rentas temporales amuebladas en México',
   description: 'Casas y departamentos amueblados para renta temporal en Ciudad de México, Guadalajara, Monterrey, Cancún, Mérida y más. Estancias desde 10 días hasta varios meses.',
-  keywords: 'renta temporal amueblada México, apartamento amueblado CDMX, short term rental Mexico, renta por mes Guadalajara, departamento amueblado Monterrey',
+  keywords: 'renta temporal amueblada México, apartamento amueblado CDMX, short term rental Mexico, renta por mes Guadalajara, departamento amueblado Monterrey, furnished apartment Mexico City',
   verification: {
     google: 'JnnIwW92LhU3lWITqLKo880L30T9mZ6-07cI1c2N6Tk',
   },
   openGraph: {
-    title: 'ShortStayMX – Rentas temporales amuebladas en México',
-    description: 'Casas y departamentos amueblados para renta temporal en las mejores ciudades de México.',
+    title: 'ShortStayMX — Rentas temporales amuebladas en México',
+    description: 'Departamentos y casas amuebladas para renta temporal en las mejores ciudades de México. Desde 10 días hasta varios meses.',
     url: 'https://shortstaymx.com',
     siteName: 'ShortStayMX',
     locale: 'es_MX',
     type: 'website',
+    images: [
+      {
+        url: 'https://shortstaymx.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ShortStayMX — Rentas temporales amuebladas en México',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ShortStayMX — Rentas temporales amuebladas en México',
+    description: 'Departamentos y casas amuebladas para renta temporal en las mejores ciudades de México.',
+    images: ['https://shortstaymx.com/og-image.jpg'],
   },
 };
 
