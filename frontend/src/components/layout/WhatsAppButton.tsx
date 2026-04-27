@@ -1,15 +1,13 @@
 ﻿'use client';
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function WhatsAppButton() {
   const pathname = usePathname();
-  const isEn = pathname?.includes('/en') || 
-    (typeof document !== 'undefined' && document.cookie.includes('lang=en'));
-  
+  const isEn = pathname?.includes('/en');
+
   const message = isEn
     ? "Hi, I saw your website and I would like information about your available properties."
-    : "Hola, vi su página y quisiera información sobre sus propiedades disponibles.";
+    : "Hola, vi su pagina y quisiera informacion sobre sus propiedades disponibles.";
 
   const url = `https://wa.me/5215662548748?text=${encodeURIComponent(message)}`;
 
