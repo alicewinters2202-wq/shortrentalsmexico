@@ -5,7 +5,7 @@ import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Furnished rentals in Flamingos, Nuevo Vallarta | ShortStayMX",
-  description: "Furnished apartments in Flamingos, Nuevo Vallarta. Beachfront living with luxury amenities in the Riviera Nayarit.",
+  description: "Furnished apartments in Flamingos, Nuevo Vallarta. Beachfront living with Grand Marina, world-class golf course and luxury condominiums on the Mexican Pacific.",
 };
 
 export default async function FlamingosPage() {
@@ -28,53 +28,32 @@ export default async function FlamingosPage() {
     <div style={{ backgroundColor: "var(--cream)", minHeight: "100vh" }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: "rgba(28,28,30,0.9)", borderBottom: "1px solid var(--border)" }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
+          <Link href="/colonias" className="text-sm transition-colors hover:opacity-80" style={{ color: "var(--muted)" }}>← Colonias</Link>
+          <span style={{ color: "var(--border)" }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: "var(--ink)" }}>ShortStayMX</Link>
           <div className="ml-auto"><LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" /></div>
         </div>
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>
-            {es ? "Nuevo Vallarta" : "Nuevo Vallarta"}
-          </p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Nuevo Vallarta</p>
           <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Flamingos</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "Flamingos es la zona mas exclusiva de Nuevo Vallarta, en la Riviera Nayarit. Con acceso directo a la playa, marinas de lujo, campos de golf y complejos residenciales de primer nivel frente al Oceano Pacifico."
-              : "Flamingos is the most exclusive area of Nuevo Vallarta, on the Riviera Nayarit. With direct beach access, luxury marinas, golf courses and top-tier residential complexes facing the Pacific Ocean."}
+            {es ? "Flamingos es la zona mas exclusiva de Nuevo Vallarta y una de las mas premium de toda la Riviera Nayarit. Con condominios de lujo frente al Oceano Pacifico, la Grand Marina con acceso directo al agua para yates, el campo de golf Flamingos de clase mundial y resorts de cinco estrellas, es el destino preferido por quienes buscan lo mejor del Pacifico mexicano." : "Flamingos is the most exclusive area of Nuevo Vallarta and one of the most premium on the entire Riviera Nayarit. With luxury condominiums facing the Pacific Ocean, the Grand Marina with direct water access for yachts, the world-class Flamingos golf course and five-star resorts, it is the preferred destination for those seeking the best of the Mexican Pacific."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "Sus condominios de lujo cuentan con albercas infinity, gimnasios, roof gardens y acceso a la marina. A solo 20 minutos del aeropuerto de Puerto Vallarta y con toda la infraestructura turistica de la Riviera Nayarit."
-              : "Its luxury condominiums feature infinity pools, gyms, roof gardens and marina access. Just 20 minutes from Puerto Vallarta airport and with all the tourist infrastructure of the Riviera Nayarit."}
+            {es ? "Sus torres residenciales ofrecen vistas panoramicas al Oceano Pacifico con albercas infinitas, gimnasios equipados, roof gardens y acceso directo a la playa. A solo 20 minutos del aeropuerto internacional de Puerto Vallarta, Flamingos combina la exclusividad de un resort de lujo con la comodidad de tener todo en tu zona." : "Its residential towers offer panoramic views of the Pacific Ocean with infinity pools, equipped gyms, roof gardens and direct beach access. Just 20 minutes from Puerto Vallarta international airport, Flamingos combines the exclusivity of a luxury resort with the convenience of having everything in your area."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es
-              ? "Expatriados, jubilados y profesionales que buscan vida frente al mar con amenidades de lujo."
-              : "Expats, retirees and professionals seeking beachfront living with luxury amenities."}
+            {es ? "Expatriados, jubilados y profesionales que buscan vida frente al Pacifico con amenidades de lujo y exclusividad en la Riviera Nayarit." : "Expats, retirees and professionals seeking Pacific beachfront living with luxury amenities and exclusivity in the Riviera Nayarit."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            {
-              icon: "🏖️",
-              title_es: "Frente al mar", title_en: "Beachfront",
-              desc_es: "Acceso directo a las playas del Pacifico mexicano",
-              desc_en: "Direct access to the beaches of the Mexican Pacific"
-            },
-            {
-              icon: "⛵",
-              title_es: "Marina de lujo", title_en: "Luxury marina",
-              desc_es: "Grand Marina Villas con acceso directo al agua",
-              desc_en: "Grand Marina Villas with direct water access"
-            },
-            {
-              icon: "⛳",
-              title_es: "Campo de golf", title_en: "Golf course",
-              desc_es: "Campo de golf Flamingos de clase mundial a pasos",
-              desc_en: "World-class Flamingos golf course steps away"
-            },
+            { icon: "🏖️", title_es: "Frente al Pacifico", title_en: "Pacific beachfront", desc_es: "Acceso directo a las playas del Pacifico mexicano con aguas tranquilas perfectas para nadar", desc_en: "Direct access to the beaches of the Mexican Pacific with calm waters perfect for swimming" },
+            { icon: "⛵", title_es: "Grand Marina", title_en: "Grand Marina", desc_es: "Marina de clase mundial con capacidad para yates de gran eslora y acceso directo al agua", desc_en: "World-class marina with capacity for large yachts and direct water access" },
+            { icon: "⛳", title_es: "Campo de golf", title_en: "Golf course", desc_es: "Campo de golf Flamingos de clase mundial a pasos de los condominios residenciales", desc_en: "World-class Flamingos golf course steps away from the residential condominiums" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -83,9 +62,7 @@ export default async function FlamingosPage() {
             </div>
           ))}
         </div>
-        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>
-          {es ? "Propiedades en Flamingos" : "Properties in Flamingos"}
-        </h2>
+        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>{es ? "Propiedades en Flamingos" : "Properties in Flamingos"}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {colonia.length === 0 ? (
             <p style={{ color: "var(--muted)" }}>{es ? "No hay propiedades disponibles actualmente." : "No properties available at the moment."}</p>
@@ -101,11 +78,12 @@ export default async function FlamingosPage() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-xs" style={{ color: "var(--muted)" }}>
-                    {p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}
-                  </p>
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>{p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}</p>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ noche" : "/ night"}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>·</span>
+                    <span className="text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ mes" : "/ month"}</span>
                   </div>
                 </div>
@@ -113,8 +91,13 @@ export default async function FlamingosPage() {
             );
           })}
         </div>
+        <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Nuevo Vallarta?" : "Want to know more about living in Nuevo Vallarta?"}</p>
+          <Link href="/blog/vivir-en-nuevo-vallarta" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
+            {es ? "Lee nuestra guia completa de Nuevo Vallarta →" : "Read our complete guide to Nuevo Vallarta →"}
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-

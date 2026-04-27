@@ -5,7 +5,7 @@ import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Furnished rentals in Playacar, Playa del Carmen | ShortStayMX",
-  description: "Furnished apartments in Playacar, Playa del Carmen. Gated community living steps from the beach and Fifth Avenue.",
+  description: "Furnished apartments in Playacar, Playa del Carmen. Private gated community steps from Fifth Avenue and the Caribbean beach with golf course access.",
 };
 
 export default async function PlayacarPage() {
@@ -36,22 +36,21 @@ export default async function PlayacarPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Playa del Carmen</p>
           <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Playacar</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "Playacar es el fraccionamiento privado mas exclusivo de Playa del Carmen. Ubicado junto a la Quinta Avenida y la playa, ofrece casas y condominios de lujo en un entorno seguro y tranquilo, con campo de golf y acceso directo al mar."
-              : "Playacar is the most exclusive private development in Playa del Carmen. Located next to Fifth Avenue and the beach, it offers luxury homes and condominiums in a safe and tranquil setting, with a golf course and direct sea access."}
+            {es ? "Playacar es el fraccionamiento privado mas exclusivo de Playa del Carmen y uno de los mas reconocidos de toda la Riviera Maya. Ubicado en una ubicacion privilegiada junto a la famosa Quinta Avenida y con acceso directo al mar Caribe, ofrece casas y condominios de lujo en un entorno privado y seguro, con campo de golf de 18 hoyos y acceso controlado las 24 horas." : "Playacar is the most exclusive private development in Playa del Carmen and one of the most recognized in the entire Riviera Maya. Located in a privileged location next to the famous Fifth Avenue and with direct access to the Caribbean Sea, it offers luxury homes and condominiums in a private and secure setting, with an 18-hole golf course and 24-hour controlled access."}
+          </p>
+          <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
+            {es ? "La ubicacion de Playacar es imbatible: puedes caminar a la Quinta Avenida con sus cientos de restaurantes, tiendas y entretenimiento, al mismo tiempo que disfrutas de la tranquilidad y privacidad de un fraccionamiento residencial exclusivo. Las playas de arena blanca del Caribe estan literalmente a pasos." : "Playacar's location is unbeatable: you can walk to Fifth Avenue with its hundreds of restaurants, shops and entertainment, while enjoying the tranquility and privacy of an exclusive residential development. The white sand beaches of the Caribbean are literally steps away."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es
-              ? "Expatriados, jubilados y familias que buscan seguridad, playa y acceso a la vibrante vida de Playa del Carmen."
-              : "Expats, retirees and families seeking security, beach access and the vibrant life of Playa del Carmen."}
+            {es ? "Expatriados, jubilados y familias que buscan seguridad, playa privada y acceso a la vibrante vida de Playa del Carmen." : "Expats, retirees and families seeking security, private beach access and the vibrant life of Playa del Carmen."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🏖️", title_es: "Playa privada", title_en: "Private beach", desc_es: "Acceso directo a las playas de arena blanca del Caribe", desc_en: "Direct access to the white sand beaches of the Caribbean" },
-            { icon: "🚶", title_es: "Quinta Avenida", title_en: "Fifth Avenue", desc_es: "La calle mas famosa de Playa del Carmen a pasos caminando", desc_en: "The most famous street in Playa del Carmen steps away on foot" },
-            { icon: "🔒", title_es: "Fraccionamiento privado", title_en: "Private development", desc_es: "Seguridad 24/7 y acceso controlado en un entorno exclusivo", desc_en: "24/7 security and controlled access in an exclusive setting" },
+            { icon: "🏖️", title_es: "Playa privada Caribe", title_en: "Private Caribbean beach", desc_es: "Acceso directo a las playas de arena blanca y aguas turquesas del Mar Caribe", desc_en: "Direct access to the white sand beaches and turquoise waters of the Caribbean Sea" },
+            { icon: "🚶", title_es: "Quinta Avenida", title_en: "Fifth Avenue", desc_es: "La calle mas famosa de Playa del Carmen a distancia caminable con restaurantes y vida nocturna", desc_en: "The most famous street in Playa del Carmen within walking distance with restaurants and nightlife" },
+            { icon: "🔒", title_es: "Fraccionamiento privado", title_en: "Private development", desc_es: "Seguridad armada 24/7, acceso controlado y campo de golf de 18 hoyos dentro del desarrollo", desc_en: "Armed security 24/7, controlled access and 18-hole golf course within the development" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -60,9 +59,7 @@ export default async function PlayacarPage() {
             </div>
           ))}
         </div>
-        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>
-          {es ? "Propiedades en Playacar" : "Properties in Playacar"}
-        </h2>
+        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>{es ? "Propiedades en Playacar" : "Properties in Playacar"}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {colonia.length === 0 ? (
             <p style={{ color: "var(--muted)" }}>{es ? "No hay propiedades disponibles actualmente." : "No properties available at the moment."}</p>
@@ -78,11 +75,12 @@ export default async function PlayacarPage() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-xs" style={{ color: "var(--muted)" }}>
-                    {p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}
-                  </p>
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>{p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}</p>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ noche" : "/ night"}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>·</span>
+                    <span className="text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ mes" : "/ month"}</span>
                   </div>
                 </div>

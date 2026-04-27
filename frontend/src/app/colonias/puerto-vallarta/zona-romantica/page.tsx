@@ -5,7 +5,7 @@ import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Furnished rentals in Zona Romantica, Puerto Vallarta | ShortStayMX",
-  description: "Furnished apartments in Zona Romantica, Puerto Vallarta. The bohemian heart of Puerto Vallarta with cafes, galleries and beach.",
+  description: "Furnished apartments in Zona Romantica, Puerto Vallarta. Cobblestone streets, art galleries, Playa los Muertos and the best restaurants in the most beloved neighborhood.",
 };
 
 export default async function ZonaRomanticaPage() {
@@ -27,53 +27,32 @@ export default async function ZonaRomanticaPage() {
     <div style={{ backgroundColor: "var(--cream)", minHeight: "100vh" }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: "rgba(28,28,30,0.9)", borderBottom: "1px solid var(--border)" }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
+          <Link href="/colonias" className="text-sm transition-colors hover:opacity-80" style={{ color: "var(--muted)" }}>← Colonias</Link>
+          <span style={{ color: "var(--border)" }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: "var(--ink)" }}>ShortStayMX</Link>
           <div className="ml-auto"><LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" /></div>
         </div>
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>
-            {es ? "Puerto Vallarta" : "Puerto Vallarta"}
-          </p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Puerto Vallarta</p>
           <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Zona Romántica</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "La Zona Romantica es el corazon bohemio y cultural de Puerto Vallarta. Con sus calles empedradas, galerías de arte, restaurantes creativos, cafes y una vibrante comunidad internacional, es el barrio mas querido de la ciudad."
-              : "The Romantic Zone is the bohemian and cultural heart of Puerto Vallarta. With its cobblestone streets, art galleries, creative restaurants, cafes and a vibrant international community, it is the most beloved neighborhood in the city."}
+            {es ? "La Zona Romantica es el corazon bohemio, cultural y autentico de Puerto Vallarta. Con sus calles empedradas del siglo XIX, galerias de arte — PV tiene la concentracion de galerias de arte mas alta de Mexico por habitante —, algunos de los mejores restaurantes de la ciudad, la famosa Playa los Muertos y el icónico Muelle de los Muertos, es el barrio mas querido y con mas caracter de toda la ciudad." : "The Romantic Zone is the bohemian, cultural and authentic heart of Puerto Vallarta. With its 19th century cobblestone streets, art galleries — PV has the highest concentration of art galleries per capita in Mexico —, some of the city's best restaurants, the famous Playa los Muertos and the iconic Muelle de los Muertos, it is the most beloved and characterful neighborhood in the entire city."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "La zona cuenta con playas como Playa los Muertos, el muelle de los Muertos, decenas de restaurantes premiados y una vida nocturna muy activa. Es el lugar mas autentico y con mas caracter de Puerto Vallarta."
-              : "The area features beaches like Playa los Muertos, the Muertos pier, dozens of award-winning restaurants and a very active nightlife. It is the most authentic and characterful place in Puerto Vallarta."}
+            {es ? "La Zona Romantica tiene una de las comunidades de expatriados mas establecidas de Puerto Vallarta, con grupos sociales, restaurantes de todas las cocinas del mundo, bares con musica en vivo y eventos culturales frecuentes. Es el lugar donde verdaderamente se siente el alma de Puerto Vallarta." : "The Romantic Zone has one of Puerto Vallarta's most established expat communities, with social groups, restaurants from all world cuisines, bars with live music and frequent cultural events. It is the place where you truly feel the soul of Puerto Vallarta."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es
-              ? "Artistas, expatriados, nomadas digitales y viajeros de largo plazo que buscan autenticidad y vida cultural."
-              : "Artists, expats, digital nomads and long-term travelers seeking authenticity and cultural life."}
+            {es ? "Artistas, expatriados, nomadas digitales y viajeros de largo plazo que buscan autenticidad, vida cultural y el corazon bohemio de Puerto Vallarta." : "Artists, expats, digital nomads and long-term travelers seeking authenticity, cultural life and the bohemian heart of Puerto Vallarta."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            {
-              icon: "🎨",
-              title_es: "Arte y cultura", title_en: "Art and culture",
-              desc_es: "Galerias, musica en vivo y una comunidad artistica internacional",
-              desc_en: "Galleries, live music and an international artistic community"
-            },
-            {
-              icon: "🏖️",
-              title_es: "Playa los Muertos", title_en: "Playa los Muertos",
-              desc_es: "La playa mas popular de Puerto Vallarta a pasos",
-              desc_en: "Puerto Vallarta's most popular beach steps away"
-            },
-            {
-              icon: "🍽️",
-              title_es: "Mejor gastronomia", title_en: "Best gastronomy",
-              desc_es: "Los restaurantes mas premiados de Puerto Vallarta en la zona",
-              desc_en: "Puerto Vallarta's most award-winning restaurants in the area"
-            },
+            { icon: "🎨", title_es: "Arte y cultura", title_en: "Art and culture", desc_es: "La mayor concentracion de galerias de arte de Mexico por habitante con eventos culturales continuos", desc_en: "The highest concentration of art galleries per capita in Mexico with continuous cultural events" },
+            { icon: "🏖️", title_es: "Playa los Muertos", title_en: "Playa los Muertos", desc_es: "La playa mas popular y animada de Puerto Vallarta con el Muelle de los Muertos a pasos", desc_en: "Puerto Vallarta's most popular and lively beach with the Muelle de los Muertos steps away" },
+            { icon: "🍽️", title_es: "Mejor gastronomia", title_en: "Best gastronomy", desc_es: "Los restaurantes mas premiados e internacionalmente reconocidos de Puerto Vallarta en la zona", desc_en: "Puerto Vallarta's most award-winning and internationally recognized restaurants in the area" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -82,9 +61,7 @@ export default async function ZonaRomanticaPage() {
             </div>
           ))}
         </div>
-        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>
-          {es ? "Propiedades en Zona Romántica" : "Properties in Romantic Zone"}
-        </h2>
+        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>{es ? "Propiedades en Zona Romántica" : "Properties in Romantic Zone"}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {colonia.length === 0 ? (
             <p style={{ color: "var(--muted)" }}>{es ? "No hay propiedades disponibles actualmente." : "No properties available at the moment."}</p>
@@ -100,11 +77,12 @@ export default async function ZonaRomanticaPage() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-xs" style={{ color: "var(--muted)" }}>
-                    {p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}
-                  </p>
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>{p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}</p>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ noche" : "/ night"}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>·</span>
+                    <span className="text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ mes" : "/ month"}</span>
                   </div>
                 </div>
@@ -112,8 +90,13 @@ export default async function ZonaRomanticaPage() {
             );
           })}
         </div>
+        <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Puerto Vallarta?" : "Want to know more about living in Puerto Vallarta?"}</p>
+          <Link href="/blog/vivir-en-puerto-vallarta" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
+            {es ? "Lee nuestra guia completa de Puerto Vallarta →" : "Read our complete guide to Puerto Vallarta →"}
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-

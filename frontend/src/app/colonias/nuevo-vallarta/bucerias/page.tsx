@@ -5,7 +5,7 @@ import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Furnished rentals in Bucerias, Nuevo Vallarta | ShortStayMX",
-  description: "Furnished apartments in Bucerias and Cruz de Huanacaxtle, Riviera Nayarit. Authentic beach town living near Puerto Vallarta.",
+  description: "Furnished apartments in Bucerias and Cruz de Huanacaxtle, Riviera Nayarit. Authentic coastal towns with calm beaches, local restaurants and a strong expat community.",
 };
 
 export default async function BuceriasPage() {
@@ -32,53 +32,32 @@ export default async function BuceriasPage() {
     <div style={{ backgroundColor: "var(--cream)", minHeight: "100vh" }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: "rgba(28,28,30,0.9)", borderBottom: "1px solid var(--border)" }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
+          <Link href="/colonias" className="text-sm transition-colors hover:opacity-80" style={{ color: "var(--muted)" }}>← Colonias</Link>
+          <span style={{ color: "var(--border)" }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: "var(--ink)" }}>ShortStayMX</Link>
           <div className="ml-auto"><LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" /></div>
         </div>
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>
-            {es ? "Nuevo Vallarta" : "Nuevo Vallarta"}
-          </p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Nuevo Vallarta</p>
           <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Bucerías</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "Bucerías y Cruz de Huanacaxtle son pueblos costeros autenticos de la Riviera Nayarit, a pocos kilometros de Nuevo Vallarta. Con playas tranquilas, restaurantes locales y un ambiente relajado, son el escape perfecto del turismo masivo."
-              : "Bucerias and Cruz de Huanacaxtle are authentic coastal towns of the Riviera Nayarit, just a few kilometers from Nuevo Vallarta. With calm beaches, local restaurants and a relaxed atmosphere, they are the perfect escape from mass tourism."}
+            {es ? "Bucerias y Cruz de Huanacaxtle son pueblos costeros autenticos de la Riviera Nayarit, a 10-15 kilometros de Nuevo Vallarta. Con sus malecones locales, playas de aguas tranquilas perfectas para nadar, restaurantes marisqueros con vista al mar, y una comunidad de expatriados muy activa y consolidada que lleva decadas viviendo aqui, ofrecen una experiencia de vida de playa autentica y tranquila." : "Bucerias and Cruz de Huanacaxtle are authentic coastal towns of the Riviera Nayarit, 10-15 kilometers from Nuevo Vallarta. With their local malecóns, calm water beaches perfect for swimming, seafood restaurants with sea views, and a very active and established expat community that has been living here for decades, they offer an authentic and peaceful beach living experience."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "La zona ha experimentado un gran crecimiento con nuevos desarrollos residenciales modernos que combinan lo mejor de la vida en pueblo con amenidades de lujo. A 25 minutos del aeropuerto de Puerto Vallarta."
-              : "The area has experienced great growth with new modern residential developments that combine the best of village life with luxury amenities. 25 minutes from Puerto Vallarta airport."}
+            {es ? "La zona ha experimentado un gran crecimiento en los ultimos anos, con nuevos desarrollos residenciales modernos de lujo que combinan lo mejor de la vida en pueblo — autenticidad, tranquilidad, precios accesibles — con amenidades modernas completas. Una alternativa excelente a los precios mas elevados de Flamingos o Puerto Vallarta." : "The area has experienced great growth in recent years, with new modern luxury residential developments that combine the best of town life — authenticity, tranquility, accessible prices — with complete modern amenities. An excellent alternative to the higher prices of Flamingos or Puerto Vallarta."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es
-              ? "Expatriados, nomadas digitales y jubilados que buscan vida autentica de playa a precio accesible."
-              : "Expats, digital nomads and retirees seeking authentic beach life at accessible prices."}
+            {es ? "Expatriados, nomadas digitales y jubilados que buscan vida autentica de playa en un pueblo costero a precio mas accesible." : "Expats, digital nomads and retirees seeking authentic beach life in a coastal town at more accessible prices."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            {
-              icon: "🌊",
-              title_es: "Playas tranquilas", title_en: "Calm beaches",
-              desc_es: "Playas poco concurridas con aguas tranquilas del Pacifico",
-              desc_en: "Uncrowded beaches with calm Pacific waters"
-            },
-            {
-              icon: "🏘️",
-              title_es: "Ambiente autentico", title_en: "Authentic atmosphere",
-              desc_es: "Pueblo costero con restaurantes locales y vida tranquila",
-              desc_en: "Coastal town with local restaurants and peaceful life"
-            },
-            {
-              icon: "💰",
-              title_es: "Mejor precio", title_en: "Better prices",
-              desc_es: "Propiedades de lujo a precios mas accesibles que la zona hotelera",
-              desc_en: "Luxury properties at more accessible prices than the hotel zone"
-            },
+            { icon: "🌊", title_es: "Playas tranquilas", title_en: "Calm beaches", desc_es: "Playas poco concurridas con aguas tranquilas del Pacifico perfectas para nadar y relajarse", desc_en: "Uncrowded beaches with calm Pacific waters perfect for swimming and relaxing" },
+            { icon: "🏘️", title_es: "Ambiente autentico", title_en: "Authentic atmosphere", desc_es: "Pueblo costero autentico con malecon local, restaurantes marisqueros y vida tranquila de barrio", desc_en: "Authentic coastal town with local malecón, seafood restaurants and peaceful neighborhood life" },
+            { icon: "💰", title_es: "Mejor precio", title_en: "Better prices", desc_es: "Propiedades de lujo modernas a precios significativamente mas accesibles que Flamingos o Puerto Vallarta", desc_en: "Modern luxury properties at significantly more accessible prices than Flamingos or Puerto Vallarta" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -87,9 +66,7 @@ export default async function BuceriasPage() {
             </div>
           ))}
         </div>
-        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>
-          {es ? "Propiedades en Bucerías" : "Properties in Bucerias"}
-        </h2>
+        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>{es ? "Propiedades en Bucerías" : "Properties in Bucerias"}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {colonia.length === 0 ? (
             <p style={{ color: "var(--muted)" }}>{es ? "No hay propiedades disponibles actualmente." : "No properties available at the moment."}</p>
@@ -105,11 +82,12 @@ export default async function BuceriasPage() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-xs" style={{ color: "var(--muted)" }}>
-                    {p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}
-                  </p>
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>{p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}</p>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ noche" : "/ night"}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>·</span>
+                    <span className="text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ mes" : "/ month"}</span>
                   </div>
                 </div>
@@ -121,4 +99,3 @@ export default async function BuceriasPage() {
     </div>
   );
 }
-

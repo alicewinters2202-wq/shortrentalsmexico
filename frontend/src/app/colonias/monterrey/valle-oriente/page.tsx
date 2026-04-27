@@ -5,7 +5,7 @@ import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Furnished rentals in Valle Oriente, Monterrey | ShortStayMX",
-  description: "Furnished apartments in Valle Oriente, Monterrey. Modern corporate and residential hub with luxury amenities.",
+  description: "Furnished apartments in Valle Oriente, Monterrey. The most modern business corridor in northern Mexico with corporate towers, luxury hotels and premium shopping.",
 };
 
 export default async function ValleOrientePage() {
@@ -28,53 +28,32 @@ export default async function ValleOrientePage() {
     <div style={{ backgroundColor: "var(--cream)", minHeight: "100vh" }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: "rgba(28,28,30,0.9)", borderBottom: "1px solid var(--border)" }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
+          <Link href="/colonias" className="text-sm transition-colors hover:opacity-80" style={{ color: "var(--muted)" }}>← Colonias</Link>
+          <span style={{ color: "var(--border)" }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: "var(--ink)" }}>ShortStayMX</Link>
           <div className="ml-auto"><LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" /></div>
         </div>
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>
-            {es ? "Monterrey" : "Monterrey"}
-          </p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Monterrey</p>
           <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Valle Oriente</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "Valle Oriente es el corredor empresarial y residencial mas moderno de Monterrey. Con torres de oficinas, hoteles de lujo, centros comerciales y departamentos de alto nivel, es el epicentro de los negocios del norte de Mexico."
-              : "Valle Oriente is the most modern business and residential corridor in Monterrey. With office towers, luxury hotels, shopping centers and high-end apartments, it is the epicenter of business in northern Mexico."}
+            {es ? "Valle Oriente es el corredor empresarial y residencial mas moderno de Monterrey. Con torres de oficinas de vidrio y acero, hoteles de lujo internacionales como el Marriott y el Westin, el centro comercial Multiplaza Arboleda, decenas de restaurantes de primer nivel y departamentos residenciales de alto standing, es el epicentro de los negocios del norte de Mexico." : "Valle Oriente is the most modern business and residential corridor in Monterrey. With glass and steel office towers, international luxury hotels like the Marriott and Westin, the Multiplaza Arboleda shopping center, dozens of top-tier restaurants and high-end residential apartments, it is the epicenter of business in northern Mexico."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "La zona cuenta con Multiplaza Arboleda, decenas de restaurantes de primer nivel y una excelente conectividad con todo el area metropolitana de Monterrey."
-              : "The area features Multiplaza Arboleda, dozens of top-tier restaurants and excellent connectivity throughout the Monterrey metropolitan area."}
+            {es ? "El auge del nearshoring ha convertido a Valle Oriente en uno de los destinos de mayor demanda para rentas temporales en Mexico. Ejecutivos de empresas americanas, canadienses y europeas que vienen a establecer operaciones en Monterrey prefieren esta zona por su modernidad, conectividad y cercania a sus oficinas." : "The nearshoring boom has made Valle Oriente one of the most in-demand destinations for short-term rentals in Mexico. Executives from American, Canadian and European companies who come to establish operations in Monterrey prefer this area for its modernity, connectivity and proximity to their offices."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es
-              ? "Ejecutivos, profesionales y expatriados que buscan estar en el corazon empresarial de Monterrey."
-              : "Executives, professionals and expats looking to be at the heart of Monterrey's business scene."}
+            {es ? "Ejecutivos, profesionales y expatriados que buscan estar en el corazon empresarial mas moderno de Monterrey." : "Executives, professionals and expats looking to be at the heart of Monterrey's most modern business district."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            {
-              icon: "🏙️",
-              title_es: "Corredor empresarial", title_en: "Business corridor",
-              desc_es: "El hub corporativo mas importante del norte de Mexico",
-              desc_en: "The most important corporate hub in northern Mexico"
-            },
-            {
-              icon: "🛍️",
-              title_es: "Multiplaza Arboleda", title_en: "Multiplaza Arboleda",
-              desc_es: "Centro comercial premium con las mejores tiendas y restaurantes",
-              desc_en: "Premium shopping center with the best stores and restaurants"
-            },
-            {
-              icon: "🚗",
-              title_es: "Excelente conectividad", title_en: "Excellent connectivity",
-              desc_es: "Acceso rapido a toda el area metropolitana de Monterrey",
-              desc_en: "Quick access to the entire Monterrey metropolitan area"
-            },
+            { icon: "🏙️", title_es: "Corredor empresarial", title_en: "Business corridor", desc_es: "El hub corporativo mas importante del norte de Mexico con las principales empresas internacionales", desc_en: "The most important corporate hub in northern Mexico with the leading international companies" },
+            { icon: "🛍️", title_es: "Multiplaza Arboleda", title_en: "Multiplaza Arboleda", desc_es: "Centro comercial premium con las mejores tiendas, restaurantes y entretenimiento de Monterrey", desc_en: "Premium shopping center with the best stores, restaurants and entertainment in Monterrey" },
+            { icon: "🚗", title_es: "Excelente conectividad", title_en: "Excellent connectivity", desc_es: "Acceso rapido a toda el area metropolitana y al aeropuerto internacional de Monterrey", desc_en: "Quick access to the entire metropolitan area and to Monterrey international airport" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -83,9 +62,7 @@ export default async function ValleOrientePage() {
             </div>
           ))}
         </div>
-        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>
-          {es ? "Propiedades en Valle Oriente" : "Properties in Valle Oriente"}
-        </h2>
+        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>{es ? "Propiedades en Valle Oriente" : "Properties in Valle Oriente"}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {colonia.length === 0 ? (
             <p style={{ color: "var(--muted)" }}>{es ? "No hay propiedades disponibles actualmente." : "No properties available at the moment."}</p>
@@ -101,11 +78,12 @@ export default async function ValleOrientePage() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-xs" style={{ color: "var(--muted)" }}>
-                    {p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}
-                  </p>
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>{p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}</p>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ noche" : "/ night"}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>·</span>
+                    <span className="text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ mes" : "/ month"}</span>
                   </div>
                 </div>
@@ -117,4 +95,3 @@ export default async function ValleOrientePage() {
     </div>
   );
 }
-

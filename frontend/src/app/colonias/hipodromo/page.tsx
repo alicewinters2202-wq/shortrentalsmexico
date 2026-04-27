@@ -4,8 +4,8 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  title: "Furnished rentals in Hipodromo Condesa, CDMX | ShortStayMX",
-  description: "Furnished apartments in Hipodromo Condesa, Mexico City. Modern buildings with amenities at better prices than Polanco.",
+  title: "Rentas amuebladas en Hipodromo Condesa, CDMX | ShortStayMX",
+  description: "Departamentos amueblados en el Hipodromo y Hipodromo Condesa, Ciudad de Mexico. Edificios modernos con alberca, gimnasio y roof garden a mejor precio que Polanco.",
 };
 
 export default async function HipodromoPage() {
@@ -27,53 +27,32 @@ export default async function HipodromoPage() {
     <div style={{ backgroundColor: "var(--cream)", minHeight: "100vh" }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: "rgba(28,28,30,0.9)", borderBottom: "1px solid var(--border)" }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
+          <Link href="/colonias" className="text-sm transition-colors hover:opacity-80" style={{ color: "var(--muted)" }}>← Colonias</Link>
+          <span style={{ color: "var(--border)" }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: "var(--ink)" }}>ShortStayMX</Link>
           <div className="ml-auto"><LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" /></div>
         </div>
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>
-            {es ? "Ciudad de Mexico" : "Mexico City"}
-          </p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
           <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Hipodromo Condesa</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "El Hipodromo y el Hipodromo Condesa son colonias tranquilas y residenciales ubicadas entre la Condesa y la Roma. Su ambiente relajado, calles arboladas y excelente conectividad las hacen ideales para vivir en el corazon de CDMX."
-              : "Hipodromo and Hipodromo Condesa are quiet residential neighborhoods located between Condesa and Roma. Their relaxed atmosphere, tree-lined streets and excellent connectivity make them ideal for living in the heart of CDMX."}
+            {es ? "El Hipodromo y el Hipodromo Condesa son colonias tranquilas y residenciales ubicadas entre la Condesa y la Roma. Su ambiente relajado, calles arboladas y excelente conectividad las hacen ideales para quienes buscan vivir en el corazon de CDMX sin el ruido del centro. La zona cuenta con edificios modernos de lujo con amenidades completas a precios mas accesibles que Polanco." : "Hipodromo and Hipodromo Condesa are quiet and residential neighborhoods located between Condesa and Roma. Their relaxed atmosphere, tree-lined streets and excellent connectivity make them ideal for those who want to live in the heart of CDMX without the noise of the center. The area has modern luxury buildings with full amenities at more accessible prices than Polanco."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es
-              ? "La zona cuenta con edificios modernos de lujo con amenidades completas — albercas, gimnasios, roof gardens — a precios mas accesibles que Polanco."
-              : "The area features modern luxury buildings with full amenities — pools, gyms, roof gardens — at more accessible prices than Polanco."}
+            {es ? "La ubicacion es privilegiada: a minutos de Roma Norte, Condesa, Reforma y los principales centros de negocios de la ciudad. Los edificios modernos de la zona ofrecen albercas, gimnasios, roof gardens y seguridad privada — las mismas amenidades que en Polanco pero a precios considerablemente mas accesibles. Es la opcion ideal para profesionales y familias que buscan calidad sin pagar de mas." : "The location is privileged: minutes from Roma Norte, Condesa, Reforma and the city's main business centers. The modern buildings in the area offer pools, gyms, roof gardens and private security — the same amenities as in Polanco but at considerably more accessible prices. It is the ideal option for professionals and families who want quality without overpaying."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es
-              ? "Profesionales jovenes, familias y expatriados que buscan calidad de vida y amenidades completas a buen precio."
-              : "Young professionals, families and expats looking for quality of life and full amenities at a good price."}
+            {es ? "Profesionales jovenes, familias y expatriados que buscan calidad de vida y amenidades completas a buen precio en el corazon de CDMX." : "Young professionals, families and expats seeking quality of life and full amenities at a good price in the heart of CDMX."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            {
-              icon: "🏊",
-              title_es: "Amenidades completas", title_en: "Full amenities",
-              desc_es: "Edificios con alberca, gimnasio, roof garden y mas",
-              desc_en: "Buildings with pool, gym, roof garden and more"
-            },
-            {
-              icon: "🏙️",
-              title_es: "Ubicacion central", title_en: "Central location",
-              desc_es: "A minutos de Reforma, Condesa, Roma y los principales centros de negocios",
-              desc_en: "Minutes from Reforma, Condesa, Roma and the main business centers"
-            },
-            {
-              icon: "💰",
-              title_es: "Mejor precio/calidad", title_en: "Best value",
-              desc_es: "Departamentos de lujo a precios mas accesibles que Polanco",
-              desc_en: "Luxury apartments at more accessible prices than Polanco"
-            },
+            { icon: "🏊", title_es: "Amenidades completas", title_en: "Full amenities", desc_es: "Edificios modernos con alberca, gimnasio, roof garden y seguridad privada 24 horas", desc_en: "Modern buildings with pool, gym, roof garden and 24-hour private security" },
+            { icon: "🏙️", title_es: "Ubicacion central", title_en: "Central location", desc_es: "A minutos de Reforma, Condesa, Roma y los principales centros de negocios de CDMX", desc_en: "Minutes from Reforma, Condesa, Roma and CDMX's main business centers" },
+            { icon: "💰", title_es: "Mejor precio/calidad", title_en: "Best value", desc_es: "Departamentos de lujo con todas las amenidades a precios mas accesibles que Polanco", desc_en: "Luxury apartments with all amenities at more accessible prices than Polanco" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -82,9 +61,7 @@ export default async function HipodromoPage() {
             </div>
           ))}
         </div>
-        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>
-          {es ? "Propiedades en Hipodromo Condesa" : "Properties in Hipodromo Condesa"}
-        </h2>
+        <h2 className="font-serif text-3xl mb-8" style={{ color: "var(--ink)" }}>{es ? "Propiedades en Hipodromo Condesa" : "Properties in Hipodromo Condesa"}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {colonia.length === 0 ? (
             <p style={{ color: "var(--muted)" }}>{es ? "No hay propiedades disponibles actualmente." : "No properties available at the moment."}</p>
@@ -100,11 +77,12 @@ export default async function HipodromoPage() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-xs" style={{ color: "var(--muted)" }}>
-                    {p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}
-                  </p>
+                  <p className="text-xs" style={{ color: "var(--muted)" }}>{p.bedrooms} {es ? "rec" : "bed"} · {p.bathrooms} {es ? "baños" : "bath"} · {p.maxGuests} {es ? "huespedes" : "guests"}</p>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-sm" style={{ color: "var(--ink)" }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ noche" : "/ night"}</span>
+                    <span className="text-xs" style={{ color: "var(--muted)" }}>·</span>
+                    <span className="text-sm" style={{ color: "var(--ink)" }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: "var(--muted)" }}>{es ? "/ mes" : "/ month"}</span>
                   </div>
                 </div>
@@ -116,4 +94,3 @@ export default async function HipodromoPage() {
     </div>
   );
 }
-
