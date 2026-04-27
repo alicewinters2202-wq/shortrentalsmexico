@@ -39,7 +39,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
   const tooShort    = nights > 0 && nights < MIN_NIGHTS;
   const validStay   = nights >= MIN_NIGHTS;
   const rentTotal   = validStay ? Math.round(dailyRate * nights) : null;
-  const cleaningFee = validStay && withCleaning ? Math.ceil(nights / 7) * 500 : 0;
+  const cleaningFee = validStay && withCleaning ? Math.max(1, Math.floor(nights / 7)) * 500 : 0;
   const total       = rentTotal !== null ? rentTotal + cleaningFee : null;
 
   function handleCheckInChange(val: string) {
@@ -176,7 +176,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
             </div>
             {withCleaning && cleaningFee > 0 && (
               <div className="flex justify-between text-sm">
-                <span style={{ color: 'var(--muted)' }}>🧹 {t.cleaningFee} ({Math.ceil(nights / 7)} sem)</span>
+                <span style={{ color: 'var(--muted)' }}>🧹 {t.cleaningFee} ({Math.max(1, Math.floor(nights / 7))} sem)</span>
                 <span style={{ color: 'var(--ink)' }}>{formatMXN(cleaningFee)}</span>
               </div>
             )}
