@@ -6,9 +6,14 @@ export default function WhatsAppButton() {
   const [isEn, setIsEn] = useState(false);
 
   useEffect(() => {
-    const cookies = document.cookie.split(';').map(c => c.trim());
-    const langCookie = cookies.find(c => c.startsWith('lang='));
-    setIsEn(langCookie === 'lang=en');
+    const check = () => {
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      const langCookie = cookies.find(c => c.startsWith('lang='));
+      setIsEn(langCookie === 'lang=en');
+    };
+    check();
+    const interval = setInterval(check, 500);
+    return () => clearInterval(interval);
   }, []);
 
   const message = isEn
