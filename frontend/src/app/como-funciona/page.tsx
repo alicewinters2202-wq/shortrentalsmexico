@@ -74,10 +74,10 @@ export default async function HowItWorksPage() {
       a_en: 'All our properties include full furniture, high-speed WiFi, hot water, electricity, gas and access to building amenities. Everything is included — no hidden fees.',
     },
     {
-      q_es: '¿Se puede pagar en dólares?',
-      q_en: 'Can I pay in dollars?',
-      a_es: 'Los precios están en pesos mexicanos (MXN) y el pago se realiza en pesos. Sin embargo, mostramos el equivalente en dólares como referencia para que puedas estimar tu presupuesto.',
-      a_en: 'Prices are in Mexican pesos (MXN) and payment is made in pesos. However, we show the dollar equivalent as a reference so you can estimate your budget.',
+      q_es: '¿Puedo pagar en dólares, euros u otra moneda?',
+      q_en: 'Can I pay in dollars, euros or any other currency?',
+      a_es: 'Los precios están en pesos mexicanos (MXN) y el pago se realiza mediante transferencia bancaria en pesos. Si pagas desde el extranjero, recomendamos usar Wise — tiene una de las mejores tasas de conversión del mercado y te permite pagar en tu moneda local sin comisiones excesivas.',
+      a_en: 'Prices are in Mexican pesos (MXN) and payment is made via bank transfer in pesos. If you are paying from abroad, we recommend using Wise — it offers one of the best exchange rates on the market and allows you to pay in your local currency without excessive fees.',
     },
     {
       q_es: '¿Qué pasa si necesito cancelar?',
