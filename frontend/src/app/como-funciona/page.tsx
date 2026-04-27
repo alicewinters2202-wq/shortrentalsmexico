@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
@@ -18,7 +18,7 @@ export default async function HowItWorksPage() {
       title_es: 'Encuentra tu propiedad',
       title_en: 'Find your property',
       desc_es: 'Explora nuestro catálogo de departamentos y casas amuebladas en las mejores ciudades de México. Filtra por ciudad, precio, número de recámaras y fechas. Cada propiedad muestra fotos reales, amenidades, precio por noche y por mes.',
-      desc_en: 'Browse our catalog of furnished apartments and homes in the best cities in Mexico. Filter by city, price, number of bedrooms and dates. Each property shows real photos, amenities, nightly and monthly price.',
+      desc_en: 'Browse our catalog of furnished apartments and homes in the best cities in Mexico. Filter by city, price, number of bedrooms and dates. Each property shows photos, amenities, nightly and monthly price.',
     },
     {
       number: '02',
@@ -70,8 +70,8 @@ export default async function HowItWorksPage() {
     {
       q_es: '¿Qué incluye la renta?',
       q_en: 'What does the rent include?',
-      a_es: 'Todas nuestras propiedades incluyen mobiliario completo, WiFi de alta velocidad, agua caliente y acceso a las amenidades del edificio. Los servicios como electricidad, gas e internet adicional pueden variar por propiedad — consulta la ficha de cada inmueble.',
-      a_en: 'All our properties include full furniture, high-speed WiFi, hot water and access to building amenities. Services such as electricity, gas and additional internet may vary by property — check each property listing.',
+      a_es: 'Todas nuestras propiedades incluyen mobiliario completo, WiFi de alta velocidad, agua caliente, electricidad, gas y acceso a las amenidades del edificio. Todo está incluido — sin cargos ocultos.',
+      a_en: 'All our properties include full furniture, high-speed WiFi, hot water, electricity, gas and access to building amenities. Everything is included — no hidden fees.',
     },
     {
       q_es: '¿Se puede pagar en dólares?',
