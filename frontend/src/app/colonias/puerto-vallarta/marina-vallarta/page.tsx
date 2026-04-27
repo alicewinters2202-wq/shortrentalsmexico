@@ -112,3 +112,4 @@ export default async function MarinaVallartaPage() {
     </div>
   );
 }
+
