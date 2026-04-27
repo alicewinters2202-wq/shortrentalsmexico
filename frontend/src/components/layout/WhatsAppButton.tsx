@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
     ? "Hi, I saw your website and I would like information about your available properties."
     : "Hola, vi su pagina y quisiera informacion sobre sus propiedades disponibles.";
 
-  const url = `https://wa.me/5215662548748?text=${encodeURIComponent(message)}`;
+  const url = "https://wa.me/5215662548748?text=" + encodeURIComponent(message);
 
   return (
     
