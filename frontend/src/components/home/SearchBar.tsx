@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -7,10 +7,17 @@ import { useT } from '@/lib/i18n';
 
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
+  { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
+  { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
+  { name: 'Cancún',           label: 'Cancún' },
+  { name: 'Tulum',            label: 'Tulum' },
+  { name: 'Playa del Carmen', label: 'Playa del Carmen' },
   { name: 'Guadalajara',      label: 'Guadalajara' },
   { name: 'Monterrey',        label: 'Monterrey' },
-  { name: 'Santiago',         label: 'Santiago' },
+  { name: 'Mérida',           label: 'Mérida' },
+  { name: 'San Miguel de Allende', label: 'San Miguel de Allende' },
   { name: 'Chapala',          label: 'Chapala' },
+  { name: 'Santiago',         label: 'Santiago' },
 ];
 
 export default function SearchBar() {
@@ -105,7 +112,7 @@ export default function SearchBar() {
 
       {/* Dropdown */}
       {showDropdown && (
-        <div className="absolute top-full left-0 mt-3 w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden">
+        <div className="absolute top-full left-0 mt-3 w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden max-h-80 overflow-y-auto">
           <p className="px-5 pt-4 pb-2 text-[11px] font-semibold tracking-widest uppercase text-gray-400">
             {t.popularDests}
           </p>
