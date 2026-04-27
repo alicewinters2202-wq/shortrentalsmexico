@@ -190,7 +190,28 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                       style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}
                     >
                       <span style={{ color: 'var(--gold)' }}>✓</span>
-                      <span className="text-sm capitalize" style={{ color: 'var(--ink)' }}>{a}</span>
+                      <span className="text-sm capitalize" style={{ color: 'var(--ink)' }}>
+                        {lang === 'en' ? ({
+                          'alberca': 'Pool',
+                          'cine': 'Movie theater',
+                          'gym': 'Gym',
+                          'salon de fiestas': 'Event room',
+                          'terraza': 'Terrace',
+                          'boliche': 'Bowling alley',
+                          'roof garden': 'Roof garden',
+                          'coworking': 'Coworking',
+                          'spa': 'Spa',
+                          'sauna': 'Sauna',
+                          'paddle': 'Paddle court',
+                          'squash': 'Squash court',
+                          'business center': 'Business center',
+                          'salon de yoga': 'Yoga room',
+                          'areas verdes': 'Green areas',
+                          'juegos infantiles': 'Playground',
+                          'vigilancia 24h': '24h security',
+                          'concierge': 'Concierge',
+                        } as Record<string, string>)[a] ?? a : a}
+                      </span>
                     </div>
                   ))}
                 </div>
