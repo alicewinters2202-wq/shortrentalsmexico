@@ -191,27 +191,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                     >
                       <span style={{ color: 'var(--gold)' }}>✓</span>
                       <span className="text-sm capitalize" style={{ color: 'var(--ink)' }}>
-                        {lang === 'en' ? a.split(/,| y /i).map(x => x.trim()).filter(Boolean).map(x => ({'alberca': 'Pool', 'kids club': 'Kids club', 'gym': 'Gym', 'spa': 'Spa', 'cine': 'Movie theater', 'salon de fiestas': 'Event room', 'terraza': 'Terrace', 'boliche': 'Bowling alley', 'roof garden': 'Roof garden', 'coworking': 'Coworking', 'sauna': 'Sauna', 'paddle': 'Paddle court', 'squash': 'Squash court', 'salon de yoga': 'Yoga room', 'areas verdes': 'Green areas', 'juegos infantiles': 'Playground', 'vigilancia 24h': '24h security', 'concierge': 'Concierge'} as Record<string,string>)[x.toLowerCase()] ?? x).join(', ') : a}
-                      </span>
-                          'alberca': 'Pool',
-                          'cine': 'Movie theater',
-                          'gym': 'Gym',
-                          'salon de fiestas': 'Event room',
-                          'terraza': 'Terrace',
-                          'boliche': 'Bowling alley',
-                          'roof garden': 'Roof garden',
-                          'coworking': 'Coworking',
-                          'spa': 'Spa',
-                          'sauna': 'Sauna',
-                          'paddle': 'Paddle court',
-                          'squash': 'Squash court',
-                          'business center': 'Business center',
-                          'salon de yoga': 'Yoga room',
-                          'areas verdes': 'Green areas',
-                          'juegos infantiles': 'Playground',
-                          'vigilancia 24h': '24h security',
-                          'concierge': 'Concierge',
-                        } as Record<string, string>)[a] ?? a : a}
+                        {lang === 'en' ? a.split(/,| y /i).map(x => x.trim()).filter(Boolean).map(x => ({'alberca': 'Pool', 'kids club': 'Kids club', 'gym': 'Gym', 'spa': 'Spa', 'cine': 'Movie theater', 'salon de fiestas': 'Event room', 'terraza': 'Terrace', 'boliche': 'Bowling alley', 'roof garden': 'Roof garden', 'coworking': 'Coworking', 'sauna': 'Sauna', 'paddle': 'Paddle court', 'squash': 'Squash court', 'salon de yoga': 'Yoga room', 'areas verdes': 'Green areas', 'juegos infantiles': 'Playground', 'vigilancia 24h': '24h security', 'concierge': 'Concierge', 'business center': 'Business center'} as Record<string,string>)[x.toLowerCase()] ?? x).join(', ') : a}
                       </span>
                     </div>
                   ))}
