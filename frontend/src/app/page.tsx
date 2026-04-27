@@ -7,7 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
-import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
+import HeroSlideshow from '@/components/home/HeroSlideshow';
 
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
@@ -54,13 +54,12 @@ export default async function Home() {
     <>
       {/* HERO */}
       <section className="relative h-screen min-h-[600px] flex flex-col">
-        {withImages[0] && (
-          <img src={imageUrl(withImages[0].images[0])} alt="Hero"
-            className="absolute inset-0 w-full h-full object-cover" />
-        )}
-        {!withImages[0] && (
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-900 via-stone-700 to-stone-500" />
-        )}
+        <HeroSlideshow images={[
+          'Ciudad de México', 'Puerto Vallarta', 'Tulum', 'Cancún', 'Nuevo Vallarta', 'San Miguel de Allende', 'Mérida', 'Guadalajara'
+        ].map(city => {
+          const p = withImages.find(p => p.city.trim() === city);
+          return p ? imageUrl(p.images[0]) : null;
+        }).filter(Boolean) as string[]} />
         <div className="absolute inset-0 bg-black/45" />
 
         <nav className="relative z-10 flex items-center justify-between px-8 py-6">
