@@ -223,8 +223,11 @@ export default async function Home() {
                       : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
                     }
                   </div>
-                  <div className="flex items-baseline gap-2 mt-1.5">
-                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                  <div className="flex items-baseline gap-2 mt-1.5 flex-wrap">
+                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
+                    <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
                 </div>
@@ -274,8 +277,11 @@ export default async function Home() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                  <div className="flex items-baseline gap-2 flex-wrap">
+                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
+                    <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
                 </div>
@@ -330,6 +336,7 @@ export default async function Home() {
               </svg>
               +52 56 6254 8748
             </a>
+          
           </div>
         </div>
       </section>
