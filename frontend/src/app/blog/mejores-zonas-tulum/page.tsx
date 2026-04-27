@@ -4,7 +4,7 @@ import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
   title: 'Mejores zonas de Tulum para vivir | ShortStayMX',
-  description: 'Guía de las mejores zonas de Tulum para expatriados y nómadas digitales: Aldea Zama, La Veleta y la zona hotelera. Todo lo que necesitas saber.',
+  description: 'Guía completa de las mejores zonas de Tulum para expatriados y nómadas digitales: Aldea Zama, La Veleta y zona hotelera. Todo lo que necesitas saber para elegir.',
 };
 
 export default async function MejoresZonasTulum() {
@@ -25,22 +25,35 @@ export default async function MejoresZonasTulum() {
         <h1 className="font-serif text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
           {es ? 'Mejores zonas de Tulum para vivir' : 'Best areas in Tulum to live'}
         </h1>
-        <p className="text-sm mb-12" style={{ color: 'var(--muted)' }}>{es ? '23 de abril de 2024 · 7 min de lectura' : 'April 23, 2024 · 7 min read'}</p>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Tulum tiene varias zonas muy diferentes entre sí. La elección de dónde vivir depende de tu presupuesto, estilo de vida y qué tanto valoras la playa vs la selva. Te explicamos las principales opciones.' : 'Tulum has several very different areas. The choice of where to live depends on your budget, lifestyle and how much you value the beach vs the jungle. We explain the main options.'}
+            {es ? 'Tulum tiene varias zonas muy diferentes entre sí, y la elección de dónde vivir es una de las decisiones más importantes que tomarás. La zona hotelera frente al mar, el pueblo de Tulum y los desarrollos residenciales como Aldea Zama y La Veleta ofrecen experiencias completamente distintas en términos de precio, ambiente, comodidades y estilo de vida.' : 'Tulum has several very different areas, and the choice of where to live is one of the most important decisions you will make. The beachfront hotel zone, the town of Tulum and residential developments like Aldea Zama and La Veleta offer completely different experiences in terms of price, atmosphere, amenities and lifestyle.'}
           </p>
+
           {[
-            { name: 'Aldea Zama', emoji: '🌿', es_desc: 'El desarrollo residencial más exclusivo de Tulum. Condominios modernos de lujo rodeados de selva, con albercas, gimnasios y jardines tropicales. Perfecta ubicación entre la zona hotelera y el pueblo.', en_desc: 'The most exclusive residential development in Tulum. Modern luxury condominiums surrounded by jungle, with pools, gyms and tropical gardens. Perfect location between the hotel zone and the town.' },
-            { name: 'La Veleta', emoji: '🌴', es_desc: 'Zona residencial en crecimiento con ambiente más tranquilo y precios más accesibles que Aldea Zama. Ideal para quienes buscan el ambiente de Tulum sin pagar precios de zona hotelera.', en_desc: 'Growing residential area with a more peaceful atmosphere and more accessible prices than Aldea Zama. Ideal for those seeking the Tulum atmosphere without paying hotel zone prices.' },
-            { name: es ? 'Zona Hotelera' : 'Hotel Zone', emoji: '🏖️', es_desc: 'La franja costera con acceso directo a las famosas playas de Tulum. Perfecta para quienes priorizan el mar, aunque los precios son más elevados y el ambiente más turístico.', en_desc: 'The coastal strip with direct access to Tulum\'s famous beaches. Perfect for those who prioritize the sea, although prices are higher and the atmosphere more touristy.' },
+            {
+              name: 'Aldea Zama', emoji: '🌿',
+              es_desc: 'El desarrollo residencial más exclusivo y completo de Tulum. Ubicado estratégicamente entre la zona hotelera y el pueblo, Aldea Zama concentra la mayor cantidad de condominios modernos de lujo, restaurantes de calidad, cafés con buen WiFi y espacios de coworking. Sus residencias combinan arquitectura biofílica — integrada con la naturaleza — con amenidades modernas completas: albercas, gimnasios, jardines tropicales, seguridad privada. Es la primera elección para expatriados y nómadas digitales que quieren lo mejor de Tulum sin sacrificar comodidades.',
+              en_desc: 'The most exclusive and complete residential development in Tulum. Strategically located between the hotel zone and the town, Aldea Zama concentrates the largest number of modern luxury condominiums, quality restaurants, cafes with good WiFi and coworking spaces. Its residences combine biophilic architecture — integrated with nature — with complete modern amenities: pools, gyms, tropical gardens, private security. It is the first choice for expats and digital nomads who want the best of Tulum without sacrificing comforts.',
+            },
+            {
+              name: 'La Veleta', emoji: '🌴',
+              es_desc: 'La zona residencial de mayor crecimiento en Tulum. Con calles rodeadas de selva, un ambiente más tranquilo y auténtico que Aldea Zama, y precios considerablemente más accesibles, La Veleta es perfecta para quienes buscan el espíritu genuino de Tulum — naturaleza, tranquilidad, comunidad local — sin pagar los precios premium de la zona hotelera o Aldea Zama.',
+              en_desc: 'The fastest-growing residential area in Tulum. With jungle-lined streets, a more peaceful and authentic atmosphere than Aldea Zama, and considerably more accessible prices, La Veleta is perfect for those seeking the genuine spirit of Tulum — nature, tranquility, local community — without paying the premium prices of the hotel zone or Aldea Zama.',
+            },
+            {
+              name: es ? 'Zona Hotelera' : 'Hotel Zone', emoji: '🏖️',
+              es_desc: 'La franja costera con acceso directo a las famosas playas de Tulum, consideradas entre las más hermosas del mundo. El precio a pagar es el más alto de la zona y un ambiente más turístico. Ideal para quienes priorizan absolutamente la playa y no les importa el ruido y el movimiento de la temporada alta.',
+              en_desc: 'The coastal strip with direct access to Tulum\'s famous beaches, considered among the most beautiful in the world. The trade-off is the highest prices in the area and a more touristy atmosphere. Ideal for those who absolutely prioritize the beach and don\'t mind the noise and movement of high season.',
+            },
           ].map(item => (
-            <div key={item.name} className="rounded-2xl p-6 my-6" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
+            <div key={item.name} className="rounded-2xl p-6 my-4" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
               <span className="text-3xl mb-3 block">{item.emoji}</span>
               <h3 className="font-serif text-xl mb-3" style={{ color: 'var(--ink)' }}>{item.name}</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>{es ? item.es_desc : item.en_desc}</p>
             </div>
           ))}
+
           <div className="rounded-2xl p-8 mt-12 text-center" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
             <p className="font-serif text-2xl mb-3" style={{ color: 'var(--ink)' }}>{es ? 'Ver propiedades en Tulum' : 'View properties in Tulum'}</p>
             <Link href="/properties?city=Tulum" className="inline-block px-8 py-3 rounded-full text-sm font-medium text-white" style={{ backgroundColor: 'var(--gold)' }}>

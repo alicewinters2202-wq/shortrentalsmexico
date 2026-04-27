@@ -4,7 +4,7 @@ import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
   title: 'Nuevo Vallarta vs Puerto Vallarta: ¿Cuál elegir? | ShortStayMX',
-  description: 'Comparamos Nuevo Vallarta y Puerto Vallarta para ayudarte a elegir el mejor destino para vivir en la costa del Pacífico mexicano.',
+  description: 'Comparamos Nuevo Vallarta y Puerto Vallarta para ayudarte a elegir el mejor destino para vivir en la costa del Pacífico mexicano. Diferencias, costos y estilo de vida.',
 };
 
 export default async function NuevoVallartaVsPuertoVallarta() {
@@ -25,19 +25,46 @@ export default async function NuevoVallartaVsPuertoVallarta() {
         <h1 className="font-serif text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
           {es ? 'Nuevo Vallarta vs Puerto Vallarta: ¿Cuál elegir?' : 'Nuevo Vallarta vs Puerto Vallarta: Which to choose?'}
         </h1>
-        <p className="text-sm mb-12" style={{ color: 'var(--muted)' }}>{es ? '21 de mayo de 2024 · 7 min de lectura' : 'May 21, 2024 · 7 min read'}</p>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'La bahía de Banderas alberga dos destinos muy populares para expatriados: Puerto Vallarta y Nuevo Vallarta. Separados por apenas 20 kilómetros, ofrecen experiencias muy diferentes. Te explicamos las diferencias para que puedas elegir el que mejor se adapta a ti.' : 'Banderas Bay is home to two very popular destinations for expats: Puerto Vallarta and Nuevo Vallarta. Separated by just 20 kilometers, they offer very different experiences. We explain the differences so you can choose the one that best suits you.'}
+            {es ? 'La Bahía de Banderas alberga dos destinos muy populares para expatriados: Puerto Vallarta en Jalisco y Nuevo Vallarta en Nayarit. Separados por apenas 20 kilómetros y el río Ameca — que marca la frontera entre los dos estados — ofrecen experiencias de vida muy diferentes. Esta guía te ayuda a elegir cuál se adapta mejor a tu perfil y estilo de vida.' : 'Banderas Bay is home to two very popular destinations for expats: Puerto Vallarta in Jalisco and Nuevo Vallarta in Nayarit. Separated by just 20 kilometers and the Ameca River — which marks the border between the two states — they offer very different living experiences. This guide helps you choose which one best suits your profile and lifestyle.'}
           </p>
+
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>Puerto Vallarta</h2>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Puerto Vallarta tiene alma de ciudad. Con su malecón, centro histórico de calles empedradas, Zona Romántica bohemia y una comunidad de expatriados muy establecida, PV ofrece una experiencia más urbana y cultural. Tiene más opciones de restaurantes, vida nocturna y servicios.' : 'Puerto Vallarta has the soul of a city. With its malecón, historic center of cobblestone streets, bohemian Romantic Zone and a very established expat community, PV offers a more urban and cultural experience. It has more restaurant options, nightlife and services.'}
+            {es ? 'Puerto Vallarta tiene alma de ciudad auténtica. Con su malecón icónico a lo largo de la Bahía de Banderas, su centro histórico de calles empedradas con arquitectura colonial, la Zona Romántica bohemia con galerías de arte y restaurantes premiados, y una comunidad de expatriados de décadas de antigüedad, PV ofrece una experiencia genuinamente urbana y cultural.' : 'Puerto Vallarta has the soul of an authentic city. With its iconic malecón along Banderas Bay, its historic center of cobblestone streets with colonial architecture, the bohemian Romantic Zone with art galleries and award-winning restaurants, and an expat community decades old, PV offers a genuinely urban and cultural experience.'}
           </p>
+          <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
+            {es ? 'La Marina Vallarta es la zona más moderna y exclusiva, con su marina de clase mundial, campo de golf y condominios frente al mar. El aeropuerto internacional está a 5 minutos en coche, lo que hace muy cómodos los viajes frecuentes.' : 'Marina Vallarta is the most modern and exclusive area, with its world-class marina, golf course and oceanfront condominiums. The international airport is just 5 minutes by car, making frequent travel very convenient.'}
+          </p>
+
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>Nuevo Vallarta</h2>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Nuevo Vallarta es más tranquilo y residencial. Con sus desarrollos privados de lujo, marinas, campos de golf y playas menos concurridas, es la opción preferida por familias y jubilados que buscan exclusividad y tranquilidad. Los precios pueden ser más accesibles que en Puerto Vallarta para propiedades de lujo.' : 'Nuevo Vallarta is more peaceful and residential. With its luxury private developments, marinas, golf courses and less crowded beaches, it is the preferred option for families and retirees seeking exclusivity and tranquility. Prices can be more accessible than in Puerto Vallarta for luxury properties.'}
+            {es ? 'Nuevo Vallarta es más tranquilo, ordenado y residencial. Sus desarrollos privados de lujo — como los condominios de Flamingos — ofrecen playas menos concurridas, marinas modernas y campos de golf en un entorno más exclusivo y controlado. Es ideal para familias con niños y jubilados que buscan tranquilidad y privacidad sin renunciar al lujo.' : 'Nuevo Vallarta is more peaceful, orderly and residential. Its luxury private developments — like the Flamingos condominiums — offer less crowded beaches, modern marinas and golf courses in a more exclusive and controlled setting. It is ideal for families with children and retirees seeking tranquility and privacy without giving up luxury.'}
           </p>
+          <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
+            {es ? 'Bucerías y Cruz de Huanacaxtle, pueblos costeros a pocos kilómetros de Nuevo Vallarta, ofrecen una experiencia más auténtica y accesible, con malecones locales, restaurantes de mariscos y una comunidad de expatriados más íntima y establecida.' : 'Bucerias and Cruz de Huanacaxtle, coastal towns a few kilometers from Nuevo Vallarta, offer a more authentic and accessible experience, with local malecóns, seafood restaurants and a more intimate and established expat community.'}
+          </p>
+
+          <div className="rounded-2xl p-6 my-8" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
+            <h3 className="font-serif text-xl mb-4" style={{ color: 'var(--ink)' }}>{es ? '¿Cuál es para ti?' : 'Which one is for you?'}</h3>
+            <div className="space-y-3">
+              {[
+                { profile: es ? 'Amas la vida urbana y cultural' : 'Love urban and cultural life', choice: 'Puerto Vallarta' },
+                { profile: es ? 'Buscas tranquilidad y privacidad' : 'Seeking tranquility and privacy', choice: 'Nuevo Vallarta' },
+                { profile: es ? 'Familia con niños' : 'Family with children', choice: 'Nuevo Vallarta' },
+                { profile: es ? 'Jubilado activo' : 'Active retiree', choice: es ? 'Puerto Vallarta o Nuevo Vallarta' : 'Puerto Vallarta or Nuevo Vallarta' },
+                { profile: es ? 'Amante de la gastronomía' : 'Food lover', choice: 'Puerto Vallarta' },
+                { profile: es ? 'Aficionado al golf o la marina' : 'Golf or marina enthusiast', choice: 'Nuevo Vallarta' },
+              ].map(item => (
+                <div key={item.profile} className="flex justify-between py-2" style={{ borderBottom: '1px solid var(--border)' }}>
+                  <span className="text-sm" style={{ color: 'var(--muted)' }}>{item.profile}</span>
+                  <span className="text-sm font-semibold" style={{ color: 'var(--gold)' }}>{item.choice}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="rounded-2xl p-8 mt-12 text-center" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
             <p className="font-serif text-2xl mb-3" style={{ color: 'var(--ink)' }}>{es ? 'Ver propiedades en la Bahía de Banderas' : 'View properties in Banderas Bay'}</p>
             <div className="flex gap-4 justify-center flex-wrap">
