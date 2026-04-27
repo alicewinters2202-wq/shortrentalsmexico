@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import SearchBar from '@/components/home/SearchBar';
 import LangToggle from '@/components/layout/LangToggle';
 import ReviewsSection from '@/components/home/ReviewsSection';
@@ -82,7 +82,7 @@ export default async function Home() {
             <Link href="/requirements" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.reqNav}
             </Link>
-            <Link href="/faq" className="text-white/70 hover:text-white text-xs transition-colors">{t.faqNav}</Link><Link href="/blog" className="text-white/70 hover:text-white text-xs transition-colors">Blog</Link>
+            <Link href="/faq" className="text-white/70 hover:text-white text-xs transition-colors">{t.faqNav}</Link><Link href="/como-funciona" className="text-white/70 hover:text-white text-xs transition-colors">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/blog" className="text-white/70 hover:text-white text-xs transition-colors">Blog</Link>
             <LangToggle currentLang={lang} className="text-white/70 hover:text-white" />
           </div>
         </nav>
@@ -366,7 +366,7 @@ export default async function Home() {
             <Link href="/properties" className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
             <Link href="/about" className="hover:opacity-80 transition-opacity">{t.aboutNav}</Link>
             <Link href="/requirements" className="hover:opacity-80 transition-opacity">{t.reqNav}</Link>
-            <Link href="/faq" className="hover:opacity-80 transition-opacity">{t.faqNav}</Link><Link href="/blog" className="hover:opacity-80 transition-opacity">Blog</Link>
+            <Link href="/faq" className="hover:opacity-80 transition-opacity">{t.faqNav}</Link><Link href="/como-funciona" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/como-funciona" className="text-white/70 hover:text-white text-xs transition-colors">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/blog" className="hover:opacity-80 transition-opacity">Blog</Link>
           </div>
         </div>
       </footer>
