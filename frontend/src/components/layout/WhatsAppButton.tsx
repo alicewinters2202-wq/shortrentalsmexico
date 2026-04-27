@@ -1,9 +1,7 @@
 ﻿'use client';
-import { usePathname } from "next/navigation";
 
 export default function WhatsAppButton() {
-  const pathname = usePathname();
-  const isEn = pathname?.includes('/en');
+  const isEn = typeof document !== 'undefined' && document.cookie.includes('lang=en');
 
   const message = isEn
     ? "Hi, I saw your website and I would like information about your available properties."
@@ -13,7 +11,7 @@ export default function WhatsAppButton() {
 
   return (
     
-     <a  href={url}
+     <a href={url}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-110"
