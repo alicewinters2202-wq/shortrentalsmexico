@@ -89,11 +89,11 @@ export default async function PropertiesPage({
             const { street, neighborhood } = parseAddress(p.address);
             const mainImage = p.images[0];
 
-            return (
-              <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
-                {/* Imagen */}
-                <div
-                  className="relative aspect-[4/3] rounded-2xl overflow-hidden"
+              return (
+                <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
+                  {/* Imagen */}
+                  <div
+                    className="relative aspect-[4/3] rounded-2xl overflow-hidden"
                   style={{ backgroundColor: 'var(--card)' }}
                 >
                   {mainImage ? (
@@ -158,6 +158,9 @@ export default async function PropertiesPage({
                   <div className="mt-3 pt-3 flex items-end justify-between"
                     style={{ borderTop: '1px solid var(--border)' }}>
                     <div>
+                      <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                      <span className="text-xs ml-1" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
+                      <span className="text-xs mx-1" style={{ color: 'var(--muted)' }}>·</span>
                       <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth + 2000)}</span>
                       <span className="text-xs ml-1" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                       <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>🧹 +$2,000 {t.cleaningFee}</p>
