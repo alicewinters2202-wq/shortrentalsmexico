@@ -1,4 +1,4 @@
-﻿const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001';
+const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001';
 
 export const AGENTS = [
   {
@@ -28,8 +28,8 @@ export const AGENTS = [
   {
     id: 2,
     name: 'Sofia Navarro',
-    zone: 'CDMX / San Miguel',
-    cities: ['Ciudad de México', 'San Miguel de Allende'],
+    zone: 'CDMX',
+    cities: ['Ciudad de México'],
     wa: '525572716417',
     photo: `${BACKEND}/imagenes/Agentes/Sofia Navarro.png` as string | null,
     initials: 'SN',
