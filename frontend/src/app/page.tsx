@@ -102,7 +102,7 @@ export default async function Home() {
       <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 py-20 max-w-7xl mx-auto">
         <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.popularDests}</h2>
         <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.exploreDests}</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up animate-delay-2">
           {CITIES.map((c) => {
             const cityProps = properties.filter((p) => p.city.trim() === c.name);
             const coverImg  = cityProps.find((p) => p.images.length > 0);
@@ -185,7 +185,7 @@ export default async function Home() {
           {featured.map((p) => {
             const { street, neighborhood } = parseAddress(p.address);
             return (
-              <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
+              <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
                   <img src={imageUrl(p.images[0])} alt={street}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -258,7 +258,7 @@ export default async function Home() {
           {newProps.map((p) => {
             const { street, neighborhood } = parseAddress(p.address);
             return (
-              <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
+              <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--cream)' }}>
                   <img src={imageUrl(p.images[0])} alt={street}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
