@@ -18,7 +18,7 @@ export default function ContactForm() {
     const text = lang === 'es'
       ? `Hola, me contacto desde ShortStayMX.\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`
       : `Hello, I'm contacting from ShortStayMX.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
-    const url = `https://wa.me/525563783517?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/5215662548748?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 
