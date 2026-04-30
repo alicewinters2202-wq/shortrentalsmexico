@@ -1,1 +1,377 @@
-C:\Users\sam_m
+import Link from 'next/link';
+import SearchBar from '@/components/home/SearchBar';
+import LangToggle from '@/components/layout/LangToggle';
+import ReviewsSection from '@/components/home/ReviewsSection';
+import UpcomingDestinations from '@/components/home/UpcomingDestinations';
+import ContactForm from '@/components/ContactForm';
+import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
+import { getT } from '@/lib/lang';
+import { CAMILA } from '@/lib/agents';
+import HeroSlideshow from '@/components/home/HeroSlideshow';
+import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
+
+const CITIES = [
+  { name: 'Ciudad de México', label: 'CDMX' },
+  { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
+  { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
+  { name: 'Cancún',          label: 'Cancún' },
+  { name: 'Tulum',            label: 'Tulum' },
+  { name: 'Playa del Carmen', label: 'Playa del Carmen' },
+];
+
+const ALL_CITIES = [
+  { name: 'Ciudad de México', label: 'CDMX' },
+  { name: 'Guadalajara',      label: 'Guadalajara' },
+  { name: 'Monterrey',        label: 'Monterrey' },
+  { name: 'Santiago',         label: 'Santiago' },
+  { name: 'Chapala',          label: 'Chapala' },
+  { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
+  { name: 'San Miguel de Allende', label: 'San Miguel' },
+  { name: 'Mérida',          label: 'Mérida' },
+  { name: 'Cancún',          label: 'Cancún' },
+  { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
+  { name: 'Tulum',            label: 'Tulum' },
+  { name: 'Playa del Carmen', label: 'Playa del Carmen' },
+];
+
+export default async function Home() {
+  const { t, lang } = await getT();
+  const properties  = await fetchPreview();
+  const withImages  = properties.filter((p) => p.images.length > 0);
+  const sorted      = [...withImages].sort((a, b) => b.pricePerMonth - a.pricePerMonth);
+  const top3        = sorted.slice(0, 3);
+  const mid3        = sorted.slice(Math.floor(sorted.length * 0.3), Math.floor(sorted.length * 0.3) + 3);
+  const featured    = [...top3, ...mid3];
+  const usedIds     = new Set(featured.map((p) => p.id));
+  const weekSeed    = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
+  const pool        = withImages.filter((p) => !usedIds.has(p.id));
+  const newProps    = pool
+    .map((p) => ({ p, score: (p.id * 2654435761 + weekSeed * 40503) % 100000 }))
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 6)
+    .map((x) => x.p);
+
+  return (
+    <>
+      {/* HERO */}
+      <section className="relative h-screen min-h-[600px] flex flex-col">
+        <HeroSlideshow images={[
+          'Ciudad de México', 'Puerto Vallarta', 'Tulum', 'Cancún', 'Nuevo Vallarta', 'San Miguel de Allende', 'Mérida', 'Guadalajara'
+        ].map(city => {
+          const p = withImages.find(p => p.city.trim() === city);
+          return p ? imageUrl(p.images[0]) : null;
+        }).filter(Boolean) as string[]} />
+        <div className="absolute inset-0 bg-black/45" />
+
+        <nav className="relative z-10 flex items-center justify-between px-8 py-6">
+          <div className="text-center">
+            <p className="text-white text-[10px] tracking-[0.4em] uppercase font-medium opacity-80">ShortStayMX</p>
+            <p className="text-white text-[10px] tracking-[0.5em] u
+            ppercase font-medium opacity-80">México</p>
+          </div>
+          <div className="flex items-center gap-6">
+            <Link href="/agents" className="text-white/70 hover:text-white text-xs transition-colors">
+              {t.agentsSectionTitle}
+            </Link>
+            <Link href="/why-us" className="text-white/70 hover:text-white text-xs transition-colors">
+              {lang === 'en' ? 'Why us' : 'Por qué nosotros'}
+            </Link>
+            <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
+              {t.aboutNav}
+            </Link>
+            <Link href="/requirements" className="text-white/70 hover:text-white text-xs transition-colors">
+              {t.reqNav}
+            </Link>
+            <Link href="/faq" className="text-white/70 hover:text-white text-xs transition-colors">{t.faqNav}</Link><Link href="/como-funciona" className="text-white/70 hover:text-white text-xs transition-colors">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/blog" className="text-white/70 hover:text-white text-xs transition-colors">Blog</Link>
+            <LangToggle currentLang={lang} className="text-white/70 hover:text-white" />
+          </div>
+        </nav>
+
+        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 text-center gap-8">
+          <h1 className="font-serif text-white text-5xl sm:text-6xl md:text-7xl leading-tight max-w-3xl">
+            <em>{t.tagline}</em>
+            <br />
+            <span className="font-normal text-4xl sm:text-5xl md:text-6xl">{t.taglineSub}</span>
+          </h1>
+          <p className="text-white/70 text-base max-w-md">{t.subheading}</p>
+          <SearchBar />
+        </div>
+      </section>
+
+      {/* CIUDADES */}
+      <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 py-20 max-w-7xl mx-auto">
+        <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.popularDests}</h2>
+        <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.exploreDests}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up animate-delay-2">
+          {CITIES.map((c) => {
+            const cityProps = properties.filter((p) => p.city.trim() === c.name);
+            const coverImg  = cityProps.find((p) => p.images.length > 0);
+            const count     = cityProps.length;
+            return (
+              <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
+                className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
+                {coverImg ? (
+                  <img src={imageUrl(coverImg.images[0])} alt={c.label}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600 group-hover:scale-105 transition-transform duration-500" />
+                )}
+                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <p className="text-white font-serif text-2xl font-medium">{c.label}</p>
+                  <p className="text-white/70 text-sm mt-1">{t.cityTagline(c.name)}</p>
+                  <p className="text-white/50 text-xs mt-1">{t.properties(count)}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+         {/* TODOS LOS DESTINOS */}
+      <section style={{ backgroundColor: 'var(--card)' }} className="px-6 py-20 max-w-7xl mx-auto">
+        <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>
+          {lang === 'en' ? 'All destinations' : 'Todos los destinos'}
+        </h2>
+        <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>
+          {lang === 'en' ? 'Explore all cities where we operate' : 'Explora todas las ciudades donde operamos'}
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {ALL_CITIES.map((c) => {
+            const cityProps = properties.filter((p) => p.city.trim() === c.name);
+            const coverImg  = cityProps.find((p) => p.images.length > 0);
+            const count     = cityProps.length;
+            return (
+              <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
+                className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
+                {coverImg ? (
+                  <img src={imageUrl(coverImg.images[0])} alt={c.label}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600" />
+                )}
+                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <p className="text-white font-serif text-xl font-medium">{c.label}</p>
+                  <p className="text-white/50 text-xs mt-1">{t.properties(count)}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+      {/* TAGLINE */}
+      <section className="py-20 px-6" style={{ backgroundColor: 'var(--card)' }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="font-serif text-4xl sm:text-5xl leading-snug mb-6" style={{ color: 'var(--ink)' }}>
+            {t.taglineQuote}<em>{t.taglineQuoteEm}</em>
+          </p>
+          <p className="text-sm max-w-xl" style={{ color: 'var(--muted)' }}>{t.taglineSub2}</p>
+        </div>
+      </section>
+
+      {/* PROPIEDADES DESTACADAS */}
+      <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 pb-24 max-w-7xl mx-auto">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>{t.featuredProps}</h2>
+            <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{t.totalProps(properties.length)}</p>
+          </div>
+          <Link href="/properties" style={{ color: 'var(--gold)' }} className="text-sm font-medium hover:underline hidden sm:block">
+            {t.viewAll}
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featured.map((p) => {
+            const { street, neighborhood } = parseAddress(p.address);
+            return (
+              <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
+                  <img src={imageUrl(p.images[0])} alt={street}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+                  <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full"
+                      style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
+                      {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
+                    </span>
+                    {!p.available && p.availableFrom && (
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-red-600/90 text-white">
+                        {t.occupiedRange(
+                          new Date((p.occupiedSince ?? p.availableFrom!) + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'short' }),
+                          new Date(p.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'short', year: 'numeric' }),
+                        )}
+                      </span>
+                    )}
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                    <p className="text-white font-serif text-lg leading-tight">{street}</p>
+                    <p className="text-white/70 text-xs mt-0.5">{neighborhood}</p>
+                  </div>
+                </div>
+                <div className="mt-3 px-1">
+                  <p className="text-xs" style={{ color: 'var(--muted)' }}>
+                    {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural}
+                  </p>
+                  <div className="flex gap-1 mt-1.5 flex-wrap">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">🛜 {p.wifiSpeed} Mbps</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
+                    {p.petFriendlyNegotiable
+                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾 {t.petFriendlyNeg}</span>
+                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
+                    }
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1.5 flex-wrap">
+                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
+                    <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        <div className="text-center mt-12">
+          <Link href="/properties"
+            className="inline-block px-10 py-3 rounded-full text-sm font-medium tracking-wide transition-colors border border-[var(--border)] text-[var(--ink)] hover:bg-[var(--ink)] hover:text-[var(--cream)]"
+          >
+            {t.viewAllBtn}
+          </Link>
+        </div>
+      </section>
+
+      {/* NUEVAS PROPIEDADES */}
+      <section style={{ backgroundColor: 'var(--card)' }} className="px-6 py-24 max-w-7xl mx-auto">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>
+              {lang === 'en' ? 'New properties' : 'Nuevas propiedades'}
+            </h2>
+            <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>
+              {lang === 'en' ? 'Discover recent options across different cities' : 'Descubre opciones recientes en diferentes ciudades'}
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {newProps.map((p) => {
+            const { street, neighborhood } = parseAddress(p.address);
+            return (
+              <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--cream)' }}>
+                  <img src={imageUrl(p.images[0])} alt={street}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+                  <div className="absolute top-3 right-3">
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full"
+                      style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
+                      {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                    <p className="text-white font-serif text-lg leading-tight">{street}</p>
+                    <p className="text-white/70 text-xs mt-0.5">{neighborhood}</p>
+                  </div>
+                </div>
+                <div className="mt-3 px-1">
+                  <div className="flex items-baseline gap-2 flex-wrap">
+                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
+                    <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      <NeighborhoodsSection lang={lang} />
+      {/* PRÓXIMOS DESTINOS */}
+      <UpcomingDestinations t={t} />
+
+      {/* ATENCIÓN ESPECIALIZADA */}
+      <section className="py-16 px-6" style={{ backgroundColor: 'var(--card)' }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
+            {lang === 'en' ? 'Customer service' : 'Atención a cliente'}
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: 'var(--ink)' }}>
+            {lang === 'en' ? 'We help you find your ideal stay' : 'Te ayudamos a encontrar tu estancia ideal'}
+          </h2>
+          <p className="text-sm mb-8" style={{ color: 'var(--muted)' }}>
+            {lang === 'en'
+              ? 'Our team is available to guide you through every step, from choosing the right property to move-in day.'
+              : 'Nuestro equipo está disponible para acompañarte en cada paso, desde elegir la propiedad hasta tu llegada.'}
+          </p>
+          <div className="inline-flex flex-col items-center gap-4 mb-8">
+            <img
+              src={CAMILA.photo ?? ''}
+              alt={CAMILA.name}
+              draggable="false"
+              style={{ pointerEvents: 'none', userSelect: 'none' }}
+              className="w-24 h-24 rounded-full object-cover ring-2 ring-[var(--gold)]"
+            />
+            <div>
+              <p className="font-serif text-xl" style={{ color: 'var(--ink)' }}>{CAMILA.name}</p>
+              <div className="flex items-center justify-center gap-1 mt-1.5">
+                {CAMILA.languages.map((flag) => (
+                  <span key={flag} className="text-lg">{flag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <a href="https://wa.me/5215662548748"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm text-white hover:opacity-90 bg-amber-500">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              +52 56 6254 8748
+            </a>
+          
+          </div>
+        </div>
+      </section>
+
+      {/* RESEÑAS + CONTACTO */}
+      <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <ReviewsSection t={t} lang={lang} />
+          </div>
+          <div>
+            <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.contactTitle}</h2>
+            <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.contactSub}</p>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{ borderTop: '1px solid var(--border)' }} className="py-8 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="text-center sm:text-left">
+            <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>ShortStayMX</p>
+            <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
+              © 2021–{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
+            </p>
+          </div>
+          <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
+            <Link href="/properties" className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
+            <Link href="/about" className="hover:opacity-80 transition-opacity">{t.aboutNav}</Link>
+            <Link href="/requirements" className="hover:opacity-80 transition-opacity">{t.reqNav}</Link>
+            <Link href="/faq" className="hover:opacity-80 transition-opacity">{t.faqNav}</Link><Link href="/como-funciona" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/como-funciona" className="text-white/70 hover:text-white text-xs transition-colors">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/blog" className="hover:opacity-80 transition-opacity">Blog</Link>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}
+
+
