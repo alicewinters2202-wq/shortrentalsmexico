@@ -15,7 +15,12 @@ const dmSans = DM_Sans({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
+ata = {
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
+  icons: { icon: '/favicon.svg' },
   title: 'ShortStayMX — Rentas temporales amuebladas en México',
   description: 'Casas y departamentos amueblados para renta temporal en Ciudad de México, Guadalajara, Monterrey, Cancún, Mérida y más. Estancias desde 10 días hasta varios meses.',
   keywords: 'renta temporal amueblada México, apartamento amueblado CDMX, short term rental Mexico, renta por mes Guadalajara, departamento amueblado Monterrey, furnished apartment Mexico City',
@@ -23,7 +28,8 @@ export const metadata: Metadata = {
     google: 'JnnIwW92LhU3lWITqLKo880L30T9mZ6-07cI1c2N6Tk',
   },
   openGraph: {
-    title: 'ShortStayMX — Rentas temporales amuebladas en México',
+    icons: { icon: '/favicon.svg' },
+  title: 'ShortStayMX — Rentas temporales amuebladas en México',
     description: 'Departamentos y casas amuebladas para renta temporal en las mejores ciudades de México. Desde 10 días hasta varios meses.',
     url: 'https://shortstaymx.com',
     siteName: 'ShortStayMX',
@@ -40,7 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShortStayMX — Rentas temporales amuebladas en México',
+    icons: { icon: '/favicon.svg' },
+  title: 'ShortStayMX — Rentas temporales amuebladas en México',
     description: 'Departamentos y casas amuebladas para renta temporal en las mejores ciudades de México.',
     images: ['https://shortstaymx.com/og-image.jpg'],
   },

@@ -10,15 +10,27 @@ interface Props {
 export default function ImageGallery({ images, address }: Props) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const progressRef = useRef<NodeJS.Timeout | null>(null);
+  const INTERVAL = 4000;
 
   useEffect(() => {
-    if (images.length <= 1 || paused) return;
-    timerRef.current = setInterval(() => {
+    if (images.length <= 1 || paused) { setProgress(0); return; }
+    setProgress(0);
+    let elapsed = 0;
+    progressRef.current = setInterval(() => {
+      elapsed += 50;
+      setProgress(Math.min((elapsed / INTERVAL) * 100, 100));
+    }, 50);
+    timerRef.current = setTimeout(() => {
       setCurrent((i) => (i + 1) % images.length);
-    }, 4000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [images.length, paused]);
+    }, INTERVAL);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      if (progressRef.current) clearInterval(progressRef.current);
+    };
+  }, [current, images.length, paused]);
 
   if (!images.length) {
     return (
@@ -29,8 +41,8 @@ export default function ImageGallery({ images, address }: Props) {
     );
   }
 
-  const prev = () => { setCurrent((i) => (i - 1 + images.length) % images.length); setPaused(true); };
-  const next = () => { setCurrent((i) => (i + 1) % images.length); setPaused(true); };
+  const prev = () => { setCurrent((i) => (i - 1 + images.length) % images.length); setProgress(0); setPaused(false); };
+  const next = () => { setCurrent((i) => (i + 1) % images.length); setProgress(0); setPaused(false); };
 
   return (
     <div className="mb-10">
@@ -40,34 +52,35 @@ export default function ImageGallery({ images, address }: Props) {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
+        {/* Barra de progreso */}
+        {images.length > 1 && !paused && (
+          <div className="absolute top-0 left-0 right-0 h-1 z-10" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}>
+            <div
+              className="h-full transition-none"
+              style={{ width: `${progress}%`, backgroundColor: 'var(--gold)' }}
+            />
+          </div>
+        )}
+
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageUrl(images[current])}
           alt={`${address} — ${current + 1}`}
           className="w-full h-full object-cover transition-opacity duration-500"
         />
+
         {images.length > 1 && (
           <>
-            <button
-              onClick={prev}
+            <button onClick={prev}
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/85 backdrop-blur-sm rounded-full w-11 h-11 flex items-center justify-center text-xl text-[--ink] hover:bg-white shadow transition-colors"
-              aria-label="Anterior"
-            >
-              ‹
-            </button>
-            <button
-              onClick={next}
+              aria-label="Anterior">‹</button>
+            <button onClick={next}
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/85 backdrop-blur-sm rounded-full w-11 h-11 flex items-center justify-center text-xl text-[--ink] hover:bg-white shadow transition-colors"
-              aria-label="Siguiente"
-            >
-              ›
-            </button>
-            {/* Puntos indicadores */}
+              aria-label="Siguiente">›</button>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
               {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setCurrent(i); setPaused(true); }}
+                <button key={i}
+                  onClick={() => { setCurrent(i); setProgress(0); setPaused(false); }}
                   className={`rounded-full transition-all ${i === current ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/50'}`}
                 />
               ))}
@@ -81,15 +94,11 @@ export default function ImageGallery({ images, address }: Props) {
       {images.length > 1 && (
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
           {images.map((img, i) => (
-            <button
-              key={i}
-              onClick={() => { setCurrent(i); setPaused(true); }}
+            <button key={i}
+              onClick={() => { setCurrent(i); setProgress(0); setPaused(false); }}
               className={`flex-shrink-0 w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${
-                i === current
-                  ? 'border-[--gold] opacity-100 scale-105'
-                  : 'border-transparent opacity-60 hover:opacity-100'
-              }`}
-            >
+                i === current ? 'border-[--gold] opacity-100 scale-105' : 'border-transparent opacity-60 hover:opacity-100'
+              }`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={imageUrl(img)} alt="" className="w-full h-full object-cover" />
             </button>

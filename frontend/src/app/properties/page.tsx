@@ -90,7 +90,7 @@ export default async function PropertiesPage({
             const mainImage = p.images[0];
 
               return (
-                <Link key={p.id} href={`/properties/${p.slug}`} className="group block">
+                <Link key={p.id} href={`/properties/${p.slug}`} className="group block" style={{ transition: "transform 0.2s ease, box-shadow 0.2s ease" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 40px rgba(0,0,0,0.15)"; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "none"; }}>
                   {/* Imagen */}
                   <div
                     className="relative aspect-[4/3] rounded-2xl overflow-hidden"
