@@ -214,11 +214,11 @@ export default async function Home() {
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural}
                   </p>
                   <div className="flex gap-1 mt-1.5 flex-wrap">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">�Ÿ›œ {p.wifiSpeed} Mbps</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">�Ÿ�� {t.cleaningFee}</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">🛜 {p.wifiSpeed} Mbps</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
                     {p.petFriendlyNegotiable
-                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">�Ÿ�� {t.petFriendlyNeg}</span>
-                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">�Ÿ��</span>
+                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾 {t.petFriendlyNeg}</span>
+                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
                     }
                   </div>
                   <div className="flex items-baseline gap-2 mt-1.5 flex-wrap">
@@ -290,10 +290,10 @@ export default async function Home() {
       </section>
 
       <NeighborhoodsSection lang={lang} />
-      {/* PR�“XIMOS DESTINOS */}
+      {/* PRÓXIMOS DESTINOS */}
       <UpcomingDestinations t={t} />
 
-      {/* ATENCI�“N ESPECIALIZADA */}
+      {/* ATENCIÓN ESPECIALIZADA */}
       <section className="py-16 px-6" style={{ backgroundColor: 'var(--card)' }}>
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
