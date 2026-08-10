@@ -11,24 +11,24 @@ import HeroSlideshow from '@/components/home/HeroSlideshow';
 import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
 
 const CITIES = [
-  { name: 'Ciudad de MÃ©xico', label: 'CDMX' },
+  { name: 'Ciudad de México', label: 'CDMX' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
   { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
-  { name: 'CancÃºn',          label: 'CancÃºn' },
+  { name: 'Cancún',          label: 'Cancún' },
   { name: 'Tulum',            label: 'Tulum' },
   { name: 'Playa del Carmen', label: 'Playa del Carmen' },
 ];
 
 const ALL_CITIES = [
-  { name: 'Ciudad de MÃ©xico', label: 'CDMX' },
+  { name: 'Ciudad de México', label: 'CDMX' },
   { name: 'Guadalajara',      label: 'Guadalajara' },
   { name: 'Monterrey',        label: 'Monterrey' },
   { name: 'Santiago',         label: 'Santiago' },
   { name: 'Chapala',          label: 'Chapala' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
   { name: 'San Miguel de Allende', label: 'San Miguel' },
-  { name: 'MÃ©rida',          label: 'MÃ©rida' },
-  { name: 'CancÃºn',          label: 'CancÃºn' },
+  { name: 'Mérida',          label: 'Mérida' },
+  { name: 'Cancún',          label: 'Cancún' },
   { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
   { name: 'Tulum',            label: 'Tulum' },
   { name: 'Playa del Carmen', label: 'Playa del Carmen' },
@@ -56,7 +56,7 @@ export default async function Home() {
       {/* HERO */}
       <section className="relative h-screen min-h-[600px] flex flex-col">
         <HeroSlideshow images={[
-          'Ciudad de MÃ©xico', 'Puerto Vallarta', 'Tulum', 'CancÃºn', 'Nuevo Vallarta', 'San Miguel de Allende', 'MÃ©rida', 'Guadalajara'
+          'Ciudad de México', 'Puerto Vallarta', 'Tulum', 'Cancún', 'Nuevo Vallarta', 'San Miguel de Allende', 'Mérida', 'Guadalajara'
         ].map(city => {
           const p = withImages.find(p => p.city.trim() === city);
           return p ? imageUrl(p.images[0]) : null;
@@ -67,14 +67,14 @@ export default async function Home() {
           <div className="text-center">
             <p className="text-white text-[10px] tracking-[0.4em] uppercase font-medium opacity-80">ShortStayMX</p>
             <p className="text-white text-[10px] tracking-[0.5em] u
-            ppercase font-medium opacity-80">MÃ©xico</p>
+            ppercase font-medium opacity-80">México</p>
           </div>
           <div className="flex items-center gap-6">
             <Link href="/agents" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.agentsSectionTitle}
             </Link>
             <Link href="/why-us" className="text-white/70 hover:text-white text-xs transition-colors">
-              {lang === 'en' ? 'Why us' : 'Por quÃ© nosotros'}
+              {lang === 'en' ? 'Why us' : 'Por qué nosotros'}
             </Link>
             <Link href="/about" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.aboutNav}
@@ -193,7 +193,7 @@ export default async function Home() {
                   <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
-                      {p.city.trim() === 'Ciudad de MÃ©xico' ? 'CDMX' : p.city.trim()}
+                      {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
                     </span>
                     {!p.available && p.availableFrom && (
                       <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-red-600/90 text-white">
@@ -211,20 +211,20 @@ export default async function Home() {
                 </div>
                 <div className="mt-3 px-1">
                   <p className="text-xs" style={{ color: 'var(--muted)' }}>
-                    {p.bedrooms} {t.rec} Â· {p.bathrooms} {t.baths} Â· {p.maxGuests} {t.guestsPlural}
+                    {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural}
                   </p>
                   <div className="flex gap-1 mt-1.5 flex-wrap">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">ðŸ›œ {p.wifiSpeed} Mbps</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">ðŸ§¹ {t.cleaningFee}</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">�Ÿ›œ {p.wifiSpeed} Mbps</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">�Ÿ�� {t.cleaningFee}</span>
                     {p.petFriendlyNegotiable
-                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">ðŸ¾ {t.petFriendlyNeg}</span>
-                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">ðŸ¾</span>
+                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">�Ÿ�� {t.petFriendlyNeg}</span>
+                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">�Ÿ��</span>
                     }
                   </div>
                   <div className="flex items-baseline gap-2 mt-1.5 flex-wrap">
                     <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>Â·</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
                     <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
@@ -266,7 +266,7 @@ export default async function Home() {
                   <div className="absolute top-3 right-3">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
-                      {p.city.trim() === 'Ciudad de MÃ©xico' ? 'CDMX' : p.city.trim()}
+                      {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
                     </span>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
@@ -278,7 +278,7 @@ export default async function Home() {
                   <div className="flex items-baseline gap-2 flex-wrap">
                     <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>Â·</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
                     <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
@@ -290,14 +290,14 @@ export default async function Home() {
       </section>
 
       <NeighborhoodsSection lang={lang} />
-      {/* PRÃ“XIMOS DESTINOS */}
+      {/* PR�“XIMOS DESTINOS */}
       <UpcomingDestinations t={t} />
 
-      {/* ATENCIÃ“N ESPECIALIZADA */}
+      {/* ATENCI�“N ESPECIALIZADA */}
       <section className="py-16 px-6" style={{ backgroundColor: 'var(--card)' }}>
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
-            {lang === 'en' ? 'Customer service' : 'AtenciÃ³n a cliente'}
+            {lang === 'en' ? 'Customer service' : 'Atención a cliente'}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: 'var(--ink)' }}>
             {lang === 'en' ? 'We help you find your ideal stay' : 'Te ayudamos a encontrar tu estancia ideal'}
@@ -305,7 +305,7 @@ export default async function Home() {
           <p className="text-sm mb-8" style={{ color: 'var(--muted)' }}>
             {lang === 'en'
               ? 'Our team is available to guide you through every step, from choosing the right property to move-in day.'
-              : 'Nuestro equipo estÃ¡ disponible para acompaÃ±arte en cada paso, desde elegir la propiedad hasta tu llegada.'}
+              : 'Nuestro equipo está disponible para acompañarte en cada paso, desde elegir la propiedad hasta tu llegada.'}
           </p>
           <div className="inline-flex flex-col items-center gap-4 mb-8">
             <img
@@ -339,7 +339,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* RESEÃ‘AS + CONTACTO */}
+      {/* RESE�‘AS + CONTACTO */}
       <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
@@ -359,14 +359,14 @@ export default async function Home() {
           <div className="text-center sm:text-left">
             <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>ShortStayMX</p>
             <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-              Â© 2021â€“{new Date().getFullYear()} ShortStayMX S.A. de C.V. Â· {t.footerTagline}
+              © 2021�€“{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
             </p>
           </div>
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
             <Link href="/properties" className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
             <Link href="/about" className="hover:opacity-80 transition-opacity">{t.aboutNav}</Link>
             <Link href="/requirements" className="hover:opacity-80 transition-opacity">{t.reqNav}</Link>
-            <Link href="/faq" className="hover:opacity-80 transition-opacity">{t.faqNav}</Link><Link href="/como-funciona" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'How it works' : 'CÃ³mo funciona'}</Link><Link href="/blog" className="hover:opacity-80 transition-opacity">Blog</Link>
+            <Link href="/faq" className="hover:opacity-80 transition-opacity">{t.faqNav}</Link><Link href="/como-funciona" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/blog" className="hover:opacity-80 transition-opacity">Blog</Link>
           </div>
         </div>
       </footer>

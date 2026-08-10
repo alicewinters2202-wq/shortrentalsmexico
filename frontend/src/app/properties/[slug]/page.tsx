@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `Renta amueblada en ${street}, ${property.city} | ShortStayMX`,
-    description: `${property.bedrooms} recÃ¡maras, ${property.bathrooms} baÃ±os, ${property.sqMeters}mÂ² en ${neighborhood}, ${property.city}. Renta mensual desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN. Disponible en ShortStayMX.`,
+    description: `${property.bedrooms} recámaras, ${property.bathrooms} baños, ${property.sqMeters}m² en ${neighborhood}, ${property.city}. Renta mensual desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN. Disponible en ShortStayMX.`,
     openGraph: {
-      title: `${street} â€” ${property.city} | ShortStayMX`,
-      description: `Renta temporal amueblada en ${property.city}. ${property.bedrooms} rec, ${property.bathrooms} baÃ±os, WiFi ${property.wifiSpeed} Mbps.`,
+      title: `${street} �€” ${property.city} | ShortStayMX`,
+      description: `Renta temporal amueblada en ${property.city}. ${property.bedrooms} rec, ${property.bathrooms} baños, WiFi ${property.wifiSpeed} Mbps.`,
       images: property.images[0] ? [{ url: property.images[0] }] : [],
     },
   };
@@ -40,7 +40,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
   const waMsg = lang === 'en'
     ? `Hello, I'd like to book the property at ${street}. Could you help me confirm my reservation?`
-    : `Hola, me gustarÃ­a apartar la propiedad en ${street}. Â¿Me pueden ayudar a confirmar mi reserva?`;
+    : `Hola, me gustaría apartar la propiedad en ${street}. ¿Me pueden ayudar a confirmar mi reserva?`;
   const waMoreUrl = `https://wa.me/525572716417?text=${encodeURIComponent(waMsg)}`;
 
   return (
@@ -52,7 +52,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             "@context": "https://schema.org",
             "@type": "Apartment",
             "name": `${street}, ${property.city}`,
-            "description": `Departamento amueblado de ${property.bedrooms} recÃ¡maras y ${property.bathrooms} baÃ±os en ${neighborhood}, ${property.city}. ${property.sqMeters} mÂ². WiFi ${property.wifiSpeed} Mbps incluido.`,
+            "description": `Departamento amueblado de ${property.bedrooms} recámaras y ${property.bathrooms} baños en ${neighborhood}, ${property.city}. ${property.sqMeters} m². WiFi ${property.wifiSpeed} Mbps incluido.`,
             "url": `https://shortstaymx.com/properties/${property.slug}`,
             "image": property.images[0] ? `https://shortrentalsmexico-backend.onrender.com${property.images[0]}` : undefined,
             "numberOfRooms": property.bedrooms,
@@ -102,18 +102,18 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             <span className="text-xs tracking-widest uppercase font-medium" style={{ color: 'var(--muted)' }}>
               {property.city}
             </span>
-            <span style={{ color: 'var(--border)' }}>Â·</span>
+            <span style={{ color: 'var(--border)' }}>·</span>
             <span className="text-xs" style={{ color: 'var(--muted)' }}>{neighborhood}</span>
           </div>
           <div className="flex items-center gap-3 mb-2 flex-wrap">
             <h1 className="font-serif text-4xl sm:text-5xl" style={{ color: 'var(--ink)' }}>{street}</h1>
             {property.available ? (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 self-center">
-                â— {t.availableTag}
+                �—� {t.availableTag}
               </span>
             ) : (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-red-900/40 text-red-400 self-center">
-                â— {t.occupiedBanner}
+                �—� {t.occupiedBanner}
               </span>
             )}
           </div>
@@ -130,12 +130,12 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
         <ImageGallery images={property.images} address={street} />
 
-      {/* DESCRIPCIÃ“N AUTOMÃTICA */}
+      {/* DESCRIPCI�“N AUTOMÁTICA */}
 <div className="mb-8">
   <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
     {lang === 'en'
-      ? `This fully furnished ${property.bedrooms}-bedroom, ${property.bathrooms}-bathroom apartment is located in ${neighborhood}, ${property.city}. With ${property.sqMeters} mÂ² of living space${property.balcony ? ', a private balcony' : ''}${property.parkingSpots > 0 ? ` and ${property.parkingSpots} parking spot${property.parkingSpots > 1 ? 's' : ''}` : ''}, it accommodates up to ${property.maxGuests} guests. ${property.petFriendly ? 'Pets are welcome. ' : ''}${property.amenities.length > 0 ? `Amenities include ${property.amenities.flatMap(a => a.split(/,| y /i).map(x => x.trim())).filter(Boolean).map(a => ({'alberca': 'pool', 'kids club': 'kids club', 'gym': 'gym', 'spa': 'spa', 'cine': 'movie theater', 'salon de fiestas': 'event room', 'terraza': 'terrace', 'boliche': 'bowling alley', 'roof garden': 'roof garden', 'coworking': 'coworking', 'sauna': 'sauna', 'paddle': 'paddle court', 'squash': 'squash court', 'salon de yoga': 'yoga room', 'areas verdes': 'green areas', 'juegos infantiles': 'playground', 'vigilancia 24h': '24h security', 'concierge': 'concierge'} as Record<string,string>)[a.toLowerCase()] ?? a).join(', ')}.` : ''} High-speed WiFi of ${property.wifiSpeed} Mbps included. Available for short and mid-term rentals starting at ${Math.round(property.pricePerMonth).toLocaleString('en-US')} MXN per month.`
-      : `Departamento amueblado de ${property.bedrooms} recÃ¡maras y ${property.bathrooms} baÃ±os ubicado en ${neighborhood}, ${property.city}. Con ${property.sqMeters} mÂ² de superficie${property.balcony ? ', balcÃ³n privado' : ''}${property.parkingSpots > 0 ? ` y ${property.parkingSpots} lugar${property.parkingSpots > 1 ? 'es' : ''} de estacionamiento` : ''}, con capacidad para hasta ${property.maxGuests} huÃ©spedes. ${property.petFriendly ? 'Se aceptan mascotas. ' : ''}${property.amenities.length > 0 ? `Cuenta con ${property.amenities.join(', ')}.` : ''} WiFi de alta velocidad de ${property.wifiSpeed} Mbps incluido. Disponible para renta temporal desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN al mes.`
+      ? `This fully furnished ${property.bedrooms}-bedroom, ${property.bathrooms}-bathroom apartment is located in ${neighborhood}, ${property.city}. With ${property.sqMeters} m² of living space${property.balcony ? ', a private balcony' : ''}${property.parkingSpots > 0 ? ` and ${property.parkingSpots} parking spot${property.parkingSpots > 1 ? 's' : ''}` : ''}, it accommodates up to ${property.maxGuests} guests. ${property.petFriendly ? 'Pets are welcome. ' : ''}${property.amenities.length > 0 ? `Amenities include ${property.amenities.flatMap(a => a.split(/,| y /i).map(x => x.trim())).filter(Boolean).map(a => ({'alberca': 'pool', 'kids club': 'kids club', 'gym': 'gym', 'spa': 'spa', 'cine': 'movie theater', 'salon de fiestas': 'event room', 'terraza': 'terrace', 'boliche': 'bowling alley', 'roof garden': 'roof garden', 'coworking': 'coworking', 'sauna': 'sauna', 'paddle': 'paddle court', 'squash': 'squash court', 'salon de yoga': 'yoga room', 'areas verdes': 'green areas', 'juegos infantiles': 'playground', 'vigilancia 24h': '24h security', 'concierge': 'concierge'} as Record<string,string>)[a.toLowerCase()] ?? a).join(', ')}.` : ''} High-speed WiFi of ${property.wifiSpeed} Mbps included. Available for short and mid-term rentals starting at ${Math.round(property.pricePerMonth).toLocaleString('en-US')} MXN per month.`
+      : `Departamento amueblado de ${property.bedrooms} recámaras y ${property.bathrooms} baños ubicado en ${neighborhood}, ${property.city}. Con ${property.sqMeters} m² de superficie${property.balcony ? ', balcón privado' : ''}${property.parkingSpots > 0 ? ` y ${property.parkingSpots} lugar${property.parkingSpots > 1 ? 'es' : ''} de estacionamiento` : ''}, con capacidad para hasta ${property.maxGuests} huéspedes. ${property.petFriendly ? 'Se aceptan mascotas. ' : ''}${property.amenities.length > 0 ? `Cuenta con ${property.amenities.join(', ')}.` : ''} WiFi de alta velocidad de ${property.wifiSpeed} Mbps incluido. Disponible para renta temporal desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN al mes.`
     }
   </p>
 </div>
@@ -162,20 +162,20 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
             <div className="flex flex-wrap gap-2">
               {property.balcony && (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-emerald-900/40 text-emerald-400">ðŸŒ¿ {t.balcony}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-emerald-900/40 text-emerald-400">�ŸŒ� {t.balcony}</span>
               )}
               {property.petFriendlyNegotiable ? (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">ðŸ¾ {t.petFriendlyNeg}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">�Ÿ�� {t.petFriendlyNeg}</span>
               ) : property.petFriendly && (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">ðŸ¾ {t.petFriendly}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">�Ÿ�� {t.petFriendly}</span>
               )}
               {property.parkingSpots > 0 && (
                 <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-blue-900/40 text-blue-400">
-                  ðŸš— {t.parking(property.parkingSpots)}
+                  �Ÿš— {t.parking(property.parkingSpots)}
                 </span>
               )}
               <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-violet-900/40 text-violet-400">
-                ðŸ›œ {t.wifiLabel} {property.wifiSpeed} Mbps
+                �Ÿ›œ {t.wifiLabel} {property.wifiSpeed} Mbps
               </span>
             </div>
 
@@ -189,7 +189,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                       className="flex items-center gap-3 rounded-xl p-3"
                       style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}
                     >
-                      <span style={{ color: 'var(--gold)' }}>âœ“</span>
+                      <span style={{ color: 'var(--gold)' }}>�œ“</span>
                       <span className="text-sm capitalize" style={{ color: 'var(--ink)' }}>
                         {lang === 'en' ? a.split(/,| y /i).map(x => x.trim()).filter(Boolean).map(x => ({'alberca': 'Pool', 'kids club': 'Kids club', 'gym': 'Gym', 'spa': 'Spa', 'cine': 'Movie theater', 'salon de fiestas': 'Event room', 'terraza': 'Terrace', 'boliche': 'Bowling alley', 'roof garden': 'Roof garden', 'coworking': 'Coworking', 'sauna': 'Sauna', 'paddle': 'Paddle court', 'squash': 'Squash court', 'salon de yoga': 'Yoga room', 'areas verdes': 'Green areas', 'juegos infantiles': 'Playground', 'vigilancia 24h': '24h security', 'concierge': 'Concierge', 'business center': 'Business center'} as Record<string,string>)[x.toLowerCase()] ?? x).join(', ') : a}
                       </span>
@@ -260,18 +260,18 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 * {t.priceFoot}
               </p>
               <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                ðŸ§¹ {t.cleaningFeeNote}
+                �Ÿ�� {t.cleaningFeeNote}
               </p>
               
                 <a href={`https://wa.me/525637719983?text=${encodeURIComponent(
                   lang === 'en'
                     ? `Hello, I'm interested in a long-term stay (3+ months) at ${street}. Could you share the special conditions?`
-                    : `Hola, me interesa una estancia larga (mÃ¡s de 3 meses) en ${street}. Â¿Me pueden compartir las condiciones especiales?`
+                    : `Hola, me interesa una estancia larga (más de 3 meses) en ${street}. ¿Me pueden compartir las condiciones especiales?`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 flex items-center gap-4 rounded-2xl p-5">
-                <span className="text-3xl">ðŸ </span>
+                <span className="text-3xl">�Ÿ��</span>
                 <div className="flex-1">
                   <p className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{t.longStayTitle}</p>
                   <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{t.longStaySub}</p>
@@ -294,10 +294,10 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={`${t.locationTitle} â€” ${street}`}
+                  title={`${t.locationTitle} �€” ${street}`}
                 />
               </div>
-              <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>ðŸ“ {property.address}</p>
+              <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>�Ÿ“� {property.address}</p>
             </div>
           </div>
 

@@ -10,7 +10,7 @@ export default function ContactPage() {
 
   const handleSubmit = () => {
     if (!name || !message) return;
-    const text = `Hola, me contacto desde ShortStayMX.\n\nNombre: ${name}\nEmail: ${email}\nCiudad de interÃ©s: ${city}\nMensaje: ${message}`;
+    const text = `Hola, me contacto desde ShortStayMX.\n\nNombre: ${name}\nEmail: ${email}\nCiudad de interés: ${city}\nMensaje: ${message}`;
     const url = `https://wa.me/525637719983?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
@@ -19,7 +19,7 @@ export default function ContactPage() {
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: 'rgba(28,28,30,0.9)', borderBottom: '1px solid var(--border)' }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Link href="/" className="text-sm transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>â† Home</Link>
+          <Link href="/" className="text-sm transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>�†� Home</Link>
           <span style={{ color: 'var(--border)' }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: 'var(--ink)' }}>ShortStayMX</Link>
         </div>
@@ -29,10 +29,10 @@ export default function ContactPage() {
         <div className="max-w-2xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>Contacto</p>
           <h1 className="font-serif text-5xl sm:text-6xl mb-4" style={{ color: 'var(--ink)' }}>
-            Estamos aquÃ­ para ayudarte
+            Estamos aquí para ayudarte
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            Â¿Tienes preguntas sobre alguna propiedad o quieres que te ayudemos a encontrar la opciÃ³n ideal? ContÃ¡ctanos directamente por WhatsApp o llena el formulario.
+            ¿Tienes preguntas sobre alguna propiedad o quieres que te ayudemos a encontrar la opción ideal? Contáctanos directamente por WhatsApp o llena el formulario.
           </p>
         </div>
 
@@ -40,9 +40,9 @@ export default function ContactPage() {
           {/* Info de contacto */}
           <div className="space-y-6">
             {[
-              { icon: 'ðŸ’¬', title: 'WhatsApp', desc: 'Respuesta en minutos', value: '+52 56 3771 9983', href: 'https://wa.me/525637719983' },
-              { icon: 'ðŸ“§', title: 'Email', desc: 'Respuesta en 24 horas', value: 'shortstaymx2021@gmail.com', href: 'mailto:shortstaymx2021@gmail.com' },
-              { icon: 'ðŸ•', title: 'Horario', desc: 'Lunes a Domingo', value: '8:00 am â€“ 10:00 pm' },
+              { icon: '�Ÿ’�', title: 'WhatsApp', desc: 'Respuesta en minutos', value: '+52 56 3771 9983', href: 'https://wa.me/525637719983' },
+              { icon: '�Ÿ“�', title: 'Email', desc: 'Respuesta en 24 horas', value: 'shortstaymx2021@gmail.com', href: 'mailto:shortstaymx2021@gmail.com' },
+              { icon: '�Ÿ•�', title: 'Horario', desc: 'Lunes a Domingo', value: '8:00 am �€“ 10:00 pm' },
             ].map(item => (
               <div key={item.title} className="rounded-2xl p-6 flex items-start gap-4" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
                 <span className="text-3xl">{item.icon}</span>
@@ -59,20 +59,20 @@ export default function ContactPage() {
             ))}
 
             <div className="rounded-2xl p-6" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
-              <p className="font-serif text-xl mb-3" style={{ color: 'var(--ink)' }}>Â¿Necesitas ayuda para elegir?</p>
-              <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>Nuestro equipo puede ayudarte a encontrar la propiedad ideal segÃºn tu presupuesto, ciudad y fechas.</p>
-              <a href="https://wa.me/525637719983?text=Hola%2C%20necesito%20ayuda%20para%20encontrar%20una%20propiedad%20en%20MÃ©xico."
+              <p className="font-serif text-xl mb-3" style={{ color: 'var(--ink)' }}>¿Necesitas ayuda para elegir?</p>
+              <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>Nuestro equipo puede ayudarte a encontrar la propiedad ideal según tu presupuesto, ciudad y fechas.</p>
+              <a href="https://wa.me/525637719983?text=Hola%2C%20necesito%20ayuda%20para%20encontrar%20una%20propiedad%20en%20México."
                 target="_blank" rel="noopener noreferrer"
                 className="inline-block px-6 py-3 rounded-full text-sm font-medium text-white hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: 'var(--gold)' }}>
-                Hablar con un agente â†’
+                Hablar con un agente �†’
               </a>
             </div>
           </div>
 
           {/* Formulario */}
           <div className="rounded-2xl p-8" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
-            <h2 className="font-serif text-2xl mb-6" style={{ color: 'var(--ink)' }}>EnvÃ­anos un mensaje</h2>
+            <h2 className="font-serif text-2xl mb-6" style={{ color: 'var(--ink)' }}>Envíanos un mensaje</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-xs uppercase tracking-widest font-medium mb-2" style={{ color: 'var(--muted)' }}>Nombre *</label>
@@ -89,12 +89,12 @@ export default function ContactPage() {
                   placeholder="tu@email.com" />
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-widest font-medium mb-2" style={{ color: 'var(--muted)' }}>Ciudad de interÃ©s</label>
+                <label className="block text-xs uppercase tracking-widest font-medium mb-2" style={{ color: 'var(--muted)' }}>Ciudad de interés</label>
                 <select value={city} onChange={(e) => setCity(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
                   style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)', color: 'var(--ink)' }}>
                   <option value="">Selecciona una ciudad</option>
-                  {['Ciudad de MÃ©xico', 'Puerto Vallarta', 'Nuevo Vallarta', 'CancÃºn', 'Tulum', 'Playa del Carmen', 'Guadalajara', 'Monterrey', 'MÃ©rida', 'San Miguel de Allende', 'Chapala', 'Santiago'].map(c => (
+                  {['Ciudad de México', 'Puerto Vallarta', 'Nuevo Vallarta', 'Cancún', 'Tulum', 'Playa del Carmen', 'Guadalajara', 'Monterrey', 'Mérida', 'San Miguel de Allende', 'Chapala', 'Santiago'].map(c => (
                     <option key={c} value={c}>{c}</option>
                   ))}
                 </select>
@@ -104,14 +104,14 @@ export default function ContactPage() {
                 <textarea rows={4} value={message} onChange={(e) => setMessage(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors resize-none"
                   style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-                  placeholder="Â¿En quÃ© podemos ayudarte?" />
+                  placeholder="¿En qué podemos ayudarte?" />
               </div>
               <button onClick={handleSubmit} disabled={!name || !message}
                 className="w-full py-3 rounded-full text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-40"
                 style={{ backgroundColor: 'var(--gold)' }}>
-                Enviar por WhatsApp â†’
+                Enviar por WhatsApp �†’
               </button>
-              <p className="text-xs text-center" style={{ color: 'var(--muted)' }}>Al hacer clic se abrirÃ¡ WhatsApp con tu mensaje prellenado</p>
+              <p className="text-xs text-center" style={{ color: 'var(--muted)' }}>Al hacer clic se abrirá WhatsApp con tu mensaje prellenado</p>
             </div>
           </div>
         </div>
