@@ -65,7 +65,7 @@ export default async function Home() {
 
         <nav className="relative z-10 flex items-center justify-between px-8 py-6">
           <div className="text-center">
-            <p className="text-white text-[10px] tracking-[0.4em] uppercase font-medium opacity-80">ShortStayMX</p>
+            <p className="text-white text-[10px] tracking-[0.3em] uppercase font-medium opacity-80">Temporary Rentals</p>
             <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-80">México</p>
           </div>
           <div className="flex items-center gap-6">
@@ -356,9 +356,9 @@ export default async function Home() {
       <footer style={{ borderTop: '1px solid var(--border)' }} className="py-8 px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-center sm:text-left">
-            <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>ShortStayMX</p>
+            <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>TemporaryRentalsMexico</p>
             <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-              © 2021–{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
+              © 2021–{new Date().getFullYear()} TemporaryRentalsMexico S.A. de C.V. · {t.footerTagline}
             </p>
           </div>
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>

@@ -1,0 +1,87 @@
+import type { Metadata } from 'next';
+import WhatsAppButton from '@/components/layout/WhatsAppButton';
+import { Fraunces, Inter } from 'next/font/google';
+import './globals.css';
+
+const playfair = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const dmSans = Inter({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
+  title: 'TemporaryRentalsMexico — Rentas temporales amuebladas en México',
+  description: 'Casas y departamentos amueblados para renta temporal en Ciudad de México, Guadalajara, Monterrey, Cancún, Mérida y más. Estancias desde 10 días hasta varios meses.',
+  keywords: 'renta temporal amueblada México, apartamento amueblado CDMX, short term rental Mexico, renta por mes Guadalajara, departamento amueblado Monterrey, furnished apartment Mexico City',
+  verification: {
+    google: 'JnnIwW92LhU3lWITqLKo880L30T9mZ6-07cI1c2N6Tk',
+  },
+  openGraph: {
+    title: 'TemporaryRentalsMexico — Rentas temporales amuebladas en México',
+    description: 'Departamentos y casas amuebladas para renta temporal en las mejores ciudades de México. Desde 10 días hasta varios meses.',
+    url: 'https://temporaryrentalsmexico.com',
+    siteName: 'TemporaryRentalsMexico',
+    locale: 'es_MX',
+    type: 'website',
+    images: [
+      {
+        url: 'https://temporaryrentalsmexico.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'TemporaryRentalsMexico — Rentas temporales amuebladas en México',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TemporaryRentalsMexico — Rentas temporales amuebladas en México',
+    description: 'Departamentos y casas amuebladas para renta temporal en las mejores ciudades de México.',
+    images: ['https://temporaryrentalsmexico.com/og-image.jpg'],
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="es">
+      <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCH5YFKRS8"></script>
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZCH5YFKRS8');` }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "RealEstateAgent",
+              "name": "TemporaryRentalsMexico",
+              "url": "https://temporaryrentalsmexico.com",
+              "logo": "https://temporaryrentalsmexico.com/logo.png",
+              "description": "Rentas temporales amuebladas en México. Departamentos y casas para estancias de corto y mediano plazo en Ciudad de México, Guadalajara, Monterrey, Cancún, Tulum y más.",
+              "foundingDate": "2021",
+              "numberOfEmployees": { "@type": "QuantitativeValue", "value": 40 },
+              "areaServed": "México",
+              "telephone": "+52-55-6378-3517",
+              "email": "shortstaymx2021@gmail.com",
+              "sameAs": ["https://temporaryrentalsmexico.com"],
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "MX"
+              }
+            })
+          }}
+        />
+        {children}
+        <WhatsAppButton />
+      </body>
+    </html>
+  );
+}
