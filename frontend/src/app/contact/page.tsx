@@ -19,7 +19,7 @@ export default function ContactPage() {
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: 'rgba(28,28,30,0.9)', borderBottom: '1px solid var(--border)' }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Link href="/" className="text-sm transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>�†� Home</Link>
+          <Link href="/" className="text-sm transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>← Home</Link>
           <span style={{ color: 'var(--border)' }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: 'var(--ink)' }}>ShortStayMX</Link>
         </div>
@@ -40,9 +40,8 @@ export default function ContactPage() {
           {/* Info de contacto */}
           <div className="space-y-6">
             {[
-              { icon: '�Ÿ’�', title: 'WhatsApp', desc: 'Respuesta en minutos', value: '+52 56 3771 9983', href: 'https://wa.me/525637719983' },
-              { icon: '�Ÿ“�', title: 'Email', desc: 'Respuesta en 24 horas', value: 'shortstaymx2021@gmail.com', href: 'mailto:shortstaymx2021@gmail.com' },
-              { icon: '�Ÿ•�', title: 'Horario', desc: 'Lunes a Domingo', value: '8:00 am �€“ 10:00 pm' },
+              { icon: '💬', title: 'WhatsApp', desc: 'Respuesta en minutos', value: '+52 56 3771 9983', href: 'https://wa.me/525637719983' },
+              { icon: '🕐', title: 'Horario', desc: 'Lunes a Domingo', value: '8:00 am – 10:00 pm' },
             ].map(item => (
               <div key={item.title} className="rounded-2xl p-6 flex items-start gap-4" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
                 <span className="text-3xl">{item.icon}</span>
@@ -65,7 +64,7 @@ export default function ContactPage() {
                 target="_blank" rel="noopener noreferrer"
                 className="inline-block px-6 py-3 rounded-full text-sm font-medium text-white hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: 'var(--gold)' }}>
-                Hablar con un agente �†’
+                Hablar con un agente →
               </a>
             </div>
           </div>
@@ -109,7 +108,7 @@ export default function ContactPage() {
               <button onClick={handleSubmit} disabled={!name || !message}
                 className="w-full py-3 rounded-full text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-40"
                 style={{ backgroundColor: 'var(--gold)' }}>
-                Enviar por WhatsApp �†’
+                Enviar por WhatsApp →
               </button>
               <p className="text-xs text-center" style={{ color: 'var(--muted)' }}>Al hacer clic se abrirá WhatsApp con tu mensaje prellenado</p>
             </div>

@@ -14,7 +14,7 @@ export default async function HowItWorksPage() {
   const steps = [
     {
       number: '01',
-      emoji: '�Ÿ”�',
+      emoji: '🔍',
       title_es: 'Encuentra tu propiedad',
       title_en: 'Find your property',
       desc_es: 'Explora nuestro catálogo de departamentos y casas amuebladas en las mejores ciudades de México. Filtra por ciudad, precio, número de recámaras y fechas. Cada propiedad muestra fotos reales, amenidades, precio por noche y por mes.',
@@ -22,15 +22,15 @@ export default async function HowItWorksPage() {
     },
     {
       number: '02',
-      emoji: '�Ÿ’�',
+      emoji: '💳',
       title_es: 'Contáctanos por WhatsApp',
       title_en: 'Contact us on WhatsApp',
-      desc_es: 'Una vez que encuentres la propiedad que te interesa, contáctanos por WhatsApp. Nuestro equipo te responderá rápidamente para confirmar disponibilidad, resolver tus dudas y guiarte en el proceso. No hay bots �€” hablas directamente con una persona.',
-      desc_en: 'Once you find the property you are interested in, contact us on WhatsApp. Our team will respond quickly to confirm availability, answer your questions and guide you through the process. No bots �€” you speak directly with a person.',
+      desc_es: 'Una vez que encuentres la propiedad que te interesa, contáctanos por WhatsApp. Nuestro equipo te responderá rápidamente para confirmar disponibilidad, resolver tus dudas y guiarte en el proceso. No hay bots — hablas directamente con una persona.',
+      desc_en: 'Once you find the property you are interested in, contact us on WhatsApp. Our team will respond quickly to confirm availability, answer your questions and guide you through the process. No bots — you speak directly with a person.',
     },
     {
       number: '03',
-      emoji: '�Ÿ“„',
+      emoji: '📄',
       title_es: 'Firma el contrato',
       title_en: 'Sign the contract',
       desc_es: 'Te enviamos el contrato de arrendamiento para revisión. El contrato se firma electrónicamente, generalmente dentro de las 24 a 72 horas después del pago, dependiendo de la disponibilidad del propietario. El contrato es en español por razones legales, aunque podemos proporcionarte una versión en inglés de referencia.',
@@ -38,7 +38,7 @@ export default async function HowItWorksPage() {
     },
     {
       number: '04',
-      emoji: '�Ÿ’�',
+      emoji: '💳',
       title_es: 'Realiza tu pago',
       title_en: 'Make your payment',
       desc_es: 'Para tu seguridad y la nuestra, únicamente aceptamos pagos mediante transferencia bancaria. Para estancias cortas se requiere entre el 50% y el 100% de anticipo para apartar las fechas. Para estancias de 4 meses o más se requiere un depósito en garantía equivalente a mes y medio de renta. Una vez recibido tu pago, te enviamos un recibo firmado como comprobante.',
@@ -46,7 +46,7 @@ export default async function HowItWorksPage() {
     },
     {
       number: '05',
-      emoji: '�Ÿ”‘',
+      emoji: '🔑',
       title_es: 'Recibe acceso a tu propiedad',
       title_en: 'Get access to your property',
       desc_es: 'El día de tu llegada recibirás las llaves físicas o el código de acceso digital, dependiendo de la propiedad. Nuestro equipo estará disponible para asistirte durante toda tu estancia. ¡Bienvenido a tu nuevo hogar en México!',
@@ -70,14 +70,14 @@ export default async function HowItWorksPage() {
     {
       q_es: '¿Qué incluye la renta?',
       q_en: 'What does the rent include?',
-      a_es: 'Todas nuestras propiedades incluyen mobiliario completo, WiFi de alta velocidad, agua caliente, electricidad, gas y acceso a las amenidades del edificio. Todo está incluido �€” sin cargos ocultos.',
-      a_en: 'All our properties include full furniture, high-speed WiFi, hot water, electricity, gas and access to building amenities. Everything is included �€” no hidden fees.',
+      a_es: 'Todas nuestras propiedades incluyen mobiliario completo, WiFi de alta velocidad, agua caliente, electricidad, gas y acceso a las amenidades del edificio. Todo está incluido — sin cargos ocultos.',
+      a_en: 'All our properties include full furniture, high-speed WiFi, hot water, electricity, gas and access to building amenities. Everything is included — no hidden fees.',
     },
     {
       q_es: '¿Puedo pagar en dólares, euros u otra moneda?',
       q_en: 'Can I pay in dollars, euros or any other currency?',
-      a_es: 'Los precios están en pesos mexicanos (MXN) y el pago se realiza mediante transferencia bancaria en pesos. Si pagas desde el extranjero, recomendamos usar Wise �€” tiene una de las mejores tasas de conversión del mercado y te permite pagar en tu moneda local sin comisiones excesivas.',
-      a_en: 'Prices are in Mexican pesos (MXN) and payment is made via bank transfer in pesos. If you are paying from abroad, we recommend using Wise �€” it offers one of the best exchange rates on the market and allows you to pay in your local currency without excessive fees.',
+      a_es: 'Los precios están en pesos mexicanos (MXN) y el pago se realiza mediante transferencia bancaria en pesos. Si pagas desde el extranjero, recomendamos usar Wise — tiene una de las mejores tasas de conversión del mercado y te permite pagar en tu moneda local sin comisiones excesivas.',
+      a_en: 'Prices are in Mexican pesos (MXN) and payment is made via bank transfer in pesos. If you are paying from abroad, we recommend using Wise — it offers one of the best exchange rates on the market and allows you to pay in your local currency without excessive fees.',
     },
     {
       q_es: '¿Qué pasa si necesito cancelar?',
@@ -91,7 +91,7 @@ export default async function HowItWorksPage() {
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
       <nav className="sticky top-0 z-40 backdrop-blur-md" style={{ backgroundColor: 'rgba(28,28,30,0.9)', borderBottom: '1px solid var(--border)' }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Link href="/" className="text-sm transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>�†� Home</Link>
+          <Link href="/" className="text-sm transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>← Home</Link>
           <span style={{ color: 'var(--border)' }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: 'var(--ink)' }}>ShortStayMX</Link>
           <div className="ml-auto"><LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" /></div>

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `Renta amueblada en ${street}, ${property.city} | ShortStayMX`,
     description: `${property.bedrooms} recámaras, ${property.bathrooms} baños, ${property.sqMeters}m² en ${neighborhood}, ${property.city}. Renta mensual desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN. Disponible en ShortStayMX.`,
     openGraph: {
-      title: `${street} �€” ${property.city} | ShortStayMX`,
+      title: `${street} — ${property.city} | ShortStayMX`,
       description: `Renta temporal amueblada en ${property.city}. ${property.bedrooms} rec, ${property.bathrooms} baños, WiFi ${property.wifiSpeed} Mbps.`,
       images: property.images[0] ? [{ url: property.images[0] }] : [],
     },
@@ -109,11 +109,11 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             <h1 className="font-serif text-4xl sm:text-5xl" style={{ color: 'var(--ink)' }}>{street}</h1>
             {property.available ? (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 self-center">
-                �—� {t.availableTag}
+                ● {t.availableTag}
               </span>
             ) : (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-red-900/40 text-red-400 self-center">
-                �—� {t.occupiedBanner}
+                ● {t.occupiedBanner}
               </span>
             )}
           </div>
@@ -130,7 +130,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
         <ImageGallery images={property.images} address={street} />
 
-      {/* DESCRIPCI�“N AUTOMÁTICA */}
+      {/* DESCRIPCIÓN AUTOMÁTICA */}
 <div className="mb-8">
   <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
     {lang === 'en'
@@ -162,20 +162,20 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
             <div className="flex flex-wrap gap-2">
               {property.balcony && (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-emerald-900/40 text-emerald-400">�ŸŒ� {t.balcony}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-emerald-900/40 text-emerald-400">🌿 {t.balcony}</span>
               )}
               {property.petFriendlyNegotiable ? (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">�Ÿ�� {t.petFriendlyNeg}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">🐾 {t.petFriendlyNeg}</span>
               ) : property.petFriendly && (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">�Ÿ�� {t.petFriendly}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">🐾 {t.petFriendly}</span>
               )}
               {property.parkingSpots > 0 && (
                 <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-blue-900/40 text-blue-400">
-                  �Ÿš— {t.parking(property.parkingSpots)}
+                  🚗 {t.parking(property.parkingSpots)}
                 </span>
               )}
               <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-violet-900/40 text-violet-400">
-                �Ÿ›œ {t.wifiLabel} {property.wifiSpeed} Mbps
+                🛜 {t.wifiLabel} {property.wifiSpeed} Mbps
               </span>
             </div>
 
@@ -189,7 +189,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                       className="flex items-center gap-3 rounded-xl p-3"
                       style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}
                     >
-                      <span style={{ color: 'var(--gold)' }}>�œ“</span>
+                      <span style={{ color: 'var(--gold)' }}>✓</span>
                       <span className="text-sm capitalize" style={{ color: 'var(--ink)' }}>
                         {lang === 'en' ? a.split(/,| y /i).map(x => x.trim()).filter(Boolean).map(x => ({'alberca': 'Pool', 'kids club': 'Kids club', 'gym': 'Gym', 'spa': 'Spa', 'cine': 'Movie theater', 'salon de fiestas': 'Event room', 'terraza': 'Terrace', 'boliche': 'Bowling alley', 'roof garden': 'Roof garden', 'coworking': 'Coworking', 'sauna': 'Sauna', 'paddle': 'Paddle court', 'squash': 'Squash court', 'salon de yoga': 'Yoga room', 'areas verdes': 'Green areas', 'juegos infantiles': 'Playground', 'vigilancia 24h': '24h security', 'concierge': 'Concierge', 'business center': 'Business center'} as Record<string,string>)[x.toLowerCase()] ?? x).join(', ') : a}
                       </span>
@@ -260,7 +260,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 * {t.priceFoot}
               </p>
               <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                �Ÿ�� {t.cleaningFeeNote}
+                🧹 {t.cleaningFeeNote}
               </p>
               
                 <a href={`https://wa.me/525637719983?text=${encodeURIComponent(
@@ -271,7 +271,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 flex items-center gap-4 rounded-2xl p-5">
-                <span className="text-3xl">�Ÿ��</span>
+                <span className="text-3xl">🏠</span>
                 <div className="flex-1">
                   <p className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{t.longStayTitle}</p>
                   <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{t.longStaySub}</p>
@@ -294,10 +294,10 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={`${t.locationTitle} �€” ${street}`}
+                  title={`${t.locationTitle} — ${street}`}
                 />
               </div>
-              <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>�Ÿ“� {property.address}</p>
+              <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>📍 {property.address}</p>
             </div>
           </div>
 

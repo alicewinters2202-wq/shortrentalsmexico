@@ -339,7 +339,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* RESE�‘AS + CONTACTO */}
+      {/* RESEÑAS + CONTACTO */}
       <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
@@ -359,7 +359,7 @@ export default async function Home() {
           <div className="text-center sm:text-left">
             <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>ShortStayMX</p>
             <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-              © 2021�€“{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
+              © 2021–{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
             </p>
           </div>
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>

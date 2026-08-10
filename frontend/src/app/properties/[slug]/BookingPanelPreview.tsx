@@ -57,12 +57,12 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
   )}`;
 
   const badges = [
-    property.balcony      && { label: t.balcony,             icon: '�ŸŒ�' },
+    property.balcony      && { label: t.balcony,             icon: '🌿' },
     property.petFriendlyNegotiable
-      ? { label: t.petFriendlyNeg, icon: '�Ÿ��' }
-      : property.petFriendly && { label: t.petFriendly, icon: '�Ÿ��' },
-    property.parkingSpots > 0 && { label: t.parking(property.parkingSpots), icon: '�Ÿš—' },
-    property.sqMeters     > 0 && { label: `${property.sqMeters} m²`,        icon: '�Ÿ“�' },
+      ? { label: t.petFriendlyNeg, icon: '🐾' }
+      : property.petFriendly && { label: t.petFriendly, icon: '🐾' },
+    property.parkingSpots > 0 && { label: t.parking(property.parkingSpots), icon: '🚗' },
+    property.sqMeters     > 0 && { label: `${property.sqMeters} m²`,        icon: '📐' },
   ].filter(Boolean) as { label: string; icon: string }[];
 
   return (
@@ -126,7 +126,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
             </span>
             <div className="flex items-center gap-3">
               {[
-                { icon: '�ˆ’', action: () => setGuests((g) => Math.max(1, g - 1)) },
+                { icon: '−', action: () => setGuests((g) => Math.max(1, g - 1)) },
                 { icon: '+', action: () => setGuests((g) => Math.min(property.maxGuests, g + 1)) },
               ].map(({ icon, action }) => (
                 <button
@@ -149,7 +149,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           style={{ border: '1px solid var(--border)' }}
         >
           <div>
-            <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>�Ÿ�� {t.cleaningFee}</p>
+            <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>🧹 {t.cleaningFee}</p>
             <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>
               $500 {lang === 'en' ? 'per week · towel & sheet change' : 'por semana · cambio de toallas y sábanas'}
             </p>
@@ -171,12 +171,12 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
         {total !== null && rentTotal !== null && (
           <div className="rounded-xl p-4 space-y-2" style={{ border: '1px solid var(--border)' }}>
             <div className="flex justify-between text-sm">
-              <span style={{ color: 'var(--muted)' }}>{formatMXN(Math.round(dailyRate))} �— {nights} {t.nightsLabel}</span>
+              <span style={{ color: 'var(--muted)' }}>{formatMXN(Math.round(dailyRate))} × {nights} {t.nightsLabel}</span>
               <span style={{ color: 'var(--ink)' }}>{formatMXN(rentTotal)}</span>
             </div>
             {withCleaning && cleaningFee > 0 && (
               <div className="flex justify-between text-sm">
-                <span style={{ color: 'var(--muted)' }}>�Ÿ�� {t.cleaningFee} ({Math.max(1, Math.floor(nights / 7))} sem)</span>
+                <span style={{ color: 'var(--muted)' }}>🧹 {t.cleaningFee} ({Math.max(1, Math.floor(nights / 7))} sem)</span>
                 <span style={{ color: 'var(--ink)' }}>{formatMXN(cleaningFee)}</span>
               </div>
             )}
@@ -214,7 +214,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           </div>
         )}
 
-        {/* Contacto especial �€” 3+ meses */}
+        {/* Contacto especial — 3+ meses */}
         <a
           href={`https://wa.me/525637719983?text=${encodeURIComponent(
             lang === 'en'
@@ -226,7 +226,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           className="flex items-center gap-3 rounded-2xl p-4 transition-colors hover:opacity-90"
           style={{ backgroundColor: 'rgba(180,130,255,0.08)', border: '1px solid rgba(180,130,255,0.25)' }}
         >
-          <span className="text-2xl">�Ÿ��</span>
+          <span className="text-2xl">🏠</span>
           <div className="flex-1">
             <p className="text-xs font-semibold" style={{ color: 'var(--ink)' }}>{t.longStayPanelTitle}</p>
             <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>{t.longStayPanelSub}</p>
