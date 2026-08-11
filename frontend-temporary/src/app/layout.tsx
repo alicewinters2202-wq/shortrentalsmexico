@@ -16,6 +16,7 @@ const dmSans = Inter({
 });
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://shortstaymx.com/' },
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',

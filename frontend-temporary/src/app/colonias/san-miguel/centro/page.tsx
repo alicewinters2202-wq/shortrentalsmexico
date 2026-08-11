@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://shortstaymx.com/colonias/san-miguel/centro' },
   title: "Furnished rentals in Centro Historico, San Miguel de Allende | TemporaryRentalsMexico",
   description: "Furnished apartments in the Historic Center of San Miguel de Allende. UNESCO World Heritage Site with cobblestone streets, colonial architecture and world-class restaurants.",
 };

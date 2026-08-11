@@ -11,7 +11,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   try { const sp = await searchParams; city = sp?.city; } catch { city = undefined; }
   const title = city ? `Propiedades en ${city} | TemporaryRentalsMexico` : 'Todas las propiedades | TemporaryRentalsMexico';
   const description = city ? `Encuentra departamentos y casas amuebladas para renta temporal en ${city}. Propiedades verificadas con todo incluido.` : 'Explora departamentos y casas amuebladas para renta temporal en Ciudad de México, Guadalajara, Monterrey, Cancún, Mérida y más ciudades de México.';
-  return { title, description, openGraph: { title, description, url: city ? `https://temporaryrentalsmexico.com/properties?city=${encodeURIComponent(city)}` : 'https://temporaryrentalsmexico.com/properties' } };
+  return { alternates: { canonical: city ? `https://shortstaymx.com/properties?city=${encodeURIComponent(city)}` : 'https://shortstaymx.com/properties' }, title, description, openGraph: { title, description, url: city ? `https://temporaryrentalsmexico.com/properties?city=${encodeURIComponent(city)}` : 'https://temporaryrentalsmexico.com/properties' } };
 }
 
 export default async function PropertiesPage({

@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://shortstaymx.com/blog/vivir-en-tulum' },
   title: 'Vivir en Tulum: Guía completa para expatriados | TemporaryRentalsMexico',
   description: 'Todo lo que necesitas saber sobre vivir en Tulum: las mejores zonas, costos de vida, estilo de vida y consejos prácticos para expatriados y nómadas digitales.',
 };

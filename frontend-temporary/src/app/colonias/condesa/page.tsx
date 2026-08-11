@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://shortstaymx.com/colonias/condesa' },
   title: "Rentas amuebladas en Condesa, CDMX | TemporaryRentalsMexico",
   description: "Departamentos amueblados en la Condesa, Ciudad de Mexico. Arquitectura art deco, Parque Mexico, Avenida Amsterdam y la mejor calidad de vida en CDMX.",
 };

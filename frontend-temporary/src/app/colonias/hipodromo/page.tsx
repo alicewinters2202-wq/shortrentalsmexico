@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://shortstaymx.com/colonias/hipodromo' },
   title: "Rentas amuebladas en Hipodromo Condesa, CDMX | TemporaryRentalsMexico",
   description: "Departamentos amueblados en el Hipodromo y Hipodromo Condesa, Ciudad de Mexico. Edificios modernos con alberca, gimnasio y roof garden a mejor precio que Polanco.",
 };

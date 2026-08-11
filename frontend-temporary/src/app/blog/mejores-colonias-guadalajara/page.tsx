@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://shortstaymx.com/blog/mejores-colonias-guadalajara' },
   title: 'Las mejores colonias de Guadalajara para expatriados | TemporaryRentalsMexico',
   description: 'Guía completa de las mejores zonas de Guadalajara para vivir: Puerta de Hierro, Colonia Americana y Providencia. Todo lo que necesitas saber como expatriado.',
 };
