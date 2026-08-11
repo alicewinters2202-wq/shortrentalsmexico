@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/playa-del-carmen/mayakoba' },
   title: "Furnished rentals in Mayakoba, Playa del Carmen | TemporaryRentalsMexico",
   description: "Furnished apartments in Mayakoba and Corasol, Playa del Carmen. Ultra-luxury living in the Riviera Maya with Rosewood, Banyan Tree and world-class golf.",
 };

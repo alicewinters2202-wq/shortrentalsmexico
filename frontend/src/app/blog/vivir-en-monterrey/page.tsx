@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/vivir-en-monterrey' },
   title: 'Vivir en Monterrey: Guía para ejecutivos y expatriados | ShortStayMX',
   description: 'Todo sobre vivir en Monterrey: San Pedro Garza García, Valle Oriente, nearshoring, costos y la comunidad de expatriados en la capital industrial de México.',
 };

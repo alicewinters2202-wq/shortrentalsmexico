@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/nuevo-vallarta/bucerias' },
   title: "Furnished rentals in Bucerias, Nuevo Vallarta | ShortStayMX",
   description: "Furnished apartments in Bucerias and Cruz de Huanacaxtle, Riviera Nayarit. Authentic coastal towns with calm beaches, local restaurants and a strong expat community.",
 };

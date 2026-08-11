@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/roma-norte' },
   title: "Rentas amuebladas en Roma Norte, CDMX | TemporaryRentalsMexico",
   description: "Departamentos amueblados en Roma Norte, la colonia mas vibrante de Ciudad de Mexico. Cafes de especialidad, restaurantes premiados, Parque Mexico y vida cultural a tu puerta.",
 };

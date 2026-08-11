@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/nuevo-vallarta-vs-puerto-vallarta' },
   title: 'Nuevo Vallarta vs Puerto Vallarta: ¿Cuál elegir? | ShortStayMX',
   description: 'Comparamos Nuevo Vallarta y Puerto Vallarta para ayudarte a elegir el mejor destino para vivir en la costa del Pacífico mexicano. Diferencias, costos y estilo de vida.',
 };

@@ -3,10 +3,6 @@ import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { AGENTS } from '@/lib/agents';
 
-export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/agents' },
-};
-
 
 export default async function AgentsPage() {
   const { t, lang } = await getT();

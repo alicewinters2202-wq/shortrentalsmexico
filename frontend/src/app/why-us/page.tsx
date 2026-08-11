@@ -5,6 +5,7 @@ import LangToggle from '@/components/layout/LangToggle';
 
 export async function generateMetadata() {
   return {
+    alternates: { canonical: 'https://temporaryrentalsmexico.com/why-us' },
     title: 'Por que elegirnos | ShortStayMX',
     description: 'Conoce por que ShortStayMX es la mejor opcion para tu renta temporal en Mexico. Mas de 4 anos de experiencia, equipo de +40 personas y mejores precios que Airbnb.',
   };

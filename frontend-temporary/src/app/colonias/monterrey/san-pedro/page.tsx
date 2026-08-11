@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/monterrey/san-pedro' },
   title: "Furnished rentals in San Pedro Garza Garcia, Monterrey | TemporaryRentalsMexico",
   description: "Furnished apartments in San Pedro Garza Garcia, the most exclusive municipality in Mexico. Corporate headquarters, luxury shopping and the best quality of life in northern Mexico.",
 };

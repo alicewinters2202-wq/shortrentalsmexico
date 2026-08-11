@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/merida/centro' },
   title: "Furnished rentals in Centro, Merida | TemporaryRentalsMexico",
   description: "Furnished apartments in Centro, Merida. Colonial architecture, traditional markets, Yucatecan gastronomy and the best cultural life in the White City.",
 };

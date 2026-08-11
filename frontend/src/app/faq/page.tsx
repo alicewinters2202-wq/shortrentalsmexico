@@ -3,6 +3,11 @@ import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import FaqAccordion from './FaqAccordion';
 
+export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/faq' },
+};
+
+
 export default async function FaqPage() {
   const { t, lang } = await getT();
 

@@ -3,7 +3,6 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/blog/vivir-en-merida' },
   title: 'Vivir en Mérida: Guía completa para expatriados | TemporaryRentalsMexico',
   description: 'Todo lo que necesitas saber sobre vivir en Mérida, Yucatán: mejores colonias, costos de vida, clima, seguridad y la comunidad de expatriados.',
 };

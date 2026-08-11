@@ -3,7 +3,6 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/blog/nomadas-digitales-mexico' },
   title: 'Las mejores ciudades de México para nómadas digitales | TemporaryRentalsMexico',
   description: 'México es uno de los destinos favoritos para trabajar de forma remota. Descubre las mejores ciudades para nómadas digitales: CDMX, Tulum, Mérida y más.',
 };

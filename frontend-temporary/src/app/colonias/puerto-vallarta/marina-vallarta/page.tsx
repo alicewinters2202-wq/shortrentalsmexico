@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/puerto-vallarta/marina-vallarta' },
   title: "Furnished rentals in Marina Vallarta, Puerto Vallarta | TemporaryRentalsMexico",
   description: "Furnished apartments in Marina Vallarta, Puerto Vallarta. World-class marina, 18-hole golf course and luxury condominiums just 5 minutes from the international airport.",
 };

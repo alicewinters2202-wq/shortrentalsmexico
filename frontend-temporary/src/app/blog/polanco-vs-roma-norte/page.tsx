@@ -3,7 +3,6 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/blog/polanco-vs-roma-norte' },
   title: 'Polanco vs Roma Norte: ¿Cuál es la mejor colonia para vivir en CDMX? | TemporaryRentalsMexico',
   description: 'Comparamos Polanco y Roma Norte, las dos colonias más populares de Ciudad de México, para ayudarte a elegir dónde vivir según tu estilo de vida y presupuesto.',
 };

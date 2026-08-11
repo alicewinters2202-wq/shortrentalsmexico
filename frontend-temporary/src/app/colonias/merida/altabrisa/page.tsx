@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/merida/altabrisa' },
   title: "Furnished rentals in Altabrisa, Merida | TemporaryRentalsMexico",
   description: "Furnished apartments in Altabrisa and Montecristo, Merida. Modern residential area with Plaza Altabrisa, private hospitals and excellent infrastructure.",
 };

@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/puerto-vallarta/zona-romantica' },
   title: "Furnished rentals in Zona Romantica, Puerto Vallarta | TemporaryRentalsMexico",
   description: "Furnished apartments in Zona Romantica, Puerto Vallarta. Cobblestone streets, art galleries, Playa los Muertos and the best restaurants in the most beloved neighborhood.",
 };

@@ -2,6 +2,11 @@ import Link from 'next/link';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
+export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/about' },
+};
+
+
 export default async function AboutPage() {
   const { t, lang } = await getT();
 

@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/cancun/zona-hotelera' },
   title: "Furnished rentals in Zona Hotelera, Cancun | TemporaryRentalsMexico",
   description: "Furnished apartments in Zona Hotelera, Cancun. Beachfront living with turquoise Caribbean Sea, luxury restaurants and vibrant nightlife on Kukulcan Boulevard.",
 };

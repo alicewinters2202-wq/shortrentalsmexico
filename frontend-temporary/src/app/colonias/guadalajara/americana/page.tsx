@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/guadalajara/americana' },
   title: "Furnished rentals in Colonia Americana, Guadalajara | TemporaryRentalsMexico",
   description: "Furnished apartments in Colonia Americana, Guadalajara. Bohemian neighborhood with specialty cafes, Avenida Chapultepec restaurants and vibrant cultural life.",
 };

@@ -2,10 +2,6 @@ import Link from 'next/link';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
-export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/requirements' },
-};
-
 
 export default async function RequirementsPage() {
   const { t, lang } = await getT();

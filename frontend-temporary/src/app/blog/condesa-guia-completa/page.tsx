@@ -3,7 +3,6 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/blog/condesa-guia-completa' },
   title: 'Condesa CDMX: Guía completa para vivir | TemporaryRentalsMexico',
   description: 'Todo sobre vivir en la Condesa, Ciudad de México: Parque México, arquitectura art déco, Avenida Amsterdam, restaurantes y las mejores propiedades amuebladas.',
 };

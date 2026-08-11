@@ -4,7 +4,6 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/colonias/merida/temozon-norte' },
   title: "Furnished rentals in Temozon Norte, Merida | TemporaryRentalsMexico",
   description: "Furnished apartments in Temozon Norte, Merida. The most exclusive area north of Merida with luxury gated communities, golf course and Yucatan Country Club.",
 };
