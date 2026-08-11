@@ -176,13 +176,13 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
           slug: this.generateSlug(city, address, id),
           city,
           address,
-          pricePerMonth: Number(row[2]) || 0,
-          bedrooms: Number(row[3]) || 0,
-          bathrooms: Number(row[4]) || 0,
-          parkingSpots: Number(row[5]) || 0,
-          maxGuests: Number(row[6]) || 0,
+          pricePerMonth: this.parseNum(row[2]),
+          bedrooms: this.parseNum(row[3]),
+          bathrooms: this.parseNum(row[4]),
+          parkingSpots: this.parseNum(row[5]),
+          maxGuests: this.parseNum(row[6]),
           amenities: this.parseAmenities(row[7]),
-          sqMeters: Number(row[8]) || 0,
+          sqMeters: this.parseNum(row[8]),
           balcony: String(row[9] ?? '').toLowerCase() === 'si',
           petFriendly: String(row[10] ?? '').toLowerCase() === 'si',
           petFriendlyNegotiable: String(row[10] ?? '').toLowerCase() === 'negociable',
@@ -252,6 +252,13 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
           : w.toLowerCase(),
       )
       .join(' ');
+  }
+
+  private parseNum(raw: unknown): number {
+    if (typeof raw === 'number') return raw;
+    if (raw === null || raw === undefined) return 0;
+    const match = String(raw).match(/[\d.]+/);
+    return match ? parseFloat(match[0]) : 0;
   }
 
   private parseAmenities(raw: unknown): string[] {
