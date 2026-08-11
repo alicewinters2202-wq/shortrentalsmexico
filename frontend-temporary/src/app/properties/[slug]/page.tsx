@@ -42,7 +42,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
   const waMsg = lang === 'en'
     ? `Hello, I'd like to book the property at ${street}. Could you help me confirm my reservation?`
     : `Hola, me gustaría apartar la propiedad en ${street}. ¿Me pueden ayudar a confirmar mi reserva?`;
-  const waMoreUrl = `https://wa.me/525572716417?text=${encodeURIComponent(waMsg)}`;
 
   return (
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>

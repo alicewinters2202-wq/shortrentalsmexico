@@ -69,8 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "foundingDate": "2021",
               "numberOfEmployees": { "@type": "QuantitativeValue", "value": 40 },
               "areaServed": "México",
-              "telephone": "+52-55-6378-3517",
-              "email": "shortstaymx2021@gmail.com",
+              "telephone": "+52-56-3771-9983",
               "sameAs": ["https://shortstaymx.com"],
               "address": {
                 "@type": "PostalAddress",

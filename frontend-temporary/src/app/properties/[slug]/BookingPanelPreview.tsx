@@ -7,7 +7,6 @@ import { useT } from '@/lib/i18n';
 import AgentModal from '@/components/AgentModal';
 
 // MIN_NIGHTS se obtiene de property.minStay
-const WA_NUMBER  = '525572716417';
 
 function addDays(date: string, days: number): string {
   const d = new Date(date);
@@ -49,12 +48,6 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
       if (checkOut < minOut) setCheckOut(minOut);
     }
   }
-
-  const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-    lang === 'en'
-      ? 'Hello! I need to rent a property for more than 1 month. Could you give me more information?'
-      : 'Hola, me interesa rentar una propiedad por más de 1 mes. ¿Podrían darme más información?'
-  )}`;
 
   const badges = [
     property.balcony      && { label: t.balcony,             icon: '🌿' },
