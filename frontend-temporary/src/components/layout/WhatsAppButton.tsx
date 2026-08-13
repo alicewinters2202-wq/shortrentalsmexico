@@ -20,7 +20,7 @@ export default function WhatsAppButton() {
     ? 'Hi, I saw your website and I would like information about your available properties.'
     : 'Hola, vi su pagina y quisiera informacion sobre sus propiedades disponibles.';
 
-  const url = 'https://wa.me/5215637719983?text=' + encodeURIComponent(message);
+  const url = 'https://wa.me/5215643232610?text=' + encodeURIComponent(message);
 
   return (
     <a href={url} target='_blank' rel='noopener noreferrer' className='fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-110' style={{ backgroundColor: '#25D366' }} aria-label='WhatsApp'>

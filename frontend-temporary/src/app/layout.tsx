@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "foundingDate": "2021",
               "numberOfEmployees": { "@type": "QuantitativeValue", "value": 40 },
               "areaServed": "México",
-              "telephone": "+52-56-3771-9983",
+              "telephone": "+52-56-4323-2610",
               "sameAs": ["https://temporaryrentalsmexico.com"],
               "address": {
                 "@type": "PostalAddress",

@@ -6,7 +6,7 @@ export const AGENTS = [
     name: 'Camila Lefebvre',
     zone: 'Ciudad de México',
     cities: ['Ciudad de México'],
-    wa: '525637719983',
+    wa: '525643232610',
     photo: `${BACKEND}/imagenes/Agentes/Camila Lefebvre.jpg` as string | null,
     initials: 'CL',
     color: '#7C5CBF',

@@ -18,7 +18,7 @@ export default function ContactForm() {
     const text = lang === 'es'
       ? `Hola, me contacto desde TemporaryRentalsMexico.\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`
       : `Hello, I'm contacting from TemporaryRentalsMexico.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
-    const url = `https://wa.me/5215637719983?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/5215643232610?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 
