@@ -97,3 +97,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: translateY(-5px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.18);
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
