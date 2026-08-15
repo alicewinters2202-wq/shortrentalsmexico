@@ -58,9 +58,18 @@ export default async function Home() {
     .slice(0, 6)
     .map((x) => x.p);
 
-  const filmstrip = [...withImages]
-    .sort((a, b) => b.pricePerMonth - a.pricePerMonth)
-    .slice(0, 10);
+  const collectionCities = ['Ciudad de México', 'Puerto Vallarta', 'Cancún'];
+  const byCity = collectionCities.map((city) =>
+    withImages.filter((p) => p.city.trim() === city).sort((a, b) => b.pricePerMonth - a.pricePerMonth)
+  );
+  const filmstrip: typeof withImages = [];
+  for (let i = 0; filmstrip.length < 12; i++) {
+    let addedAny = false;
+    for (const list of byCity) {
+      if (list[i]) { filmstrip.push(list[i]); addedAny = true; }
+    }
+    if (!addedAny) break;
+  }
 
   const heroCollage = filmstrip.slice(0, 4);
 
