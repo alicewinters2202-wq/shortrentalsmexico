@@ -8,12 +8,12 @@ import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
-import HeroSlideshow from '@/components/home/HeroSlideshow';
 import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
 
 const displaySerif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'], variable: '--font-display' });
 
 const ROSA = '#B33A63';
+const ROSA_DEEP = '#8F2C4E';
 const OCHRE = '#B8763A';
 const PLASTER = '#F1E7D8';
 
@@ -62,19 +62,16 @@ export default async function Home() {
     .sort((a, b) => b.pricePerMonth - a.pricePerMonth)
     .slice(0, 10);
 
+  const heroCollage = filmstrip.slice(0, 4);
+
   return (
     <>
-      {/* HERO — asymmetric courtyard: solid wall meets sunlit photo */}
-      <section className={`${displaySerif.variable} relative h-screen min-h-[680px] overflow-hidden`}>
-        <HeroSlideshow images={[
-          'Ciudad de México', 'Puerto Vallarta', 'Tulum', 'Cancún', 'Nuevo Vallarta', 'San Miguel de Allende', 'Mérida', 'Guadalajara'
-        ].map(city => {
-          const p = withImages.find(p => p.city.trim() === city);
-          return p ? imageUrl(p.images[0]) : null;
-        }).filter(Boolean) as string[]} />
-        <div className="absolute inset-0 bg-black/20" />
-
-        <nav className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 sm:px-8 py-6">
+      {/* HERO — full rosa canvas, no photo-behind-text pattern. Floating photo collage instead. */}
+      <section
+        className={`${displaySerif.variable} relative min-h-screen overflow-hidden`}
+        style={{ background: `linear-gradient(160deg, ${ROSA} 0%, ${ROSA_DEEP} 100%)` }}
+      >
+        <nav className="relative z-20 flex items-center justify-between px-6 sm:px-8 py-6">
           <div className="text-left">
             <p className="text-white text-[10px] tracking-[0.3em] uppercase font-medium opacity-90">ShortStayMX</p>
             <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-70">México</p>
@@ -99,27 +96,51 @@ export default async function Home() {
           <LangToggle currentLang={lang} className="md:hidden text-white/80 hover:text-white" />
         </nav>
 
-        {/* Rosa Mexicana wall panel — the "courtyard doorway" */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-[62%] flex items-end lg:inset-x-auto lg:top-0 lg:left-0 lg:h-full lg:w-[44%] lg:items-center"
-          style={{ backgroundColor: ROSA }}
-        >
-          <div className="w-full px-6 sm:px-10 lg:px-12 pb-8 lg:pb-0 pt-10">
-            <p className="text-[11px] tracking-[0.35em] uppercase font-medium mb-4" style={{ color: PLASTER, opacity: 0.75 }}>
-              {lang === 'en' ? 'Curated by hand' : 'Curadas a mano'}
-            </p>
-            <h1
-              className="leading-[0.95] mb-5"
-              style={{ color: PLASTER, fontFamily: 'var(--font-display), serif' }}
-            >
-              <span className="block italic text-5xl sm:text-6xl lg:text-6xl xl:text-7xl">{t.tagline}</span>
-              <span className="block text-3xl sm:text-4xl lg:text-4xl xl:text-5xl mt-1 opacity-90">{t.taglineSub}</span>
-            </h1>
-            <p className="text-sm max-w-sm mb-8" style={{ color: PLASTER, opacity: 0.8 }}>{t.subheading}</p>
-
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <SearchBar />
+        <div className="relative z-10 px-6 sm:px-8 pt-8 pb-20 lg:pt-10 lg:pb-28 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-8 items-center">
+            {/* Text column */}
+            <div>
+              <p className="text-[11px] tracking-[0.35em] uppercase font-medium mb-5" style={{ color: PLASTER, opacity: 0.75 }}>
+                {lang === 'en' ? 'Curated by hand' : 'Curadas a mano'}
+              </p>
+              <h1
+                className="leading-[0.95] mb-6"
+                style={{ color: PLASTER, fontFamily: 'var(--font-display), serif' }}
+              >
+                <span className="block italic text-6xl sm:text-7xl lg:text-7xl xl:text-8xl">{t.tagline}</span>
+                <span className="block text-4xl sm:text-5xl lg:text-5xl xl:text-6xl mt-2 opacity-90">{t.taglineSub}</span>
+              </h1>
+              <p className="text-base max-w-md mb-4" style={{ color: PLASTER, opacity: 0.85 }}>{t.subheading}</p>
             </div>
+
+            {/* Floating photo collage — replaces the old full-bleed photo pattern */}
+            <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] hidden sm:block">
+              {heroCollage.map((p, i) => {
+                const positions = [
+                  { top: '2%',  left: '8%',  w: 150, rot: -6, z: 3 },
+                  { top: '18%', left: '48%', w: 170, rot: 4,  z: 4 },
+                  { top: '48%', left: '4%',  w: 140, rot: 3,  z: 2 },
+                  { top: '52%', left: '52%', w: 155, rot: -4, z: 3 },
+                ];
+                const pos = positions[i] ?? positions[0];
+                return (
+                  <div
+                    key={p.id}
+                    className="absolute rounded-lg overflow-hidden shadow-2xl bg-white p-1.5"
+                    style={{ top: pos.top, left: pos.left, width: pos.w, transform: `rotate(${pos.rot}deg)`, zIndex: pos.z }}
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                      <img src={imageUrl(p.images[0])} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Search bar — full width, no cramped column */}
+          <div className="mt-8 lg:mt-10 rounded-2xl overflow-hidden shadow-2xl max-w-3xl">
+            <SearchBar />
           </div>
         </div>
       </section>
