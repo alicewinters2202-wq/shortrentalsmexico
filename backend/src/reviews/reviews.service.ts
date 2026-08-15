@@ -78,4 +78,8 @@ export class ReviewsService {
       createdAt: data.created_at,
     };
   }
+
+  async delete(id: number): Promise<void> {
+    await supabase.from('property_reviews').delete().eq('id', id);
+  }
 }

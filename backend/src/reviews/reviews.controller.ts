@@ -1,5 +1,5 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
-import { ReviewsService, NewReview } from './reviews.service';
+import { Controller, Get, Param } from '@nestjs/common';
+import { ReviewsService } from './reviews.service';
 
 @Controller('reviews')
 export class ReviewsController {
@@ -8,10 +8,5 @@ export class ReviewsController {
   @Get(':slug')
   async getByProperty(@Param('slug') slug: string) {
     return this.reviewsService.getByProperty(slug);
-  }
-
-  @Post(':slug')
-  async create(@Param('slug') slug: string, @Body() body: NewReview) {
-    return this.reviewsService.create(slug, body);
   }
 }

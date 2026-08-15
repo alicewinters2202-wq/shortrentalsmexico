@@ -1,12 +1,14 @@
-import { Controller, Get, Post, Body, Param, ParseIntPipe, Headers, UnauthorizedException } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Body, Param, ParseIntPipe, Headers, UnauthorizedException } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { PropertiesService } from '../properties/properties.service';
+import { ReviewsService, NewReview } from '../reviews/reviews.service';
 
 @Controller('admin')
 export class AdminController {
   constructor(
     private readonly adminService: AdminService,
     private readonly propertiesService: PropertiesService,
+    private readonly reviewsService: ReviewsService,
   ) {}
 
   private checkAuth(headers: Record<string, string>) {
@@ -51,6 +53,35 @@ export class AdminController {
   ) {
     this.checkAuth(headers);
     await this.adminService.clearOverride(id);
+    return { success: true };
+  }
+
+  @Get('reviews/:slug')
+  async getReviews(
+    @Param('slug') slug: string,
+    @Headers() headers: Record<string, string>,
+  ) {
+    this.checkAuth(headers);
+    return this.reviewsService.getByProperty(slug);
+  }
+
+  @Post('reviews/:slug')
+  async createReview(
+    @Param('slug') slug: string,
+    @Body() body: NewReview,
+    @Headers() headers: Record<string, string>,
+  ) {
+    this.checkAuth(headers);
+    return this.reviewsService.create(slug, body);
+  }
+
+  @Delete('reviews/:id')
+  async deleteReview(
+    @Param('id', ParseIntPipe) id: number,
+    @Headers() headers: Record<string, string>,
+  ) {
+    this.checkAuth(headers);
+    await this.reviewsService.delete(id);
     return { success: true };
   }
 }
