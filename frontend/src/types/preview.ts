@@ -32,6 +32,7 @@ export interface PropertyReview {
   rating: number;
   comment: string;
   createdAt: string;
+  approved: boolean;
 }
 
 export async function fetchReviews(slug: string): Promise<PropertyReview[]> {

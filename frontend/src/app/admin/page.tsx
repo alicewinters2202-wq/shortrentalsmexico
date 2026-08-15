@@ -22,6 +22,7 @@ interface AdminReview {
   rating: number;
   comment: string;
   createdAt: string;
+  approved: boolean;
 }
 
 interface EditState {
@@ -130,6 +131,20 @@ export default function AdminPage() {
       await loadReviews(slug);
     } catch {
       alert('Error conectando al servidor.');
+    }
+    setReviewLoading(null);
+  }
+
+  async function approveReview(slug: string, reviewId: number) {
+    setReviewLoading(slug);
+    try {
+      await fetch(`${BACKEND}/api/admin/reviews/${reviewId}/approve`, {
+        method: 'POST',
+        headers: { 'x-admin-password': password },
+      });
+      await loadReviews(slug);
+    } catch {
+      alert('Error al aprobar reseña.');
     }
     setReviewLoading(null);
   }
@@ -312,18 +327,34 @@ export default function AdminPage() {
                           {(reviewsBySlug[p.slug] || []).map((r) => (
                             <div key={r.id} className="flex items-start justify-between gap-3 rounded-xl p-3" style={{ backgroundColor: 'var(--cream)' }}>
                               <div className="flex-1">
-                                <p className="text-xs font-medium" style={{ color: 'var(--ink)' }}>
+                                <p className="text-xs font-medium flex items-center gap-2 flex-wrap" style={{ color: 'var(--ink)' }}>
                                   {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)} · {r.name}
+                                  {!r.approved && (
+                                    <span className="px-1.5 py-0.5 rounded-full text-[9px] font-semibold bg-amber-900/40 text-amber-400">
+                                      Pendiente
+                                    </span>
+                                  )}
                                 </p>
                                 <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>{r.comment}</p>
                               </div>
-                              <button
-                                onClick={() => deleteReview(p.slug, r.id)}
-                                disabled={reviewLoading === p.slug}
-                                className="px-2 py-1 rounded-full text-[10px] font-semibold bg-red-900/40 text-red-400 flex-shrink-0"
-                              >
-                                Borrar
-                              </button>
+                              <div className="flex gap-1.5 flex-shrink-0">
+                                {!r.approved && (
+                                  <button
+                                    onClick={() => approveReview(p.slug, r.id)}
+                                    disabled={reviewLoading === p.slug}
+                                    className="px-2 py-1 rounded-full text-[10px] font-semibold bg-emerald-900/40 text-emerald-400"
+                                  >
+                                    Aprobar
+                                  </button>
+                                )}
+                                <button
+                                  onClick={() => deleteReview(p.slug, r.id)}
+                                  disabled={reviewLoading === p.slug}
+                                  className="px-2 py-1 rounded-full text-[10px] font-semibold bg-red-900/40 text-red-400"
+                                >
+                                  Borrar
+                                </button>
+                              </div>
                             </div>
                           ))}
                         </div>

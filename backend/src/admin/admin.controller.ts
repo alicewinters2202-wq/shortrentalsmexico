@@ -62,7 +62,7 @@ export class AdminController {
     @Headers() headers: Record<string, string>,
   ) {
     this.checkAuth(headers);
-    return this.reviewsService.getByProperty(slug);
+    return this.reviewsService.getAllByProperty(slug);
   }
 
   @Post('reviews/:slug')
@@ -73,6 +73,16 @@ export class AdminController {
   ) {
     this.checkAuth(headers);
     return this.reviewsService.create(slug, body);
+  }
+
+  @Post('reviews/:id/approve')
+  async approveReview(
+    @Param('id', ParseIntPipe) id: number,
+    @Headers() headers: Record<string, string>,
+  ) {
+    this.checkAuth(headers);
+    await this.reviewsService.approve(id);
+    return { success: true };
   }
 
   @Delete('reviews/:id')
