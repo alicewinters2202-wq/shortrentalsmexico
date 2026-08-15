@@ -23,28 +23,6 @@ export interface PropertyPreview {
 }
 
 const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL ?? 'http://localhost:3001';
-export { BACKEND };
-
-export interface PropertyReview {
-  id: number;
-  slug: string;
-  name: string;
-  rating: number;
-  comment: string;
-  createdAt: string;
-}
-
-export async function fetchReviews(slug: string): Promise<PropertyReview[]> {
-  try {
-    const res = await fetch(`${BACKEND}/api/reviews/${encodeURIComponent(slug)}`, {
-      cache: 'no-store',
-    });
-    if (!res.ok) return [];
-    return res.json();
-  } catch {
-    return [];
-  }
-}
 
 export async function fetchPreview(): Promise<PropertyPreview[]> {
   try {

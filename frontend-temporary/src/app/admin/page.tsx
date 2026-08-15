@@ -15,20 +15,11 @@ interface Property {
   override: { available?: boolean; availableFrom?: string | null; occupiedSince?: string | null; pricePerMonth?: number } | null;
 }
 
-interface AdminReview {
-  id: number;
-  slug: string;
-  name: string;
-  rating: number;
-  comment: string;
-  createdAt: string;
-}
-
 interface EditState {
   occupiedSince: string;
   availableFrom: string;
   pricePerMonth: string;
-  mode: 'view' | 'ocupada' | 'precio' | 'resenas';
+  mode: 'view' | 'ocupada' | 'precio';
 }
 
 export default function AdminPage() {
@@ -40,9 +31,6 @@ export default function AdminPage() {
   const [saving, setSaving] = useState<number | null>(null);
   const [error, setError] = useState('');
   const [editing, setEditing] = useState<Record<number, EditState>>({});
-  const [reviewsBySlug, setReviewsBySlug] = useState<Record<string, AdminReview[]>>({});
-  const [reviewLoading, setReviewLoading] = useState<string | null>(null);
-  const [newReview, setNewReview] = useState<Record<string, { name: string; rating: number; comment: string }>>({});
 
   async function login() {
     setLoading(true);
@@ -99,53 +87,6 @@ export default function AdminPage() {
       alert('Error al resetear.');
     }
     setSaving(null);
-  }
-
-  async function loadReviews(slug: string) {
-    setReviewLoading(slug);
-    try {
-      const res = await fetch(`${BACKEND}/api/admin/reviews/${encodeURIComponent(slug)}`, {
-        headers: { 'x-admin-password': password },
-      });
-      const data = await res.json();
-      setReviewsBySlug((r) => ({ ...r, [slug]: data }));
-    } catch {
-      alert('Error al cargar reseñas.');
-    }
-    setReviewLoading(null);
-  }
-
-  async function addReview(slug: string) {
-    const form = newReview[slug];
-    if (!form || !form.rating || !form.comment?.trim()) return;
-    setReviewLoading(slug);
-    try {
-      const res = await fetch(`${BACKEND}/api/admin/reviews/${encodeURIComponent(slug)}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
-        body: JSON.stringify({ name: form.name || 'Anónimo', rating: form.rating, comment: form.comment }),
-      });
-      if (!res.ok) { alert('Error al guardar reseña.'); setReviewLoading(null); return; }
-      setNewReview((r) => ({ ...r, [slug]: { name: '', rating: 0, comment: '' } }));
-      await loadReviews(slug);
-    } catch {
-      alert('Error conectando al servidor.');
-    }
-    setReviewLoading(null);
-  }
-
-  async function deleteReview(slug: string, reviewId: number) {
-    setReviewLoading(slug);
-    try {
-      await fetch(`${BACKEND}/api/admin/reviews/${reviewId}`, {
-        method: 'DELETE',
-        headers: { 'x-admin-password': password },
-      });
-      await loadReviews(slug);
-    } catch {
-      alert('Error al borrar reseña.');
-    }
-    setReviewLoading(null);
   }
 
   function getEdit(p: Property): EditState {
@@ -238,9 +179,6 @@ export default function AdminPage() {
                         <button onClick={() => setEdit(p.id, { mode: 'precio' })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-900/40 text-blue-400">
                           Precio
                         </button>
-                        <button onClick={() => { setEdit(p.id, { mode: 'resenas' }); if (!reviewsBySlug[p.slug]) loadReviews(p.slug); }} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-violet-900/40 text-violet-400">
-                          Reseñas
-                        </button>
                         {p.override && (
                           <button onClick={() => clear(p.id)} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
                             Resetear
@@ -298,86 +236,6 @@ export default function AdminPage() {
                     )}
                   </div>
                 </div>
-
-                {edit.mode === 'resenas' && (
-                  <div className="mt-4 pt-4" style={{ borderTop: '1px solid var(--border)' }}>
-                    {reviewLoading === p.slug && !reviewsBySlug[p.slug] ? (
-                      <p className="text-xs" style={{ color: 'var(--muted)' }}>Cargando...</p>
-                    ) : (
-                      <>
-                        <div className="space-y-2 mb-4">
-                          {(reviewsBySlug[p.slug] || []).length === 0 && (
-                            <p className="text-xs" style={{ color: 'var(--muted)' }}>Sin reseñas todavía.</p>
-                          )}
-                          {(reviewsBySlug[p.slug] || []).map((r) => (
-                            <div key={r.id} className="flex items-start justify-between gap-3 rounded-xl p-3" style={{ backgroundColor: 'var(--cream)' }}>
-                              <div className="flex-1">
-                                <p className="text-xs font-medium" style={{ color: 'var(--ink)' }}>
-                                  {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)} · {r.name}
-                                </p>
-                                <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>{r.comment}</p>
-                              </div>
-                              <button
-                                onClick={() => deleteReview(p.slug, r.id)}
-                                disabled={reviewLoading === p.slug}
-                                className="px-2 py-1 rounded-full text-[10px] font-semibold bg-red-900/40 text-red-400 flex-shrink-0"
-                              >
-                                Borrar
-                              </button>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="rounded-xl p-3" style={{ backgroundColor: 'var(--cream)' }}>
-                          <p className="text-xs font-medium mb-2" style={{ color: 'var(--ink)' }}>Agregar reseña</p>
-                          <div className="flex items-center gap-2 mb-2 flex-wrap">
-                            <input
-                              type="text"
-                              placeholder="Nombre del huésped"
-                              value={newReview[p.slug]?.name || ''}
-                              onChange={(e) => setNewReview((r) => ({ ...r, [p.slug]: { ...(r[p.slug] || { rating: 0, comment: '' }), name: e.target.value } }))}
-                              className="px-2 py-1.5 rounded-lg text-xs outline-none flex-1 min-w-[140px]"
-                              style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-                            />
-                            <div className="flex gap-0.5">
-                              {[1, 2, 3, 4, 5].map((s) => (
-                                <button
-                                  key={s}
-                                  type="button"
-                                  onClick={() => setNewReview((r) => ({ ...r, [p.slug]: { ...(r[p.slug] || { name: '', comment: '' }), rating: s } }))}
-                                  className="text-lg leading-none"
-                                  style={{ color: (newReview[p.slug]?.rating || 0) >= s ? 'var(--gold)' : 'var(--border)' }}
-                                >
-                                  ★
-                                </button>
-                              ))}
-                            </div>
-                          </div>
-                          <textarea
-                            placeholder="Texto de la reseña..."
-                            rows={2}
-                            value={newReview[p.slug]?.comment || ''}
-                            onChange={(e) => setNewReview((r) => ({ ...r, [p.slug]: { ...(r[p.slug] || { name: '', rating: 0 }), comment: e.target.value } }))}
-                            className="w-full px-2 py-1.5 rounded-lg text-xs outline-none resize-none mb-2"
-                            style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-                          />
-                          <div className="flex gap-2">
-                            <button
-                              onClick={() => addReview(p.slug)}
-                              disabled={reviewLoading === p.slug || !newReview[p.slug]?.rating || !newReview[p.slug]?.comment?.trim()}
-                              className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400 disabled:opacity-30"
-                            >
-                              {reviewLoading === p.slug ? '...' : 'Agregar'}
-                            </button>
-                            <button onClick={() => setEdit(p.id, { mode: 'view' })} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
-                              Cerrar
-                            </button>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                )}
               </div>
             );
           })}

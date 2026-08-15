@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import SearchBar from '@/components/home/SearchBar';
 import LangToggle from '@/components/layout/LangToggle';
+import ReviewsSection from '@/components/home/ReviewsSection';
 import UpcomingDestinations from '@/components/home/UpcomingDestinations';
 import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
@@ -337,12 +338,17 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* CONTACTO */}
+      {/* RESEÑAS + CONTACTO */}
       <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl mb-2 text-center" style={{ color: 'var(--ink)' }}>{t.contactTitle}</h2>
-          <p className="text-sm mb-10 text-center" style={{ color: 'var(--muted)' }}>{t.contactSub}</p>
-          <ContactForm />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <ReviewsSection t={t} lang={lang} />
+          </div>
+          <div>
+            <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.contactTitle}</h2>
+            <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.contactSub}</p>
+            <ContactForm />
+          </div>
         </div>
       </section>
 
