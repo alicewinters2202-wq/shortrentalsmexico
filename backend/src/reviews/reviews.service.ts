@@ -20,6 +20,7 @@ export interface NewReview {
   name: string;
   rating: number;
   comment: string;
+  createdAt?: string;
 }
 
 function mapRow(row: Record<string, unknown>): PropertyReview {
@@ -95,9 +96,15 @@ export class ReviewsService {
   async create(slug: string, input: NewReview): Promise<PropertyReview> {
     const { rating, name, comment } = this.validate(input);
 
+    const row: Record<string, unknown> = { slug, name, rating, comment, approved: true };
+    if (input.createdAt) {
+      const d = new Date(input.createdAt);
+      if (!isNaN(d.getTime())) row.created_at = d.toISOString();
+    }
+
     const { data, error } = await supabase
       .from('property_reviews')
-      .insert({ slug, name, rating, comment, approved: true })
+      .insert(row)
       .select()
       .single();
 
