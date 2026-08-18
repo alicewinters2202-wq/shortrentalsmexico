@@ -34,7 +34,7 @@ export default async function AmericanaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Guadalajara</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Colonia Americana</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Colonia Americana</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La Colonia Americana es el corazon cultural, bohemio y creativo de Guadalajara. Con cafes de especialidad, galerias de arte, restaurantes creativos, la famosa Avenida Chapultepec llena de bares y restaurantes, y una vibrante vida nocturna, es la zona preferida por jovenes profesionales, nomadas digitales, artistas y creativos que valoran la cultura y la gastronomia por encima de todo." : "Colonia Americana is the cultural, bohemian and creative heart of Guadalajara. With specialty cafes, art galleries, creative restaurants, the famous Avenida Chapultepec full of bars and restaurants, and a vibrant nightlife, it is the preferred area for young professionals, digital nomads, artists and creatives who value culture and gastronomy above all."}
           </p>

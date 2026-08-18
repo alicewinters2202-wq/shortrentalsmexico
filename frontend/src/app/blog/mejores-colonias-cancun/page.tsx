@@ -23,7 +23,7 @@ export default async function MejoresColoniasCancun() {
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>Cancún</p>
-        <h1 className="font-serif text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
+        <h1 className="italic text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>
           {es ? 'Mejores colonias de Cancún para vivir' : 'Best neighborhoods in Cancun to live'}
         </h1>
         <div className="space-y-6">

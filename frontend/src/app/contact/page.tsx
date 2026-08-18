@@ -28,7 +28,7 @@ export default function ContactPage() {
       <div className="max-w-4xl mx-auto px-6 py-16">
         <div className="max-w-2xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>Contacto</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-4" style={{ color: 'var(--ink)' }}>
+          <h1 className="italic text-5xl sm:text-6xl mb-4" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>
             Estamos aquí para ayudarte
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>

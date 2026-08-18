@@ -34,7 +34,7 @@ export default async function SmaCentroPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>San Miguel de Allende</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Centro Histórico</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Centro Histórico</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "El Centro Historico de San Miguel de Allende es Patrimonio de la Humanidad por la UNESCO y uno de los lugares mas hermosos de Mexico. Sus calles empedradas del siglo XVII y XVIII, la iconica Parroquia de San Miguel Arcangel con su fachada neogótica de color rosa, los jardines coloniales y la vibrante escena artistica y gastronomica lo convierten en un lugar unico en el mundo." : "The Historic Center of San Miguel de Allende is a UNESCO World Heritage Site and one of the most beautiful places in Mexico. Its 17th and 18th century cobblestone streets, the iconic Parroquia de San Miguel Arcangel with its pink neo-Gothic facade, the colonial gardens and the vibrant artistic and gastronomic scene make it a unique place in the world."}
           </p>

@@ -36,7 +36,7 @@ export default async function ZonaHoteleraPVPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Puerto Vallarta</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Zona Hotelera</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Zona Hotelera</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La Zona Hotelera de Puerto Vallarta se extiende a lo largo del Boulevard Francisco Medina Ascencio, el corredor turistico mas importante de la ciudad. Con hoteles de lujo internacionales, restaurantes de primera, acceso directo a las playas de la Bahia de Banderas y vistas panoramicas al Oceano Pacifico y la Sierra Madre, es el corazon turistico y cosmopolita de Puerto Vallarta." : "Puerto Vallarta's Hotel Zone extends along Boulevard Francisco Medina Ascencio, the city's most important tourist corridor. With international luxury hotels, first-class restaurants, direct access to Banderas Bay beaches and panoramic views of the Pacific Ocean and the Sierra Madre, it is the tourist and cosmopolitan heart of Puerto Vallarta."}
           </p>

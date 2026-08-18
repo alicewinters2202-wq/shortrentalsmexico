@@ -37,7 +37,7 @@ export default async function ZonaRomanticaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Puerto Vallarta</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Zona Romántica</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Zona Romántica</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La Zona Romantica es el corazon bohemio, cultural y autentico de Puerto Vallarta. Con sus calles empedradas del siglo XIX, galerias de arte — PV tiene la concentracion de galerias de arte mas alta de Mexico por habitante —, algunos de los mejores restaurantes de la ciudad, la famosa Playa los Muertos y el icónico Muelle de los Muertos, es el barrio mas querido y con mas caracter de toda la ciudad." : "The Romantic Zone is the bohemian, cultural and authentic heart of Puerto Vallarta. With its 19th century cobblestone streets, art galleries — PV has the highest concentration of art galleries per capita in Mexico —, some of the city's best restaurants, the famous Playa los Muertos and the iconic Muelle de los Muertos, it is the most beloved and characterful neighborhood in the entire city."}
           </p>

@@ -40,7 +40,7 @@ export default async function PolancoPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Polanco</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Polanco</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Polanco es la colonia mas exclusiva de la Ciudad de Mexico. Ubicada en la delegacion Miguel Hidalgo, es hogar de embajadas de decenas de paises, hoteles de cinco estrellas como el Four Seasons y el Presidente InterContinental, boutiques internacionales de las marcas mas importantes del mundo, y algunos de los mejores restaurantes de America Latina. Sus calles llevan nombres de filosofos y cientificos — Homero, Aristoteles, Goldsmith, Arquimedes — creando un ambiente sofisticado y cosmopolita unico en Mexico." : "Polanco is the most exclusive neighborhood in Mexico City. Located in the Miguel Hidalgo borough, it is home to embassies from dozens of countries, five-star hotels like the Four Seasons and Presidente InterContinental, international boutiques from the world's most important brands, and some of the best restaurants in Latin America. Its streets bear the names of philosophers and scientists — Homer, Aristotle, Goldsmith, Archimedes — creating a sophisticated and cosmopolitan atmosphere unique in Mexico."}
           </p>

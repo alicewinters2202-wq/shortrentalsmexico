@@ -33,7 +33,7 @@ export default async function MarinaVallartaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Puerto Vallarta</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Marina Vallarta</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Marina Vallarta</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Marina Vallarta es la zona mas moderna y exclusiva de Puerto Vallarta. Con una marina de clase mundial capaz de albergar yates de gran calado, un campo de golf de 18 hoyos con vistas a la Bahia de Banderas, hoteles de lujo internacionales y condominios residenciales frente al mar, es la primera eleccion para ejecutivos, expatriados y familias que buscan lo mejor del Pacifico mexicano." : "Marina Vallarta is the most modern and exclusive area of Puerto Vallarta. With a world-class marina capable of accommodating large yachts, an 18-hole golf course overlooking Banderas Bay, international luxury hotels and oceanfront residential condominiums, it is the first choice for executives, expats and families seeking the best of the Mexican Pacific."}
           </p>

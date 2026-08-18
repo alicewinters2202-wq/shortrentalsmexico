@@ -33,7 +33,7 @@ export default async function VillaFrailesPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>San Miguel de Allende</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Villa de los Frailes</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Villa de los Frailes</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Villa de los Frailes es una zona residencial tranquila y exclusiva de San Miguel de Allende, ubicada a pocos minutos del Centro Historico. Con calles tranquilas, casas coloniales y modernas restauradas con jardin y alberca, y un ambiente relajado y muy seguro, es perfecta para quienes quieren la tranquilidad de un barrio residencial sin alejarse de la vibrante vida cultural de San Miguel." : "Villa de los Frailes is a quiet and exclusive residential area of San Miguel de Allende, located just minutes from the Historic Center. With peaceful streets, restored colonial and modern homes with garden and pool, and a relaxed and very safe atmosphere, it is perfect for those who want the tranquility of a residential neighborhood without being far from San Miguel's vibrant cultural life."}
           </p>

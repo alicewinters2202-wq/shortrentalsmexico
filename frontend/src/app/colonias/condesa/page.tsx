@@ -36,7 +36,7 @@ export default async function CondesaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Condesa</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Condesa</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La Condesa es una de las colonias mas queridas y codiciadas de Ciudad de Mexico. Con su arquitectura art deco unica en Mexico — resultado del boom inmobiliario de los anos 30 —, sus calles circulares flanqueadas por jacarandas, el iconico Parque Mexico, la Avenida Amsterdam perfecta para correr y andar en bicicleta, y una excelente oferta gastronomica, es el lugar ideal para quienes buscan calidad de vida, tranquilidad y acceso a todo lo mejor de CDMX." : "Condesa is one of the most beloved and coveted neighborhoods in Mexico City. With its art deco architecture unique in Mexico — the result of the real estate boom of the 1930s —, its circular streets flanked by jacaranda trees, the iconic Parque Mexico, Avenida Amsterdam perfect for running and cycling, and an excellent gastronomic offering, it is the ideal place for those seeking quality of life, tranquility and access to the best of CDMX."}
           </p>

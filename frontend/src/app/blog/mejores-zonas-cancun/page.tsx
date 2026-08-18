@@ -23,7 +23,7 @@ export default async function MejoresZonasCancun() {
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>Cancún</p>
-        <h1 className="font-serif text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
+        <h1 className="italic text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>
           {es ? 'Mejores zonas para rentar en Cancún: Zona Hotelera vs Puerto Cancún' : 'Best areas to rent in Cancun: Hotel Zone vs Puerto Cancun'}
         </h1>
         <p className="text-sm mb-12" style={{ color: 'var(--muted)' }}>{es ? '1 de febrero de 2024 · 7 min de lectura' : 'February 1, 2024 · 7 min read'}</p>

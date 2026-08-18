@@ -35,7 +35,7 @@ export default async function PlayacarPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Playa del Carmen</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Playacar</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Playacar</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Playacar es el fraccionamiento privado mas exclusivo de Playa del Carmen y uno de los mas reconocidos de toda la Riviera Maya. Ubicado en una ubicacion privilegiada junto a la famosa Quinta Avenida y con acceso directo al mar Caribe, ofrece casas y condominios de lujo en un entorno privado y seguro, con campo de golf de 18 hoyos y acceso controlado las 24 horas." : "Playacar is the most exclusive private development in Playa del Carmen and one of the most recognized in the entire Riviera Maya. Located in a privileged location next to the famous Fifth Avenue and with direct access to the Caribbean Sea, it offers luxury homes and condominiums in a private and secure setting, with an 18-hole golf course and 24-hour controlled access."}
           </p>

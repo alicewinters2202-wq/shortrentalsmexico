@@ -37,7 +37,7 @@ export default async function MeridaCentroPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Mérida" : "Merida"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Centro</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Centro</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "El Centro de Merida es el corazon historico y cultural de la Ciudad Blanca. Con sus casonas coloniales del siglo XVI y XVII perfectamente conservadas, la Plaza Grande con su Catedral de San Ildefonso, el famoso Paseo de Montejo conocido como el Champs-Elysees mexicano, mercados tradicionales llenos de vida y una gastronomia yucateca sin igual en el mundo, es uno de los centros historicos mas vivos y autenticos de Mexico." : "Merida's Centro is the historic and cultural heart of the White City. With its perfectly preserved 16th and 17th century colonial mansions, the Plaza Grande with its Cathedral of San Ildefonso, the famous Paseo de Montejo known as the Mexican Champs-Élysées, traditional markets full of life and a Yucatecan gastronomy unmatched in the world, it is one of the most vibrant and authentic historic centers in Mexico."}
           </p>

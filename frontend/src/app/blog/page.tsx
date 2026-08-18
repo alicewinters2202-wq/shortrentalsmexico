@@ -46,7 +46,7 @@ export default async function BlogPage() {
         <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
           {es ? 'Recursos y guías' : 'Resources and guides'}
         </p>
-        <h1 className="font-serif text-4xl sm:text-5xl mb-4" style={{ color: 'var(--ink)' }}>Blog</h1>
+        <h1 className="italic text-4xl sm:text-5xl mb-4" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>Blog</h1>
         <p className="text-base mb-16" style={{ color: 'var(--muted)' }}>
           {es ? 'Guías, consejos y recursos para vivir y rentar en México.' : 'Guides, tips and resources for living and renting in Mexico.'}
         </p>
