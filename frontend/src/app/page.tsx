@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Instrument_Serif } from 'next/font/google';
 import SearchBar from '@/components/home/SearchBar';
 import LangToggle from '@/components/layout/LangToggle';
 import UpcomingDestinations from '@/components/home/UpcomingDestinations';
@@ -8,8 +7,6 @@ import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
 import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
-
-const displaySerif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'], variable: '--font-display' });
 
 const ROSA = '#B33A63';
 const ROSA_DEEP = '#8F2C4E';
@@ -76,7 +73,7 @@ export default async function Home() {
     <>
       {/* HERO — full rosa canvas, no photo-behind-text pattern. Floating photo collage instead. */}
       <section
-        className={`${displaySerif.variable} relative min-h-screen overflow-hidden`}
+        className={`relative min-h-screen overflow-hidden`}
         style={{ background: `linear-gradient(160deg, ${ROSA} 0%, ${ROSA_DEEP} 100%)` }}
       >
         <nav className="relative z-20 flex items-center justify-between px-6 sm:px-8 py-6">
@@ -254,7 +251,7 @@ export default async function Home() {
       </section>
 
       {/* TAGLINE — rosa wall, second and final use of the signature color */}
-      <section className={`${displaySerif.variable} py-24 px-6`} style={{ backgroundColor: ROSA }}>
+      <section className={`py-24 px-6`} style={{ backgroundColor: ROSA }}>
         <div className="max-w-4xl mx-auto">
           <p
             className="leading-[1.05] mb-6 text-4xl sm:text-5xl"

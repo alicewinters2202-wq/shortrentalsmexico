@@ -42,23 +42,33 @@ export default async function PropertiesPage({
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 py-14">
         <div className="mb-10">
-          <h1 className="font-serif text-4xl mb-2" style={{ color: 'var(--ink)' }}>
+          <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-3" style={{ color: 'var(--ochre)' }}>
+            {lang === 'en' ? 'The collection' : 'La colección'}
+          </p>
+          <h1
+            className="italic mb-3 leading-[0.95] text-5xl sm:text-6xl"
+            style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}
+          >
             {cityParam ?? t.allProperties}
           </h1>
-          <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>
+          <p className="text-sm mb-7" style={{ color: 'var(--muted)' }}>
             {t.propertiesCount(filtered.length)}
           </p>
           <div className="flex flex-wrap gap-2">
             <Link href="/properties" className="px-4 py-2 rounded-full text-sm transition-colors"
-              style={!cityParam ? { backgroundColor: 'var(--ink)', color: 'var(--cream)', border: '1px solid var(--ink)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
+              style={!cityParam
+                ? { backgroundColor: 'var(--ochre)', color: 'var(--plaster)', border: '1px solid var(--ochre)' }
+                : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
               {t.allFilter}
             </Link>
             {CITIES.map((c) => (
               <Link key={c} href={`/properties?city=${encodeURIComponent(c)}`}
                 className="px-4 py-2 rounded-full text-sm transition-colors"
-                style={cityParam === c ? { backgroundColor: 'var(--ink)', color: 'var(--cream)', border: '1px solid var(--ink)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
+                style={cityParam === c
+                  ? { backgroundColor: 'var(--ochre)', color: 'var(--plaster)', border: '1px solid var(--ochre)' }
+                  : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
                 {c}
               </Link>
             ))}
@@ -83,7 +93,7 @@ export default async function PropertiesPage({
                   )}
                   <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
-                      style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
+                      style={{ backgroundColor: 'var(--ochre)', color: 'var(--plaster)' }}>
                       {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
                     </span>
                     {!p.available && p.availableFrom && (
@@ -105,7 +115,12 @@ export default async function PropertiesPage({
                   )}
                 </div>
                 <div className="mt-4">
-                  <p className="font-serif text-xl leading-tight" style={{ color: 'var(--ink)' }}>{street}</p>
+                  <p
+                    className="text-2xl leading-tight italic"
+                    style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}
+                  >
+                    {street}
+                  </p>
                   <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{neighborhood}</p>
                   <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural} · {p.sqMeters} {t.sqm}

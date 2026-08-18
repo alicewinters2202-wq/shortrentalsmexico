@@ -1,11 +1,19 @@
 import type { Metadata } from 'next';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
-import { Playfair_Display, DM_Sans } from 'next/font/google';
+import { Playfair_Display, DM_Sans, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
+  display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-display',
   display: 'swap',
 });
 
@@ -54,7 +62,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${playfair.variable} ${dmSans.variable} ${instrumentSerif.variable} antialiased`}>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCH5YFKRS8"></script>
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZCH5YFKRS8');` }} />
         <script

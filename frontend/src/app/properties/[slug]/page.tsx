@@ -111,7 +111,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             <span className="text-xs" style={{ color: 'var(--muted)' }}>{neighborhood}</span>
           </div>
           <div className="flex items-center gap-3 mb-2 flex-wrap">
-            <h1 className="font-serif text-4xl sm:text-5xl" style={{ color: 'var(--ink)' }}>{street}</h1>
+            <h1 className="italic text-4xl sm:text-5xl" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>{street}</h1>
             {property.available ? (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 self-center">
                 ● {t.availableTag}

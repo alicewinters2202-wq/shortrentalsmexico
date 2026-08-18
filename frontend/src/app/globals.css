@@ -8,6 +8,10 @@
   --gold-d:  #A8893A;
   --border:  #3A3A3C;
   --card:    #2C2C2E;
+  --rosa:      #B33A63;
+  --rosa-deep: #8F2C4E;
+  --ochre:     #B8763A;
+  --plaster:   #F1E7D8;
 }
 
 @theme inline {
