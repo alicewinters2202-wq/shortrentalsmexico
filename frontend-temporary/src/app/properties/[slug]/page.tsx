@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { fetchPreview, parseAddress, formatMXN } from '@/types/preview';
+import { fetchPreview, fetchReviews, parseAddress, formatMXN } from '@/types/preview';
+import { SEED_REVIEWS } from '@/lib/seedReviews';
 import ImageGallery from './ImageGallery';
 import BookingPanelPreview from './BookingPanelPreview';
+import PropertyReviews from './PropertyReviews';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { getUSDRate, formatUSD } from '@/lib/exchange';
@@ -32,6 +34,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
   const [properties, usdRate] = await Promise.all([fetchPreview(), getUSDRate()]);
   const property   = properties.find((p) => p.slug === slug) ?? properties.find((p) => p.id === Number(slug));
   if (!property) notFound();
+  const liveReviews = await fetchReviews(property.slug);
+  const seedForThis = (SEED_REVIEWS[property.slug] || []).map((r) => ({ ...r, approved: true, slug: property.slug }));
+  const reviews    = [...liveReviews, ...seedForThis].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 
   const { street, neighborhood } = parseAddress(property.address);
   const dailyRate  = Math.round(property.pricePerMonth / 30);
@@ -280,6 +285,10 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                   {t.longStayBtn}
                 </span>
               </a>
+            </div>
+
+            <div>
+              <PropertyReviews slug={property.slug} initialReviews={reviews} lang={lang} />
             </div>
 
             <div>
