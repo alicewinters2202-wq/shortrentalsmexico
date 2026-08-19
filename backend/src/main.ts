@@ -11,6 +11,9 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.useStaticAssets(path.join(__dirname, '..', 'imagenes'), {
     prefix: '/imagenes',
+    setHeaders: (res) => {
+      res.setHeader('Cache-Control', 'public, max-age=2592000');
+    },
   });
   await app.listen(process.env.PORT ?? 3001);
 }
