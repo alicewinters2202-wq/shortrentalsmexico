@@ -15,6 +15,7 @@ export interface PropertyPreview {
   petFriendlyNegotiable: boolean;
   coordinates: string | null;
   images: string[];
+  coverThumb: string | null;
   wifiSpeed: number;
   available: boolean;
   availableFrom: string | null;
@@ -61,6 +62,13 @@ export async function fetchPreview(): Promise<PropertyPreview[]> {
 
 export function imageUrl(path: string): string {
   return `${BACKEND}${path.replace(/ /g, '%20')}`;
+}
+
+/** Small thumbnail for grid/card views — falls back to the full first image if no thumbnail exists. */
+export function coverImageUrl(p: { coverThumb: string | null; images: string[] }): string | null {
+  if (p.coverThumb) return imageUrl(p.coverThumb);
+  if (p.images.length > 0) return imageUrl(p.images[0]);
+  return null;
 }
 
 export function parseAddress(address: string): { street: string; neighborhood: string } {

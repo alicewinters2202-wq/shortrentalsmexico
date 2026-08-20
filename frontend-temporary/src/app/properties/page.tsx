@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
+import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
@@ -74,7 +74,7 @@ export default async function PropertiesPage({
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
                   {mainImage ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={imageUrl(mainImage)} alt={street}
+                    <img src={coverImageUrl(p) ?? imageUrl(mainImage)} alt={street} loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">

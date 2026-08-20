@@ -3,7 +3,7 @@ import SearchBar from '@/components/home/SearchBar';
 import LangToggle from '@/components/layout/LangToggle';
 import UpcomingDestinations from '@/components/home/UpcomingDestinations';
 import ContactForm from '@/components/ContactForm';
-import { fetchPreview, imageUrl, parseAddress, formatMXN } from '@/types/preview';
+import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
 import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
@@ -135,7 +135,7 @@ export default async function Home() {
                     style={{ top: pos.top, left: pos.left, width: pos.w, transform: `rotate(${pos.rot}deg)`, zIndex: pos.z }}
                   >
                     <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-                      <img src={imageUrl(p.images[0])} alt="" className="w-full h-full object-cover" />
+                      <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt="" className="w-full h-full object-cover" />
                     </div>
                   </div>
                 );
@@ -172,7 +172,7 @@ export default async function Home() {
               >
                 <div className="rounded-lg overflow-hidden shadow-md p-2" style={{ backgroundColor: '#fff' }}>
                   <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img src={imageUrl(p.images[0])} alt={street}
+                    <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <p className="text-[11px] text-center mt-2 mb-1 text-gray-700 truncate px-1">
@@ -198,7 +198,7 @@ export default async function Home() {
               <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
                 className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
                 {coverImg ? (
-                  <img src={imageUrl(coverImg.images[0])} alt={c.label}
+                  <img src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600 group-hover:scale-105 transition-transform duration-500" />
@@ -234,7 +234,7 @@ export default async function Home() {
               <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
                 className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
                 {coverImg ? (
-                  <img src={imageUrl(coverImg.images[0])} alt={c.label}
+                  <img src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600" />
@@ -280,7 +280,7 @@ export default async function Home() {
             return (
               <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
-                  <img src={imageUrl(p.images[0])} alt={street}
+                  <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
                   <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
@@ -352,7 +352,7 @@ export default async function Home() {
             return (
               <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--cream)' }}>
-                  <img src={imageUrl(p.images[0])} alt={street}
+                  <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
                   <div className="absolute top-3 right-3">
