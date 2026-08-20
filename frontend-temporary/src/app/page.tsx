@@ -37,14 +37,10 @@ export default async function Home() {
   const { t, lang } = await getT();
   const properties  = await fetchPreview();
   const withImages  = properties.filter((p) => p.images.length > 0);
-  const sorted      = [...withImages].sort((a, b) => b.pricePerMonth - a.pricePerMonth);
-  const top3        = sorted.slice(0, 3);
-  const mid3        = sorted.slice(Math.floor(sorted.length * 0.3), Math.floor(sorted.length * 0.3) + 3);
-  const featured    = [...top3, ...mid3];
-  const usedIds     = new Set(featured.map((p) => p.id));
   const weekSeed    = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
-  const pool        = withImages.filter((p) => !usedIds.has(p.id));
-  const newProps    = pool
+  const featuredCities = ['Ciudad de México', 'Nuevo Vallarta', 'Cancún'];
+  const featuredPool = withImages.filter((p) => featuredCities.includes(p.city.trim()) && p.available);
+  const featured = featuredPool
     .map((p) => ({ p, score: (p.id * 2654435761 + weekSeed * 40503) % 100000 }))
     .sort((a, b) => a.score - b.score)
     .slice(0, 6)
@@ -237,53 +233,6 @@ export default async function Home() {
           >
             {t.viewAllBtn}
           </Link>
-        </div>
-      </section>
-
-      {/* NUEVAS PROPIEDADES */}
-      <section style={{ backgroundColor: 'var(--card)' }} className="px-6 py-24 max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <h2 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>
-              {lang === 'en' ? 'New properties' : 'Nuevas propiedades'}
-            </h2>
-            <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>
-              {lang === 'en' ? 'Discover recent options across different cities' : 'Descubre opciones recientes en diferentes ciudades'}
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {newProps.map((p) => {
-            const { street, neighborhood } = parseAddress(p.address);
-            return (
-              <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--cream)' }}>
-                  <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
-                  <div className="absolute top-3 right-3">
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full"
-                      style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
-                      {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
-                    </span>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                    <p className="text-white font-serif text-lg leading-tight">{street}</p>
-                    <p className="text-white/70 text-xs mt-0.5">{neighborhood}</p>
-                  </div>
-                </div>
-                <div className="mt-3 px-1">
-                  <div className="flex items-baseline gap-2 flex-wrap">
-                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
-                    <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
         </div>
       </section>
 
