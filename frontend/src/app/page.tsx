@@ -2,7 +2,6 @@ import Link from 'next/link';
 import SearchBar from '@/components/home/SearchBar';
 import LangToggle from '@/components/layout/LangToggle';
 import UpcomingDestinations from '@/components/home/UpcomingDestinations';
-import ContactForm from '@/components/ContactForm';
 import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
@@ -343,15 +342,6 @@ export default async function Home() {
               +52 56 4323 2610
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* CONTACTO */}
-      <section style={{ backgroundColor: 'var(--card)' }} className="py-20 px-6">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl mb-2 text-center" style={{ color: 'var(--ink)' }}>{t.contactTitle}</h2>
-          <p className="text-sm mb-10 text-center" style={{ color: 'var(--muted)' }}>{t.contactSub}</p>
-          <ContactForm />
         </div>
       </section>
 
