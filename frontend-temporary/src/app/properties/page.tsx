@@ -35,10 +35,12 @@ export default async function PropertiesPage({
   let filtered = cityParam
     ? properties.filter((p) => p.city.trim() === cityParam!.trim())
     : properties;
+  const beforeGuestFilterCount = filtered.length;
 
   if (guestsParam !== undefined) {
     filtered = filtered.filter((p) => p.maxGuests >= guestsParam! && p.available);
   }
+  const hiddenByFilterCount = beforeGuestFilterCount - filtered.length;
 
   return (
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
@@ -60,12 +62,30 @@ export default async function PropertiesPage({
           <h1 className="font-serif text-4xl mb-2" style={{ color: 'var(--ink)' }}>
             {cityParam ?? t.allProperties}
           </h1>
-          <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>
+          <p className="text-sm mb-3" style={{ color: 'var(--muted)' }}>
             {t.propertiesCount(filtered.length)}
             {guestsParam !== undefined && (
               <span> · {lang === 'en' ? `available now, fits ${guestsParam}+ guests` : `disponibles ahora, para ${guestsParam}+ huéspedes`}</span>
             )}
           </p>
+          <div className="mb-6">
+            {guestsParam !== undefined && hiddenByFilterCount > 0 && (
+              <div className="flex items-center gap-2 flex-wrap text-sm rounded-xl px-4 py-3" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
+                <span style={{ color: 'var(--muted)' }}>
+                  {lang === 'en'
+                    ? `${hiddenByFilterCount} more ${hiddenByFilterCount === 1 ? 'property' : 'properties'} in ${cityParam ?? 'this search'} ${hiddenByFilterCount === 1 ? "doesn't" : "don't"} fit ${guestsParam}+ guests or aren't available right now.`
+                    : `${hiddenByFilterCount} ${hiddenByFilterCount === 1 ? 'propiedad más' : 'propiedades más'} en ${cityParam ?? 'esta búsqueda'} no ${hiddenByFilterCount === 1 ? 'cabe' : 'caben'} en ${guestsParam}+ huéspedes o no están disponibles ahora.`}
+                </span>
+                <Link
+                  href={cityParam ? `/properties?city=${encodeURIComponent(cityParam)}` : '/properties'}
+                  className="font-semibold hover:underline flex-shrink-0"
+                  style={{ color: 'var(--gold)' }}
+                >
+                  {lang === 'en' ? 'See them too →' : 'Verlas también →'}
+                </Link>
+              </div>
+            )}
+          </div>
           <div className="flex flex-wrap gap-2">
             <Link href="/properties" className="px-4 py-2 rounded-full text-sm transition-colors"
               style={!cityParam ? { backgroundColor: 'var(--ink)', color: 'var(--cream)', border: '1px solid var(--ink)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
