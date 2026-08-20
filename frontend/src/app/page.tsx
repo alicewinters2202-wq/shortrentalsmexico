@@ -331,7 +331,11 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex justify-center">
-            <a href="https://wa.me/5215643232610"
+            <a href={`https://wa.me/5215643232610?text=${encodeURIComponent(
+                lang === 'en'
+                  ? "[ShortStayMX] Hi, I'd like help finding my ideal stay."
+                  : '[ShortStayMX] Hola, me gustaría ayuda para encontrar mi estancia ideal.'
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm text-white hover:opacity-90"

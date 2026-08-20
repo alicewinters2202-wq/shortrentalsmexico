@@ -269,8 +269,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               
                 <a href={`https://wa.me/525643232610?text=${encodeURIComponent(
                   lang === 'en'
-                    ? `Hello, I'm interested in a long-term stay (3+ months) at ${street}. Could you share the special conditions?`
-                    : `Hola, me interesa una estancia larga (más de 3 meses) en ${street}. ¿Me pueden compartir las condiciones especiales?`
+                    ? `[TemporaryRentalsMexico] Hello, I'm interested in a long-term stay (3+ months) at ${street}. Could you share the special conditions?`
+                    : `[TemporaryRentalsMexico] Hola, me interesa una estancia larga (más de 3 meses) en ${street}. ¿Me pueden compartir las condiciones especiales?`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

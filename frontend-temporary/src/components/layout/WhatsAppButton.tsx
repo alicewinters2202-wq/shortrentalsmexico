@@ -17,8 +17,8 @@ export default function WhatsAppButton() {
   }, []);
 
   const message = isEn
-    ? 'Hi, I saw your website and I would like information about your available properties.'
-    : 'Hola, vi su pagina y quisiera informacion sobre sus propiedades disponibles.';
+    ? 'Hi, I saw your website (TemporaryRentalsMexico) and I would like information about your available properties.'
+    : 'Hola, vi su pagina (TemporaryRentalsMexico) y quisiera informacion sobre sus propiedades disponibles.';
 
   const url = 'https://wa.me/5215643232610?text=' + encodeURIComponent(message);
 

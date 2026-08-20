@@ -75,7 +75,11 @@ export default async function AgentsPage() {
                 </div>
               </div>
               <a
-                href={`https://wa.me/${camila.wa}`}
+                href={`https://wa.me/${camila.wa}?text=${encodeURIComponent(
+                  lang === 'en'
+                    ? "[ShortStayMX] Hi, I'd like information about your available properties."
+                    : '[ShortStayMX] Hola, me gustaría información sobre sus propiedades disponibles.'
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-shrink-0 px-7 py-3 rounded-full text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90"

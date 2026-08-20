@@ -24,14 +24,14 @@ interface Props {
 function buildWaMessage(agent: typeof AGENTS[0], quote: Quote, lang: 'es' | 'en') {
   if (lang === 'en') {
     return encodeURIComponent(
-      `Hello ${agent.name}! I'm interested in the property at:\n📍 ${quote.address}\n\n` +
+      `[ShortStayMX] Hello ${agent.name}! I'm interested in the property at:\n📍 ${quote.address}\n\n` +
       `📅 Check-in: ${quote.checkIn}\n📅 Check-out: ${quote.checkOut}\n` +
       `🌙 Nights: ${quote.nights}\n💰 Estimated total: $${quote.total.toLocaleString()} MXN\n` +
       `👥 Guests: ${quote.guests}\n\nCould you help me with availability?`
     );
   }
   return encodeURIComponent(
-    `Hola ${agent.name}, me interesa la propiedad en:\n📍 ${quote.address}\n\n` +
+    `[ShortStayMX] Hola ${agent.name}, me interesa la propiedad en:\n📍 ${quote.address}\n\n` +
     `📅 Entrada: ${quote.checkIn}\n📅 Salida: ${quote.checkOut}\n` +
     `🌙 Noches: ${quote.nights}\n💰 Total estimado: $${quote.total.toLocaleString()} MXN\n` +
     `👥 Huéspedes: ${quote.guests}\n\n¿Pueden confirmar disponibilidad?`
