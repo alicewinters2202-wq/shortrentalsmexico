@@ -148,41 +148,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* LA COLECCIÓN — filmstrip */}
-      <section style={{ backgroundColor: 'var(--cream)' }} className="py-14 overflow-hidden">
-        <div className="px-6 max-w-7xl mx-auto mb-6 flex items-baseline justify-between">
-          <h2 className="font-serif text-2xl" style={{ color: 'var(--ink)' }}>
-            {lang === 'en' ? 'The collection' : 'La colección'}
-          </h2>
-          <Link href="/properties" className="text-xs font-medium hover:underline" style={{ color: OCHRE }}>
-            {t.viewAll}
-          </Link>
-        </div>
-        <div className="flex gap-4 px-6 overflow-x-auto pb-2 snap-x scrollbar-hide">
-          {filmstrip.map((p, i) => {
-            const { street } = parseAddress(p.address);
-            return (
-              <Link
-                key={p.id}
-                href={`/properties/${p.slug}`}
-                className="group flex-shrink-0 w-40 sm:w-48 snap-start"
-                style={{ transform: `rotate(${i % 2 === 0 ? '-1.5deg' : '1.5deg'})` }}
-              >
-                <div className="rounded-lg overflow-hidden shadow-md p-2" style={{ backgroundColor: '#fff' }}>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <p className="text-[11px] text-center mt-2 mb-1 text-gray-700 truncate px-1">
-                    {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
       {/* CIUDADES */}
       <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 py-20 max-w-7xl mx-auto">
         <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.popularDests}</h2>
