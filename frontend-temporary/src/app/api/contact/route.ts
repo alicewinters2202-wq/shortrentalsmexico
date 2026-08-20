@@ -2,11 +2,14 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
-  const { name, email, message } = await req.json();
+  const { contact, message } = await req.json();
 
-  if (!name || !email || !message) {
-    return NextResponse.json({ error: 'Faltan campos' }, { status: 400 });
+  if (!message || !String(message).trim()) {
+    return NextResponse.json({ error: 'Falta el mensaje' }, { status: 400 });
   }
+
+  const contactInfo = contact && String(contact).trim() ? String(contact).trim() : 'No proporcionado';
+  const isEmail = /\S+@\S+\.\S+/.test(contactInfo);
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -17,16 +20,15 @@ export async function POST(req: Request) {
   });
 
   await transporter.sendMail({
-    from: `"${name}" <${process.env.EMAIL_USER}>`,
+    from: `"Sitio web TemporaryRentalsMexico" <${process.env.EMAIL_USER}>`,
     to: 'alicewinters2202@gmail.com',
-    replyTo: email,
-    subject: `Contacto desde TemporaryRentalsMexico — ${name}`,
+    replyTo: isEmail ? contactInfo : undefined,
+    subject: `Nuevo mensaje desde TemporaryRentalsMexico`,
     html: `
-      <h2>Nuevo mensaje desde TemporaryRentalsMexico</h2>
-      <p><strong>Nombre:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
+      <h2>Nuevo mensaje desde el formulario de contacto</h2>
+      <p><strong>Contacto (email o teléfono):</strong> ${contactInfo}</p>
       <p><strong>Mensaje:</strong></p>
-      <p>${message.replace(/\n/g, '<br/>')}</p>
+      <p>${String(message).replace(/\n/g, '<br/>')}</p>
     `,
   });
 

@@ -8,18 +8,27 @@ export default function ContactForm() {
   const { lang } = useLang();
   const t = useT(lang);
 
-  const [name,    setName]    = useState('');
-  const [email,   setEmail]   = useState('');
+  const [contact, setContact] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus]   = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !message) return;
-    const text = lang === 'es'
-      ? `Hola, me contacto desde ShortStayMX.\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`
-      : `Hello, I'm contacting from ShortStayMX.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
-    const url = `https://wa.me/5215643232610?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
+    if (!message.trim()) return;
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contact, message }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus('sent');
+      setContact('');
+      setMessage('');
+    } catch {
+      setStatus('error');
+    }
   };
 
   const inputStyle = {
@@ -28,35 +37,32 @@ export default function ContactForm() {
     color: 'var(--ink)',
   };
 
+  if (status === 'sent') {
+    return (
+      <div className="rounded-2xl p-6 text-center" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
+        <p className="font-serif text-lg mb-1" style={{ color: 'var(--ink)' }}>
+          {lang === 'en' ? 'Message sent' : 'Mensaje enviado'}
+        </p>
+        <p className="text-sm" style={{ color: 'var(--muted)' }}>
+          {lang === 'en' ? "We'll get back to you soon." : 'Te responderemos pronto.'}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="text-xs uppercase tracking-widest font-semibold block mb-1.5" style={{ color: 'var(--muted)' }}>
-            {t.nameLabel}
-          </label>
-          <input
-            type="text"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-xl px-4 py-3 text-sm outline-none"
-            style={inputStyle}
-          />
-        </div>
-        <div>
-          <label className="text-xs uppercase tracking-widest font-semibold block mb-1.5" style={{ color: 'var(--muted)' }}>
-            {t.emailLabel}
-          </label>
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl px-4 py-3 text-sm outline-none"
-            style={inputStyle}
-          />
-        </div>
+      <div>
+        <label className="text-xs uppercase tracking-widest font-semibold block mb-1.5" style={{ color: 'var(--muted)' }}>
+          {lang === 'en' ? 'Your email or phone (optional)' : 'Tu correo o teléfono (opcional)'}
+        </label>
+        <input
+          type="text"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+          style={inputStyle}
+        />
       </div>
 
       <div>
@@ -73,12 +79,19 @@ export default function ContactForm() {
         />
       </div>
 
+      {status === 'error' && (
+        <p className="text-xs" style={{ color: '#ef4444' }}>
+          {lang === 'en' ? 'Could not send your message. Please try again.' : 'No se pudo enviar tu mensaje. Intenta de nuevo.'}
+        </p>
+      )}
+
       <button
         type="submit"
-        className="px-8 py-3 rounded-full text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90"
+        disabled={status === 'sending' || !message.trim()}
+        className="px-8 py-3 rounded-full text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-40"
         style={{ backgroundColor: 'var(--gold)' }}
       >
-        {t.sendBtn}
+        {status === 'sending' ? (lang === 'en' ? 'Sending...' : 'Enviando...') : t.sendBtn}
       </button>
     </form>
   );
