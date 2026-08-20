@@ -211,8 +211,8 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
         <a
           href={`https://wa.me/525643232610?text=${encodeURIComponent(
             lang === 'en'
-              ? `Hi, I'm contacting you from shortstaymx.com. I'm interested in a long-term stay (3+ months) in the property https://shortstaymx.com/properties/${property.slug}. Could you give me more information about special conditions?`
-              : `Hola, te contacto desde shortstaymx.com. Me interesa una estancia larga (más de 3 meses) en la propiedad https://shortstaymx.com/properties/${property.slug}. ¿Me pueden dar información sobre las condiciones especiales?`
+              ? `I'm interested in a long-term stay (3+ months) in the property https://shortstaymx.com/properties/${property.slug}. Could you give me more information about special conditions?`
+              : `Me interesa una estancia larga (más de 3 meses) en la propiedad https://shortstaymx.com/properties/${property.slug}. ¿Me pueden dar información sobre las condiciones especiales?`
           )}`}
           target="_blank"
           rel="noopener noreferrer"
