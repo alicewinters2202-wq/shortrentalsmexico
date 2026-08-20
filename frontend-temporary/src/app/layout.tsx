@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
+import { Analytics } from '@vercel/analytics/react';
 import { Fraunces, Inter } from 'next/font/google';
 import './globals.css';
 
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {children}
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );
