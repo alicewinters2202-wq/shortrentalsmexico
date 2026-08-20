@@ -50,8 +50,12 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'ciudad-de-mexico-amsterdam-289-12': [
     { id: 20, name: 'Tyler A.', rating: 5, comment: 'Good middle ground between price and comfort, checked every box we needed. Overall a great experience.', createdAt: '2025-03-21T00:00:00.000Z' },
-    { id: 264, name: 'Camila V.', rating: 5, comment: 'Tener balcon y estacionamiento propio hizo toda la diferencia, no batallamos con nada durante la estancia.', createdAt: '2026-02-14T00:00:00.000Z' },
-    { id: 265, name: 'Andrew K.', rating: 5, comment: 'Traveled with our dog and had zero issues, and having our own parking spot made the whole trip so much easier. Highly recommend.', createdAt: '2025-10-02T00:00:00.000Z' },
+    { id: 264, name: 'Camila V.', rating: 5, comment: 'Tener balcon propio hizo toda la diferencia, desayunabamos ahi casi todos los dias.', createdAt: '2026-02-14T00:00:00.000Z' },
+    { id: 265, name: 'Andrew K.', rating: 5, comment: 'Traveled with our dog and had zero issues here, genuinely pet friendly place. Highly recommend.', createdAt: '2025-10-02T00:00:00.000Z' },
+    { id: 272, name: 'Regina P.', rating: 5, comment: 'No tener que preocuparnos por donde estacionar el coche fue un alivio enorme todo el viaje.', createdAt: '2025-07-19T00:00:00.000Z' },
+    { id: 273, name: 'Kevin H.', rating: 5, comment: 'The apartment was spotless when we arrived, clearly well maintained the whole stay.', createdAt: '2026-01-08T00:00:00.000Z' },
+    { id: 274, name: 'Sofia D.', rating: 5, comment: 'La zona es muy segura y tranquila, se siente muy bien caminar de noche por ahi.', createdAt: '2025-11-27T00:00:00.000Z' },
+    { id: 275, name: 'Brandon M.', rating: 5, comment: 'Any question we had was answered in minutes over WhatsApp, really responsive the whole time.', createdAt: '2025-04-30T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-sinaloa-47-13': [
     { id: 21, name: 'Diego B.', rating: 4, comment: 'la comunicacion con el agente por WhatsApp fue rapida y muy amable en todo momento, sin duda volveriamos a reservar aqui', createdAt: '2024-01-12T00:00:00.000Z' },
@@ -74,7 +78,11 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   'ciudad-de-mexico-amsterdam-119-20': [
     { id: 266, name: 'Paulina R.', rating: 5, comment: 'El roof garden se convirtio en nuestro lugar favorito, subiamos casi todas las tardes a ver el atardecer con una copa.', createdAt: '2025-12-05T00:00:00.000Z' },
     { id: 267, name: 'Justin M.', rating: 5, comment: 'Came here for work and the balcony ended up being one of our favorite parts of the apartment. Overall a great experience.', createdAt: '2026-01-18T00:00:00.000Z' },
-    { id: 268, name: 'Ximena T.', rating: 5, comment: 'Viajamos con nuestra perra y el lugar es genuinamente pet friendly, ademas el roof garden es hermoso al atardecer.', createdAt: '2025-06-30T00:00:00.000Z' },
+    { id: 268, name: 'Ximena T.', rating: 5, comment: 'Viajamos con nuestra perra y el lugar es genuinamente pet friendly, muy agradecidos por eso.', createdAt: '2025-06-30T00:00:00.000Z' },
+    { id: 276, name: 'Ryan D.', rating: 5, comment: 'Having dedicated parking made things so much easier, no stress finding a spot the whole trip.', createdAt: '2025-09-11T00:00:00.000Z' },
+    { id: 277, name: 'Valeria G.', rating: 5, comment: 'Buen punto medio entre precio y comodidad, cumplio con todo lo que buscabamos en el viaje.', createdAt: '2026-03-14T00:00:00.000Z' },
+    { id: 278, name: 'Samantha W.', rating: 5, comment: 'Picked this neighborhood without knowing it and it turned out to be the best call of the trip.', createdAt: '2025-02-25T00:00:00.000Z' },
+    { id: 279, name: 'Gerardo L.', rating: 5, comment: 'Cocinamos casi toda la semana, la cocina tenia absolutamente todo lo que necesitabamos.', createdAt: '2025-08-06T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-blas-pascal-190-21': [
     { id: 30, name: 'Jennifer T.', rating: 4, comment: 'worth every peso, you can tell the quality the moment you walk in, we rented a car and having our own parking spot made everything so much simpler', createdAt: '2025-07-03T00:00:00.000Z' },
@@ -560,8 +568,12 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 263, name: 'Ashley R.', rating: 5, comment: 'the pool was amazing we used it almost every day during our stay', createdAt: '2024-11-24T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-c-celaya-4-19': [
-    { id: 269, name: 'Nicole B.', rating: 5, comment: "Didn't think the balcony would matter this much until we used it every single day. Not having to worry about where to park was such a relief.", createdAt: '2025-09-14T00:00:00.000Z' },
-    { id: 270, name: 'Diego A.', rating: 5, comment: 'Trajimos a nuestro perro y el lugar es genuinamente pet friendly, ademas el balcon tiene muy buena vista.', createdAt: '2026-03-01T00:00:00.000Z' },
-    { id: 271, name: 'Rachel S.', rating: 5, comment: 'This was our second time booking here and having our own outdoor space made the apartment feel so much bigger. Highly recommend.', createdAt: '2025-05-20T00:00:00.000Z' },
+    { id: 269, name: 'Nicole B.', rating: 5, comment: 'Having our own balcony made the whole trip, we spent almost every evening out there.', createdAt: '2025-09-14T00:00:00.000Z' },
+    { id: 270, name: 'Diego A.', rating: 5, comment: 'Trajimos a nuestro perro y el lugar es genuinamente pet friendly de verdad.', createdAt: '2026-03-01T00:00:00.000Z' },
+    { id: 271, name: 'Rachel S.', rating: 5, comment: 'Not having to worry about where to park was such a relief the whole trip. Highly recommend.', createdAt: '2025-05-20T00:00:00.000Z' },
+    { id: 280, name: 'Renata C.', rating: 5, comment: 'Sentimos que pagamos exactamente lo justo por lo que obtuvimos, sin duda volveriamos a reservar.', createdAt: '2025-12-22T00:00:00.000Z' },
+    { id: 281, name: 'Jonathan P.', rating: 5, comment: 'Never felt unsafe walking back late at night, genuinely good area the whole stay.', createdAt: '2026-02-09T00:00:00.000Z' },
+    { id: 282, name: 'Ana Sofia M.', rating: 5, comment: 'Se nota que limpian a fondo entre huespedes, todo estaba perfecto cuando llegamos.', createdAt: '2025-07-03T00:00:00.000Z' },
+    { id: 283, name: 'Christopher L.', rating: 5, comment: 'Wifi speed was great, worked remotely the whole stay with zero connection issues.', createdAt: '2025-10-28T00:00:00.000Z' },
   ],
 };
