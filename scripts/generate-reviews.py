@@ -140,12 +140,12 @@ BANK = {
 'checkin': {'es': ["El check-in fue súper sencillo, sin complicaciones ni esperas."], 'en': ["Check-in was super simple, no complications or waiting around."]},
 'view': {'es': ["La vista desde el departamento es hermosa, no nos cansamos de verla."], 'en': ["The view from the apartment is beautiful, never got tired of it."]},
 'transit': {'es': ["Muy cerca del metro, nos movimos por toda la ciudad sin complicaciones."], 'en': ["Very close to the metro, got around the whole city without any hassle."]},
+'transit_generic': {'es': ["Fue muy facil movernos por la zona sin complicaciones."], 'en': ["Getting around the area was really easy the whole trip."]},
 'quiet': {'es': ["El lugar era muy silencioso, dormimos increíble a pesar de estar en zona céntrica."], 'en': ["The place was really quiet, slept great despite being in a central area."]},
 'ac': {'es': ["El aire acondicionado funcionaba perfecto, algo importante con el calor de la zona."], 'en': ["The AC worked perfectly, which mattered a lot given how hot it gets there."]},
 'bathroom': {'es': ["El baño estaba muy bien equipado y con buena presión de agua."], 'en': ["The bathroom was well equipped with really good water pressure."]},
 'storage': {'es': ["Había mucho espacio para guardar nuestras cosas, algo que no esperábamos."], 'en': ["Plenty of storage space for our stuff, wasn't expecting that."]},
 'neighbors': {'es': ["Se sentía muy tranquilo, buenos vecinos y ambiente agradable."], 'en': ["It felt really calm, good neighbors and a nice overall vibe."]},
-'elevator': {'es': ["El elevador funcionaba perfecto, nunca tuvimos que esperar mucho."], 'en': ["The elevator worked great, never had to wait around for it."]},
 
 'value_budget': {'es': ["Para lo que pagamos, la calidad fue mucho mejor de lo esperado.","Excelente opción para quien busca algo económico sin sacrificar comodidad.","Muy buen precio para lo que ofrece, definitivamente lo volveríamos a elegir."],
                   'en': ["For what we paid, the quality was way better than expected.","Great option if you're looking for something affordable without sacrificing comfort.","Really good price for what you get, we'd choose it again without hesitation."]},
@@ -161,8 +161,8 @@ BANK = {
 # for how reuse is managed. High-demand amenities (parking/pet/pool/balcony) get treated exactly
 # like location/cleanliness in terms of fairness.
 ALL_ROTATING_TOPICS = ['location', 'cleanliness', 'host', 'wifi', 'kitchen', 'light', 'bed',
-                        'checkin', 'view', 'transit', 'quiet', 'ac', 'bathroom', 'storage',
-                        'neighbors', 'elevator', 'parking', 'pet', 'pool', 'balcony']
+                        'checkin', 'view', 'transit_generic', 'quiet', 'ac', 'bathroom', 'storage',
+                        'neighbors', 'parking', 'pet', 'pool', 'balcony']
 RARE_TOPICS = ['gym', 'beach', 'jacuzzi', 'spa', 'terrace', 'garden', 'sports', 'coworking', 'cinema', 'games']
 
 MEXICAN_FIRST = ['Alejandro', 'Fernanda', 'Diego', 'Maria Jose', 'Carlos', 'Valeria', 'Rodrigo', 'Ximena','Emiliano', 'Camila', 'Santiago', 'Regina', 'Mariana', 'Andres', 'Paulina', 'Gerardo','Daniela', 'Luis Fernando', 'Sofia', 'Ricardo', 'Ana Sofia', 'Javier', 'Renata', 'Sebastian']
@@ -232,7 +232,10 @@ for p in properties:
     tier_p = price_tier(p['pricePerMonth'])
     value_topic = f'value_{tier_p}'
     rare_pool = [t for t in detect_topics(p['amenities'], p['parkingSpots'], p['petFriendly'], p['balcony']) if t in RARE_TOPICS]
-    rotating_pool = [t for t in ALL_ROTATING_TOPICS if t in detect_topics(p['amenities'], p['parkingSpots'], p['petFriendly'], p['balcony']) or t in ['location','cleanliness','host','wifi','kitchen','light','bed','checkin','view','transit','quiet','ac','bathroom','storage','neighbors','elevator']]
+    rotating_pool = [t for t in ALL_ROTATING_TOPICS if t in detect_topics(p['amenities'], p['parkingSpots'], p['petFriendly'], p['balcony']) or t in ['location','cleanliness','host','wifi','kitchen','light','bed','checkin','view','transit_generic','quiet','ac','bathroom','storage','neighbors']]
+    METRO_CITIES = {'Ciudad de México', 'Guadalajara', 'Monterrey'}
+    if p['city'] in METRO_CITIES:
+        rotating_pool.append('transit')
     random.shuffle(rare_pool)
     n = review_count()
 

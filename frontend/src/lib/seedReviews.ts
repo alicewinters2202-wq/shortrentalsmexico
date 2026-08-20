@@ -114,7 +114,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'cancun-avenida-bonampak-mza-27-35': [
     { id: 52, name: 'Rodrigo C.', rating: 4, comment: 'Vinimos con toda la familia y sentimos que pagamos exactamente lo justo por lo que obtuvimos. La vista desde el departamento es hermosa, no nos cansamos de verla.', createdAt: '2025-07-02T00:00:00.000Z' },
-    { id: 53, name: 'Mariana T.', rating: 5, comment: 'Celebramos nuestro aniversario aqui y muy cerca del metro, nos movimos por toda la ciudad sin complicaciones.', createdAt: '2025-05-03T00:00:00.000Z' },
+    { id: 53, name: 'Mariana T.', rating: 5, comment: 'Celebramos nuestro aniversario aqui y nos movimos por toda la zona sin complicaciones.', createdAt: '2025-05-03T00:00:00.000Z' },
     { id: 51, name: 'Michael H.', rating: 3, comment: 'managed to keep my workout routine going thanks to the gym, the neighborhood has such a great vibe, cafes and restaurants everywhere', createdAt: '2024-08-19T00:00:00.000Z' },
   ],
   'cancun-boulevard-kukulcan-km-1-zona-turistica-p-36': [
@@ -237,7 +237,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 110, name: 'Camila G.', rating: 4, comment: 'Vinimos con toda la familia y ni una mota de polvo, se ve que cuidan mucho los detalles.', createdAt: '2024-12-02T00:00:00.000Z' },
   ],
   'san-miguel-de-allende-37766-san-miguel-de-allende-71': [
-    { id: 111, name: 'Renata A.', rating: 4, comment: 'muy cerca del metro, nos movimos por toda la ciudad sin complicaciones', createdAt: '2024-08-30T00:00:00.000Z' },
+    { id: 111, name: 'Renata A.', rating: 4, comment: 'nos movimos por toda la zona sin complicaciones', createdAt: '2024-08-30T00:00:00.000Z' },
   ],
   'san-miguel-de-allende-av-fray-juan-de-san-miguel-88-72': [
     { id: 112, name: 'Justin J.', rating: 5, comment: 'the garden area was a peaceful little spot to relax between outings for what we paid the quality was way better than expected overall a great experience', createdAt: '2026-04-05T00:00:00.000Z' },
@@ -275,7 +275,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 129, name: 'Nicole Y.', rating: 3, comment: 'This was our second time booking here and good middle ground between price and comfort, checked every box we needed. The kitchen was well stocked, we cooked several meals during our stay.', createdAt: '2025-03-07T00:00:00.000Z' },
   ],
   'merida-carretera-merida-progreso-km-17-merida-y-82': [
-    { id: 130, name: 'Mariana M.', rating: 5, comment: 'celebramos nuestro aniversario aqui y el metro quedaba a unos minutos, muy facil movernos por la ciudad', createdAt: '2024-04-10T00:00:00.000Z' },
+    { id: 130, name: 'Mariana M.', rating: 5, comment: 'celebramos nuestro aniversario aqui y fue muy facil movernos por la zona', createdAt: '2024-04-10T00:00:00.000Z' },
   ],
   'merida-c-61-84': [
     { id: 131, name: 'Christopher M.', rating: 5, comment: 'worth every peso you can tell the quality the moment you walk in and so much natural light in the apartment made it feel really spacious', createdAt: '2025-12-27T00:00:00.000Z' },
@@ -291,7 +291,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 137, name: 'Javier R.', rating: 4, comment: 'muy buen precio para lo que ofrece, definitivamente lo volveriamos a elegir, la cama era muy comoda, dormimos increible todas las noches', createdAt: '2025-05-10T00:00:00.000Z' },
   ],
   'merida-la-vista-luxury-towers-20875-87': [
-    { id: 138, name: 'Jonathan W.', rating: 3, comment: 'Booked last minute and very close to the metro, got around the whole city without any hassle.', createdAt: '2025-01-15T00:00:00.000Z' },
+    { id: 138, name: 'Jonathan W.', rating: 3, comment: 'Booked last minute and got around the whole area without any hassle.', createdAt: '2025-01-15T00:00:00.000Z' },
   ],
   'merida-komchen-88': [
     { id: 139, name: 'Luis Fernando T.', rating: 4, comment: 'Vinimos por trabajo y la vista desde el departamento es hermosa, no nos cansamos de verla.', createdAt: '2025-06-01T00:00:00.000Z' },
@@ -391,7 +391,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'nuevo-vallarta-bucerias-116': [
     { id: 186, name: 'Ximena M.', rating: 4, comment: 'Pudimos traer a nuestra mascota sin ningun problema, muy agradecidos por eso.', createdAt: '2025-11-21T00:00:00.000Z' },
-    { id: 187, name: 'Sofia B.', rating: 4, comment: 'El metro quedaba a unos minutos, muy facil movernos por la ciudad. Sin duda volveriamos a reservar aqui.', createdAt: '2025-10-01T00:00:00.000Z' },
+    { id: 187, name: 'Sofia B.', rating: 4, comment: 'Fue muy facil movernos por la zona. Sin duda volveriamos a reservar aqui.', createdAt: '2025-10-01T00:00:00.000Z' },
     { id: 188, name: 'Gerardo D.', rating: 4, comment: 'Estar tan cerca de la playa hizo toda la diferencia, caminabamos todas las mananas. Cocinamos casi toda la semana, la cocina tenia absolutamente todo lo necesario. Sin duda volveriamos a reservar aqui.', createdAt: '2025-02-24T00:00:00.000Z' },
   ],
   'nuevo-vallarta-blvd-costero-258-117': [
