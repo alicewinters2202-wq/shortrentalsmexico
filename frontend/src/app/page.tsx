@@ -119,7 +119,7 @@ export default async function Home() {
           </div>
 
           {/* Search bar — full width, no cramped column */}
-          <div className="mt-8 lg:mt-10 rounded-2xl overflow-hidden shadow-2xl max-w-3xl">
+          <div className="mt-8 lg:mt-10 rounded-2xl shadow-2xl max-w-3xl">
             <SearchBar />
           </div>
         </div>

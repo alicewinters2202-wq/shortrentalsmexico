@@ -17,15 +17,28 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ city?: string }>;
+  searchParams: Promise<{ city?: string; guests?: string }>;
 }) {
   let cityParam: string | undefined;
-  try { const sp = await searchParams; cityParam = sp?.city; } catch { cityParam = undefined; }
+  let guestsParam: number | undefined;
+  try {
+    const sp = await searchParams;
+    cityParam = sp?.city;
+    guestsParam = sp?.guests ? parseInt(sp.guests, 10) : undefined;
+    if (guestsParam !== undefined && (isNaN(guestsParam) || guestsParam < 1)) guestsParam = undefined;
+  } catch {
+    cityParam = undefined;
+    guestsParam = undefined;
+  }
   const { t, lang } = await getT();
   const properties = await fetchPreview();
-  const filtered = cityParam
+  let filtered = cityParam
     ? properties.filter((p) => p.city.trim() === cityParam!.trim())
     : properties;
+
+  if (guestsParam !== undefined) {
+    filtered = filtered.filter((p) => p.maxGuests >= guestsParam! && p.available);
+  }
 
   return (
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
@@ -49,6 +62,9 @@ export default async function PropertiesPage({
           </h1>
           <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>
             {t.propertiesCount(filtered.length)}
+            {guestsParam !== undefined && (
+              <span> · {lang === 'en' ? `available now, fits ${guestsParam}+ guests` : `disponibles ahora, para ${guestsParam}+ huéspedes`}</span>
+            )}
           </p>
           <div className="flex flex-wrap gap-2">
             <Link href="/properties" className="px-4 py-2 rounded-full text-sm transition-colors"
