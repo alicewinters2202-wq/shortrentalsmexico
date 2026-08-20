@@ -211,8 +211,8 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
         <a
           href={`https://wa.me/525643232610?text=${encodeURIComponent(
             lang === 'en'
-              ? `[TemporaryRentalsMexico] Hello, I'm interested in a long-term stay (3+ months) at ${property.address}. Could you give me more information about special conditions?`
-              : `[TemporaryRentalsMexico] Hola, me interesa una estancia larga (más de 3 meses) en ${property.address}. ¿Me pueden dar información sobre las condiciones especiales?`
+              ? `Hi, I'm contacting you from temporaryrentalsmexico.com. I'm interested in a long-term stay (3+ months) in the property https://temporaryrentalsmexico.com/properties/${property.slug}. Could you give me more information about special conditions?`
+              : `Hola, te contacto desde temporaryrentalsmexico.com. Me interesa una estancia larga (más de 3 meses) en la propiedad https://temporaryrentalsmexico.com/properties/${property.slug}. ¿Me pueden dar información sobre las condiciones especiales?`
           )}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -248,6 +248,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
         <AgentModal
           quote={{
             address:  property.address,
+            slug:     property.slug,
             checkIn,
             checkOut,
             nights,

@@ -73,8 +73,8 @@ export default async function AgentsPage() {
               <a
                 href={`https://wa.me/${camila.wa}?text=${encodeURIComponent(
                   lang === 'en'
-                    ? "[TemporaryRentalsMexico] Hi, I'd like information about your available properties."
-                    : '[TemporaryRentalsMexico] Hola, me gustaría información sobre sus propiedades disponibles.'
+                    ? "Hi, I saw your site, temporaryrentalsmexico.com, and I'd like information about your available properties."
+                    : 'Hola, vi su sitio, temporaryrentalsmexico.com, y me gustaría información sobre sus propiedades disponibles.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

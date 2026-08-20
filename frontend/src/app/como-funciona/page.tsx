@@ -170,8 +170,8 @@ export default async function HowItWorksPage() {
             </Link>
             <a href={`https://wa.me/5215643232610?text=${encodeURIComponent(
                 es
-                  ? '[ShortStayMX] Hola, me gustaría información sobre sus propiedades disponibles.'
-                  : "[ShortStayMX] Hi, I'd like information about your available properties."
+                  ? 'Hola, vi su sitio, shortstaymx.com, y me gustaría información sobre sus propiedades disponibles.'
+                  : "Hi, I saw your site, shortstaymx.com, and I'd like information about your available properties."
               )}`} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-3 rounded-full text-sm font-medium border" style={{ color: 'var(--ink)', borderColor: 'var(--border)' }}>
               WhatsApp
             </a>

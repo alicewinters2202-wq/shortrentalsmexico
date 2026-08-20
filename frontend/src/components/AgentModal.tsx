@@ -8,6 +8,7 @@ import { AGENTS } from '@/lib/agents';
 
 interface Quote {
   address: string;
+  slug: string;
   checkIn: string;
   checkOut: string;
   nights: number;
@@ -22,16 +23,17 @@ interface Props {
 }
 
 function buildWaMessage(agent: typeof AGENTS[0], quote: Quote, lang: 'es' | 'en') {
+  const link = `https://shortstaymx.com/properties/${quote.slug}`;
   if (lang === 'en') {
     return encodeURIComponent(
-      `[ShortStayMX] Hello ${agent.name}! I'm interested in the property at:\n📍 ${quote.address}\n\n` +
+      `Hi, I'm contacting you from shortstaymx.com. Hello ${agent.name}! I'm interested in the property ${link}\n\n` +
       `📅 Check-in: ${quote.checkIn}\n📅 Check-out: ${quote.checkOut}\n` +
       `🌙 Nights: ${quote.nights}\n💰 Estimated total: $${quote.total.toLocaleString()} MXN\n` +
       `👥 Guests: ${quote.guests}\n\nCould you help me with availability?`
     );
   }
   return encodeURIComponent(
-    `[ShortStayMX] Hola ${agent.name}, me interesa la propiedad en:\n📍 ${quote.address}\n\n` +
+    `Hola, te contacto desde shortstaymx.com. Hola ${agent.name}, me interesa la propiedad ${link}\n\n` +
     `📅 Entrada: ${quote.checkIn}\n📅 Salida: ${quote.checkOut}\n` +
     `🌙 Noches: ${quote.nights}\n💰 Total estimado: $${quote.total.toLocaleString()} MXN\n` +
     `👥 Huéspedes: ${quote.guests}\n\n¿Pueden confirmar disponibilidad?`

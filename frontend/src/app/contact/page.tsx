@@ -10,7 +10,7 @@ export default function ContactPage() {
 
   const handleSubmit = () => {
     if (!name || !message) return;
-    const text = `Hola, me contacto desde ShortStayMX.\n\nNombre: ${name}\nEmail: ${email}\nCiudad de interés: ${city}\nMensaje: ${message}`;
+    const text = `Hola, vi su sitio, shortstaymx.com.\n\nNombre: ${name}\nEmail: ${email}\nCiudad de interés: ${city}\nMensaje: ${message}`;
     const url = `https://wa.me/525643232610?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
@@ -60,7 +60,7 @@ export default function ContactPage() {
             <div className="rounded-2xl p-6" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
               <p className="font-serif text-xl mb-3" style={{ color: 'var(--ink)' }}>¿Necesitas ayuda para elegir?</p>
               <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>Nuestro equipo puede ayudarte a encontrar la propiedad ideal según tu presupuesto, ciudad y fechas.</p>
-              <a href="https://wa.me/525643232610?text=%5BShortStayMX%5D%20Hola%2C%20necesito%20ayuda%20para%20encontrar%20una%20propiedad%20en%20México."
+              <a href="https://wa.me/525643232610?text=Hola%2C%20vi%20su%20sitio%2C%20shortstaymx.com%2C%20y%20necesito%20ayuda%20para%20encontrar%20una%20propiedad%20en%20México."
                 target="_blank" rel="noopener noreferrer"
                 className="inline-block px-6 py-3 rounded-full text-sm font-medium text-white hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: 'var(--gold)' }}>
