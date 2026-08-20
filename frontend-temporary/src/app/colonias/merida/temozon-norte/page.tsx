@@ -39,7 +39,7 @@ export default async function TemozonNortePage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Mérida" : "Merida"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Temozon Norte</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Temozon Norte</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Temozon Norte es la zona mas exclusiva al norte de Merida, donde se concentran los fraccionamientos privados de lujo mas importantes de Yucatan. Con el Yucatan Country Club con campo de golf de 18 hoyos, residencias amplias con jardin y alberca, acceso controlado las 24 horas y una comunidad de altisimo nivel, es el destino premium para quienes buscan lo mejor de Merida sin compromisos." : "Temozon Norte is the most exclusive area north of Merida, where Yucatan's most important luxury private developments are concentrated. With the Yucatan Country Club with an 18-hole golf course, spacious homes with garden and pool, 24-hour controlled access and a very high-end community, it is the premium destination for those seeking the best of Merida without compromise."}
           </p>

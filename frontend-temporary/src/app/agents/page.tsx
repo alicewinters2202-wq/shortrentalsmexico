@@ -30,7 +30,7 @@ export default async function AgentsPage() {
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>
           {t.agentsSectionTitle}
         </p>
-        <h1 className="font-serif text-5xl sm:text-6xl mb-4" style={{ color: 'var(--ink)' }}>
+        <h1 className="italic text-5xl sm:text-6xl mb-4" style={{ color: 'var(--ink)' }}>
           {t.agentsSectionTitle}
         </h1>
         <p className="text-base" style={{ color: 'var(--muted)' }}>

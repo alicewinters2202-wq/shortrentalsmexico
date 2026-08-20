@@ -37,7 +37,7 @@ export default async function FlamingosPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Nuevo Vallarta</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Flamingos</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Flamingos</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Flamingos es la zona mas exclusiva de Nuevo Vallarta y una de las mas premium de toda la Riviera Nayarit. Con condominios de lujo frente al Oceano Pacifico, la Grand Marina con acceso directo al agua para yates, el campo de golf Flamingos de clase mundial y resorts de cinco estrellas, es el destino preferido por quienes buscan lo mejor del Pacifico mexicano." : "Flamingos is the most exclusive area of Nuevo Vallarta and one of the most premium on the entire Riviera Nayarit. With luxury condominiums facing the Pacific Ocean, the Grand Marina with direct water access for yachts, the world-class Flamingos golf course and five-star resorts, it is the preferred destination for those seeking the best of the Mexican Pacific."}
           </p>

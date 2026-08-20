@@ -31,7 +31,7 @@ export default async function AboutPage() {
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>
           {t.aboutNav}
         </p>
-        <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: 'var(--ink)' }}>
+        <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: 'var(--ink)' }}>
           {t.aboutTitle}
         </h1>
         <p className="text-lg" style={{ color: 'var(--muted)' }}>

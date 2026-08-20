@@ -22,7 +22,7 @@ export default async function NomadasDigitalesMexico() {
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>México</p>
-        <h1 className="font-serif text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
+        <h1 className="italic text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
           {es ? 'Las mejores ciudades de México para nómadas digitales' : 'The best cities in Mexico for digital nomads'}
         </h1>
         <div className="space-y-6">

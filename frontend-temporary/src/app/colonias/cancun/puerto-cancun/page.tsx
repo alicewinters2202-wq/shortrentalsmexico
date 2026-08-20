@@ -34,7 +34,7 @@ export default async function PuertoCancunPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Cancún" : "Cancun"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Puerto Cancún</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Puerto Cancún</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Puerto Cancun es el desarrollo marina mas moderno y exclusivo de Cancun. Disenado especificamente para residentes de alto nivel que buscan privacidad, exclusividad y amenidades de clase mundial, cuenta con una marina capaz de albergar yates de hasta 200 pies, un campo de golf de 18 hoyos disenado por Tom Weiskopf, torres residenciales con acabados de lujo y acceso controlado 24 horas." : "Puerto Cancun is the most modern and exclusive marina development in Cancun. Designed specifically for high-end residents seeking privacy, exclusivity and world-class amenities, it features a marina capable of accommodating yachts up to 200 feet, an 18-hole golf course designed by Tom Weiskopf, residential towers with luxury finishes and 24-hour controlled access."}
           </p>

@@ -35,7 +35,7 @@ export default async function JuarezPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Juarez</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Juarez</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La colonia Juarez es una de las zonas con mayor crecimiento y transformacion en la Ciudad de Mexico. Ubicada entre el Paseo de la Reforma y la Zona Rosa, combina edificios modernos de lujo con cafes creativos, restaurantes de autor y una vida nocturna muy activa. Es la colonia en auge de CDMX, donde nuevos desarrollos inmobiliarios estan transformando el paisaje urbano." : "Colonia Juarez is one of the fastest-growing and most transformed areas in Mexico City. Located between Paseo de la Reforma and Zona Rosa, it combines modern luxury buildings with creative cafes, chef-driven restaurants and a very active nightlife. It is CDMX's booming neighborhood, where new real estate developments are transforming the urban landscape."}
           </p>

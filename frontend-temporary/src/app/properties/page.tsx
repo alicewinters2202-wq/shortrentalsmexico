@@ -59,7 +59,7 @@ export default async function PropertiesPage({
 
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="mb-10">
-          <h1 className="font-serif text-4xl mb-2" style={{ color: 'var(--ink)' }}>
+          <h1 className="italic text-5xl sm:text-6xl mb-2" style={{ color: 'var(--ink)' }}>
             {cityParam ?? t.allProperties}
           </h1>
           <p className="text-sm mb-3" style={{ color: 'var(--muted)' }}>
@@ -88,13 +88,13 @@ export default async function PropertiesPage({
           </div>
           <div className="flex flex-wrap gap-2">
             <Link href="/properties" className="px-4 py-2 rounded-full text-sm transition-colors"
-              style={!cityParam ? { backgroundColor: 'var(--ink)', color: 'var(--cream)', border: '1px solid var(--ink)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
+              style={!cityParam ? { backgroundColor: 'var(--gold)', color: 'var(--cream)', border: '1px solid var(--gold)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
               {t.allFilter}
             </Link>
             {CITIES.map((c) => (
               <Link key={c} href={`/properties?city=${encodeURIComponent(c)}`}
                 className="px-4 py-2 rounded-full text-sm transition-colors"
-                style={cityParam === c ? { backgroundColor: 'var(--ink)', color: 'var(--cream)', border: '1px solid var(--ink)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
+                style={cityParam === c ? { backgroundColor: 'var(--gold)', color: 'var(--cream)', border: '1px solid var(--gold)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
                 {c}
               </Link>
             ))}

@@ -35,7 +35,7 @@ export default async function LaVeletaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Tulum</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>La Veleta</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>La Veleta</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La Veleta es una de las colonias residenciales con mayor crecimiento y transformacion en Tulum. Con calles rodeadas de selva maya, un ambiente tranquilo y autentico, y nuevos desarrollos modernos de lujo que ofrecen la combinacion perfecta de naturaleza y confort, es la opcion preferida para quienes buscan el espiritu genuino de Tulum a precios mas accesibles que Aldea Zama o la zona hotelera." : "La Veleta is one of the fastest-growing and most transformed residential neighborhoods in Tulum. With jungle-lined streets, a peaceful and authentic atmosphere, and new modern luxury developments that offer the perfect combination of nature and comfort, it is the preferred option for those seeking the genuine spirit of Tulum at more accessible prices than Aldea Zama or the hotel zone."}
           </p>

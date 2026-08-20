@@ -35,7 +35,7 @@ export default async function MayakobaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Playa del Carmen</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Mayakoba</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Mayakoba</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Mayakoba es el desarrollo turistico y residencial mas exclusivo de la Riviera Maya y uno de los mas reconocidos del mundo. Con hoteles iconicos como Rosewood, Banyan Tree, Fairmont y Andaz, el campo de golf El Camaleon — sede del PGA Tour —, lagunas naturales con manglares y acceso a playas privadas de arena blanca, establece el estandar de lujo del Caribe mexicano." : "Mayakoba is the most exclusive tourist and residential development in the Riviera Maya and one of the most recognized in the world. With iconic hotels like Rosewood, Banyan Tree, Fairmont and Andaz, El Camaleon golf course — host of the PGA Tour —, natural lagoons with mangroves and access to white sand private beaches, it sets the standard of luxury in the Mexican Caribbean."}
           </p>

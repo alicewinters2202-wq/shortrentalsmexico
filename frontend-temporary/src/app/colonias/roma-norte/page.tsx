@@ -38,7 +38,7 @@ export default async function RomaNortePage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Roma Norte</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Roma Norte</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Roma Norte es la colonia mas vibrante, creativa y deseada de Ciudad de Mexico. Inmortalizada por la pelicula Roma de Alfonso Cuaron, ganadora del Oscar, esta colonia combina arquitectura art deco de los anos 30, calles arboladas de jacarandas, la mejor escena de cafes de especialidad de la ciudad, restaurantes que aparecen en las mejores listas internacionales, y una comunidad creativa e internacional extraordinariamente activa." : "Roma Norte is the most vibrant, creative and sought-after neighborhood in Mexico City. Immortalized by Alfonso Cuarón's Oscar-winning film Roma, this neighborhood combines 1930s art deco architecture, jacaranda-lined streets, the city's best specialty coffee scene, restaurants that appear on the best international lists, and an extraordinarily active creative and international community."}
           </p>

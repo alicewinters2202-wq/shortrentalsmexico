@@ -32,7 +32,7 @@ export default async function AltabrisaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Mérida" : "Merida"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Altabrisa</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Altabrisa</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Altabrisa es la zona residencial moderna mas completa y consolidada de Merida. Con el centro comercial Plaza Altabrisa — el mas grande y completo de Yucatan —, hospitales privados de primer nivel como el Centro Medico de las Americas, colegios internacionales bilingues, amplias avenidas y excelente infraestructura vial, es la opcion preferida por familias y profesionales que buscan todas las comodidades modernas." : "Altabrisa is the most complete and established modern residential area in Merida. With the Plaza Altabrisa shopping center — the largest and most complete in Yucatan —, top-tier private hospitals like the Centro Medico de las Americas, bilingual international schools, wide avenues and excellent road infrastructure, it is the preferred option for families and professionals seeking all modern amenities."}
           </p>

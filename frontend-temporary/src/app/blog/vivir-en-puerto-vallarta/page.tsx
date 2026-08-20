@@ -22,7 +22,7 @@ export default async function ViviriEnPuertoVallarta() {
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>Puerto Vallarta</p>
-        <h1 className="font-serif text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
+        <h1 className="italic text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
           {es ? 'Vivir en Puerto Vallarta: Guía para expatriados' : 'Living in Puerto Vallarta: Guide for expats'}
         </h1>
         <div className="space-y-6">

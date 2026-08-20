@@ -103,7 +103,7 @@ export default async function HowItWorksPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
             {es ? 'Proceso simple y transparente' : 'Simple and transparent process'}
           </p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: 'var(--ink)' }}>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: 'var(--ink)' }}>
             {es ? 'Cómo funciona' : 'How it works'}
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>

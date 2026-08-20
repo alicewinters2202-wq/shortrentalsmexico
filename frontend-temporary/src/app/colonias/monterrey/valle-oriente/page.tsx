@@ -37,7 +37,7 @@ export default async function ValleOrientePage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Monterrey</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Valle Oriente</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Valle Oriente</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Valle Oriente es el corredor empresarial y residencial mas moderno de Monterrey. Con torres de oficinas de vidrio y acero, hoteles de lujo internacionales como el Marriott y el Westin, el centro comercial Multiplaza Arboleda, decenas de restaurantes de primer nivel y departamentos residenciales de alto standing, es el epicentro de los negocios del norte de Mexico." : "Valle Oriente is the most modern business and residential corridor in Monterrey. With glass and steel office towers, international luxury hotels like the Marriott and Westin, the Multiplaza Arboleda shopping center, dozens of top-tier restaurants and high-end residential apartments, it is the epicenter of business in northern Mexico."}
           </p>

@@ -41,7 +41,7 @@ export default async function BuceriasPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Nuevo Vallarta</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Bucerías</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Bucerías</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Bucerias y Cruz de Huanacaxtle son pueblos costeros autenticos de la Riviera Nayarit, a 10-15 kilometros de Nuevo Vallarta. Con sus malecones locales, playas de aguas tranquilas perfectas para nadar, restaurantes marisqueros con vista al mar, y una comunidad de expatriados muy activa y consolidada que lleva decadas viviendo aqui, ofrecen una experiencia de vida de playa autentica y tranquila." : "Bucerias and Cruz de Huanacaxtle are authentic coastal towns of the Riviera Nayarit, 10-15 kilometers from Nuevo Vallarta. With their local malecóns, calm water beaches perfect for swimming, seafood restaurants with sea views, and a very active and established expat community that has been living here for decades, they offer an authentic and peaceful beach living experience."}
           </p>

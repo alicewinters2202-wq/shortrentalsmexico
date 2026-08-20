@@ -32,7 +32,7 @@ export default async function ZonaHoteleraPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Cancún" : "Cancun"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Zona Hotelera</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Zona Hotelera</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La Zona Hotelera de Cancun es una franja de tierra de 23 kilometros rodeada por el Mar Caribe turquesa y la Laguna Nichupte. Es el corazon turistico y cosmopolita de la ciudad, con las mejores playas del Caribe mexicano, el famoso Boulevard Kukulcan lleno de restaurantes de lujo y vida nocturna vibrante, y vistas al mar desde practicamente cualquier punto." : "Cancun's Hotel Zone is a 23-kilometer strip of land surrounded by turquoise Caribbean Sea and Nichupte Lagoon. It is the tourist and cosmopolitan heart of the city, with the best beaches of the Mexican Caribbean, the famous Kukulcan Boulevard full of luxury restaurants and vibrant nightlife, and sea views from practically any point."}
           </p>

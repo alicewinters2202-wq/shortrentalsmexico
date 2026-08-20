@@ -22,7 +22,7 @@ export default async function ViviriEnMerida() {
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>Mérida</p>
-        <h1 className="font-serif text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
+        <h1 className="italic text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
           {es ? 'Vivir en Mérida: Guía completa para expatriados' : 'Living in Merida: Complete guide for expats'}
         </h1>
         <div className="space-y-6">

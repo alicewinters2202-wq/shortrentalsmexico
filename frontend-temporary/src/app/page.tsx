@@ -5,7 +5,6 @@ import UpcomingDestinations from '@/components/home/UpcomingDestinations';
 import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
-import HeroSlideshow from '@/components/home/HeroSlideshow';
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
@@ -43,24 +42,23 @@ export default async function Home() {
     .slice(0, 6)
     .map((x) => x.p);
 
+  const heroCollage = [...withImages]
+    .sort((a, b) => b.pricePerMonth - a.pricePerMonth)
+    .slice(0, 4);
+
   return (
     <>
-      {/* HERO */}
-      <section className="relative h-screen min-h-[600px] flex flex-col">
-        <HeroSlideshow images={[
-          'Ciudad de México', 'Puerto Vallarta', 'Tulum', 'Cancún', 'Nuevo Vallarta', 'San Miguel de Allende', 'Mérida', 'Guadalajara'
-        ].map(city => {
-          const p = withImages.find(p => p.city.trim() === city);
-          return p ? imageUrl(p.images[0]) : null;
-        }).filter(Boolean) as string[]} />
-        <div className="absolute inset-0 bg-black/45" />
-
-        <nav className="relative z-10 flex items-center justify-between px-8 py-6">
-          <div className="text-center">
-            <p className="text-white text-[10px] tracking-[0.3em] uppercase font-medium opacity-80">Temporary Rentals</p>
-            <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-80">México</p>
+      {/* HERO — deep navy-to-teal canvas, floating photo collage, no more generic photo-behind-text */}
+      <section
+        className="relative min-h-screen overflow-hidden"
+        style={{ background: 'linear-gradient(160deg, #101820 0%, #0A1216 55%, #0D2A2A 100%)' }}
+      >
+        <nav className="relative z-20 flex items-center justify-between px-6 sm:px-8 py-6">
+          <div className="text-left">
+            <p className="text-white text-[10px] tracking-[0.3em] uppercase font-medium opacity-90">TemporaryRentalsMexico</p>
+            <p className="text-white text-[10px] tracking-[0.5em] uppercase font-medium opacity-70">México</p>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             <Link href="/agents" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.agentsSectionTitle}
             </Link>
@@ -76,19 +74,53 @@ export default async function Home() {
             <Link href="/requirements" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.reqNav}
             </Link>
-            <Link href="/faq" className="text-white/70 hover:text-white text-xs transition-colors">{t.faqNav}</Link><Link href="/blog" className="text-white/70 hover:text-white text-xs transition-colors">Blog</Link>
+            <Link href="/faq" className="text-white/70 hover:text-white text-xs transition-colors">{t.faqNav}</Link>
+            <Link href="/blog" className="text-white/70 hover:text-white text-xs transition-colors">Blog</Link>
             <LangToggle currentLang={lang} className="text-white/70 hover:text-white" />
           </div>
+          <LangToggle currentLang={lang} className="md:hidden text-white/70 hover:text-white" />
         </nav>
 
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 text-center gap-8">
-          <h1 className="font-serif text-white text-5xl sm:text-6xl md:text-7xl leading-tight max-w-3xl">
-            <em>{t.tagline}</em>
-            <br />
-            <span className="font-normal text-4xl sm:text-5xl md:text-6xl">{t.taglineSub}</span>
-          </h1>
-          <p className="text-white/70 text-base max-w-md">{t.subheading}</p>
-          <SearchBar />
+        <div className="relative z-10 px-6 sm:px-8 pt-8 pb-20 lg:pt-10 lg:pb-28 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-8 items-center">
+            <div>
+              <p className="text-[11px] tracking-[0.35em] uppercase font-medium mb-5" style={{ color: '#3FB8AF', opacity: 0.9 }}>
+                {lang === 'en' ? 'Flexible stays, every city' : 'Estancias flexibles, cada ciudad'}
+              </p>
+              <h1 className="italic leading-[0.95] mb-6 text-white">
+                <span className="block text-6xl sm:text-7xl lg:text-7xl xl:text-8xl">{t.tagline}</span>
+                <span className="block not-italic font-normal text-4xl sm:text-5xl lg:text-5xl xl:text-6xl mt-2 opacity-90">{t.taglineSub}</span>
+              </h1>
+              <p className="text-base max-w-md mb-4 text-white/70">{t.subheading}</p>
+            </div>
+
+            <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] hidden sm:block">
+              {heroCollage.map((p, i) => {
+                const positions = [
+                  { top: '2%',  left: '8%',  w: 150, rot: -5, z: 3 },
+                  { top: '18%', left: '48%', w: 170, rot: 4,  z: 4 },
+                  { top: '48%', left: '4%',  w: 140, rot: 3,  z: 2 },
+                  { top: '52%', left: '52%', w: 155, rot: -4, z: 3 },
+                ];
+                const pos = positions[i] ?? positions[0];
+                return (
+                  <div
+                    key={p.id}
+                    className="absolute rounded-lg overflow-hidden shadow-2xl p-1.5"
+                    style={{ top: pos.top, left: pos.left, width: pos.w, transform: `rotate(${pos.rot}deg)`, zIndex: pos.z, backgroundColor: '#0D2A2A', border: '1px solid rgba(63,184,175,0.3)' }}
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                      <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-8 lg:mt-10 rounded-2xl shadow-2xl max-w-3xl">
+            <SearchBar />
+          </div>
         </div>
       </section>
 

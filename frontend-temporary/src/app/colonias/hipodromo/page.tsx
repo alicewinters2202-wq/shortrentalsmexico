@@ -36,7 +36,7 @@ export default async function HipodromoPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Hipodromo Condesa</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Hipodromo Condesa</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "El Hipodromo y el Hipodromo Condesa son colonias tranquilas y residenciales ubicadas entre la Condesa y la Roma. Su ambiente relajado, calles arboladas y excelente conectividad las hacen ideales para quienes buscan vivir en el corazon de CDMX sin el ruido del centro. La zona cuenta con edificios modernos de lujo con amenidades completas a precios mas accesibles que Polanco." : "Hipodromo and Hipodromo Condesa are quiet and residential neighborhoods located between Condesa and Roma. Their relaxed atmosphere, tree-lined streets and excellent connectivity make them ideal for those who want to live in the heart of CDMX without the noise of the center. The area has modern luxury buildings with full amenities at more accessible prices than Polanco."}
           </p>

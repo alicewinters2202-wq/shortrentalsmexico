@@ -33,7 +33,7 @@ export default async function AldeaZamaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Tulum</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Aldea Zama</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Aldea Zama</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Aldea Zama es el desarrollo residencial mas exclusivo y completo de Tulum. Estrategicamente ubicado entre la zona hotelera y el pueblo, concentra la mayor cantidad de condominios modernos de lujo, restaurantes de calidad, cafes con buen WiFi y espacios de coworking de todo Tulum. Sus residencias combinan arquitectura biofílica — profundamente integrada con la naturaleza — con amenidades modernas completas." : "Aldea Zama is the most exclusive and complete residential development in Tulum. Strategically located between the hotel zone and the town, it concentrates the largest number of modern luxury condominiums, quality restaurants, cafes with good WiFi and coworking spaces in all of Tulum. Its residences combine biophilic architecture — deeply integrated with nature — with complete modern amenities."}
           </p>

@@ -54,7 +54,7 @@ export default function WhyUs({ lang }: Props) {
         <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: 'var(--gold)' }}>
           {es ? 'Por que elegirnos' : 'Why choose us'}
         </p>
-        <h2 className="font-serif text-4xl sm:text-5xl mb-4" style={{ color: 'var(--ink)' }}>
+        <h2 className="italic text-4xl sm:text-5xl mb-4" style={{ color: 'var(--ink)' }}>
           {es ? 'La diferencia TemporaryRentalsMexico' : 'The TemporaryRentalsMexico difference'}
         </h2>
         <p className="text-sm max-w-xl mb-14" style={{ color: 'var(--muted)' }}>

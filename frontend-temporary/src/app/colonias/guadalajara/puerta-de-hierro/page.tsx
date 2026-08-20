@@ -35,7 +35,7 @@ export default async function PuertaDeHierroPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Guadalajara</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Puerta de Hierro</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Puerta de Hierro</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Puerta de Hierro es la zona mas exclusiva de Zapopan y una de las mas prestigiosas de todo el area metropolitana de Guadalajara. Torres residenciales de lujo, el centro comercial Andares con las mejores tiendas internacionales, hospitales privados de primer nivel, colegios internacionales bilingues y una excelente conectividad hacen de esta zona la primera eleccion para ejecutivos corporativos, empresarios y familias que buscan lo mejor de Guadalajara." : "Puerta de Hierro is the most exclusive area of Zapopan and one of the most prestigious in the entire Guadalajara metropolitan area. Luxury residential towers, the Andares shopping center with the best international stores, top-tier private hospitals, bilingual international schools and excellent connectivity make this area the first choice for corporate executives, entrepreneurs and families seeking the best of Guadalajara."}
           </p>

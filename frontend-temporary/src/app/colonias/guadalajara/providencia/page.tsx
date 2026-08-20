@@ -30,7 +30,7 @@ export default async function ProvidenciaPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Guadalajara</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Providencia</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Providencia</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Providencia es una de las colonias mas tranquilas, elegantes y consolidadas de Guadalajara. Con calles arboladas de grandes ficus y liquidambares, excelentes restaurantes, supermercados de calidad y una ubicacion privilegiada entre el centro historico y las zonas empresariales del norte, Providencia ofrece una calidad de vida excepcional para familias y profesionales que buscan tranquilidad sin alejarse de todo." : "Providencia is one of the most peaceful, elegant and established neighborhoods in Guadalajara. With tree-lined streets of large ficus and liquidambar trees, excellent restaurants, quality supermarkets and a privileged location between the historic center and the business areas to the north, Providencia offers exceptional quality of life for families and professionals seeking tranquility without being far from everything."}
           </p>

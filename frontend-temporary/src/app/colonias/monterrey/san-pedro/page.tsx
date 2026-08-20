@@ -43,7 +43,7 @@ export default async function SanPedroPage() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Monterrey</p>
-          <h1 className="font-serif text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>San Pedro Garza García</h1>
+          <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>San Pedro Garza García</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "San Pedro Garza Garcia es el municipio mas exclusivo y prospero del area metropolitana de Monterrey, y uno de los de mayor ingreso per capita de todo Mexico. Concentra las sedes de las principales empresas y corporativos del pais, centros comerciales premium como Chroma y Galerias Valle Oriente, hospitales privados de primer nivel, los mejores restaurantes del norte de Mexico y algunas de las zonas residenciales mas exclusivas del pais." : "San Pedro Garza Garcia is the most exclusive and prosperous municipality in the Monterrey metropolitan area, and one of the highest per capita income in all of Mexico. It concentrates the headquarters of the country's leading companies and corporations, premium shopping centers like Chroma and Galerias Valle Oriente, top-tier private hospitals, the best restaurants in northern Mexico and some of the most exclusive residential areas in the country."}
           </p>
