@@ -49,7 +49,9 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 19, name: 'Sofia M.', rating: 3, comment: 'Para lo que pagamos, la calidad fue mucho mejor de lo esperado. Nunca nos sentimos inseguros caminando de regreso tarde, buena zona.', createdAt: '2025-08-03T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-amsterdam-289-12': [
-    { id: 20, name: 'Tyler A.', rating: 4, comment: 'Good middle ground between price and comfort, checked every box we needed. Overall a great experience.', createdAt: '2025-03-21T00:00:00.000Z' },
+    { id: 20, name: 'Tyler A.', rating: 5, comment: 'Good middle ground between price and comfort, checked every box we needed. Overall a great experience.', createdAt: '2025-03-21T00:00:00.000Z' },
+    { id: 264, name: 'Camila V.', rating: 5, comment: 'Tener balcon y estacionamiento propio hizo toda la diferencia, no batallamos con nada durante la estancia.', createdAt: '2026-02-14T00:00:00.000Z' },
+    { id: 265, name: 'Andrew K.', rating: 5, comment: 'Traveled with our dog and had zero issues, and having our own parking spot made the whole trip so much easier. Highly recommend.', createdAt: '2025-10-02T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-sinaloa-47-13': [
     { id: 21, name: 'Diego B.', rating: 4, comment: 'la comunicacion con el agente por WhatsApp fue rapida y muy amable en todo momento, sin duda volveriamos a reservar aqui', createdAt: '2024-01-12T00:00:00.000Z' },
@@ -70,6 +72,9 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 28, name: 'Jonathan Y.', rating: 5, comment: 'we stayed a week and the balcony ended up being one of our favorite parts of the apartment, overall a great experience', createdAt: '2024-02-28T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-amsterdam-119-20': [
+    { id: 266, name: 'Paulina R.', rating: 5, comment: 'El roof garden se convirtio en nuestro lugar favorito, subiamos casi todas las tardes a ver el atardecer con una copa.', createdAt: '2025-12-05T00:00:00.000Z' },
+    { id: 267, name: 'Justin M.', rating: 5, comment: 'Came here for work and the balcony ended up being one of our favorite parts of the apartment. Overall a great experience.', createdAt: '2026-01-18T00:00:00.000Z' },
+    { id: 268, name: 'Ximena T.', rating: 5, comment: 'Viajamos con nuestra perra y el lugar es genuinamente pet friendly, ademas el roof garden es hermoso al atardecer.', createdAt: '2025-06-30T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-blas-pascal-190-21': [
     { id: 30, name: 'Jennifer T.', rating: 4, comment: 'worth every peso, you can tell the quality the moment you walk in, we rented a car and having our own parking spot made everything so much simpler', createdAt: '2025-07-03T00:00:00.000Z' },
@@ -553,5 +558,10 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'tulum-av-coba-170': [
     { id: 263, name: 'Ashley R.', rating: 5, comment: 'the pool was amazing we used it almost every day during our stay', createdAt: '2024-11-24T00:00:00.000Z' },
+  ],
+  'ciudad-de-mexico-c-celaya-4-19': [
+    { id: 269, name: 'Nicole B.', rating: 5, comment: "Didn't think the balcony would matter this much until we used it every single day. Not having to worry about where to park was such a relief.", createdAt: '2025-09-14T00:00:00.000Z' },
+    { id: 270, name: 'Diego A.', rating: 5, comment: 'Trajimos a nuestro perro y el lugar es genuinamente pet friendly, ademas el balcon tiene muy buena vista.', createdAt: '2026-03-01T00:00:00.000Z' },
+    { id: 271, name: 'Rachel S.', rating: 5, comment: 'This was our second time booking here and having our own outdoor space made the apartment feel so much bigger. Highly recommend.', createdAt: '2025-05-20T00:00:00.000Z' },
   ],
 };
