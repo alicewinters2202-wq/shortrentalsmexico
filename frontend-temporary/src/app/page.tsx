@@ -7,7 +7,29 @@ import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
 import HeroSlideshow from '@/components/home/HeroSlideshow';
-import NeighborhoodsSection from '@/components/home/NeighborhoodsSection';
+const CITIES = [
+  { name: 'Ciudad de México', label: 'CDMX' },
+  { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
+  { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
+  { name: 'Cancún',          label: 'Cancún' },
+  { name: 'Tulum',            label: 'Tulum' },
+  { name: 'Playa del Carmen', label: 'Playa del Carmen' },
+];
+
+const ALL_CITIES = [
+  { name: 'Ciudad de México', label: 'CDMX' },
+  { name: 'Guadalajara',      label: 'Guadalajara' },
+  { name: 'Monterrey',        label: 'Monterrey' },
+  { name: 'Santiago',         label: 'Santiago' },
+  { name: 'Chapala',          label: 'Chapala' },
+  { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
+  { name: 'San Miguel de Allende', label: 'San Miguel' },
+  { name: 'Mérida',          label: 'Mérida' },
+  { name: 'Cancún',          label: 'Cancún' },
+  { name: 'Nuevo Vallarta',   label: 'Nuevo Vallarta' },
+  { name: 'Tulum',            label: 'Tulum' },
+  { name: 'Playa del Carmen', label: 'Playa del Carmen' },
+];
 
 export default async function Home() {
   const { t, lang } = await getT();
@@ -43,8 +65,8 @@ export default async function Home() {
             <Link href="/agents" className="text-white/70 hover:text-white text-xs transition-colors">
               {t.agentsSectionTitle}
             </Link>
-            <Link href="/destinations" className="text-white/70 hover:text-white text-xs transition-colors">
-              {lang === 'en' ? 'Destinations' : 'Destinos'}
+            <Link href="/colonias" className="text-white/70 hover:text-white text-xs transition-colors">
+              {lang === 'en' ? 'Neighborhoods' : 'Colonias'}
             </Link>
             <Link href="/why-us" className="text-white/70 hover:text-white text-xs transition-colors">
               {lang === 'en' ? 'Why us' : 'Por qué nosotros'}
@@ -68,6 +90,69 @@ export default async function Home() {
           </h1>
           <p className="text-white/70 text-base max-w-md">{t.subheading}</p>
           <SearchBar />
+        </div>
+      </section>
+
+      {/* CIUDADES */}
+      <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 py-20 max-w-7xl mx-auto">
+        <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.popularDests}</h2>
+        <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.exploreDests}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {CITIES.map((c) => {
+            const cityProps = properties.filter((p) => p.city.trim() === c.name);
+            const coverImg  = cityProps.find((p) => p.images.length > 0);
+            const count     = cityProps.length;
+            return (
+              <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
+                className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
+                {coverImg ? (
+                  <img src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600 group-hover:scale-105 transition-transform duration-500" />
+                )}
+                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <p className="text-white font-serif text-2xl font-medium">{c.label}</p>
+                  <p className="text-white/70 text-sm mt-1">{t.cityTagline(c.name)}</p>
+                  <p className="text-white/50 text-xs mt-1">{t.properties(count)}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* TODOS LOS DESTINOS */}
+      <section style={{ backgroundColor: 'var(--card)' }} className="px-6 py-20 max-w-7xl mx-auto">
+        <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>
+          {lang === 'en' ? 'All destinations' : 'Todos los destinos'}
+        </h2>
+        <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>
+          {lang === 'en' ? 'Explore all cities where we operate' : 'Explora todas las ciudades donde operamos'}
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {ALL_CITIES.map((c) => {
+            const cityProps = properties.filter((p) => p.city.trim() === c.name);
+            const coverImg  = cityProps.find((p) => p.images.length > 0);
+            const count     = cityProps.length;
+            return (
+              <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
+                className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
+                {coverImg ? (
+                  <img src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600" />
+                )}
+                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <p className="text-white font-serif text-xl font-medium">{c.label}</p>
+                  <p className="text-white/50 text-xs mt-1">{t.properties(count)}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -153,7 +238,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <NeighborhoodsSection lang={lang} />
       {/* PRÓXIMOS DESTINOS */}
       <UpcomingDestinations t={t} />
 
