@@ -275,6 +275,10 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
     if (!raw) return [];
     const str = String(raw).trim();
     if (!str) return [];
-    return str.split(',').map((a) => a.trim()).filter((a) => a.length > 0);
+    const NON_ANSWERS = ['no', 'n/a', 'na', 'ninguna', 'ninguno', 'none', 'no aplica'];
+    return str
+      .split(',')
+      .map((a) => a.trim())
+      .filter((a) => a.length > 0 && !NON_ANSWERS.includes(a.toLowerCase()));
   }
 }
