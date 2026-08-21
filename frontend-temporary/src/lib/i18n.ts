@@ -71,7 +71,7 @@ const T = {
     petFriendlyNeg: 'Pet friendly negociable',
     parking: (n: number) => `${n} estacionamiento${n > 1 ? 's' : ''}`,
     // amenities
-    amenities: 'Lo que incluye',
+    amenities: 'Amenidades',
     // price table
     priceTitle: 'Precio de renta',
     dailySub: (rate: string) => `Tarifa: ${rate} / día · Mínimo 10 noches`,
@@ -361,7 +361,7 @@ const T = {
     petFriendly: 'Pet friendly',
     petFriendlyNeg: 'Pet friendly (negotiable)',
     parking: (n: number) => `${n} parking spot${n > 1 ? 's' : ''}`,
-    amenities: "What's included",
+    amenities: 'Amenities',
     priceTitle: 'Rental pricing',
     dailySub: (rate: string) => `Rate: ${rate} / day · Minimum 10 nights`,
     nightsCol: 'Nights',
