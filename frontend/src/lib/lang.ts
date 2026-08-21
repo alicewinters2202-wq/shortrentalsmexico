@@ -4,7 +4,7 @@ import { T, type TType } from './i18n';
 
 export async function getServerLang(): Promise<Lang> {
   const store = await cookies();
-  return store.get('lang')?.value === 'en' ? 'en' : 'es';
+  return store.get('lang')?.value === 'es' ? 'es' : 'en';
 }
 
 export async function getT() {

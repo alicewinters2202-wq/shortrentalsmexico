@@ -18,20 +18,33 @@ export default function LangToggle({ currentLang, className = '' }: Props) {
     set(currentLang);
   }, [currentLang, set]);
 
-  const handleToggle = () => {
-    const next: Lang = lang === 'es' ? 'en' : 'es';
+  const switchTo = (next: Lang) => {
+    if (next === lang) return;
     set(next);
     document.cookie = `lang=${next};path=/;max-age=31536000`;
     router.refresh(); // re-renderiza los server components con el nuevo idioma
   };
 
   return (
-    <button
-      onClick={handleToggle}
-      className={`text-xs tracking-widest uppercase font-semibold transition-opacity hover:opacity-70 ${className}`}
-      aria-label="Cambiar idioma / Change language"
-    >
-      {lang === 'es' ? 'EN' : 'ES'}
-    </button>
+    <div className={`flex items-center gap-1.5 ${className}`} role="group" aria-label="Language / Idioma">
+      <button
+        onClick={() => switchTo('en')}
+        aria-label="English"
+        aria-pressed={lang === 'en'}
+        className="leading-none transition-all"
+        style={{ fontSize: '1.15rem', opacity: lang === 'en' ? 1 : 0.4, transform: lang === 'en' ? 'scale(1.12)' : 'scale(1)' }}
+      >
+        🇺🇸
+      </button>
+      <button
+        onClick={() => switchTo('es')}
+        aria-label="Español"
+        aria-pressed={lang === 'es'}
+        className="leading-none transition-all"
+        style={{ fontSize: '1.15rem', opacity: lang === 'es' ? 1 : 0.4, transform: lang === 'es' ? 'scale(1.12)' : 'scale(1)' }}
+      >
+        🇲🇽
+      </button>
+    </div>
   );
 }
