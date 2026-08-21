@@ -42,7 +42,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'ciudad-de-mexico-chihuahua-190-8': [
     { id: 16, name: 'Rodrigo T.', rating: 5, comment: 'Fue nuestro segundo viaje aquí y la terraza tiene una vista espectacular, pasamos varias tardes ahí. Tener dónde sentarnos afuera hizo una gran diferencia en el día a día.', createdAt: '2025-10-16T00:00:00.000Z' },
-    { id: 17, name: 'Rodrigo G.', rating: 4, comment: 'Vinimos por trabajo y algo tan simple como el estacionamiento asignado hizo todo mucho menos estresante.', createdAt: '2025-09-05T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-jalapa-190-10': [
     { id: 18, name: 'Carlos V.', rating: 5, comment: 'pudimos traer a nuestra mascota sin ningun problema, muy agradecidos por eso', createdAt: '2025-10-26T00:00:00.000Z' },
@@ -68,7 +67,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 24, name: 'Brian S.', rating: 5, comment: 'We celebrated our anniversary here and for what we paid, the quality was way better than expected. You could tell they clean thoroughly between guests, everything was perfect.', createdAt: '2026-04-25T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-juan-racine-137-16': [
-    { id: 25, name: 'David T.', rating: 4, comment: 'Great value for what you get, wed definitely book again. Having dedicated parking made things so much easier, no stress finding a spot.', createdAt: '2025-08-11T00:00:00.000Z' },
+    { id: 25, name: 'David T.', rating: 4, comment: 'Great value for what you get, wed definitely book again.', createdAt: '2025-08-11T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-tlacotalpan-27-17': [
     { id: 26, name: 'Brandon L.', rating: 4, comment: 'Felt like we paid exactly the right amount for what we got. We brought our dog along and it worked out great — genuinely pet friendly place.', createdAt: '2025-06-13T00:00:00.000Z' },
@@ -79,20 +78,18 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 266, name: 'Paulina R.', rating: 5, comment: 'El roof garden se convirtio en nuestro lugar favorito, subiamos casi todas las tardes a ver el atardecer con una copa.', createdAt: '2025-12-05T00:00:00.000Z' },
     { id: 267, name: 'Justin M.', rating: 5, comment: 'Came here for work and the balcony ended up being one of our favorite parts of the apartment. Overall a great experience.', createdAt: '2026-01-18T00:00:00.000Z' },
     { id: 268, name: 'Ximena T.', rating: 5, comment: 'Viajamos con nuestra perra y el lugar es genuinamente pet friendly, muy agradecidos por eso.', createdAt: '2025-06-30T00:00:00.000Z' },
-    { id: 276, name: 'Ryan D.', rating: 5, comment: 'Having dedicated parking made things so much easier, no stress finding a spot the whole trip.', createdAt: '2025-09-11T00:00:00.000Z' },
     { id: 277, name: 'Valeria G.', rating: 5, comment: 'Buen punto medio entre precio y comodidad, cumplio con todo lo que buscabamos en el viaje.', createdAt: '2026-03-14T00:00:00.000Z' },
     { id: 278, name: 'Samantha W.', rating: 5, comment: 'Picked this neighborhood without knowing it and it turned out to be the best call of the trip.', createdAt: '2025-02-25T00:00:00.000Z' },
     { id: 279, name: 'Gerardo L.', rating: 5, comment: 'Cocinamos casi toda la semana, la cocina tenia absolutamente todo lo que necesitabamos.', createdAt: '2025-08-06T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-blas-pascal-190-21': [
-    { id: 30, name: 'Jennifer T.', rating: 4, comment: 'worth every peso, you can tell the quality the moment you walk in, we rented a car and having our own parking spot made everything so much simpler', createdAt: '2025-07-03T00:00:00.000Z' },
+    { id: 30, name: 'Jennifer T.', rating: 4, comment: 'worth every peso, you can tell the quality the moment you walk in', createdAt: '2025-07-03T00:00:00.000Z' },
     { id: 31, name: 'Emily S.', rating: 3, comment: 'Any question we had was answered in minutes over WhatsApp.', createdAt: '2024-12-31T00:00:00.000Z' },
     { id: 32, name: 'Ana Sofia A.', rating: 3, comment: 'Tener donde sentarnos afuera hizo una gran diferencia en el dia a dia.', createdAt: '2024-04-13T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-av-homero-1516-22': [
     { id: 35, name: 'Fernanda S.', rating: 4, comment: 'hasta tenia especias basicas en la cocina detalle que no esperabamos', createdAt: '2025-11-17T00:00:00.000Z' },
     { id: 33, name: 'Regina S.', rating: 4, comment: 'la terraza tiene una vista espectacular, pasamos varias tardes ahi, se siente como un lugar de mayor categoria sin llegar a precios exagerados, totalmente recomendado', createdAt: '2025-03-03T00:00:00.000Z' },
-    { id: 34, name: 'Brandon B.', rating: 4, comment: 'We celebrated our anniversary here and having an assigned parking spot made everything simpler.', createdAt: '2024-01-26T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-c-arquimedes-145-23': [
     { id: 38, name: 'Matthew W.', rating: 5, comment: 'came here for work and every evening wed head up to the roof with a drink to watch the sunset, feels like a higher-end place without the price tag being over the top', createdAt: '2026-03-29T00:00:00.000Z' },
@@ -114,7 +111,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'ciudad-de-mexico-chicontepec-72-29': [
     { id: 46, name: 'Amanda L.', rating: 4, comment: 'We came with the whole family and even had basic spices in the kitchen, wasn\'t expecting that.', createdAt: '2025-11-29T00:00:00.000Z' },
-    { id: 47, name: 'Amanda R.', rating: 3, comment: 'Having an assigned parking spot made everything simpler.', createdAt: '2024-06-18T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-sinaloa-186-30': [
     { id: 48, name: 'Samantha S.', rating: 5, comment: 'Barely used Uber the whole trip, everything was walkable.', createdAt: '2025-05-19T00:00:00.000Z' },
@@ -316,7 +312,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 142, name: 'Rodrigo T.', rating: 5, comment: 'Una noche usamos la sala de cine. Nunca nos sentimos inseguros caminando de regreso tarde, buena zona.', createdAt: '2024-08-24T00:00:00.000Z' },
   ],
   'merida-zona-industrial-92': [
-    { id: 144, name: 'Gerardo V.', rating: 3, comment: 'fue muy practico tener estacionamiento propio, no batallamos nada con eso', createdAt: '2025-08-28T00:00:00.000Z' },
     { id: 143, name: 'Christopher M.', rating: 3, comment: 'Came here for work and really good price for what you get, we\'d choose it again without hesitation. The place was really quiet, slept great despite being in a central area.', createdAt: '2024-06-27T00:00:00.000Z' },
   ],
   'merida-zona-industrial-93': [
@@ -341,7 +336,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   'monterrey-c-washington-1414-ote-99': [
     { id: 154, name: 'Rachel D.', rating: 3, comment: 'Great option if you\'re looking for something affordable without sacrificing comfort. Everything was clean and tidy, exceeded our expectations honestly.', createdAt: '2026-07-22T00:00:00.000Z' },
     { id: 155, name: 'Carlos C.', rating: 4, comment: 'Pasamos casi todas las tardes en la alberca, un plus que no considerabamos al reservar.', createdAt: '2025-12-05T00:00:00.000Z' },
-    { id: 156, name: 'Jonathan S.', rating: 4, comment: 'The included parking spot was really convenient, zero hassle.', createdAt: '2025-08-30T00:00:00.000Z' },
   ],
   'monterrey-p-dinastia-sn-100': [
     { id: 157, name: 'Sofia M.', rating: 4, comment: 'vinimos por trabajo y habia mucho espacio para guardar nuestras cosas, algo que no esperabamos', createdAt: '2025-09-28T00:00:00.000Z' },
@@ -387,7 +381,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 177, name: 'Justin H.', rating: 4, comment: 'we came with the whole family and communication over WhatsApp was fast and friendly the whole time', createdAt: '2025-03-03T00:00:00.000Z' },
   ],
   'nuevo-vallarta-av-mexico-210-112': [
-    { id: 179, name: 'Jonathan R.', rating: 3, comment: 'Having dedicated parking made things so much easier, no stress finding a spot.', createdAt: '2026-04-12T00:00:00.000Z' },
     { id: 178, name: 'Rachel R.', rating: 3, comment: 'picked this neighborhood without knowing it and it turned out to be the best call of the trip', createdAt: '2025-10-02T00:00:00.000Z' },
   ],
   'nuevo-vallarta-paseo-de-los-flamingos-113': [
@@ -441,7 +434,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   'nuevo-vallarta-blvd-costero-258-128': [
     { id: 205, name: 'Mariana T.', rating: 3, comment: 'El espacio de coworking me sirvio mucho, trabaje varias mananas ahi. Sacamos mucho provecho de la alberca, sobre todo con el calor.', createdAt: '2026-02-04T00:00:00.000Z' },
     { id: 204, name: 'Paulina L.', rating: 5, comment: 'reservamos a ultima hora y trajimos a nuestro perro y el lugar es genuinamente pet friendly', createdAt: '2026-01-24T00:00:00.000Z' },
-    { id: 203, name: 'Ryan W.', rating: 5, comment: 'We stayed a week and the included parking spot was really convenient, zero hassle.', createdAt: '2025-01-26T00:00:00.000Z' },
   ],
   'nuevo-vallarta-via-8-129': [
     { id: 207, name: 'Santiago L.', rating: 4, comment: 'La alberca siempre estaba limpia y tranquila, la disfrutamos mucho.', createdAt: '2026-05-25T00:00:00.000Z' },
@@ -450,7 +442,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'nuevo-vallarta-paseo-de-los-cocoteros-130': [
     { id: 209, name: 'Javier V.', rating: 4, comment: 'vinimos con toda la familia y no pensamos que el balcon fuera a ser tan importante hasta que lo usamos cada dia, en general una experiencia excelente', createdAt: '2025-12-22T00:00:00.000Z' },
-    { id: 210, name: 'Sarah W.', rating: 5, comment: 'the jacuzzi was a nice surprise, great way to unwind in the evenings, we rented a car and having our own parking spot made everything so much simpler, would definitely book here again', createdAt: '2024-10-30T00:00:00.000Z' },
+    { id: 210, name: 'Sarah W.', rating: 5, comment: 'the jacuzzi was a nice surprise, great way to unwind in the evenings, would definitely book here again', createdAt: '2024-10-30T00:00:00.000Z' },
   ],
   'playa-del-carmen-mexico-307-km-294-131': [
     { id: 211, name: 'Christopher D.', rating: 4, comment: 'Really well located, close to great restaurants and easy to get around.', createdAt: '2026-03-21T00:00:00.000Z' },
@@ -467,30 +459,25 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   'playa-del-carmen-p-xaman-ha-mz-18lt-2-136': [
     { id: 217, name: 'Rodrigo H.', rating: 4, comment: 'la playa quedaba a unos minutos caminando exactamente lo que buscabamos y no usamos Uber casi nada todo estaba a distancia caminable', createdAt: '2026-02-27T00:00:00.000Z' },
     { id: 219, name: 'Andres B.', rating: 5, comment: 'vinimos por trabajo y alberca hermosa, limpia y con muy buena vista', createdAt: '2025-09-27T00:00:00.000Z' },
-    { id: 218, name: 'Regina D.', rating: 5, comment: 'nos quedamos una semana y rentamos un coche y tener estacionamiento propio simplifico mucho las cosas', createdAt: '2025-09-21T00:00:00.000Z' },
   ],
   'playa-del-carmen-mx63pf-137': [
     { id: 221, name: 'Daniela M.', rating: 5, comment: 'alberca hermosa, limpia y con muy buena vista, sin duda volveriamos a reservar aqui', createdAt: '2026-01-09T00:00:00.000Z' },
-    { id: 220, name: 'Valeria G.', rating: 4, comment: 'Fue nuestro segundo viaje aqui y el jacuzzi en la noche fue un gran plus, muy relajante despues de caminar todo el dia. Fue muy practico tener estacionamiento propio, no batallamos nada con eso.', createdAt: '2025-09-19T00:00:00.000Z' },
+    { id: 220, name: 'Valeria G.', rating: 4, comment: 'Fue nuestro segundo viaje aqui y el jacuzzi en la noche fue un gran plus, muy relajante despues de caminar todo el dia.', createdAt: '2025-09-19T00:00:00.000Z' },
     { id: 222, name: 'Samantha D.', rating: 5, comment: 'This was our second time booking here and picked this neighborhood without knowing it and it turned out to be the best call of the trip. Highly recommend.', createdAt: '2025-05-14T00:00:00.000Z' },
   ],
   'playa-del-carmen-carretera-federal-km-95-139': [
     { id: 223, name: 'Megan B.', rating: 4, comment: 'Spent our afternoons out on the balcony, really nice little space to unwind.', createdAt: '2025-12-08T00:00:00.000Z' },
-    { id: 224, name: 'Emily T.', rating: 5, comment: 'We rented a car and having our own parking spot made everything so much simpler.', createdAt: '2025-03-07T00:00:00.000Z' },
   ],
   'playa-del-carmen-carretera-federal-puerto-juarez-140': [
     { id: 225, name: 'Paulina T.', rating: 3, comment: 'No hay nada como poder caminar a la playa sin depender de un coche. La alberca siempre estaba limpia y tranquila, la disfrutamos mucho.', createdAt: '2025-09-30T00:00:00.000Z' },
   ],
   'puerto-vallarta-av-paseo-de-la-marina-121-141': [
-    { id: 226, name: 'Andrew H.', rating: 5, comment: 'having an assigned parking spot made everything simpler', createdAt: '2026-03-25T00:00:00.000Z' },
     { id: 227, name: 'Megan M.', rating: 4, comment: 'The balcony was a great bonus — nice breeze and a good view of the neighborhood.', createdAt: '2026-03-12T00:00:00.000Z' },
     { id: 228, name: 'Rodrigo B.', rating: 5, comment: 'Muy bien ubicado, cerca de restaurantes y con facil acceso a todo.', createdAt: '2024-09-24T00:00:00.000Z' },
   ],
   'puerto-vallarta-atun-117-142': [
-    { id: 229, name: 'Katie D.', rating: 5, comment: 'the included parking spot was really convenient zero hassle', createdAt: '2025-01-26T00:00:00.000Z' },
   ],
   'puerto-vallarta-p-de-las-madre-perlas-122-143': [
-    { id: 231, name: 'Jessica J.', rating: 5, comment: 'Booked last minute and not having to worry about where to park was such a relief.', createdAt: '2025-10-02T00:00:00.000Z' },
     { id: 230, name: 'Ximena L.', rating: 4, comment: 'Nadar antes de empezar el dia se volvio parte de la rutina gracias a la alberca.', createdAt: '2024-05-22T00:00:00.000Z' },
   ],
   'puerto-vallarta-vela-100-144': [
@@ -499,15 +486,13 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'puerto-vallarta-vela-100-145': [
     { id: 235, name: 'Paulina O.', rating: 4, comment: 'Nos quedamos una semana y no pensamos que el balcon fuera a ser tan importante hasta que lo usamos cada dia. En general una experiencia excelente.', createdAt: '2025-12-17T00:00:00.000Z' },
-    { id: 234, name: 'Sebastian C.', rating: 5, comment: 'tener lugar de estacionamiento asignado hizo todo mas facil', createdAt: '2024-12-02T00:00:00.000Z' },
   ],
   'puerto-vallarta-av-paseo-de-la-marina-170-146': [
-    { id: 237, name: 'David A.', rating: 5, comment: 'the included parking spot was really convenient, zero hassle', createdAt: '2025-06-17T00:00:00.000Z' },
     { id: 238, name: 'Brian A.', rating: 5, comment: 'The pool was a great surprise, better than the photos made it look. Would definitely book here again.', createdAt: '2024-10-04T00:00:00.000Z' },
     { id: 236, name: 'Diego C.', rating: 3, comment: 'Celebramos nuestro aniversario aqui y el cafe de la manana sabe distinto cuando lo tomas en un balcon con esa vista.', createdAt: '2024-03-22T00:00:00.000Z' },
   ],
   'puerto-vallarta-blvd-francisco-medina-ascencio-2485-147': [
-    { id: 239, name: 'Megan R.', rating: 3, comment: 'This is a genuinely luxury property and it shows in every detail. Never had to think twice about where to park, sorted from day one.', createdAt: '2025-10-07T00:00:00.000Z' },
+    { id: 239, name: 'Megan R.', rating: 3, comment: 'This is a genuinely luxury property and it shows in every detail.', createdAt: '2025-10-07T00:00:00.000Z' },
   ],
   'puerto-vallarta-atun-113-149': [
     { id: 240, name: 'Ana Sofia T.', rating: 5, comment: 'Nos encantó tener balcón propio, buena vista y espacio para sentarnos afuera.', createdAt: '2026-03-18T00:00:00.000Z' },
@@ -536,7 +521,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'puerto-vallarta-condomunious-puerto-iguana-187-157': [
     { id: 252, name: 'Fernanda D.', rating: 3, comment: 'los ninos no querian salir de la alberca la pasaron increible ahi todos los dias', createdAt: '2025-10-21T00:00:00.000Z' },
-    { id: 251, name: 'Andrew H.', rating: 3, comment: 'we celebrated our anniversary here and this is a genuinely luxury property and it shows in every detail, not having to worry about where to park was such a relief', createdAt: '2025-03-11T00:00:00.000Z' },
+    { id: 251, name: 'Andrew H.', rating: 3, comment: 'we celebrated our anniversary here and this is a genuinely luxury property and it shows in every detail', createdAt: '2025-03-11T00:00:00.000Z' },
   ],
   'puerto-vallarta-c-politecnico-nacional-89int-805-159': [
     { id: 254, name: 'Michael J.', rating: 5, comment: 'something as simple as assigned parking made everything way less stressful, highly recommend', createdAt: '2025-12-17T00:00:00.000Z' },
@@ -544,7 +529,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'puerto-vallarta-2477-160': [
     { id: 255, name: 'Gerardo L.', rating: 4, comment: 'Nos quedamos una semana y la alberca fue una gran sorpresa, mejor de lo que esperabamos por las fotos.', createdAt: '2026-01-30T00:00:00.000Z' },
-    { id: 256, name: 'Jonathan D.', rating: 5, comment: 'paid for something premium and that\'s exactly what we got, never had to think twice about where to park, sorted from day one', createdAt: '2025-12-04T00:00:00.000Z' },
+    { id: 256, name: 'Jonathan D.', rating: 5, comment: 'paid for something premium and that\'s exactly what we got', createdAt: '2025-12-04T00:00:00.000Z' },
   ],
   'puerto-vallarta-maria-montessori-360-161': [
     { id: 257, name: 'Jonathan L.', rating: 4, comment: 'We celebrated our anniversary here and swimming before starting the day became part of the routine thanks to the pool.', createdAt: '2025-02-07T00:00:00.000Z' },
@@ -570,7 +555,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   'ciudad-de-mexico-c-celaya-4-19': [
     { id: 269, name: 'Nicole B.', rating: 5, comment: 'Having our own balcony made the whole trip, we spent almost every evening out there.', createdAt: '2025-09-14T00:00:00.000Z' },
     { id: 270, name: 'Diego A.', rating: 5, comment: 'Trajimos a nuestro perro y el lugar es genuinamente pet friendly de verdad.', createdAt: '2026-03-01T00:00:00.000Z' },
-    { id: 271, name: 'Rachel S.', rating: 5, comment: 'Not having to worry about where to park was such a relief the whole trip. Highly recommend.', createdAt: '2025-05-20T00:00:00.000Z' },
     { id: 280, name: 'Renata C.', rating: 5, comment: 'Sentimos que pagamos exactamente lo justo por lo que obtuvimos, sin duda volveriamos a reservar.', createdAt: '2025-12-22T00:00:00.000Z' },
     { id: 281, name: 'Jonathan P.', rating: 5, comment: 'Never felt unsafe walking back late at night, genuinely good area the whole stay.', createdAt: '2026-02-09T00:00:00.000Z' },
     { id: 282, name: 'Ana Sofia M.', rating: 5, comment: 'Se nota que limpian a fondo entre huespedes, todo estaba perfecto cuando llegamos.', createdAt: '2025-07-03T00:00:00.000Z' },
@@ -578,7 +562,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'ciudad-de-mexico-av-nuevo-leon-104-33': [
     { id: 284, name: 'Fernanda O.', rating: 5, comment: 'La terraza es un espacio increíble, pasamos varias tardes ahí con amigos viendo el atardecer.', createdAt: '2025-08-11T00:00:00.000Z' },
-    { id: 285, name: 'Marcus T.', rating: 5, comment: 'Having a dedicated parking spot made the whole trip so much less stressful. Highly recommend.', createdAt: '2026-01-25T00:00:00.000Z' },
     { id: 286, name: 'Daniela R.', rating: 5, comment: 'Sentimos que pagamos exactamente lo justo por todo lo que ofrecía, sin duda volveríamos.', createdAt: '2025-11-09T00:00:00.000Z' },
     { id: 287, name: 'Ethan B.', rating: 5, comment: 'Condesa turned out to be the perfect base for the trip, everything felt walkable from there.', createdAt: '2025-06-17T00:00:00.000Z' },
     { id: 288, name: 'Camila H.', rating: 5, comment: 'El lugar estaba impecable cuando llegamos, se nota que lo cuidan muy bien entre huéspedes.', createdAt: '2026-02-28T00:00:00.000Z' },

@@ -33,7 +33,6 @@ def detect_topics(amenities, parking, pet, balcony):
     if 'cine' in text: topics.add('cinema')
     if any(k in text for k in ['boliche','billar','pool table','poker']): topics.add('games')
     if balcony: topics.add('balcony')
-    if parking and parking > 0: topics.add('parking')
     if pet: topics.add('pet')
     return topics
 
@@ -93,23 +92,6 @@ BANK = {
     "The balcony ended up being one of our favorite parts of the apartment.",
     "Having somewhere to sit outside made a real difference day to day.",
 ]},
-'parking': {'es': [
-    "Fue muy práctico tener estacionamiento propio, no batallamos nada con eso.",
-    "No tener que preocuparnos por dónde dejar el coche fue un alivio enorme.",
-    "Algo tan simple como el estacionamiento asignado hizo todo mucho menos estresante.",
-    "El estacionamiento incluido fue muy conveniente, sin complicaciones.",
-    "Tener lugar de estacionamiento asignado hizo todo más fácil.",
-    "Rentamos un coche y tener estacionamiento propio simplificó mucho las cosas.",
-    "No batallamos ni un solo día por dónde estacionarnos, todo resuelto desde el inicio.",
-], 'en': [
-    "Having dedicated parking made things so much easier, no stress finding a spot.",
-    "Not having to worry about where to park was such a relief.",
-    "Something as simple as assigned parking made everything way less stressful.",
-    "The included parking spot was really convenient, zero hassle.",
-    "Having an assigned parking spot made everything simpler.",
-    "We rented a car and having our own parking spot made everything so much simpler.",
-    "Never had to think twice about where to park, sorted from day one.",
-]},
 'pet': {'es': [
     "Viajamos con nuestro perro y todo salió perfecto, pet friendly de verdad.",
     "Viajar con mascota siempre da un poco de miedo pero aquí no tuvimos ni un problema.",
@@ -162,7 +144,7 @@ BANK = {
 # like location/cleanliness in terms of fairness.
 ALL_ROTATING_TOPICS = ['location', 'cleanliness', 'host', 'wifi', 'kitchen', 'light', 'bed',
                         'checkin', 'view', 'transit_generic', 'quiet', 'ac', 'bathroom', 'storage',
-                        'neighbors', 'parking', 'pet', 'pool', 'balcony']
+                        'neighbors', 'pet', 'pool', 'balcony']
 RARE_TOPICS = ['gym', 'beach', 'jacuzzi', 'spa', 'terrace', 'garden', 'sports', 'coworking', 'cinema', 'games']
 
 MEXICAN_FIRST = ['Alejandro', 'Fernanda', 'Diego', 'Maria Jose', 'Carlos', 'Valeria', 'Rodrigo', 'Ximena','Emiliano', 'Camila', 'Santiago', 'Regina', 'Mariana', 'Andres', 'Paulina', 'Gerardo','Daniela', 'Luis Fernando', 'Sofia', 'Ricardo', 'Ana Sofia', 'Javier', 'Renata', 'Sebastian']
