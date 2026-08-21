@@ -205,9 +205,9 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen p-6" style={{ backgroundColor: 'var(--cream)' }}>
+    <div className="min-h-screen px-4 py-6 sm:p-6" style={{ backgroundColor: 'var(--cream)' }}>
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
           <h1 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>Admin Panel</h1>
           <span className="text-sm" style={{ color: 'var(--muted)' }}>{properties.length} propiedades</span>
         </div>
@@ -244,20 +244,20 @@ export default function AdminPage() {
                   <div className="flex items-center gap-2 flex-wrap">
                     {edit.mode === 'view' && (
                       <>
-                        <button onClick={() => update(p.id, { available: true })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
+                        <button onClick={() => update(p.id, { available: true })} disabled={saving === p.id} className="px-3 py-2 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
                           {saving === p.id ? '...' : 'Disponible'}
                         </button>
-                        <button onClick={() => setEdit(p.id, { mode: 'ocupada' })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-900/40 text-red-400">
+                        <button onClick={() => setEdit(p.id, { mode: 'ocupada' })} disabled={saving === p.id} className="px-3 py-2 rounded-full text-xs font-semibold bg-red-900/40 text-red-400">
                           Ocupada
                         </button>
-                        <button onClick={() => setEdit(p.id, { mode: 'precio' })} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-900/40 text-blue-400">
+                        <button onClick={() => setEdit(p.id, { mode: 'precio' })} disabled={saving === p.id} className="px-3 py-2 rounded-full text-xs font-semibold bg-blue-900/40 text-blue-400">
                           Precio
                         </button>
-                        <button onClick={() => { setEdit(p.id, { mode: 'resenas' }); if (!reviewsBySlug[p.slug]) loadReviews(p.slug); }} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-violet-900/40 text-violet-400">
+                        <button onClick={() => { setEdit(p.id, { mode: 'resenas' }); if (!reviewsBySlug[p.slug]) loadReviews(p.slug); }} disabled={saving === p.id} className="px-3 py-2 rounded-full text-xs font-semibold bg-violet-900/40 text-violet-400">
                           Reseñas
                         </button>
                         {p.override && (
-                          <button onClick={() => clear(p.id)} disabled={saving === p.id} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
+                          <button onClick={() => clear(p.id)} disabled={saving === p.id} className="px-3 py-2 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
                             Resetear
                           </button>
                         )}
@@ -269,22 +269,22 @@ export default function AdminPage() {
                         <div className="flex flex-col gap-1">
                           <label className="text-xs" style={{ color: 'var(--muted)' }}>Ocupada desde</label>
                           <input type="date" value={edit.occupiedSince} onChange={e => setEdit(p.id, { occupiedSince: e.target.value })}
-                            className="px-2 py-1 rounded-lg text-xs outline-none"
+                            className="px-3 py-2 rounded-lg text-xs outline-none"
                             style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)', color: 'var(--ink)' }} />
                         </div>
                         <div className="flex flex-col gap-1">
                           <label className="text-xs" style={{ color: 'var(--muted)' }}>Disponible desde</label>
                           <input type="date" value={edit.availableFrom} onChange={e => setEdit(p.id, { availableFrom: e.target.value })}
-                            className="px-2 py-1 rounded-lg text-xs outline-none"
+                            className="px-3 py-2 rounded-lg text-xs outline-none"
                             style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)', color: 'var(--ink)' }} />
                         </div>
                         <div className="flex gap-1 mt-4">
                           <button onClick={() => update(p.id, { available: false, occupiedSince: edit.occupiedSince, availableFrom: edit.availableFrom })}
                             disabled={saving === p.id || !edit.availableFrom}
-                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
+                            className="px-3 py-2 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
                             {saving === p.id ? '...' : 'Guardar'}
                           </button>
-                          <button onClick={() => setEdit(p.id, { mode: 'view' })} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
+                          <button onClick={() => setEdit(p.id, { mode: 'view' })} className="px-3 py-2 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
                             Cancelar
                           </button>
                         </div>
@@ -292,20 +292,20 @@ export default function AdminPage() {
                     )}
 
                     {edit.mode === 'precio' && (
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <div className="flex flex-col gap-1">
                           <label className="text-xs" style={{ color: 'var(--muted)' }}>Precio MXN/mes</label>
                           <input type="number" value={edit.pricePerMonth} onChange={e => setEdit(p.id, { pricePerMonth: e.target.value })}
-                            className="px-2 py-1 rounded-lg text-xs outline-none w-32"
+                            className="px-3 py-2 rounded-lg text-sm outline-none w-32"
                             style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)', color: 'var(--ink)' }} />
                         </div>
                         <div className="flex gap-1 mt-4">
                           <button onClick={() => update(p.id, { pricePerMonth: Number(edit.pricePerMonth) })}
                             disabled={saving === p.id}
-                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
+                            className="px-3 py-2 rounded-full text-xs font-semibold bg-emerald-900/40 text-emerald-400">
                             {saving === p.id ? '...' : 'Guardar'}
                           </button>
-                          <button onClick={() => setEdit(p.id, { mode: 'view' })} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
+                          <button onClick={() => setEdit(p.id, { mode: 'view' })} className="px-3 py-2 rounded-full text-xs font-semibold bg-stone-700/40 text-stone-400">
                             Cancelar
                           </button>
                         </div>
