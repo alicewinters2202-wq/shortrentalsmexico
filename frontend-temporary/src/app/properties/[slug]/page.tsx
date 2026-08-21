@@ -58,7 +58,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             "name": `${street}, ${property.city}`,
             "description": `Departamento amueblado de ${property.bedrooms} recámaras y ${property.bathrooms} baños en ${neighborhood}, ${property.city}. ${property.sqMeters} m². WiFi ${property.wifiSpeed} Mbps incluido.`,
             "url": `https://temporaryrentalsmexico.com/properties/${property.slug}`,
-            "image": property.images[0] ? `https://shortrentalsmexico-backend.onrender.com${property.images[0]}` : undefined,
+            "image": property.images[0] ? imageUrl(property.images[0]) : undefined,
             "numberOfRooms": property.bedrooms,
             "floorSize": { "@type": "QuantitativeValue", "value": property.sqMeters, "unitCode": "MTK" },
             "petsAllowed": property.petFriendly,
@@ -110,7 +110,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             <span className="text-xs" style={{ color: 'var(--muted)' }}>{neighborhood}</span>
           </div>
           <div className="flex items-center gap-3 mb-2 flex-wrap">
-            <h1 className="font-serif text-4xl sm:text-5xl" style={{ color: 'var(--ink)' }}>{street}</h1>
+            <h1 className="italic text-4xl sm:text-5xl" style={{ color: 'var(--ink)' }}>{street}</h1>
             {property.available ? (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 self-center">
                 ● {t.availableTag}

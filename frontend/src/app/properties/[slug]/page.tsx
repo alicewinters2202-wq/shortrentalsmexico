@@ -59,7 +59,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             "name": `${street}, ${property.city}`,
             "description": `Departamento amueblado de ${property.bedrooms} recámaras y ${property.bathrooms} baños en ${neighborhood}, ${property.city}. ${property.sqMeters} m². WiFi ${property.wifiSpeed} Mbps incluido.`,
             "url": `https://shortstaymx.com/properties/${property.slug}`,
-            "image": property.images[0] ? `https://shortrentalsmexico-backend.onrender.com${property.images[0]}` : undefined,
+            "image": property.images[0] ? imageUrl(property.images[0]) : undefined,
             "numberOfRooms": property.bedrooms,
             "floorSize": { "@type": "QuantitativeValue", "value": property.sqMeters, "unitCode": "MTK" },
             "petsAllowed": property.petFriendly,
