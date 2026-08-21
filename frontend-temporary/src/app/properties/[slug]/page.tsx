@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { fetchPreview, fetchReviews, parseAddress, formatMXN } from '@/types/preview';
+import { fetchPreview, fetchReviews, parseAddress, formatMXN, imageUrl } from '@/types/preview';
 import { SEED_REVIEWS } from '@/lib/seedReviews';
 import ImageGallery from './ImageGallery';
 import BookingPanelPreview from './BookingPanelPreview';
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${street} — ${property.city} | TemporaryRentalsMexico`,
       description: `Renta temporal amueblada en ${property.city}. ${property.bedrooms} rec, ${property.bathrooms} baños, WiFi ${property.wifiSpeed} Mbps.`,
-      images: property.images[0] ? [{ url: property.images[0] }] : [],
+      images: property.images[0] ? [{ url: imageUrl(property.images[0]) }] : [],
     },
   };
 }
