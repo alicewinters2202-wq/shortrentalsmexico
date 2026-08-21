@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -46,15 +46,15 @@ export default function SearchBar() {
 
   return (
     <div className="relative w-full max-w-3xl mx-auto">
-      {/* Barra */}
+      {/* Barra — apilada en móvil, horizontal desde sm: */}
       <div
-        className="rounded-full shadow-2xl flex items-stretch divide-x overflow-visible"
-        style={{ backgroundColor: '#fff', divideColor: 'var(--border)' } as React.CSSProperties}
+        className="rounded-3xl sm:rounded-full shadow-2xl flex flex-col sm:flex-row sm:items-stretch overflow-visible divide-y sm:divide-y-0 sm:divide-x"
+        style={{ backgroundColor: '#fff', divideColor: '#e5e7eb' } as React.CSSProperties}
       >
         {/* Destino */}
         <button
           type="button"
-          className="flex-1 flex flex-col items-start px-6 py-3 hover:bg-gray-50 transition-colors rounded-l-full min-w-0"
+          className="flex flex-col items-start px-5 py-3 sm:px-6 hover:bg-gray-50 transition-colors rounded-t-3xl sm:rounded-t-none sm:rounded-l-full min-w-0 text-left"
           onClick={() => { setShowDropdown((v) => !v); inputRef.current?.focus(); }}
         >
           <span className="text-[10px] font-semibold tracking-widest uppercase text-gray-400">{t.destinationLabel}</span>
@@ -63,47 +63,50 @@ export default function SearchBar() {
           </span>
         </button>
 
-        {/* Check-in */}
-        <div className="flex flex-col items-start px-6 py-3 hover:bg-gray-50 transition-colors min-w-[130px]">
-          <span className="text-[10px] font-semibold tracking-widest uppercase text-gray-400">{t.arrival}</span>
-          <input
-            type="date"
-            value={checkIn}
-            onChange={(e) => setCheckIn(e.target.value)}
-            className="text-sm text-gray-800 bg-transparent outline-none w-full cursor-pointer"
-            style={{ colorScheme: 'light' }}
-          />
-        </div>
+        {/* Fechas — lado a lado incluso en móvil, ya que naturalmente van juntas */}
+        <div className="grid grid-cols-2 sm:contents">
+          {/* Check-in */}
+          <div className="flex flex-col items-start px-5 py-3 sm:px-6 hover:bg-gray-50 transition-colors min-w-0 sm:min-w-[130px] border-r sm:border-r-0 border-gray-200">
+            <span className="text-[10px] font-semibold tracking-widest uppercase text-gray-400">{t.arrival}</span>
+            <input
+              type="date"
+              value={checkIn}
+              onChange={(e) => setCheckIn(e.target.value)}
+              className="text-sm text-gray-800 bg-transparent outline-none w-full cursor-pointer"
+              style={{ colorScheme: 'light' }}
+            />
+          </div>
 
-        {/* Check-out */}
-        <div className="flex flex-col items-start px-6 py-3 hover:bg-gray-50 transition-colors min-w-[130px]">
-          <span className="text-[10px] font-semibold tracking-widest uppercase text-gray-400">{t.departure}</span>
-          <input
-            type="date"
-            value={checkOut}
-            onChange={(e) => setCheckOut(e.target.value)}
-            className="text-sm text-gray-800 bg-transparent outline-none w-full cursor-pointer"
-            style={{ colorScheme: 'light' }}
-          />
+          {/* Check-out */}
+          <div className="flex flex-col items-start px-5 py-3 sm:px-6 hover:bg-gray-50 transition-colors min-w-0 sm:min-w-[130px]">
+            <span className="text-[10px] font-semibold tracking-widest uppercase text-gray-400">{t.departure}</span>
+            <input
+              type="date"
+              value={checkOut}
+              onChange={(e) => setCheckOut(e.target.value)}
+              className="text-sm text-gray-800 bg-transparent outline-none w-full cursor-pointer"
+              style={{ colorScheme: 'light' }}
+            />
+          </div>
         </div>
 
         {/* Huéspedes + botón */}
-        <div className="flex items-center gap-3 px-4 py-2 rounded-r-full">
-          <div className="flex flex-col items-start">
+        <div className="flex items-center justify-between gap-3 px-5 py-3 sm:px-4 sm:py-2 rounded-b-3xl sm:rounded-b-none sm:rounded-r-full">
+          <div className="flex flex-col items-start flex-shrink-0">
             <span className="text-[10px] font-semibold tracking-widest uppercase text-gray-400">{t.guestsLabel}</span>
             <div className="flex items-center gap-2">
               <button type="button" onClick={() => setGuests((g) => Math.max(1, g - 1))}
-                className="w-5 h-5 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-yellow-500 hover:text-yellow-500 transition-colors text-sm">−</button>
+                className="w-6 h-6 sm:w-5 sm:h-5 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-yellow-500 hover:text-yellow-500 transition-colors text-sm">−</button>
               <span className="text-sm font-medium w-4 text-center text-gray-800">{guests}</span>
               <button type="button" onClick={() => setGuests((g) => Math.min(20, g + 1))}
-                className="w-5 h-5 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-yellow-500 hover:text-yellow-500 transition-colors text-sm">+</button>
+                className="w-6 h-6 sm:w-5 sm:h-5 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-yellow-500 hover:text-yellow-500 transition-colors text-sm">+</button>
             </div>
           </div>
           <button
             type="button"
             onClick={handleSearch}
             style={{ backgroundColor: 'var(--gold)' }}
-            className="ml-2 px-5 py-3 rounded-full text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity whitespace-nowrap"
+            className="px-6 py-3 sm:ml-2 sm:px-5 rounded-full text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity whitespace-nowrap flex-shrink-0"
           >
             {t.searchBtn}
           </button>
