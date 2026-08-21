@@ -208,8 +208,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>
                 {t.dailySub(formatMXN(dailyRate))}
               </p>
-              <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
-                <table className="w-full text-sm">
+              <div className="rounded-2xl overflow-x-auto" style={{ border: '1px solid var(--border)' }}>
+                <table className="w-full text-sm min-w-[480px]">
                   <thead>
                     <tr style={{ backgroundColor: 'var(--card)', borderBottom: '1px solid var(--border)' }}>
                       {[t.nightsCol, t.perNightCol, 'MXN', 'USD'].map((h, i) => (

@@ -36,8 +36,8 @@ export default async function RentaVsHotel() {
           </p>
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Comparación detallada' : 'Detailed comparison'}</h2>
-          <div className="rounded-2xl overflow-hidden my-6" style={{ border: '1px solid var(--border)' }}>
-            <table className="w-full text-sm">
+          <div className="rounded-2xl overflow-x-auto my-6" style={{ border: '1px solid var(--border)' }}>
+            <table className="w-full text-sm min-w-[480px]">
               <thead>
                 <tr style={{ backgroundColor: 'var(--card)', borderBottom: '1px solid var(--border)' }}>
                   <th className="px-4 py-3 text-left text-xs tracking-widest uppercase font-medium" style={{ color: 'var(--muted)' }}>{es ? 'Aspecto' : 'Aspect'}</th>

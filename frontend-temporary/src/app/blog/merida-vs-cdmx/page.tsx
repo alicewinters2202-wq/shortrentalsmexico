@@ -40,8 +40,8 @@ export default async function MeridaVsCdmx() {
             {es ? 'Mérida es la antítesis de CDMX en el mejor sentido. Con el menor índice de criminalidad de México, un costo de vida muy accesible, una arquitectura colonial extraordinariamente bien conservada y una comunidad de expatriados en constante crecimiento, Mérida ofrece una calidad de vida que pocas ciudades del mundo pueden igualar a su precio.' : 'Merida is the antithesis of CDMX in the best sense. With the lowest crime rate in Mexico, a very accessible cost of living, extraordinarily well-preserved colonial architecture and a constantly growing expat community, Merida offers a quality of life that few cities in the world can match at its price.'}
           </p>
 
-          <div className="rounded-2xl overflow-hidden my-8" style={{ border: '1px solid var(--border)' }}>
-            <table className="w-full text-sm">
+          <div className="rounded-2xl overflow-x-auto my-8" style={{ border: '1px solid var(--border)' }}>
+            <table className="w-full text-sm min-w-[480px]">
               <thead>
                 <tr style={{ backgroundColor: 'var(--card)', borderBottom: '1px solid var(--border)' }}>
                   <th className="px-4 py-3 text-left text-xs tracking-widest uppercase font-medium" style={{ color: 'var(--muted)' }}>{es ? 'Aspecto' : 'Aspect'}</th>

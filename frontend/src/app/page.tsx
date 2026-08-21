@@ -358,8 +358,11 @@ export default async function Home() {
               © 2021–{new Date().getFullYear()} ShortStayMX S.A. de C.V. · {t.footerTagline}
             </p>
           </div>
-          <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
+          <div className="flex items-center gap-5 text-xs flex-wrap justify-center" style={{ color: 'var(--muted)' }}>
             <Link href="/properties" className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
+            <Link href="/agents" className="hover:opacity-80 transition-opacity">{t.agentsSectionTitle}</Link>
+            <Link href="/why-us" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'Why us' : 'Por qué nosotros'}</Link>
+            <Link href="/colonias" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'Neighborhoods' : 'Colonias'}</Link>
             <Link href="/about" className="hover:opacity-80 transition-opacity">{t.aboutNav}</Link>
             <Link href="/requirements" className="hover:opacity-80 transition-opacity">{t.reqNav}</Link>
             <Link href="/faq" className="hover:opacity-80 transition-opacity">{t.faqNav}</Link><Link href="/como-funciona" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'How it works' : 'Cómo funciona'}</Link><Link href="/blog" className="hover:opacity-80 transition-opacity">Blog</Link>

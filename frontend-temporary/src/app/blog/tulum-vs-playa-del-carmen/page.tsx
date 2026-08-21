@@ -43,8 +43,8 @@ export default async function TulumVsPlaya() {
             {es ? 'Playa del Carmen es más urbana, cosmopolita y práctica. La famosa Quinta Avenida — una de las calles peatonales más largas del mundo — concentra cientos de restaurantes, tiendas, bares y entretenimiento. La infraestructura de servicios es excelente. El aeropuerto de Cancún está a solo 68 kilómetros. Y los precios, aunque han subido, son generalmente más accesibles que en Tulum.' : 'Playa del Carmen is more urban, cosmopolitan and practical. The famous Fifth Avenue — one of the longest pedestrian streets in the world — concentrates hundreds of restaurants, shops, bars and entertainment. The service infrastructure is excellent. Cancun airport is just 68 kilometers away. And prices, although they have risen, are generally more accessible than in Tulum.'}
           </p>
 
-          <div className="rounded-2xl overflow-hidden my-8" style={{ border: '1px solid var(--border)' }}>
-            <table className="w-full text-sm">
+          <div className="rounded-2xl overflow-x-auto my-8" style={{ border: '1px solid var(--border)' }}>
+            <table className="w-full text-sm min-w-[480px]">
               <thead>
                 <tr style={{ backgroundColor: 'var(--card)', borderBottom: '1px solid var(--border)' }}>
                   <th className="px-4 py-3 text-left text-xs tracking-widest uppercase font-medium" style={{ color: 'var(--muted)' }}>{es ? 'Aspecto' : 'Aspect'}</th>
