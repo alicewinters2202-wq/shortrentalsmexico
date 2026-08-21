@@ -576,4 +576,13 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 282, name: 'Ana Sofia M.', rating: 5, comment: 'Se nota que limpian a fondo entre huespedes, todo estaba perfecto cuando llegamos.', createdAt: '2025-07-03T00:00:00.000Z' },
     { id: 283, name: 'Christopher L.', rating: 5, comment: 'Wifi speed was great, worked remotely the whole stay with zero connection issues.', createdAt: '2025-10-28T00:00:00.000Z' },
   ],
+  'ciudad-de-mexico-av-nuevo-leon-104-33': [
+    { id: 284, name: 'Fernanda O.', rating: 5, comment: 'La terraza es un espacio increíble, pasamos varias tardes ahí con amigos viendo el atardecer.', createdAt: '2025-08-11T00:00:00.000Z' },
+    { id: 285, name: 'Marcus T.', rating: 5, comment: 'Having a dedicated parking spot made the whole trip so much less stressful. Highly recommend.', createdAt: '2026-01-25T00:00:00.000Z' },
+    { id: 286, name: 'Daniela R.', rating: 5, comment: 'Sentimos que pagamos exactamente lo justo por todo lo que ofrecía, sin duda volveríamos.', createdAt: '2025-11-09T00:00:00.000Z' },
+    { id: 287, name: 'Ethan B.', rating: 5, comment: 'Condesa turned out to be the perfect base for the trip, everything felt walkable from there.', createdAt: '2025-06-17T00:00:00.000Z' },
+    { id: 288, name: 'Camila H.', rating: 5, comment: 'El lugar estaba impecable cuando llegamos, se nota que lo cuidan muy bien entre huéspedes.', createdAt: '2026-02-28T00:00:00.000Z' },
+    { id: 289, name: 'Tyler N.', rating: 5, comment: 'The kitchen had absolutely everything we needed, cooked most nights during the stay.', createdAt: '2025-04-14T00:00:00.000Z' },
+    { id: 290, name: 'Paulina S.', rating: 5, comment: 'La velocidad del wifi fue excelente, trabajamos remoto toda la semana sin ningún problema.', createdAt: '2025-09-30T00:00:00.000Z' },
+  ],
 };
