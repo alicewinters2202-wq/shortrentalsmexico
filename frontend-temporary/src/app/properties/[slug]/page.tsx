@@ -166,19 +166,19 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
             <div className="flex flex-wrap gap-2">
               {property.balcony && (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-emerald-900/40 text-emerald-400">🌿 {t.balcony}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🌿 {t.balcony}</span>
               )}
               {property.petFriendlyNegotiable ? (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">🐾 {t.petFriendlyNeg}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🐾 {t.petFriendlyNeg}</span>
               ) : property.petFriendly && (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-amber-900/40 text-amber-400">🐾 {t.petFriendly}</span>
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🐾 {t.petFriendly}</span>
               )}
               {property.parkingSpots > 0 && (
-                <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-blue-900/40 text-blue-400">
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>
                   🚗 {t.parking(property.parkingSpots)}
                 </span>
               )}
-              <span className="text-xs px-3 py-1.5 rounded-full font-medium bg-violet-900/40 text-violet-400">
+              <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>
                 🛜 {t.wifiLabel} {property.wifiSpeed} Mbps
               </span>
             </div>
@@ -239,7 +239,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                               </span>
                             )}
                             {n === 30 && (
-                              <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider bg-emerald-900/40 text-emerald-400">
+                              <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider" style={{ backgroundColor: "rgba(63,184,175,0.2)", color: "var(--gold)" }}>
                                 {t.oneMonthBadge}
                               </span>
                             )}
@@ -266,25 +266,6 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                 🧹 {t.cleaningFeeNote}
               </p>
-              
-                <a href={`https://wa.me/525643232610?text=${encodeURIComponent(
-                  lang === 'en'
-                    ? `I'm interested in a long-term stay (3+ months) in the property https://temporaryrentalsmexico.com/properties/${property.slug}. Could you share the special conditions?`
-                    : `Me interesa una estancia larga (más de 3 meses) en la propiedad https://temporaryrentalsmexico.com/properties/${property.slug}. ¿Me pueden compartir las condiciones especiales?`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 flex items-center gap-4 rounded-2xl p-5">
-                <span className="text-3xl">🏠</span>
-                <div className="flex-1">
-                  <p className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{t.longStayTitle}</p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{t.longStaySub}</p>
-                </div>
-                <span className="flex-shrink-0 text-xs font-semibold px-4 py-2 rounded-full text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: 'var(--gold)' }}>
-                  {t.longStayBtn}
-                </span>
-              </a>
             </div>
 
             <div>
