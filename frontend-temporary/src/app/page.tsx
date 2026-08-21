@@ -88,7 +88,7 @@ export default async function Home() {
                 {lang === 'en' ? 'Flexible stays, every city' : 'Estancias flexibles, cada ciudad'}
               </p>
               <h1 className="italic leading-[0.95] mb-6 text-white">
-                <span className="block text-6xl sm:text-7xl lg:text-7xl xl:text-8xl">{t.tagline}</span>
+                <span className="block text-4xl sm:text-6xl lg:text-7xl xl:text-8xl">{t.tagline}</span>
                 <span className="block not-italic font-normal text-4xl sm:text-5xl lg:text-5xl xl:text-6xl mt-2 opacity-90">{t.taglineSub}</span>
               </h1>
               <p className="text-base max-w-md mb-4 text-white/70">{t.subheading}</p>
