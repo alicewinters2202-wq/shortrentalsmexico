@@ -42,6 +42,7 @@ export class PropertiesService {
     'nuevo leon 104',
     'lope de vega 324',
     'moliere 101',
+    'galileo 350',
     'avenida bonampak',
     'mza 27',
     'kukulcan boulevard',
