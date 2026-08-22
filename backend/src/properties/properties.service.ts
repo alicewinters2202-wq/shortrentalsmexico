@@ -39,6 +39,8 @@ export class PropertiesService {
     'amsterdam 289',
     'amsterdam 119',
     'celaya 4',
+    'nuevo leon 104',
+    'lope de vega 324',
     'avenida bonampak',
     'mza 27',
     'kukulcan boulevard',
