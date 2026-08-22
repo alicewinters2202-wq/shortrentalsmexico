@@ -5,6 +5,7 @@ import { SEED_REVIEWS } from '@/lib/seedReviews';
 import ImageGallery from './ImageGallery';
 import BookingPanelPreview from './BookingPanelPreview';
 import PropertyReviews from './PropertyReviews';
+import BackLink from './BackLink';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { getUSDRate, formatUSD } from '@/lib/exchange';
@@ -88,9 +89,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
         style={{ backgroundColor: 'rgba(28,28,30,0.9)', borderBottom: '1px solid var(--border)' }}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Link href="/properties" className="text-sm transition-colors hover:opacity-80" style={{ color: 'var(--muted)' }}>
-            {t.backToProps}
-          </Link>
+          <BackLink label={t.backToProps} fallbackHref="/properties" />
           <span style={{ color: 'var(--border)' }}>|</span>
           <Link href="/" className="font-serif font-medium" style={{ color: 'var(--ink)' }}>
             ShortStayMX

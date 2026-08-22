@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import SortDropdown from './SortDropdown';
 import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
+import { getRatingSummary } from '@/lib/seedReviews';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
@@ -18,21 +19,25 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ city?: string; guests?: string; sort?: string }>;
+  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string }>;
 }) {
   let cityParam: string | undefined;
   let guestsParam: number | undefined;
   let sortParam: string | undefined;
+  let pageParam = 1;
   try {
     const sp = await searchParams;
     cityParam = sp?.city;
     guestsParam = sp?.guests ? parseInt(sp.guests, 10) : undefined;
     if (guestsParam !== undefined && (isNaN(guestsParam) || guestsParam < 1)) guestsParam = undefined;
     sortParam = ['price_asc', 'price_desc', 'bedrooms', 'size'].includes(sp?.sort ?? '') ? sp!.sort : undefined;
+    const parsedPage = sp?.page ? parseInt(sp.page, 10) : 1;
+    pageParam = !isNaN(parsedPage) && parsedPage > 0 ? parsedPage : 1;
   } catch {
     cityParam = undefined;
     guestsParam = undefined;
     sortParam = undefined;
+    pageParam = 1;
   }
   const { t, lang } = await getT();
   const properties = await fetchPreview();
@@ -64,6 +69,20 @@ export default async function PropertiesPage({
     if (city) params.set('city', city);
     if (guestsParam !== undefined) params.set('guests', String(guestsParam));
     if (sortParam) params.set('sort', sortParam);
+    const qs = params.toString();
+    return `/properties${qs ? `?${qs}` : ''}`;
+  };
+
+  const PAGE_SIZE = 24;
+  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
+  const currentPage = Math.min(pageParam, totalPages);
+  const paginated = sorted.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const buildPageUrl = (page: number) => {
+    const params = new URLSearchParams();
+    if (cityParam) params.set('city', cityParam);
+    if (guestsParam !== undefined) params.set('guests', String(guestsParam));
+    if (sortParam) params.set('sort', sortParam);
+    if (page > 1) params.set('page', String(page));
     const qs = params.toString();
     return `/properties${qs ? `?${qs}` : ''}`;
   };
@@ -142,9 +161,10 @@ export default async function PropertiesPage({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sorted.map((p) => {
+          {paginated.map((p) => {
             const { street, neighborhood } = parseAddress(p.address);
             const mainImage = p.images[0];
+            const rating = getRatingSummary(p.slug);
             return (
               <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
@@ -182,7 +202,18 @@ export default async function PropertiesPage({
                 </div>
                 <div className="mt-4">
                   <p className="font-serif text-xl leading-tight" style={{ color: 'var(--ink)' }}>{street}</p>
-                  <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{neighborhood}</p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <p className="text-sm" style={{ color: 'var(--muted)' }}>{neighborhood}</p>
+                    {rating && (
+                      <>
+                        <span style={{ color: 'var(--border)' }}>·</span>
+                        <span className="text-sm flex items-center gap-1" style={{ color: 'var(--ink)' }}>
+                          ★ {rating.avg.toFixed(1)}
+                          <span style={{ color: 'var(--muted)' }}>({rating.count})</span>
+                        </span>
+                      </>
+                    )}
+                  </div>
                   <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural} · {p.sqMeters} {t.sqm}
                   </p>
@@ -209,6 +240,34 @@ export default async function PropertiesPage({
             );
           })}
         </div>
+
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-12">
+            <Link
+              href={buildPageUrl(Math.max(1, currentPage - 1))}
+              aria-disabled={currentPage === 1}
+              className="px-4 py-2 rounded-full text-sm transition-colors"
+              style={currentPage === 1
+                ? { border: '1px solid var(--border)', color: 'var(--border)', pointerEvents: 'none' }
+                : { border: '1px solid var(--border)', color: 'var(--ink)' }}
+            >
+              {lang === 'en' ? '← Prev' : '← Anterior'}
+            </Link>
+            <span className="text-sm px-3" style={{ color: 'var(--muted)' }}>
+              {lang === 'en' ? `Page ${currentPage} of ${totalPages}` : `Página ${currentPage} de ${totalPages}`}
+            </span>
+            <Link
+              href={buildPageUrl(Math.min(totalPages, currentPage + 1))}
+              aria-disabled={currentPage === totalPages}
+              className="px-4 py-2 rounded-full text-sm transition-colors"
+              style={currentPage === totalPages
+                ? { border: '1px solid var(--border)', color: 'var(--border)', pointerEvents: 'none' }
+                : { border: '1px solid var(--border)', color: 'var(--ink)' }}
+            >
+              {lang === 'en' ? 'Next →' : 'Siguiente →'}
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

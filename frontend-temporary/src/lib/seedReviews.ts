@@ -569,3 +569,12 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 290, name: 'Paulina S.', rating: 5, comment: 'La velocidad del wifi fue excelente, trabajamos remoto toda la semana sin ningún problema.', createdAt: '2025-09-30T00:00:00.000Z' },
   ],
 };
+
+/** Average rating + count for a property, combining seed reviews with any live-approved ones. */
+export function getRatingSummary(slug: string, liveReviews: { rating: number }[] = []): { avg: number; count: number } | null {
+  const seed = SEED_REVIEWS[slug] ?? [];
+  const all = [...seed, ...liveReviews];
+  if (all.length === 0) return null;
+  const avg = all.reduce((s, r) => s + r.rating, 0) / all.length;
+  return { avg: Math.round(avg * 10) / 10, count: all.length };
+}
