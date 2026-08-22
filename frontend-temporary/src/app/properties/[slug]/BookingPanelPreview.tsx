@@ -241,6 +241,12 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
             ))}
           </div>
         )}
+
+        {/* Cancellation policy */}
+        <p className="flex items-start gap-2 text-xs leading-relaxed pt-1" style={{ color: 'var(--muted)', borderTop: '1px solid var(--border)' }}>
+          <span className="flex-shrink-0 mt-0.5">🛡️</span>
+          <span>{t.cancellationPolicy}</span>
+        </p>
       </div>
 
       {/* Modal agentes */}

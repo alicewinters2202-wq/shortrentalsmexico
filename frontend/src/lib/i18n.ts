@@ -107,6 +107,7 @@ const T = {
     longStayPanelTitle: '¿Estancia de 3+ meses?',
     longStayPanelSub: 'Depósito de seguridad, contrato especial y tarifas preferenciales.',
     writeUs: 'Escribir →',
+    cancellationPolicy: 'Reembolso completo si cancelas 15 días o más antes del check-in. Cancelaciones dentro de los 14 días: 50% de reembolso.',
     // agent modal
     modalTitle: 'Envía tu cotización',
     modalSub: 'Uno de nuestros agentes te atenderá de inmediato',
@@ -393,6 +394,7 @@ const T = {
     longStayPanelTitle: '3+ month stay?',
     longStayPanelSub: 'Security deposit, special contract and preferential rates.',
     writeUs: 'Write →',
+    cancellationPolicy: 'Full refund if you cancel 15+ days before check-in. Cancellations within 14 days: 50% refund.',
     modalTitle: 'Send your quote',
     modalSub: 'One of our agents will assist you immediately',
     quoteLabel: 'Your request summary',
