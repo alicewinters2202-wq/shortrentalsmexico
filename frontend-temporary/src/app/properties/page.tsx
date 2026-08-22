@@ -17,18 +17,21 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ city?: string; guests?: string }>;
+  searchParams: Promise<{ city?: string; guests?: string; sort?: string }>;
 }) {
   let cityParam: string | undefined;
   let guestsParam: number | undefined;
+  let sortParam: string | undefined;
   try {
     const sp = await searchParams;
     cityParam = sp?.city;
     guestsParam = sp?.guests ? parseInt(sp.guests, 10) : undefined;
     if (guestsParam !== undefined && (isNaN(guestsParam) || guestsParam < 1)) guestsParam = undefined;
+    sortParam = ['price_asc', 'price_desc', 'bedrooms', 'size'].includes(sp?.sort ?? '') ? sp!.sort : undefined;
   } catch {
     cityParam = undefined;
     guestsParam = undefined;
+    sortParam = undefined;
   }
   const { t, lang } = await getT();
   const properties = await fetchPreview();
@@ -41,6 +44,36 @@ export default async function PropertiesPage({
     filtered = filtered.filter((p) => p.maxGuests >= guestsParam! && p.available);
   }
   const hiddenByFilterCount = beforeGuestFilterCount - filtered.length;
+
+  const sorted = [...filtered];
+  if (sortParam === 'price_asc') sorted.sort((a, b) => a.pricePerMonth - b.pricePerMonth);
+  else if (sortParam === 'price_desc') sorted.sort((a, b) => b.pricePerMonth - a.pricePerMonth);
+  else if (sortParam === 'bedrooms') sorted.sort((a, b) => b.bedrooms - a.bedrooms);
+  else if (sortParam === 'size') sorted.sort((a, b) => b.sqMeters - a.sqMeters);
+  sorted.sort((a, b) => (b.available ? 1 : 0) - (a.available ? 1 : 0));
+
+  const SORT_OPTIONS: { value: string; label: string }[] = [
+    { value: 'price_asc',  label: lang === 'en' ? 'Price: low to high' : 'Precio: menor a mayor' },
+    { value: 'price_desc', label: lang === 'en' ? 'Price: high to low' : 'Precio: mayor a menor' },
+    { value: 'bedrooms',   label: lang === 'en' ? 'Most bedrooms' : 'Más recámaras' },
+    { value: 'size',       label: lang === 'en' ? 'Largest size' : 'Tamaño mayor' },
+  ];
+  const buildUrl = (sort?: string) => {
+    const params = new URLSearchParams();
+    if (cityParam) params.set('city', cityParam);
+    if (guestsParam !== undefined) params.set('guests', String(guestsParam));
+    if (sort) params.set('sort', sort);
+    const qs = params.toString();
+    return `/properties${qs ? `?${qs}` : ''}`;
+  };
+  const buildCityUrl = (city?: string) => {
+    const params = new URLSearchParams();
+    if (city) params.set('city', city);
+    if (guestsParam !== undefined) params.set('guests', String(guestsParam));
+    if (sortParam) params.set('sort', sortParam);
+    const qs = params.toString();
+    return `/properties${qs ? `?${qs}` : ''}`;
+  };
 
   return (
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
@@ -77,7 +110,7 @@ export default async function PropertiesPage({
                     : `${hiddenByFilterCount} ${hiddenByFilterCount === 1 ? 'propiedad más' : 'propiedades más'} en ${cityParam ?? 'esta búsqueda'} no ${hiddenByFilterCount === 1 ? 'cabe' : 'caben'} en ${guestsParam}+ huéspedes o no están disponibles ahora.`}
                 </span>
                 <Link
-                  href={cityParam ? `/properties?city=${encodeURIComponent(cityParam)}` : '/properties'}
+                  href={(() => { const p = new URLSearchParams(); if (cityParam) p.set('city', cityParam); if (sortParam) p.set('sort', sortParam); const qs = p.toString(); return `/properties${qs ? `?${qs}` : ''}`; })()}
                   className="font-semibold hover:underline flex-shrink-0"
                   style={{ color: 'var(--gold)' }}
                 >
@@ -87,22 +120,37 @@ export default async function PropertiesPage({
             )}
           </div>
           <div className="flex flex-wrap gap-2">
-            <Link href="/properties" className="px-4 py-2 rounded-full text-sm transition-colors"
+            <Link href={buildCityUrl()} className="px-4 py-2 rounded-full text-sm transition-colors"
               style={!cityParam ? { backgroundColor: 'var(--gold)', color: 'var(--cream)', border: '1px solid var(--gold)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
               {t.allFilter}
             </Link>
             {CITIES.map((c) => (
-              <Link key={c} href={`/properties?city=${encodeURIComponent(c)}`}
+              <Link key={c} href={buildCityUrl(c)}
                 className="px-4 py-2 rounded-full text-sm transition-colors"
                 style={cityParam === c ? { backgroundColor: 'var(--gold)', color: 'var(--cream)', border: '1px solid var(--gold)' } : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
                 {c}
               </Link>
             ))}
           </div>
+
+          <div className="flex flex-wrap items-center gap-2 mt-4">
+            <span className="text-xs mr-1" style={{ color: 'var(--muted)' }}>
+              {lang === 'en' ? 'Sort by:' : 'Ordenar por:'}
+            </span>
+            {SORT_OPTIONS.map((opt) => (
+              <Link key={opt.value} href={buildUrl(sortParam === opt.value ? undefined : opt.value)}
+                className="px-3 py-1.5 rounded-full text-xs transition-colors"
+                style={sortParam === opt.value
+                  ? { backgroundColor: 'var(--ink)', color: 'var(--cream)', border: '1px solid var(--ink)' }
+                  : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
+                {opt.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((p) => {
+          {sorted.map((p) => {
             const { street, neighborhood } = parseAddress(p.address);
             const mainImage = p.images[0];
             return (
@@ -147,13 +195,13 @@ export default async function PropertiesPage({
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural} · {p.sqMeters} {t.sqm}
                   </p>
                   <div className="flex gap-1 mt-2 flex-wrap">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-900/30 text-violet-400">🛜 {p.wifiSpeed} Mbps</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-700/40 text-stone-400">🧹 {t.cleaningFee}</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🛜 {p.wifiSpeed} Mbps</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🧹 {t.cleaningFee}</span>
                     {p.petFriendlyNegotiable
-                      ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾 {t.petFriendlyNeg}</span>
-                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
+                      ? <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🐾 {t.petFriendlyNeg}</span>
+                      : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🐾</span>
                     }
-                    {p.balcony && <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-900/30 text-emerald-400">🌿</span>}
+                    {p.balcony && <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🌿</span>}
                   </div>
                   <div className="mt-3 pt-3 flex items-end justify-between" style={{ borderTop: '1px solid var(--border)' }}>
                     <div>
