@@ -75,6 +75,23 @@ export class PropertiesService {
     return `${citySlug}-${streetSlug}-${id}`;
   }
 
+  /**
+   * Stable ID based on (city folder, folder number) — NOT a running counter.
+   * Adding, removing, or reordering properties in OTHER cities never shifts
+   * this property's id, slug, or any admin-set overrides tied to it.
+   * Stability only breaks if this property's OWN row is moved within its
+   * city's spreadsheet (i.e. always append new rows at the end).
+   */
+  private generateStableId(cityFolder: string, folderNumber: number): number {
+    const str = `${cityFolder}#${folderNumber}`;
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash << 5) - hash + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
   private getOverrides(): Record<string, { available?: boolean; availableFrom?: string | null; occupiedSince?: string | null; pricePerMonth?: number }> {
     return {};
   }
@@ -158,8 +175,6 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
       );
 
     const properties: PropertyPreview[] = [];
-    let globalId = 1;
-
     for (const cityFolder of cities) {
       const cityPath = path.join(this.imagenesRoot, cityFolder);
       const xlsxFile = this.findXlsx(cityPath);
@@ -170,7 +185,7 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
       rows.forEach((row, dataIndex) => {
         const folderNumber = dataIndex + 2;
         const images = this.getImages(cityFolder, folderNumber);
-        const id = globalId++;
+        const id = this.generateStableId(cityFolder, folderNumber);
         const address = String(row[1] ?? '').trim();
         const city = this.normalizeCity(String(row[0] ?? '').trim());
         const avail = this.getAvailability(id, address);
