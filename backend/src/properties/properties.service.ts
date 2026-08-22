@@ -21,6 +21,7 @@ export interface PropertyPreview {
   coordinates: string | null;
   images: string[];
   coverThumb: string | null;
+  coverThumb2: string | null;
   wifiSpeed: number;
   available: boolean;
   availableFrom: string | null;
@@ -412,6 +413,7 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
           coordinates: row[11] ? String(row[11]) : null,
           images,
           coverThumb: this.getCoverThumb(cityFolder, folderNumber),
+          coverThumb2: this.getCoverThumb2(cityFolder, folderNumber),
           wifiSpeed: this.WIFI_SPEEDS[id % this.WIFI_SPEEDS.length],
           available: avail.available || (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()),
           availableFrom: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.availableFrom,
@@ -461,7 +463,7 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
     const imageExts = ['.webp', '.jpg', '.jpeg', '.png', '.gif'];
     return fs
       .readdirSync(folderPath)
-      .filter((f) => imageExts.includes(path.extname(f).toLowerCase()) && !f.toLowerCase().includes('.thumb.'))
+      .filter((f) => imageExts.includes(path.extname(f).toLowerCase()) && !f.toLowerCase().includes('.thumb.') && !f.toLowerCase().includes('.thumb2.'))
       .sort()
       .map((f) => `/imagenes/${cityFolder.replace(/ /g, '%20')}/${folderNumber}/${encodeURIComponent(f)}`);
   }
@@ -470,6 +472,15 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
     const folderPath = path.join(this.imagenesRoot, cityFolder, String(folderNumber));
     if (!fs.existsSync(folderPath)) return null;
     const thumb = fs.readdirSync(folderPath).find((f) => f.toLowerCase().includes('.thumb.webp'));
+    if (!thumb) return null;
+    return `/imagenes/${cityFolder.replace(/ /g, '%20')}/${folderNumber}/${encodeURIComponent(thumb)}`;
+  }
+
+  /** Same as getCoverThumb, but for the second photo -- used by temporaryrentalsmexico.com's card grid. */
+  private getCoverThumb2(cityFolder: string, folderNumber: number): string | null {
+    const folderPath = path.join(this.imagenesRoot, cityFolder, String(folderNumber));
+    if (!fs.existsSync(folderPath)) return null;
+    const thumb = fs.readdirSync(folderPath).find((f) => f.toLowerCase().includes('.thumb2.webp'));
     if (!thumb) return null;
     return `/imagenes/${cityFolder.replace(/ /g, '%20')}/${folderNumber}/${encodeURIComponent(thumb)}`;
   }

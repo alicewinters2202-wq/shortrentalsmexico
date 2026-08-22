@@ -16,6 +16,7 @@ export interface PropertyPreview {
   coordinates: string | null;
   images: string[];
   coverThumb: string | null;
+  coverThumb2: string | null;
   wifiSpeed: number;
   available: boolean;
   availableFrom: string | null;
