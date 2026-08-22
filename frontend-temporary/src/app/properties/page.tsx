@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SortDropdown from './SortDropdown';
 import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
@@ -58,14 +59,6 @@ export default async function PropertiesPage({
     { value: 'bedrooms',   label: lang === 'en' ? 'Most bedrooms' : 'Más recámaras' },
     { value: 'size',       label: lang === 'en' ? 'Largest size' : 'Tamaño mayor' },
   ];
-  const buildUrl = (sort?: string) => {
-    const params = new URLSearchParams();
-    if (cityParam) params.set('city', cityParam);
-    if (guestsParam !== undefined) params.set('guests', String(guestsParam));
-    if (sort) params.set('sort', sort);
-    const qs = params.toString();
-    return `/properties${qs ? `?${qs}` : ''}`;
-  };
   const buildCityUrl = (city?: string) => {
     const params = new URLSearchParams();
     if (city) params.set('city', city);
@@ -133,19 +126,18 @@ export default async function PropertiesPage({
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 mt-4">
-            <span className="text-xs mr-1" style={{ color: 'var(--muted)' }}>
-              {lang === 'en' ? 'Sort by:' : 'Ordenar por:'}
+          <div className="flex items-center gap-3 mt-4">
+            <span className="text-xs" style={{ color: 'var(--muted)' }}>
+              {lang === 'en' ? 'Sort by' : 'Ordenar por'}
             </span>
-            {SORT_OPTIONS.map((opt) => (
-              <Link key={opt.value} href={buildUrl(sortParam === opt.value ? undefined : opt.value)}
-                className="px-3 py-1.5 rounded-full text-xs transition-colors"
-                style={sortParam === opt.value
-                  ? { backgroundColor: 'var(--ink)', color: 'var(--cream)', border: '1px solid var(--ink)' }
-                  : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
-                {opt.label}
-              </Link>
-            ))}
+            <SortDropdown
+              cityParam={cityParam}
+              guestsParam={guestsParam}
+              sortParam={sortParam}
+              options={SORT_OPTIONS}
+              placeholder={lang === 'en' ? 'Default' : 'Predeterminado'}
+              accentColor="var(--gold)"
+            />
           </div>
         </div>
 
