@@ -50,7 +50,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   'ciudad-de-mexico-amsterdam-289-1353754681': [
     { id: 20, name: 'Tyler A.', rating: 5, comment: 'Good middle ground between price and comfort, checked every box we needed. Overall a great experience.', createdAt: '2025-03-21T00:00:00.000Z' },
     { id: 264, name: 'Camila V.', rating: 5, comment: 'Tener balcon propio hizo toda la diferencia, desayunabamos ahi casi todos los dias.', createdAt: '2026-02-14T00:00:00.000Z' },
-    { id: 265, name: 'Andrew K.', rating: 5, comment: 'Traveled with our dog and had zero issues here, genuinely pet friendly place. Highly recommend.', createdAt: '2025-10-02T00:00:00.000Z' },
+    { id: 265, name: 'Andrew K.', rating: 5, comment: 'Traveled with our dog and had zero issues here, they clearly welcome pets and it showed. Highly recommend.', createdAt: '2025-10-02T00:00:00.000Z' },
     { id: 272, name: 'Regina P.', rating: 5, comment: 'No tener que preocuparnos por donde estacionar el coche fue un alivio enorme todo el viaje.', createdAt: '2025-07-19T00:00:00.000Z' },
     { id: 273, name: 'Kevin H.', rating: 5, comment: 'The apartment was spotless when we arrived, clearly well maintained the whole stay.', createdAt: '2026-01-08T00:00:00.000Z' },
     { id: 274, name: 'Sofia D.', rating: 5, comment: 'La zona es muy segura y tranquila, se siente muy bien caminar de noche por ahi.', createdAt: '2025-11-27T00:00:00.000Z' },
@@ -70,14 +70,14 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 25, name: 'David T.', rating: 4, comment: 'Great value for what you get, wed definitely book again.', createdAt: '2025-08-11T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-tlacotalpan-27-1353754686': [
-    { id: 26, name: 'Brandon L.', rating: 4, comment: 'Felt like we paid exactly the right amount for what we got. We brought our dog along and it worked out great — genuinely pet friendly place.', createdAt: '2025-06-13T00:00:00.000Z' },
+    { id: 26, name: 'Brandon L.', rating: 4, comment: 'Felt like we paid exactly the right amount for what we got. We brought our dog along and never felt like an afterthought.', createdAt: '2025-06-13T00:00:00.000Z' },
     { id: 27, name: 'Diego S.', rating: 3, comment: 'el check-in fue super facil gracias a las instrucciones claras que nos mandaron', createdAt: '2025-01-21T00:00:00.000Z' },
     { id: 28, name: 'Jonathan Y.', rating: 5, comment: 'we stayed a week and the balcony ended up being one of our favorite parts of the apartment, overall a great experience', createdAt: '2024-02-28T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-amsterdam-119-1353754710': [
     { id: 266, name: 'Paulina R.', rating: 5, comment: 'El roof garden se convirtio en nuestro lugar favorito, subiamos casi todas las tardes a ver el atardecer con una copa.', createdAt: '2025-12-05T00:00:00.000Z' },
     { id: 267, name: 'Justin M.', rating: 5, comment: 'Came here for work and the balcony ended up being one of our favorite parts of the apartment. Overall a great experience.', createdAt: '2026-01-18T00:00:00.000Z' },
-    { id: 268, name: 'Ximena T.', rating: 5, comment: 'Viajamos con nuestra perra y el lugar es genuinamente pet friendly, muy agradecidos por eso.', createdAt: '2025-06-30T00:00:00.000Z' },
+    { id: 268, name: 'Ximena T.', rating: 5, comment: 'Viajamos con nuestra perra y nunca sentimos que fuera un favor que nos hacían, se nota que están acostumbrados.', createdAt: '2025-06-30T00:00:00.000Z' },
     { id: 277, name: 'Valeria G.', rating: 5, comment: 'Buen punto medio entre precio y comodidad, cumplio con todo lo que buscabamos en el viaje.', createdAt: '2026-03-14T00:00:00.000Z' },
     { id: 278, name: 'Samantha W.', rating: 5, comment: 'Picked this neighborhood without knowing it and it turned out to be the best call of the trip.', createdAt: '2025-02-25T00:00:00.000Z' },
     { id: 279, name: 'Gerardo L.', rating: 5, comment: 'Cocinamos casi toda la semana, la cocina tenia absolutamente todo lo que necesitabamos.', createdAt: '2025-08-06T00:00:00.000Z' },
@@ -134,7 +134,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 56, name: 'Samantha K.', rating: 4, comment: 'traveled with our pet and had zero issues, really appreciated that', createdAt: '2025-10-25T00:00:00.000Z' },
   ],
   'cancun-manzana-27-lote-102-uc-38-entre-calle-pu-579982431': [
-    { id: 57, name: 'Christopher J.', rating: 4, comment: 'worth every peso, you can tell the quality the moment you walk in, something as simple as assigned parking made everything way less stressful', createdAt: '2025-09-27T00:00:00.000Z' },
+    { id: 57, name: 'Christopher J.', rating: 4, comment: 'you can tell this place is worth every peso the second you walk through the door', createdAt: '2025-09-27T00:00:00.000Z' },
   ],
   'cancun-puerto-juarez-579982430': [
     { id: 58, name: 'Jessica C.', rating: 3, comment: 'Having somewhere to sit outside made a real difference day to day.', createdAt: '2025-09-16T00:00:00.000Z' },
@@ -158,7 +158,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'cancun-marina-puerto-cancun-799586251': [
     { id: 68, name: 'Andrew D.', rating: 3, comment: 'Booked last minute and we treated ourselves to the spa one afternoon. Feels like a higher-end place without the price tag being over the top. Overall a great experience.', createdAt: '2025-02-02T00:00:00.000Z' },
-    { id: 69, name: 'Jennifer S.', rating: 5, comment: 'The balcony was a great bonus — nice breeze and a good view of the neighborhood. Overall a great experience.', createdAt: '2023-10-05T00:00:00.000Z' },
+    { id: 69, name: 'Jennifer S.', rating: 5, comment: 'The balcony was a great bonus — nice breeze and a good view of the neighborhood. Would happily stay here again.', createdAt: '2023-10-05T00:00:00.000Z' },
   ],
   'cancun-puerto-juarez-799586249': [
     { id: 72, name: 'Michael W.', rating: 5, comment: 'It felt really calm, good neighbors and a nice overall vibe. Overall a great experience.', createdAt: '2024-09-12T00:00:00.000Z' },
@@ -193,7 +193,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 85, name: 'Michael L.', rating: 4, comment: 'Traveled with our pet and had zero issues, really appreciated that.', createdAt: '2025-05-20T00:00:00.000Z' },
   ],
   'guadalajara-av-acueducto-6075-1215732506': [
-    { id: 86, name: 'Andrew D.', rating: 5, comment: 'We brought our dog along and it worked out great — genuinely pet friendly place.', createdAt: '2025-12-08T00:00:00.000Z' },
+    { id: 86, name: 'Andrew D.', rating: 5, comment: 'We brought our dog along and it worked out great, no weird restrictions or hoops to jump through.', createdAt: '2025-12-08T00:00:00.000Z' },
     { id: 87, name: 'Sebastian A.', rating: 5, comment: 'Pude mantener mi rutina de ejercicio gracias al gimnasio. Tuvimos un pequeño problema y lo resolvieron el mismo día.', createdAt: '2025-01-04T00:00:00.000Z' },
     { id: 88, name: 'Luis Fernando L.', rating: 4, comment: 'Celebramos nuestro aniversario aqui y la cocina estaba muy bien equipada, pudimos cocinar sin problema varios dias.', createdAt: '2025-01-04T00:00:00.000Z' },
   ],
@@ -415,7 +415,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 194, name: 'Matthew A.', rating: 4, comment: 'the beach was just a few minutes on foot, exactly what we were looking for, not a budget place by any means, but for a special occasion it was completely worth it', createdAt: '2025-11-05T00:00:00.000Z' },
   ],
   'nuevo-vallarta-mar-de-cortez-1695957619': [
-    { id: 196, name: 'Valeria T.', rating: 3, comment: 'trajimos a nuestro perro y el lugar es genuinamente pet friendly, totalmente recomendado', createdAt: '2025-06-11T00:00:00.000Z' },
+    { id: 196, name: 'Valeria T.', rating: 3, comment: 'trajimos a nuestro perro y nunca tuvimos ningun problema, se nota que estan acostumbrados a huespedes con mascota', createdAt: '2025-06-11T00:00:00.000Z' },
     { id: 195, name: 'Samantha K.', rating: 3, comment: 'our kids didn\'t want to leave the pool, they had the best time there every day', createdAt: '2024-06-02T00:00:00.000Z' },
   ],
   'nuevo-vallarta-av-terralta-100-1695957621': [
@@ -433,11 +433,11 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'nuevo-vallarta-blvd-costero-258-1695957647': [
     { id: 205, name: 'Mariana T.', rating: 3, comment: 'El espacio de coworking me sirvio mucho, trabaje varias mananas ahi. Sacamos mucho provecho de la alberca, sobre todo con el calor.', createdAt: '2026-02-04T00:00:00.000Z' },
-    { id: 204, name: 'Paulina L.', rating: 5, comment: 'reservamos a ultima hora y trajimos a nuestro perro y el lugar es genuinamente pet friendly', createdAt: '2026-01-24T00:00:00.000Z' },
+    { id: 204, name: 'Paulina L.', rating: 5, comment: 'reservamos a ultima hora y trajimos a nuestro perro sin avisar mucho, y aun asi todo salio perfecto', createdAt: '2026-01-24T00:00:00.000Z' },
   ],
   'nuevo-vallarta-via-8-1695957648': [
     { id: 207, name: 'Santiago L.', rating: 4, comment: 'La alberca siempre estaba limpia y tranquila, la disfrutamos mucho.', createdAt: '2026-05-25T00:00:00.000Z' },
-    { id: 206, name: 'Carlos S.', rating: 3, comment: 'estar tan cerca de la playa hizo toda la diferencia, caminabamos todas las mananas, trajimos a nuestro perro y el lugar es genuinamente pet friendly', createdAt: '2026-01-29T00:00:00.000Z' },
+    { id: 206, name: 'Carlos S.', rating: 3, comment: 'estar tan cerca de la playa hizo toda la diferencia, caminabamos todas las mananas con nuestro perro sin ningun problema', createdAt: '2026-01-29T00:00:00.000Z' },
     { id: 208, name: 'Jonathan J.', rating: 5, comment: 'Booked last minute and loved having our own balcony, we had coffee out there every morning.', createdAt: '2024-05-16T00:00:00.000Z' },
   ],
   'nuevo-vallarta-paseo-de-los-cocoteros-1695957649': [
@@ -481,7 +481,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 230, name: 'Ximena L.', rating: 4, comment: 'Nadar antes de empezar el dia se volvio parte de la rutina gracias a la alberca.', createdAt: '2024-05-22T00:00:00.000Z' },
   ],
   'puerto-vallarta-vela-100-1395648839': [
-    { id: 232, name: 'Sarah T.', rating: 5, comment: 'Something as simple as assigned parking made everything way less stressful. Overall a great experience.', createdAt: '2026-05-06T00:00:00.000Z' },
+    { id: 232, name: 'Sarah T.', rating: 5, comment: 'Every detail felt considered, from check-in to check-out. Overall a great experience.', createdAt: '2026-05-06T00:00:00.000Z' },
     { id: 233, name: 'Andrew W.', rating: 3, comment: 'The balcony ended up being one of our favorite parts of the apartment.', createdAt: '2025-11-08T00:00:00.000Z' },
   ],
   'puerto-vallarta-vela-100-1395648838': [
@@ -524,7 +524,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 251, name: 'Andrew H.', rating: 3, comment: 'we celebrated our anniversary here and this is a genuinely luxury property and it shows in every detail', createdAt: '2025-03-11T00:00:00.000Z' },
   ],
   'puerto-vallarta-c-politecnico-nacional-89int-805-315441094': [
-    { id: 254, name: 'Michael J.', rating: 5, comment: 'something as simple as assigned parking made everything way less stressful, highly recommend', createdAt: '2025-12-17T00:00:00.000Z' },
     { id: 253, name: 'Valeria V.', rating: 5, comment: 'Reservamos a última hora y los niños no querían salir de la alberca, la pasaron increíble ahí todos los días. Totalmente recomendado.', createdAt: '2025-07-15T00:00:00.000Z' },
   ],
   'puerto-vallarta-2477-315441093': [
@@ -554,7 +553,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'ciudad-de-mexico-c-celaya-4-1353754709': [
     { id: 269, name: 'Nicole B.', rating: 5, comment: 'Having our own balcony made the whole trip, we spent almost every evening out there.', createdAt: '2025-09-14T00:00:00.000Z' },
-    { id: 270, name: 'Diego A.', rating: 5, comment: 'Trajimos a nuestro perro y el lugar es genuinamente pet friendly de verdad.', createdAt: '2026-03-01T00:00:00.000Z' },
+    { id: 270, name: 'Diego A.', rating: 5, comment: 'Trajimos a nuestro perro esperando algun inconveniente y no hubo ninguno, se los agradecemos mucho.', createdAt: '2026-03-01T00:00:00.000Z' },
     { id: 280, name: 'Renata C.', rating: 5, comment: 'Sentimos que pagamos exactamente lo justo por lo que obtuvimos, sin duda volveriamos a reservar.', createdAt: '2025-12-22T00:00:00.000Z' },
     { id: 281, name: 'Jonathan P.', rating: 5, comment: 'Never felt unsafe walking back late at night, genuinely good area the whole stay.', createdAt: '2026-02-09T00:00:00.000Z' },
     { id: 282, name: 'Ana Sofia M.', rating: 5, comment: 'Se nota que limpian a fondo entre huespedes, todo estaba perfecto cuando llegamos.', createdAt: '2025-07-03T00:00:00.000Z' },
