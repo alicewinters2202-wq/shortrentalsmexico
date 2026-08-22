@@ -308,6 +308,9 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
     'Tulum Quintana Roo#16': { available: true, availableFrom: null, occupiedSince: null, minStay: 14 },
     'Tulum Quintana Roo#17': { available: false, availableFrom: '2026-10-01', occupiedSince: '2026-04-16', minStay: 10 },
     'Tulum Quintana Roo#18': { available: false, availableFrom: '2026-11-14', occupiedSince: '2026-03-26', minStay: 10 },
+    // New units added after the original snapshot, always-available, disambiguated by
+    // folder number since they share an address with an existing (different) unit.
+    'CDMX#39': { available: true, availableFrom: null, occupiedSince: null, minStay: 10 },
   };
 
   private getAvailability(id: number, address: string): {
