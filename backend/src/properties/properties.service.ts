@@ -55,6 +55,7 @@ export class PropertiesService {
     'francisco medina ascencio 2485',
     'paseo de la marina 121',
     'san luis potosi 44',
+    'tennyson 155',
   ];
 
   private readonly NEVER_AVAILABLE: string[] = [];
