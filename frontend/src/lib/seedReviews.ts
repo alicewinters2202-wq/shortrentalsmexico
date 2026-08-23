@@ -51,7 +51,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 20, name: 'Tyler A.', rating: 5, comment: 'Good middle ground between price and comfort, checked every box we needed. Overall a great experience.', createdAt: '2025-03-21T00:00:00.000Z' },
     { id: 264, name: 'Camila V.', rating: 5, comment: 'Tener balcon propio hizo toda la diferencia, desayunabamos ahi casi todos los dias.', createdAt: '2026-02-14T00:00:00.000Z' },
     { id: 265, name: 'Andrew K.', rating: 5, comment: 'Traveled with our dog and had zero issues here, they clearly welcome pets and it showed. Highly recommend.', createdAt: '2025-10-02T00:00:00.000Z' },
-    { id: 272, name: 'Regina P.', rating: 5, comment: 'No tener que preocuparnos por donde estacionar el coche fue un alivio enorme todo el viaje.', createdAt: '2025-07-19T00:00:00.000Z' },
     { id: 273, name: 'Kevin H.', rating: 5, comment: 'The apartment was spotless when we arrived, clearly well maintained the whole stay.', createdAt: '2026-01-08T00:00:00.000Z' },
     { id: 274, name: 'Sofia D.', rating: 5, comment: 'La zona es muy segura y tranquila, se siente muy bien caminar de noche por ahi.', createdAt: '2025-11-27T00:00:00.000Z' },
     { id: 275, name: 'Brandon M.', rating: 5, comment: 'Any question we had was answered in minutes over WhatsApp, really responsive the whole time.', createdAt: '2025-04-30T00:00:00.000Z' },
@@ -78,9 +77,10 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 266, name: 'Paulina R.', rating: 5, comment: 'El roof garden se convirtio en nuestro lugar favorito, subiamos casi todas las tardes a ver el atardecer con una copa.', createdAt: '2025-12-05T00:00:00.000Z' },
     { id: 267, name: 'Justin M.', rating: 5, comment: 'Came here for work and the balcony ended up being one of our favorite parts of the apartment. Overall a great experience.', createdAt: '2026-01-18T00:00:00.000Z' },
     { id: 268, name: 'Ximena T.', rating: 5, comment: 'Viajamos con nuestra perra y nunca sentimos que fuera un favor que nos hacían, se nota que están acostumbrados.', createdAt: '2025-06-30T00:00:00.000Z' },
-    { id: 277, name: 'Valeria G.', rating: 5, comment: 'Buen punto medio entre precio y comodidad, cumplio con todo lo que buscabamos en el viaje.', createdAt: '2026-03-14T00:00:00.000Z' },
+    { id: 277, name: 'Valeria G.', rating: 5, comment: 'La ubicacion nos ahorro muchisimo tiempo, todo lo que queriamos visitar quedaba cerca caminando.', createdAt: '2026-03-14T00:00:00.000Z' },
     { id: 278, name: 'Samantha W.', rating: 5, comment: 'Picked this neighborhood without knowing it and it turned out to be the best call of the trip.', createdAt: '2025-02-25T00:00:00.000Z' },
     { id: 279, name: 'Gerardo L.', rating: 5, comment: 'Cocinamos casi toda la semana, la cocina tenia absolutamente todo lo que necesitabamos.', createdAt: '2025-08-06T00:00:00.000Z' },
+    { id: 291, name: 'Danielle K.', rating: 5, comment: 'Everything was spotless from the moment we walked in, you could tell real care goes into turnover between guests.', createdAt: '2025-10-14T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-blas-pascal-190-1353754711': [
     { id: 30, name: 'Jennifer T.', rating: 4, comment: 'worth every peso, you can tell the quality the moment you walk in', createdAt: '2025-07-03T00:00:00.000Z' },
@@ -453,7 +453,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 214, name: 'Javier M.', rating: 3, comment: 'Nos quedamos una semana y no usamos Uber casi nada, todo estaba a distancia caminable.', createdAt: '2023-12-11T00:00:00.000Z' },
   ],
   'playa-del-carmen-av-ctm-20-649117628': [
-    { id: 216, name: 'Carlos A.', rating: 4, comment: 'No batallamos ni un solo dia por donde estacionarnos, todo resuelto desde el inicio.', createdAt: '2025-12-29T00:00:00.000Z' },
     { id: 215, name: 'Maria Jose S.', rating: 5, comment: 'Tener un espacio exterior propio hizo que el depa se sintiera mucho más grande. Totalmente recomendado.', createdAt: '2025-09-20T00:00:00.000Z' },
   ],
   'playa-del-carmen-p-xaman-ha-mz-18lt-2-649117630': [
@@ -507,7 +506,6 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
   ],
   'puerto-vallarta-av-paseo-de-la-marina-121-315441122': [
     { id: 246, name: 'Fernanda V.', rating: 5, comment: 'el area de juegos estuvo bien para las noches tranquilas tener un espacio exterior propio hizo que el depa se sintiera mucho mas grande', createdAt: '2025-04-30T00:00:00.000Z' },
-    { id: 245, name: 'Sebastian H.', rating: 4, comment: 'no batallamos ni un solo dia por donde estacionarnos, todo resuelto desde el inicio, totalmente recomendado', createdAt: '2025-04-12T00:00:00.000Z' },
   ],
   'puerto-vallarta-av-francisco-medina-ascencio-2870-315441121': [
     { id: 247, name: 'Brian D.', rating: 3, comment: 'Swimming before starting the day became part of the routine thanks to the pool.', createdAt: '2025-01-14T00:00:00.000Z' },
@@ -564,8 +562,9 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 286, name: 'Daniela R.', rating: 5, comment: 'Sentimos que pagamos exactamente lo justo por todo lo que ofrecía, sin duda volveríamos.', createdAt: '2025-11-09T00:00:00.000Z' },
     { id: 287, name: 'Ethan B.', rating: 5, comment: 'Condesa turned out to be the perfect base for the trip, everything felt walkable from there.', createdAt: '2025-06-17T00:00:00.000Z' },
     { id: 288, name: 'Camila H.', rating: 5, comment: 'El lugar estaba impecable cuando llegamos, se nota que lo cuidan muy bien entre huéspedes.', createdAt: '2026-02-28T00:00:00.000Z' },
-    { id: 289, name: 'Tyler N.', rating: 5, comment: 'The kitchen had absolutely everything we needed, cooked most nights during the stay.', createdAt: '2025-04-14T00:00:00.000Z' },
+    { id: 289, name: 'Tyler N.', rating: 5, comment: 'Loved that the neighborhood had real bakeries and coffee shops within a five minute walk.', createdAt: '2025-04-14T00:00:00.000Z' },
     { id: 290, name: 'Paulina S.', rating: 5, comment: 'La velocidad del wifi fue excelente, trabajamos remoto toda la semana sin ningún problema.', createdAt: '2025-09-30T00:00:00.000Z' },
+    { id: 292, name: 'Rodrigo M.', rating: 5, comment: 'Tuvimos una duda en dia festivo y aun asi nos respondieron rapido, se nota que hay alguien pendiente de verdad.', createdAt: '2025-11-02T00:00:00.000Z' },
   ],
 };
 
