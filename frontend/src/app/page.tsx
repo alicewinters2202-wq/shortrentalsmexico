@@ -5,6 +5,7 @@ import UpcomingDestinations from '@/components/home/UpcomingDestinations';
 import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
+import { FLAG_MAP } from '@/components/Flags';
 
 const ROSA = '#B33A63';
 const ROSA_DEEP = '#8F2C4E';
@@ -324,9 +325,10 @@ export default async function Home() {
             <div>
               <p className="font-serif text-xl" style={{ color: 'var(--ink)' }}>{CAMILA.name}</p>
               <div className="flex items-center justify-center gap-1 mt-1.5">
-                {CAMILA.languages.map((flag) => (
-                  <span key={flag} className="text-lg">{flag}</span>
-                ))}
+                {CAMILA.languages.map((code) => {
+                  const Flag = FLAG_MAP[code];
+                  return Flag ? <Flag key={code} width={18} height={13} /> : null;
+                })}
               </div>
             </div>
           </div>

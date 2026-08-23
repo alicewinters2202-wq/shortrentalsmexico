@@ -10,7 +10,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Camila Lefebvre.jpg` as string | null,
     initials: 'CL',
     color: '#7C5CBF',
-    languages: ['🇲🇽', '🇺🇸', '🇫🇷'],
+    languages: ['MX', 'US', 'FR'],
     specialist: true,
   },
   {
@@ -22,7 +22,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Mariana Hernandez.jpg` as string | null,
     initials: 'MH',
     color: '#0E7490',
-    languages: ['🇲🇽', '🇺🇸'],
+    languages: ['MX', 'US'],
     specialist: false,
   },
   {
@@ -34,7 +34,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Ximena Hernandez.jpg` as string | null,
     initials: 'XH',
     color: '#BE185D',
-    languages: ['🇲🇽', '🇺🇸'],
+    languages: ['MX', 'US'],
     specialist: false,
   },
   {
@@ -46,7 +46,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Alejandro Perez.jpg` as string | null,
     initials: 'AP',
     color: '#B45309',
-    languages: ['🇲🇽', '🇺🇸'],
+    languages: ['MX', 'US'],
     specialist: false,
   },
   {
@@ -58,7 +58,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Luciana Torres.jpg` as string | null,
     initials: 'LT',
     color: '#9C4A6C',
-    languages: ['🇲🇽', '🇺🇸'],
+    languages: ['MX', 'US'],
     specialist: false,
   },
   {
@@ -70,7 +70,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Sebastian Reyes.jpg` as string | null,
     initials: 'SR',
     color: '#4A9C8A',
-    languages: ['🇲🇽', '🇺🇸'],
+    languages: ['MX', 'US'],
     specialist: false,
   },
   {
@@ -82,7 +82,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Valentina Flores.jpg` as string | null,
     initials: 'VF',
     color: '#A84C9C',
-    languages: ['🇲🇽', '🇺🇸'],
+    languages: ['MX', 'US'],
     specialist: false,
   },
   {
@@ -94,7 +94,7 @@ export const AGENTS = [
     photo: `${BACKEND}/imagenes/Agentes/Angel Morales.jpg` as string | null,
     initials: 'AM',
     color: '#C9A84C',
-    languages: ['🇲🇽', '🇺🇸'],
+    languages: ['MX', 'US'],
     specialist: false,
   },
 ];

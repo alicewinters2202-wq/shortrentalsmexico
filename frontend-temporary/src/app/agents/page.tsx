@@ -2,6 +2,7 @@ import Link from 'next/link';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { AGENTS } from '@/lib/agents';
+import { FLAG_MAP } from '@/components/Flags';
 
 
 export default async function AgentsPage() {
@@ -65,9 +66,10 @@ export default async function AgentsPage() {
                 <p className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>{camila.name}</p>
                 <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{t.agentRole}</p>
                 <div className="flex items-center gap-1 mt-2 justify-center sm:justify-start">
-                  {camila.languages.map((flag) => (
-                    <span key={flag} className="text-xl">{flag}</span>
-                  ))}
+                  {camila.languages.map((code) => {
+                    const Flag = FLAG_MAP[code];
+                    return Flag ? <Flag key={code} width={20} height={14} /> : null;
+                  })}
                 </div>
               </div>
               <a
@@ -115,9 +117,10 @@ export default async function AgentsPage() {
                     📍 {agent.zone}
                   </p>
                   <div className="flex items-center justify-center gap-1 mt-2">
-                    {agent.languages.map((flag) => (
-                      <span key={flag} className="text-lg">{flag}</span>
-                    ))}
+                    {agent.languages.map((code) => {
+                      const Flag = FLAG_MAP[code];
+                      return Flag ? <Flag key={code} width={18} height={13} /> : null;
+                    })}
                   </div>
                 </div>
                 <Link
