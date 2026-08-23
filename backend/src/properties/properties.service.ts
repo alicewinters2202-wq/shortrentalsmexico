@@ -53,6 +53,7 @@ export class PropertiesService {
     'paseo de la marina 121',
     'san luis potosi 44',
     'tennyson 155',
+    'lamartine 136',
   ];
 
   private readonly NEVER_AVAILABLE: string[] = [];
