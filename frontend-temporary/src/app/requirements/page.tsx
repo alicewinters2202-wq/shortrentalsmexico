@@ -89,7 +89,7 @@ export default async function RequirementsPage() {
           <div className="text-center sm:text-left">
             <p className="font-serif font-medium text-sm" style={{ color: 'var(--ink)' }}>TemporaryRentalsMexico</p>
             <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-              © 2021–{new Date().getFullYear()} TemporaryRentalsMexico S.A. de C.V. · {t.footerTagline}
+              © 2023–{new Date().getFullYear()} TemporaryRentalsMexico S.A. de C.V. · {t.footerTagline}
             </p>
           </div>
           <div className="flex items-center gap-5 text-xs" style={{ color: 'var(--muted)' }}>
