@@ -54,6 +54,7 @@ export const SEED_REVIEWS: Record<string, SeedReview[]> = {
     { id: 273, name: 'Kevin H.', rating: 5, comment: 'The apartment was spotless when we arrived, clearly well maintained the whole stay.', createdAt: '2026-01-08T00:00:00.000Z' },
     { id: 274, name: 'Sofia D.', rating: 5, comment: 'La zona es muy segura y tranquila, se siente muy bien caminar de noche por ahi.', createdAt: '2025-11-27T00:00:00.000Z' },
     { id: 275, name: 'Brandon M.', rating: 5, comment: 'Any question we had was answered in minutes over WhatsApp, really responsive the whole time.', createdAt: '2025-04-30T00:00:00.000Z' },
+    { id: 293, name: 'Camila F.', rating: 5, comment: 'La velocidad del internet nos sorprendio, trabajamos ambos en llamadas todo el dia sin cortes.', createdAt: '2025-10-22T00:00:00.000Z' },
   ],
   'ciudad-de-mexico-sinaloa-47-1353754682': [
     { id: 21, name: 'Diego B.', rating: 4, comment: 'la comunicacion con el agente por WhatsApp fue rapida y muy amable en todo momento, sin duda volveriamos a reservar aqui', createdAt: '2024-01-12T00:00:00.000Z' },
