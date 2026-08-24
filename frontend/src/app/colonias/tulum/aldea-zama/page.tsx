@@ -4,7 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/tulum/aldea-zama' },
+  alternates: { canonical: 'https://shortstaymx.com/colonias/tulum/aldea-zama' },
   title: "Furnished rentals in Aldea Zama, Tulum | ShortStayMX",
   description: "Furnished apartments in Aldea Zama, Tulum. The most exclusive residential development in Tulum with biophilic architecture, luxury amenities and cenote access.",
 };

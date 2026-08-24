@@ -3,7 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/vivir-en-nuevo-vallarta' },
+  alternates: { canonical: 'https://shortstaymx.com/blog/vivir-en-nuevo-vallarta' },
   title: 'Vivir en Nuevo Vallarta: Guía para expatriados | ShortStayMX',
   description: 'Todo sobre vivir en Nuevo Vallarta y la Riviera Nayarit: Flamingos, Bucerías, Cruz de Huanacaxtle. Guía completa de zonas, costos y estilo de vida en el Pacífico.',
 };

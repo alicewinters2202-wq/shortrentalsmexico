@@ -4,7 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/nuevo-vallarta/flamingos' },
+  alternates: { canonical: 'https://shortstaymx.com/colonias/nuevo-vallarta/flamingos' },
   title: "Furnished rentals in Flamingos, Nuevo Vallarta | ShortStayMX",
   description: "Furnished apartments in Flamingos, Nuevo Vallarta. Beachfront living with Grand Marina, world-class golf course and luxury condominiums on the Mexican Pacific.",
 };

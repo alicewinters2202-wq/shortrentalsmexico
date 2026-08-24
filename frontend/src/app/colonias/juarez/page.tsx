@@ -4,7 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/juarez' },
+  alternates: { canonical: 'https://shortstaymx.com/colonias/juarez' },
   title: "Rentas amuebladas en Juarez, CDMX | ShortStayMX",
   description: "Departamentos amueblados en la colonia Juarez, Ciudad de México. Zona centrica en auge a pasos de Reforma, Chapultepec y la Zona Rosa.",
 };

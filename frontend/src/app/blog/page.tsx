@@ -3,7 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog' },
+  alternates: { canonical: 'https://shortstaymx.com/blog' },
   title: 'Blog | ShortStayMX — Guías para vivir en México',
   description: 'Guías, consejos y recursos para expatriados, nómadas digitales y viajeros que quieren vivir en México.',
 };

@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/polanco-guia-completa' },
   title: 'Polanco CDMX: Guía completa para vivir | TemporaryRentalsMexico',
   description: 'Todo sobre vivir en Polanco, Ciudad de México: restaurantes, museos, costos, seguridad y las mejores propiedades amuebladas en la zona más exclusiva de CDMX.',
 };

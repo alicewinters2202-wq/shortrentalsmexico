@@ -5,7 +5,7 @@ import { AGENTS } from '@/lib/agents';
 import { FLAG_MAP } from '@/components/Flags';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/agents' },
+  alternates: { canonical: 'https://shortstaymx.com/agents' },
 };
 
 

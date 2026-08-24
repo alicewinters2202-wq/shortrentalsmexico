@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/guia-expatriados-cdmx' },
   title: 'Guía completa para expatriados en Ciudad de México | TemporaryRentalsMexico',
   description: 'Todo lo que necesitas saber para mudarte a CDMX: mejores colonias, costos de vida, transporte, seguridad y consejos prácticos para expatriados.',
 };

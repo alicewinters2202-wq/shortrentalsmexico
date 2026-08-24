@@ -3,7 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/renta-temporal-vs-hotel' },
+  alternates: { canonical: 'https://shortstaymx.com/blog/renta-temporal-vs-hotel' },
   title: 'Renta temporal vs hotel en México: ¿Qué conviene más? | ShortStayMX',
   description: 'Analizamos las ventajas y desventajas de rentar un departamento amueblado versus quedarse en un hotel para estancias largas en México.',
 };

@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/san-miguel/villa-de-los-frailes' },
   title: "Furnished rentals in Villa de los Frailes, San Miguel de Allende | TemporaryRentalsMexico",
   description: "Furnished apartments in Villa de los Frailes and Arcos de San Miguel. Quiet residential area close to the historic center of San Miguel de Allende.",
 };

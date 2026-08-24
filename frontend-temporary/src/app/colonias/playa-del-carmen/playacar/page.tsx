@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/playa-del-carmen/playacar' },
   title: "Furnished rentals in Playacar, Playa del Carmen | TemporaryRentalsMexico",
   description: "Furnished apartments in Playacar, Playa del Carmen. Private gated community steps from Fifth Avenue and the Caribbean beach with golf course access.",
 };

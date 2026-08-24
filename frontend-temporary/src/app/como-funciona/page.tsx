@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/como-funciona' },
   title: 'Cómo funciona | TemporaryRentalsMexico',
   description: 'Aprende cómo rentar un departamento amueblado con TemporaryRentalsMexico en 5 simples pasos. Proceso claro, seguro y sin sorpresas.',
 };

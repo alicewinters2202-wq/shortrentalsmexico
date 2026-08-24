@@ -3,6 +3,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias' },
   title: "Rentas amuebladas por colonia en México | TemporaryRentalsMexico",
   description: "Encuentra departamentos amueblados en las mejores colonias de México: Polanco, Roma Norte, Condesa, Cancun, Tulum, Puerto Vallarta y más.",
 };

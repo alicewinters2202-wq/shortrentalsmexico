@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/tulum/la-veleta' },
   title: "Furnished rentals in La Veleta, Tulum | TemporaryRentalsMexico",
   description: "Furnished apartments in La Veleta, Tulum. Peaceful residential neighborhood with jungle atmosphere, modern properties and easy access to beaches and cenotes.",
 };

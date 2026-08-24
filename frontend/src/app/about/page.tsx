@@ -3,7 +3,7 @@ import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/about' },
+  alternates: { canonical: 'https://shortstaymx.com/about' },
 };
 
 

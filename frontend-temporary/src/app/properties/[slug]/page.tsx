@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { street, neighborhood } = parseAddress(property.address);
 
   return {
+    alternates: { canonical: `https://temporaryrentalsmexico.com/properties/${property.slug}` },
     title: `Renta amueblada en ${street}, ${property.city} | TemporaryRentalsMexico`,
     description: `${property.bedrooms} recámaras, ${property.bathrooms} baños, ${property.sqMeters}m² en ${neighborhood}, ${property.city}. Renta mensual desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN. Disponible en TemporaryRentalsMexico.`,
     openGraph: {

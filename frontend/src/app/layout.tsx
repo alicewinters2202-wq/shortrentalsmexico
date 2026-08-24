@@ -25,7 +25,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/' },
+  alternates: { canonical: 'https://shortstaymx.com/' },
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',

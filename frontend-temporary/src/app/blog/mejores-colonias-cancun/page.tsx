@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/mejores-colonias-cancun' },
   title: 'Mejores colonias de Cancún para vivir | TemporaryRentalsMexico',
   description: 'Guía completa de las mejores zonas de Cancún para expatriados y nómadas digitales: Zona Hotelera y Puerto Cancún con todo lo que necesitas saber.',
 };

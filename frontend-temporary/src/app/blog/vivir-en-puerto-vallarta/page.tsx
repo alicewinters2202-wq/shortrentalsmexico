@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/vivir-en-puerto-vallarta' },
   title: 'Vivir en Puerto Vallarta: Guía para expatriados | TemporaryRentalsMexico',
   description: 'Todo lo que necesitas saber sobre vivir en Puerto Vallarta: mejores zonas, costos, estilo de vida y consejos para expatriados en el Pacífico mexicano.',
 };

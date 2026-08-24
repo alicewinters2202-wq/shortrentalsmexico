@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/roma-norte-guia-completa' },
   title: 'Roma Norte CDMX: Guía completa para vivir | TemporaryRentalsMexico',
   description: 'Todo sobre vivir en Roma Norte, Ciudad de México: cafés, restaurantes, parques, costos y las mejores propiedades amuebladas en la colonia más vibrante de CDMX.',
 };

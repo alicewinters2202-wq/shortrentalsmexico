@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/merida-vs-cdmx' },
   title: 'Mérida vs Ciudad de México para expatriados: ¿Cuál elegir? | TemporaryRentalsMexico',
   description: 'Comparamos Mérida y Ciudad de México para expatriados: costos de vida, seguridad, clima, comunidad internacional y calidad de vida en ambas ciudades.',
 };

@@ -4,7 +4,7 @@ import { getT } from '@/lib/lang';
 import FaqAccordion from './FaqAccordion';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/faq' },
+  alternates: { canonical: 'https://shortstaymx.com/faq' },
 };
 
 

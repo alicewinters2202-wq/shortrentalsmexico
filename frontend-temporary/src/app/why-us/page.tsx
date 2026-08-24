@@ -5,6 +5,7 @@ import LangToggle from '@/components/layout/LangToggle';
 
 export async function generateMetadata() {
   return {
+    alternates: { canonical: 'https://temporaryrentalsmexico.com/why-us' },
     title: 'Por que elegirnos | TemporaryRentalsMexico',
     description: 'Conoce por que TemporaryRentalsMexico es la mejor opción para tu renta temporal en México. Mas de 4 años de experiencia, equipo de +40 personas y mejores precios que Airbnb.',
   };

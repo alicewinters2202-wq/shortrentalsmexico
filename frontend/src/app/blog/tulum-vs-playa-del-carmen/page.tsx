@@ -3,7 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/tulum-vs-playa-del-carmen' },
+  alternates: { canonical: 'https://shortstaymx.com/blog/tulum-vs-playa-del-carmen' },
   title: 'Tulum vs Playa del Carmen: ¿Dónde vivir? | ShortStayMX',
   description: 'Comparamos Tulum y Playa del Carmen para ayudarte a elegir el mejor destino para vivir en la Riviera Maya. Costos, estilo de vida, comunidad y más.',
 };

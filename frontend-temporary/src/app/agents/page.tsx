@@ -4,6 +4,10 @@ import { getT } from '@/lib/lang';
 import { AGENTS } from '@/lib/agents';
 import { FLAG_MAP } from '@/components/Flags';
 
+export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/agents' },
+};
+
 
 export default async function AgentsPage() {
   const { t, lang } = await getT();

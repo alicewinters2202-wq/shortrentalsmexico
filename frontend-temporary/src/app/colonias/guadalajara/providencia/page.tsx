@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/guadalajara/providencia' },
   title: "Furnished rentals in Providencia, Guadalajara | TemporaryRentalsMexico",
   description: "Furnished apartments in Providencia, Guadalajara. Quiet and elegant neighborhood with tree-lined streets, great restaurants and central location.",
 };

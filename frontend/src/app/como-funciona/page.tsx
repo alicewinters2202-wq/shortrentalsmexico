@@ -3,7 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/como-funciona' },
+  alternates: { canonical: 'https://shortstaymx.com/como-funciona' },
   title: 'Cómo funciona | ShortStayMX',
   description: 'Aprende cómo rentar un departamento amueblado con ShortStayMX en 5 simples pasos. Proceso claro, seguro y sin sorpresas.',
 };

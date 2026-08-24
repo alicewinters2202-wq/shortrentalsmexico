@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/puerto-vallarta/zona-hotelera' },
   title: "Furnished rentals in Zona Hotelera, Puerto Vallarta | TemporaryRentalsMexico",
   description: "Furnished apartments in Zona Hotelera, Puerto Vallarta. Beachfront living on Banderas Bay with panoramic ocean views and easy access to the city.",
 };

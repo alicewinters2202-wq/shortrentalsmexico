@@ -4,6 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/cancun/puerto-cancun' },
   title: "Furnished rentals in Puerto Cancun | TemporaryRentalsMexico",
   description: "Furnished apartments in Puerto Cancun. The most exclusive marina development in Cancun with world-class golf course, luxury towers and 24-hour security.",
 };

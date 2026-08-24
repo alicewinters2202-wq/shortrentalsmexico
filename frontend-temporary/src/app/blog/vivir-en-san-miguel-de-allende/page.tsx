@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/vivir-en-san-miguel-de-allende' },
   title: 'Vivir en San Miguel de Allende: Guía completa | TemporaryRentalsMexico',
   description: 'Todo sobre vivir en San Miguel de Allende: el paraíso colonial de México favorito de expatriados y jubilados internacionales. Guía completa de zonas, costos y estilo de vida.',
 };

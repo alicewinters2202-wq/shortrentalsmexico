@@ -4,7 +4,7 @@ import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/polanco' },
+  alternates: { canonical: 'https://shortstaymx.com/colonias/polanco' },
   title: "Rentas amuebladas en Polanco, CDMX | ShortStayMX",
   description: "Departamentos amueblados en Polanco, la zona más exclusiva de Ciudad de México. Cerca de Reforma, Chapultepec, el Museo Soumaya y los mejores restaurantes de America Latina.",
 };

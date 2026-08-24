@@ -3,7 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/mejores-zonas-tulum' },
+  alternates: { canonical: 'https://shortstaymx.com/blog/mejores-zonas-tulum' },
   title: 'Mejores zonas de Tulum para vivir | ShortStayMX',
   description: 'Guía completa de las mejores zonas de Tulum para expatriados y nómadas digitales: Aldea Zama, La Veleta y zona hotelera. Todo lo que necesitas saber para elegir.',
 };

@@ -17,6 +17,7 @@ const dmSans = Inter({
 });
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/' },
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',

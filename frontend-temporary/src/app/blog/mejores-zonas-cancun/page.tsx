@@ -3,6 +3,7 @@ import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
 export const metadata = {
+  alternates: { canonical: 'https://temporaryrentalsmexico.com/blog/mejores-zonas-cancun' },
   title: 'Mejores zonas para rentar en Cancún: Zona Hotelera vs Puerto Cancún | TemporaryRentalsMexico',
   description: 'Descubre las diferencias entre la Zona Hotelera y Puerto Cancún para encontrar la mejor opción para tu estancia en el Caribe mexicano.',
 };
