@@ -48,7 +48,7 @@ export default async function BlogPage() {
         </p>
         <h1 className="italic text-4xl sm:text-5xl mb-4" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>Blog</h1>
         <p className="text-base mb-16" style={{ color: 'var(--muted)' }}>
-          {es ? 'Guías, consejos y recursos para vivir y rentar en México.' : 'Guides, tips and resources for living and renting in México.'}
+          {es ? 'Guías, consejos y recursos para vivir y rentar en México.' : 'Guides, tips and resources for living and renting in Mexico.'}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {POSTS.map(post => (

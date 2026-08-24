@@ -24,23 +24,23 @@ export default async function NomadasDigitalesMexico() {
       <div className="max-w-3xl mx-auto px-6 py-16">
         <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>México</p>
         <h1 className="italic text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>
-          {es ? 'Las mejores ciudades de México para nómadas digitales' : 'The best cities in México for digital nomads'}
+          {es ? 'Las mejores ciudades de México para nómadas digitales' : 'The best cities in Mexico for digital nomads'}
         </h1>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'México se ha convertido en uno de los destinos más populares para nómadas digitales en el mundo. Clima agradable casi todo el año, costos de vida razonables, internet de alta velocidad disponible en la mayoría de las ciudades principales, cultura rica y diversa, y comunidades internacionales muy activas hacen de México el lugar perfecto para trabajar de forma remota.' : 'México has become one of the most popular destinations for digital nomads in the world. Pleasant weather almost year-round, reasonable cost of living, high-speed internet available in most major cities, rich and diverse culture, and very active international communities make México the perfect place to work remotely.'}
+            {es ? 'México se ha convertido en uno de los destinos más populares para nómadas digitales en el mundo. Clima agradable casi todo el año, costos de vida razonables, internet de alta velocidad disponible en la mayoría de las ciudades principales, cultura rica y diversa, y comunidades internacionales muy activas hacen de México el lugar perfecto para trabajar de forma remota.' : 'Mexico has become one of the most popular destinations for digital nomads in the world. Pleasant weather almost year-round, reasonable cost of living, high-speed internet available in most major cities, rich and diverse culture, and very active international communities make Mexico the perfect place to work remotely.'}
           </p>
 
-          <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Por qué México es perfecto para nómadas digitales' : 'Why México is perfect for digital nomads'}</h2>
+          <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Por qué México es perfecto para nómadas digitales' : 'Why Mexico is perfect for digital nomads'}</h2>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'México tiene varias ventajas competitivas como destino para trabajar remotamente. La zona horaria es compatible con la mayoría de las empresas estadounidenses y canadienses, lo que facilita las reuniones virtuales. El costo de vida permite ahorrar dinero significativo comparado con vivir en EE.UU. o Europa. Y la calidad de vida — con gastronomía increíble, cultura vibrante y naturaleza extraordinaria — es difícil de superar.' : 'México has several competitive advantages as a destination for remote work. The time zone is compatible with most American and Canadian companies, making virtual meetings easier. The cost of living allows significant savings compared to living in the US or Europe. And the quality of life — with incredible gastronomy, vibrant culture and extraordinary nature — is hard to beat.'}
+            {es ? 'México tiene varias ventajas competitivas como destino para trabajar remotamente. La zona horaria es compatible con la mayoría de las empresas estadounidenses y canadienses, lo que facilita las reuniones virtuales. El costo de vida permite ahorrar dinero significativo comparado con vivir en EE.UU. o Europa. Y la calidad de vida — con gastronomía increíble, cultura vibrante y naturaleza extraordinaria — es difícil de superar.' : 'Mexico has several competitive advantages as a destination for remote work. The time zone is compatible with most American and Canadian companies, making virtual meetings easier. The cost of living allows significant savings compared to living in the US or Europe. And the quality of life — with incredible gastronomy, vibrant culture and extraordinary nature — is hard to beat.'}
           </p>
 
           {[
             {
               city: 'Ciudad de México', emoji: '🌆', link: '/properties?city=Ciudad%20de%20M%C3%A9xico',
               es_desc: 'La capital es la opción número uno para nómadas digitales en México. Tiene la mejor infraestructura tecnológica del país, la mayor cantidad de espacios de coworking, la más amplia variedad de restaurantes y cafés con WiFi rápido, y una comunidad internacional enorme y muy activa. Roma Norte y Condesa son los barrios favoritos, con decenas de cafés de especialidad con excelente conexión a internet.',
-              en_desc: 'The capital is the number one option for digital nomads in México. It has the best technological infrastructure in the country, the largest number of coworking spaces, the widest variety of restaurants and cafes with fast WiFi, and a huge and very active international community. Roma Norte and Condesa are the favorite neighborhoods, with dozens of specialty cafes with excellent internet connection.',
+              en_desc: 'The capital is the number one option for digital nomads in Mexico. It has the best technological infrastructure in the country, the largest number of coworking spaces, the widest variety of restaurants and cafes with fast WiFi, and a huge and very active international community. Roma Norte and Condesa are the favorite neighborhoods, with dozens of specialty cafes with excellent internet connection.',
             },
             {
               city: 'Tulum', emoji: '🌿', link: '/properties?city=Tulum',
@@ -55,7 +55,7 @@ export default async function NomadasDigitalesMexico() {
             {
               city: 'Guadalajara', emoji: '🌺', link: '/properties?city=Guadalajara',
               es_desc: 'Guadalajara es el Silicon Valley de México y una ciudad en pleno auge tecnológico. Con una comunidad tech muy activa, numerosos espacios de coworking, excelente infraestructura y la mejor escena cultural del occidente del país, es una opción cada vez más popular para nómadas digitales que buscan algo diferente a CDMX.',
-              en_desc: 'Guadalajara is the Silicon Valley of México and a city in full technological boom. With a very active tech community, numerous coworking spaces, excellent infrastructure and the best cultural scene in western México, it is an increasingly popular option for digital nomads looking for something different from CDMX.',
+              en_desc: 'Guadalajara is the Silicon Valley of Mexico and a city in full technological boom. With a very active tech community, numerous coworking spaces, excellent infrastructure and the best cultural scene in western Mexico, it is an increasingly popular option for digital nomads looking for something different from CDMX.',
             },
           ].map(item => (
             <div key={item.city} className="rounded-2xl p-6 my-6" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
@@ -68,13 +68,13 @@ export default async function NomadasDigitalesMexico() {
             </div>
           ))}
 
-          <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Consejos para nómadas digitales en México' : 'Tips for digital nomads in México'}</h2>
+          <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Consejos para nómadas digitales en México' : 'Tips for digital nomads in Mexico'}</h2>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Antes de mudarte a México como nómada digital, ten en cuenta estos consejos. Primero, verifica siempre la velocidad de internet antes de confirmar un departamento. La mayoría de los propietarios en ShortStayMX especifican la velocidad de WiFi. Segundo, considera usar un hotspot móvil como respaldo, especialmente en Tulum donde la conexión puede ser irregular.' : 'Before moving to México as a digital nomad, keep these tips in mind. First, always verify internet speed before confirming an apartment. Most landlords on ShortStayMX specify WiFi speed. Second, consider using a mobile hotspot as backup, especially in Tulum where the connection can be irregular.'}
+            {es ? 'Antes de mudarte a México como nómada digital, ten en cuenta estos consejos. Primero, verifica siempre la velocidad de internet antes de confirmar un departamento. La mayoría de los propietarios en ShortStayMX especifican la velocidad de WiFi. Segundo, considera usar un hotspot móvil como respaldo, especialmente en Tulum donde la conexión puede ser irregular.' : 'Before moving to Mexico as a digital nomad, keep these tips in mind. First, always verify internet speed before confirming an apartment. Most landlords on ShortStayMX specify WiFi speed. Second, consider using a mobile hotspot as backup, especially in Tulum where the connection can be irregular.'}
           </p>
 
           <div className="rounded-2xl p-8 mt-12 text-center" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
-            <p className="font-serif text-2xl mb-3" style={{ color: 'var(--ink)' }}>{es ? 'Encuentra tu base en México' : 'Find your base in México'}</p>
+            <p className="font-serif text-2xl mb-3" style={{ color: 'var(--ink)' }}>{es ? 'Encuentra tu base en México' : 'Find your base in Mexico'}</p>
             <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>{es ? 'Departamentos amueblados con WiFi rápido verificado en las mejores ciudades.' : 'Furnished apartments with verified fast WiFi in the best cities.'}</p>
             <Link href="/properties" className="inline-block px-8 py-3 rounded-full text-sm font-medium text-white" style={{ backgroundColor: 'var(--gold)' }}>
               {es ? 'Ver propiedades' : 'View properties'}

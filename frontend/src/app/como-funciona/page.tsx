@@ -110,7 +110,7 @@ export default async function HowItWorksPage() {
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
             {es
               ? 'Rentar con ShortStayMX es simple, seguro y sin sorpresas. En 5 pasos tienes tu departamento amueblado listo en cualquier ciudad de México.'
-              : 'Renting with ShortStayMX is simple, safe and no surprises. In 5 steps you have your furnished apartment ready in any city in México.'}
+              : 'Renting with ShortStayMX is simple, safe and no surprises. In 5 steps you have your furnished apartment ready in any city in Mexico.'}
           </p>
         </div>
 
