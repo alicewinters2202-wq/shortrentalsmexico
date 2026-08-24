@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "url": "https://temporaryrentalsmexico.com",
               "logo": "https://temporaryrentalsmexico.com/logo.png",
               "description": "Rentas temporales amuebladas en Mexico. Departamentos y casas para estancias de corto y mediano plazo en Ciudad de Mexico, Guadalajara, Monterrey, Cancún, Tulum y más.",
-              "foundingDate": "2021",
+              "foundingDate": "2023",
               "numberOfEmployees": { "@type": "QuantitativeValue", "value": 40 },
               "areaServed": "Mexico",
               "telephone": "+52-56-4323-2610",

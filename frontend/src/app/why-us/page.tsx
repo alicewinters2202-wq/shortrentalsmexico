@@ -7,7 +7,7 @@ export async function generateMetadata() {
   return {
     alternates: { canonical: 'https://shortstaymx.com/why-us' },
     title: 'Por que elegirnos | ShortStayMX',
-    description: 'Conoce por que ShortStayMX es la mejor opción para tu renta temporal en México. Mas de 4 años de experiencia, equipo de +40 personas y mejores precios que Airbnb.',
+    description: 'Conoce por que ShortStayMX es la mejor opción para tu renta temporal en México. Mas de 3 años de experiencia, equipo de +40 personas y mejores precios que Airbnb.',
   };
 }
 

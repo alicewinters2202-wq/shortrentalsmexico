@@ -6,10 +6,10 @@ export default function WhyUs({ lang }: Props) {
   const reasons = [
     {
       icon: '📅',
-      title: es ? 'Desde 2021' : 'Since 2021',
+      title: es ? 'Desde 2023' : 'Since 2023',
       desc: es
-        ? 'Mas de 4 años conectando a inquilinos con las mejores propiedades amuebladas en México. Conocemos el mercado como nadie.'
-        : 'Over 4 years connecting tenants with the best furnished properties in Mexico. We know the market like no one else.',
+        ? 'Mas de 3 años conectando a inquilinos con las mejores propiedades amuebladas en México. Conocemos el mercado como nadie.'
+        : 'Over 3 years connecting tenants with the best furnished properties in Mexico. We know the market like no one else.',
     },
     {
       icon: '💰',
