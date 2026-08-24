@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -39,7 +39,7 @@ export default async function FlamingosPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Nuevo Vallarta</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Flamingos</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Flamingos es la zona mas exclusiva de Nuevo Vallarta y una de las mas premium de toda la Riviera Nayarit. Con condominios de lujo frente al Oceano Pacifico, la Grand Marina con acceso directo al agua para yates, el campo de golf Flamingos de clase mundial y resorts de cinco estrellas, es el destino preferido por quienes buscan lo mejor del Pacifico mexicano." : "Flamingos is the most exclusive area of Nuevo Vallarta and one of the most premium on the entire Riviera Nayarit. With luxury condominiums facing the Pacific Ocean, the Grand Marina with direct water access for yachts, the world-class Flamingos golf course and five-star resorts, it is the preferred destination for those seeking the best of the Mexican Pacific."}
+            {es ? "Flamingos es la zona más exclusiva de Nuevo Vallarta y una de las más premium de toda la Riviera Nayarit. Con condominios de lujo frente al Oceano Pacifico, la Grand Marina con acceso directo al agua para yates, el campo de golf Flamingos de clase mundial y resorts de cinco estrellas, es el destino preferido por quienes buscan lo mejor del Pacifico mexicano." : "Flamingos is the most exclusive area of Nuevo Vallarta and one of the most premium on the entire Riviera Nayarit. With luxury condominiums facing the Pacific Ocean, the Grand Marina with direct water access for yachts, the world-class Flamingos golf course and five-star resorts, it is the preferred destination for those seeking the best of the Mexican Pacific."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Sus torres residenciales ofrecen vistas panoramicas al Oceano Pacifico con albercas infinitas, gimnasios equipados, roof gardens y acceso directo a la playa. A solo 20 minutos del aeropuerto internacional de Puerto Vallarta, Flamingos combina la exclusividad de un resort de lujo con la comodidad de tener todo en tu zona." : "Its residential towers offer panoramic views of the Pacific Ocean with infinity pools, equipped gyms, roof gardens and direct beach access. Just 20 minutes from Puerto Vallarta international airport, Flamingos combines the exclusivity of a luxury resort with the convenience of having everything in your area."}
@@ -92,7 +92,7 @@ export default async function FlamingosPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Nuevo Vallarta?" : "Want to know more about living in Nuevo Vallarta?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Nuevo Vallarta?" : "Want to know more about living in Nuevo Vallarta?"}</p>
           <Link href="/blog/vivir-en-nuevo-vallarta" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Nuevo Vallarta →" : "Read our complete guide to Nuevo Vallarta →"}
           </Link>

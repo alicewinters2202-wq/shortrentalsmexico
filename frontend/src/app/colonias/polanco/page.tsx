@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -6,7 +6,7 @@ import LangToggle from "@/components/layout/LangToggle";
 export const metadata = {
   alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/polanco' },
   title: "Rentas amuebladas en Polanco, CDMX | ShortStayMX",
-  description: "Departamentos amueblados en Polanco, la zona mas exclusiva de Ciudad de Mexico. Cerca de Reforma, Chapultepec, el Museo Soumaya y los mejores restaurantes de America Latina.",
+  description: "Departamentos amueblados en Polanco, la zona más exclusiva de Ciudad de México. Cerca de Reforma, Chapultepec, el Museo Soumaya y los mejores restaurantes de America Latina.",
 };
 
 export default async function PolancoPage() {
@@ -39,16 +39,16 @@ export default async function PolancoPage() {
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de México" : "Mexico City"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Polanco</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Polanco es la colonia mas exclusiva de la Ciudad de Mexico. Ubicada en la delegacion Miguel Hidalgo, es hogar de embajadas de decenas de paises, hoteles de cinco estrellas como el Four Seasons y el Presidente InterContinental, boutiques internacionales de las marcas mas importantes del mundo, y algunos de los mejores restaurantes de America Latina. Sus calles llevan nombres de filosofos y cientificos — Homero, Aristoteles, Goldsmith, Arquimedes — creando un ambiente sofisticado y cosmopolita unico en Mexico." : "Polanco is the most exclusive neighborhood in Mexico City. Located in the Miguel Hidalgo borough, it is home to embassies from dozens of countries, five-star hotels like the Four Seasons and Presidente InterContinental, international boutiques from the world's most important brands, and some of the best restaurants in Latin America. Its streets bear the names of philosophers and scientists — Homer, Aristotle, Goldsmith, Archimedes — creating a sophisticated and cosmopolitan atmosphere unique in Mexico."}
+            {es ? "Polanco es la colonia más exclusiva de la Ciudad de México. Ubicada en la delegacion Miguel Hidalgo, es hogar de embajadas de decenas de paises, hoteles de cinco estrellas como el Four Seasons y el Presidente InterContinental, boutiques internacionales de las marcas más importantes del mundo, y algunos de los mejores restaurantes de America Latina. Sus calles llevan nombres de filosofos y cientificos — Homero, Aristoteles, Goldsmith, Arquimedes — creando un ambiente sofisticado y cosmopolita único en México." : "Polanco is the most exclusive neighborhood in Mexico City. Located in the Miguel Hidalgo borough, it is home to embassies from dozens of countries, five-star hotels like the Four Seasons and Presidente InterContinental, international boutiques from the world's most important brands, and some of the best restaurants in Latin America. Its streets bear the names of philosophers and scientists — Homer, Aristotle, Goldsmith, Archimedes — creating a sophisticated and cosmopolitan atmosphere unique in Mexico."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Avenida Presidente Masaryk es el epicentro del lujo en Polanco. Conocida como el Rodeo Drive mexicano, concentra boutiques como Louis Vuitton, Hermes, Cartier y Tiffany, ademas de restaurantes internacionalmente reconocidos como Pujol y Quintonil. El Bosque de Chapultepec, el parque urbano mas grande de CDMX con mas de 680 hectareas, esta a minutos caminando. El Museo Soumaya y el Museo Jumex, dos de los mejores museos de arte contemporaneo del pais, estan en el corazon de la colonia." : "Avenida Presidente Masaryk is the epicenter of luxury in Polanco. Known as the Mexican Rodeo Drive, it concentrates boutiques like Louis Vuitton, Hermes, Cartier and Tiffany, as well as internationally recognized restaurants like Pujol and Quintonil. Chapultepec Forest, the largest urban park in CDMX with more than 680 hectares, is minutes away on foot. The Soumaya Museum and Jumex Museum, two of the best contemporary art museums in the country, are in the heart of the neighborhood."}
+            {es ? "La Avenida Presidente Masaryk es el epicentro del lujo en Polanco. Conocida como el Rodeo Drive mexicano, concentra boutiques como Louis Vuitton, Hermes, Cartier y Tiffany, además de restaurantes internacionalmente reconocidos como Pujol y Quintonil. El Bosque de Chapultepec, el parque urbano más grande de CDMX con más de 680 hectáreas, está a minutos caminando. El Museo Soumaya y el Museo Jumex, dos de los mejores museos de arte contemporaneo del pais, estan en el corazon de la colonia." : "Avenida Presidente Masaryk is the epicenter of luxury in Polanco. Known as the Mexican Rodeo Drive, it concentrates boutiques like Louis Vuitton, Hermes, Cartier and Tiffany, as well as internationally recognized restaurants like Pujol and Quintonil. Chapultepec Forest, the largest urban park in CDMX with more than 680 hectares, is minutes away on foot. The Soumaya Museum and Jumex Museum, two of the best contemporary art museums in the country, are in the heart of the neighborhood."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "En terminos de seguridad, Polanco es consistentemente una de las colonias mas seguras de la capital. La mayoria de los edificios residenciales cuentan con portero 24 horas, acceso con tarjeta y circuito cerrado de television. La zona tiene camara de vigilancia en cada esquina y presencia policial visible permanente." : "In terms of security, Polanco is consistently one of the safest neighborhoods in the capital. Most residential buildings have a 24-hour doorman, card access and closed-circuit television. The area has surveillance cameras on every corner and permanent visible police presence."}
+            {es ? "En terminos de seguridad, Polanco es consistentemente una de las colonias más seguras de la capital. La mayoria de los edificios residenciales cuentan con portero 24 horas, acceso con tarjeta y circuito cerrado de television. La zona tiene camara de vigilancia en cada esquina y presencia policial visible permanente." : "In terms of security, Polanco is consistently one of the safest neighborhoods in the capital. Most residential buildings have a 24-hour doorman, card access and closed-circuit television. The area has surveillance cameras on every corner and permanent visible police presence."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
@@ -57,9 +57,9 @@ export default async function PolancoPage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🏛️", title_es: "Zona mas exclusiva", title_en: "Most exclusive area", desc_es: "Embajadas, hoteles 5 estrellas, boutiques internacionales y restaurantes de clase mundial en pocas cuadras", desc_en: "Embassies, 5-star hotels, international boutiques and world-class restaurants within a few blocks" },
-            { icon: "🌳", title_es: "Chapultepec a pasos", title_en: "Steps from Chapultepec", desc_es: "El bosque urbano mas grande de CDMX con museos, lagos y areas deportivas a minutos caminando", desc_en: "The largest urban forest in CDMX with museums, lakes and sports areas just minutes away on foot" },
-            { icon: "🔒", title_es: "Alta seguridad", title_en: "High security", desc_es: "Una de las zonas mas seguras y vigiladas de la capital con presencia policial y seguridad privada permanente", desc_en: "One of the safest and most monitored areas in the capital with permanent police and private security presence" },
+            { icon: "🏛️", title_es: "Zona más exclusiva", title_en: "Most exclusive area", desc_es: "Embajadas, hoteles 5 estrellas, boutiques internacionales y restaurantes de clase mundial en pocas cuadras", desc_en: "Embassies, 5-star hotels, international boutiques and world-class restaurants within a few blocks" },
+            { icon: "🌳", title_es: "Chapultepec a pasos", title_en: "Steps from Chapultepec", desc_es: "El bosque urbano más grande de CDMX con museos, lagos y areas deportivas a minutos caminando", desc_en: "The largest urban forest in CDMX with museums, lakes and sports areas just minutes away on foot" },
+            { icon: "🔒", title_es: "Alta seguridad", title_en: "High security", desc_es: "Una de las zonas más seguras y vigiladas de la capital con presencia policial y seguridad privada permanente", desc_en: "One of the safest and most monitored areas in the capital with permanent police and private security presence" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -98,7 +98,7 @@ export default async function PolancoPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Polanco?" : "Want to know more about living in Polanco?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Polanco?" : "Want to know more about living in Polanco?"}</p>
           <Link href="/blog/polanco-guia-completa" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Polanco →" : "Read our complete guide to Polanco →"}
           </Link>

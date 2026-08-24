@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   title: 'ShortStayMX — Rentas temporales amuebladas en México',
   description: 'Casas y departamentos amueblados para renta temporal en Ciudad de México, Guadalajara, Monterrey, Cancún, Mérida y más. Estancias desde 10 días hasta varios meses.',
-  keywords: 'renta temporal amueblada México, apartamento amueblado CDMX, short term rental Mexico, renta por mes Guadalajara, departamento amueblado Monterrey, furnished apartment Mexico City',
+  keywords: 'renta temporal amueblada México, apartamento amueblado CDMX, short term rental México, renta por mes Guadalajara, departamento amueblado Monterrey, furnished apartment México City',
   verification: {
     google: 'JnnIwW92LhU3lWITqLKo880L30T9mZ6-07cI1c2N6Tk',
   },
@@ -75,10 +75,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "name": "ShortStayMX",
               "url": "https://shortstaymx.com",
               "logo": "https://shortstaymx.com/logo.png",
-              "description": "Rentas temporales amuebladas en México. Departamentos y casas para estancias de corto y mediano plazo en Ciudad de México, Guadalajara, Monterrey, Cancún, Tulum y más.",
+              "description": "Rentas temporales amuebladas en Mexico. Departamentos y casas para estancias de corto y mediano plazo en Ciudad de Mexico, Guadalajara, Monterrey, Cancún, Tulum y más.",
               "foundingDate": "2021",
               "numberOfEmployees": { "@type": "QuantitativeValue", "value": 40 },
-              "areaServed": "México",
+              "areaServed": "Mexico",
               "telephone": "+52-56-4323-2610",
               "sameAs": ["https://shortstaymx.com"],
               "address": {

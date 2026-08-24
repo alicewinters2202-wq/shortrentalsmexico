@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -37,7 +37,7 @@ export default async function VillaFrailesPage() {
             {es ? "Villa de los Frailes es una zona residencial tranquila y exclusiva de San Miguel de Allende, ubicada a pocos minutos del Centro Historico. Con calles tranquilas, casas coloniales y modernas restauradas con jardin y alberca, y un ambiente relajado y muy seguro, es perfecta para quienes quieren la tranquilidad de un barrio residencial sin alejarse de la vibrante vida cultural de San Miguel." : "Villa de los Frailes is a quiet and exclusive residential area of San Miguel de Allende, located just minutes from the Historic Center. With peaceful streets, restored colonial and modern homes with garden and pool, and a relaxed and very safe atmosphere, it is perfect for those who want the tranquility of a residential neighborhood without being far from San Miguel's vibrant cultural life."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Las propiedades en Villa de los Frailes y Arcos de San Miguel suelen ser mas espaciosas que las del Centro Historico, con jardines privados, terrazas y albercas. Muchas tienen vistas panoramicas a la ciudad y los cerros circundantes. Es la zona preferida por familias y jubilados que buscan espacio, privacidad y tranquilidad." : "Properties in Villa de los Frailes and Arcos de San Miguel are typically more spacious than those in the Historic Center, with private gardens, terraces and pools. Many have panoramic views of the city and the surrounding hills. It is the preferred area for families and retirees seeking space, privacy and tranquility."}
+            {es ? "Las propiedades en Villa de los Frailes y Arcos de San Miguel suelen ser más espaciosas que las del Centro Historico, con jardines privados, terrazas y albercas. Muchas tienen vistas panoramicas a la ciudad y los cerros circundantes. Es la zona preferida por familias y jubilados que buscan espacio, privacidad y tranquilidad." : "Properties in Villa de los Frailes and Arcos de San Miguel are typically more spacious than those in the Historic Center, with private gardens, terraces and pools. Many have panoramic views of the city and the surrounding hills. It is the preferred area for families and retirees seeking space, privacy and tranquility."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}

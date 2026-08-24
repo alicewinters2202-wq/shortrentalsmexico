@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -38,7 +38,7 @@ export default async function ZonaHoteleraPVPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Puerto Vallarta</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Zona Hotelera</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Zona Hotelera de Puerto Vallarta se extiende a lo largo del Boulevard Francisco Medina Ascencio, el corredor turistico mas importante de la ciudad. Con hoteles de lujo internacionales, restaurantes de primera, acceso directo a las playas de la Bahia de Banderas y vistas panoramicas al Oceano Pacifico y la Sierra Madre, es el corazon turistico y cosmopolita de Puerto Vallarta." : "Puerto Vallarta's Hotel Zone extends along Boulevard Francisco Medina Ascencio, the city's most important tourist corridor. With international luxury hotels, first-class restaurants, direct access to Banderas Bay beaches and panoramic views of the Pacific Ocean and the Sierra Madre, it is the tourist and cosmopolitan heart of Puerto Vallarta."}
+            {es ? "La Zona Hotelera de Puerto Vallarta se extiende a lo largo del Boulevard Francisco Medina Ascencio, el corredor turistico más importante de la ciudad. Con hoteles de lujo internacionales, restaurantes de primera, acceso directo a las playas de la Bahia de Banderas y vistas panoramicas al Oceano Pacifico y la Sierra Madre, es el corazon turistico y cosmopolita de Puerto Vallarta." : "Puerto Vallarta's Hotel Zone extends along Boulevard Francisco Medina Ascencio, the city's most important tourist corridor. With international luxury hotels, first-class restaurants, direct access to Banderas Bay beaches and panoramic views of the Pacific Ocean and the Sierra Madre, it is the tourist and cosmopolitan heart of Puerto Vallarta."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Sus condominios y departamentos residenciales ofrecen vistas al mar desde balcones y terrazas amplias, con acceso a las mejores playas de la bahia y a minutos del centro historico, el Malecon y la Zona Romantica. Es perfecta para quienes priorizan la playa, las vistas al mar y tener todo a la mano." : "Its residential condominiums and apartments offer sea views from wide balconies and terraces, with access to the best beaches in the bay and minutes from the historic center, the Malecón and the Romantic Zone. It is perfect for those who prioritize the beach, sea views and having everything within reach."}

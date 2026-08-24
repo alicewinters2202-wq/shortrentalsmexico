@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
@@ -22,18 +22,18 @@ export default async function GuiaExpatriadosCDMX() {
         </div>
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16">
-        <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>{es ? 'Ciudad de México' : 'Mexico City'}</p>
+        <p className="text-xs tracking-widest uppercase font-medium mb-4" style={{ color: 'var(--gold)' }}>{es ? 'Ciudad de México' : 'México City'}</p>
         <h1 className="italic text-4xl sm:text-5xl mb-6 leading-tight" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>
-          {es ? 'Guía completa para expatriados en Ciudad de México' : 'Complete guide for expats in Mexico City'}
+          {es ? 'Guía completa para expatriados en Ciudad de México' : 'Complete guide for expats in México City'}
         </h1>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Ciudad de México se ha convertido en uno de los destinos más populares para expatriados en el mundo. Con una oferta cultural inigualable, gastronomía de clase mundial, costos de vida razonables y una comunidad internacional muy activa, CDMX tiene todo para enamorarte. Esta guía te dice todo lo que necesitas saber para mudarte.' : 'Mexico City has become one of the most popular destinations for expats in the world. With an unmatched cultural offering, world-class gastronomy, reasonable cost of living and a very active international community, CDMX has everything to fall in love with. This guide tells you everything you need to know to move there.'}
+            {es ? 'Ciudad de México se ha convertido en uno de los destinos más populares para expatriados en el mundo. Con una oferta cultural inigualable, gastronomía de clase mundial, costos de vida razonables y una comunidad internacional muy activa, CDMX tiene todo para enamorarte. Esta guía te dice todo lo que necesitas saber para mudarte.' : 'México City has become one of the most popular destinations for expats in the world. With an unmatched cultural offering, world-class gastronomy, reasonable cost of living and a very active international community, CDMX has everything to fall in love with. This guide tells you everything you need to know to move there.'}
           </p>
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Por qué los expatriados eligen CDMX' : 'Why expats choose CDMX'}</h2>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Ciudad de México ofrece una combinación única de factores que la hacen irresistible para expatriados. El costo de vida es significativamente más bajo que en ciudades comparables de Estados Unidos o Europa. Un departamento amueblado de lujo en Polanco cuesta lo mismo que un estudio modesto en Nueva York o Londres.' : 'Mexico City offers a unique combination of factors that make it irresistible for expats. The cost of living is significantly lower than in comparable cities in the United States or Europe. A luxury furnished apartment in Polanco costs the same as a modest studio in New York or London.'}
+            {es ? 'Ciudad de México ofrece una combinación única de factores que la hacen irresistible para expatriados. El costo de vida es significativamente más bajo que en ciudades comparables de Estados Unidos o Europa. Un departamento amueblado de lujo en Polanco cuesta lo mismo que un estudio modesto en Nueva York o Londres.' : 'México City offers a unique combination of factors that make it irresistible for expats. The cost of living is significantly lower than in comparable cities in the United States or Europe. A luxury furnished apartment in Polanco costs the same as a modest studio in New York or London.'}
           </p>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
             {es ? 'La oferta cultural es extraordinaria. CDMX tiene más de 150 museos, una escena gastronómica que rivaliza con París y Tokio, una vida nocturna vibrante y una comunidad creativa e intelectual muy activa. Es una ciudad que nunca deja de sorprender.' : 'The cultural offering is extraordinary. CDMX has more than 150 museums, a gastronomic scene that rivals Paris and Tokyo, vibrant nightlife and a very active creative and intellectual community. It is a city that never stops surprising.'}
@@ -46,7 +46,7 @@ export default async function GuiaExpatriadosCDMX() {
           {[
             { name: 'Polanco', emoji: '🏛️', es_desc: 'La más exclusiva. Ideal para ejecutivos, diplomáticos y familias que priorizan seguridad y comodidad. Precios más altos pero calidad incomparable.', en_desc: 'The most exclusive. Ideal for executives, diplomats and families who prioritize security and comfort. Higher prices but incomparable quality.' },
             { name: 'Roma Norte', emoji: '☕', es_desc: 'La más vibrante. Perfecta para nómadas digitales, creativos y jóvenes profesionales. Mejor escena de cafés y restaurantes de la ciudad.', en_desc: 'The most vibrant. Perfect for digital nomads, creatives and young professionals. Best cafe and restaurant scene in the city.' },
-            { name: 'Condesa', emoji: '🌳', es_desc: 'La más tranquila de las tres. Arquitectura art déco, Parque México y vida de barrio. Ideal para parejas y familias pequeñas.', en_desc: 'The most peaceful of the three. Art deco architecture, Parque Mexico and neighborhood life. Ideal for couples and small families.' },
+            { name: 'Condesa', emoji: '🌳', es_desc: 'La más tranquila de las tres. Arquitectura art déco, Parque México y vida de barrio. Ideal para parejas y familias pequeñas.', en_desc: 'The most peaceful of the three. Art deco architecture, Parque México and neighborhood life. Ideal for couples and small families.' },
             { name: 'Juárez', emoji: '🏙️', es_desc: 'La más accesible cerca de Reforma. En pleno auge con nuevos desarrollos. Perfecta para quienes buscan centralidad a menor precio.', en_desc: 'The most accessible near Reforma. In full boom with new developments. Perfect for those seeking centrality at a lower price.' },
           ].map(item => (
             <div key={item.name} className="rounded-2xl p-5 my-3" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
@@ -92,7 +92,7 @@ export default async function GuiaExpatriadosCDMX() {
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Visa y aspectos legales' : 'Visa and legal aspects'}</h2>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Los ciudadanos de la mayoría de los países pueden entrar a México sin visa por hasta 180 días como turistas. Para estancias más largas, existen varias opciones: la visa de residencia temporal (ideal para nómadas digitales con ingresos del extranjero) y la visa de residencia permanente para quienes planean quedarse indefinidamente.' : 'Citizens of most countries can enter Mexico without a visa for up to 180 days as tourists. For longer stays, there are several options: the temporary residency visa (ideal for digital nomads with foreign income) and the permanent residency visa for those planning to stay indefinitely.'}
+            {es ? 'Los ciudadanos de la mayoría de los países pueden entrar a México sin visa por hasta 180 días como turistas. Para estancias más largas, existen varias opciones: la visa de residencia temporal (ideal para nómadas digitales con ingresos del extranjero) y la visa de residencia permanente para quienes planean quedarse indefinidamente.' : 'Citizens of most countries can enter México without a visa for up to 180 days as tourists. For longer stays, there are several options: the temporary residency visa (ideal for digital nomads with foreign income) and the permanent residency visa for those planning to stay indefinitely.'}
           </p>
 
           <div className="rounded-2xl p-8 mt-12 text-center" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>

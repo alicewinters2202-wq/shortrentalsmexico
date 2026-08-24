@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -34,20 +34,20 @@ export default async function AltabrisaPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Mérida" : "Merida"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Altabrisa</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Altabrisa es la zona residencial moderna mas completa y consolidada de Merida. Con el centro comercial Plaza Altabrisa — el mas grande y completo de Yucatan —, hospitales privados de primer nivel como el Centro Medico de las Americas, colegios internacionales bilingues, amplias avenidas y excelente infraestructura vial, es la opcion preferida por familias y profesionales que buscan todas las comodidades modernas." : "Altabrisa is the most complete and established modern residential area in Merida. With the Plaza Altabrisa shopping center — the largest and most complete in Yucatan —, top-tier private hospitals like the Centro Medico de las Americas, bilingual international schools, wide avenues and excellent road infrastructure, it is the preferred option for families and professionals seeking all modern amenities."}
+            {es ? "Altabrisa es la zona residencial moderna más completa y consolidada de Merida. Con el centro comercial Plaza Altabrisa — el más grande y completo de Yucatan —, hospitales privados de primer nivel como el Centro Médico de las Americas, colegios internacionales bilingues, amplias avenidas y excelente infraestructura vial, es la opción preferida por familias y profesionales que buscan todas las comodidades modernas." : "Altabrisa is the most complete and established modern residential area in Merida. With the Plaza Altabrisa shopping center — the largest and most complete in Yucatan —, top-tier private hospitals like the Centro Médico de las Americas, bilingual international schools, wide avenues and excellent road infrastructure, it is the preferred option for families and professionals seeking all modern amenities."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La zona cuenta con una amplia oferta de restaurantes de todas las cocinas del mundo, cafes, supermercados de calidad y todos los servicios necesarios para vivir comodamente. Es la zona de Merida mas parecida a las grandes ciudades mexicanas como Guadalajara o Monterrey en terminos de infraestructura y modernidad." : "The area has a wide range of restaurants from all world cuisines, cafes, quality supermarkets and all the services needed to live comfortably. It is the area of Merida most similar to Mexico's major cities like Guadalajara or Monterrey in terms of infrastructure and modernity."}
+            {es ? "La zona cuenta con una amplia oferta de restaurantes de todas las cocinas del mundo, cafes, supermercados de calidad y todos los servicios necesarios para vivir comodamente. Es la zona de Merida más parecida a las grandes ciudades mexicanas como Guadalajara o Monterrey en terminos de infraestructura y modernidad." : "The area has a wide range of restaurants from all world cuisines, cafes, quality supermarkets and all the services needed to live comfortably. It is the area of Merida most similar to Mexico's major cities like Guadalajara or Monterrey in terms of infrastructure and modernity."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Familias, ejecutivos y expatriados que buscan modernidad, seguridad y todos los servicios en la zona mas completa de Merida." : "Families, executives and expats seeking modernity, security and all services in the most complete area of Merida."}
+            {es ? "Familias, ejecutivos y expatriados que buscan modernidad, seguridad y todos los servicios en la zona más completa de Merida." : "Families, executives and expats seeking modernity, security and all services in the most complete area of Merida."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🏬", title_es: "Plaza Altabrisa", title_en: "Plaza Altabrisa", desc_es: "El centro comercial mas grande de Yucatan con tiendas internacionales, restaurantes y cine", desc_en: "The largest shopping center in Yucatan with international stores, restaurants and cinema" },
-            { icon: "🏥", title_es: "Servicios de salud", title_en: "Healthcare services", desc_es: "Hospitales privados de primer nivel como el Centro Medico de las Americas a pocos minutos", desc_en: "Top-tier private hospitals like the Centro Medico de las Americas just minutes away" },
+            { icon: "🏬", title_es: "Plaza Altabrisa", title_en: "Plaza Altabrisa", desc_es: "El centro comercial más grande de Yucatan con tiendas internacionales, restaurantes y cine", desc_en: "The largest shopping center in Yucatan with international stores, restaurants and cinema" },
+            { icon: "🏥", title_es: "Servicios de salud", title_en: "Healthcare services", desc_es: "Hospitales privados de primer nivel como el Centro Médico de las Americas a pocos minutos", desc_en: "Top-tier private hospitals like the Centro Médico de las Americas just minutes away" },
             { icon: "🏘️", title_es: "Zona moderna", title_en: "Modern area", desc_es: "Infraestructura moderna con excelente conectividad vial y todos los servicios necesarios", desc_en: "Modern infrastructure with excellent road connectivity and all necessary services" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -35,20 +35,20 @@ export default async function AmericanaPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Guadalajara</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Colonia Americana</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Colonia Americana es el corazon cultural, bohemio y creativo de Guadalajara. Con cafes de especialidad, galerias de arte, restaurantes creativos, la famosa Avenida Chapultepec llena de bares y restaurantes, y una vibrante vida nocturna, es la zona preferida por jovenes profesionales, nomadas digitales, artistas y creativos que valoran la cultura y la gastronomia por encima de todo." : "Colonia Americana is the cultural, bohemian and creative heart of Guadalajara. With specialty cafes, art galleries, creative restaurants, the famous Avenida Chapultepec full of bars and restaurants, and a vibrant nightlife, it is the preferred area for young professionals, digital nomads, artists and creatives who value culture and gastronomy above all."}
+            {es ? "La Colonia Americana es el corazon cultural, bohemio y creativo de Guadalajara. Con cafes de especialidad, galerias de arte, restaurantes creativos, la famosa Avenida Chapultepec llena de bares y restaurantes, y una vibrante vida nocturna, es la zona preferida por jóvenes profesionales, nomadas digitales, artistas y creativos que valoran la cultura y la gastronomia por encima de todo." : "Colonia Americana is the cultural, bohemian and creative heart of Guadalajara. With specialty cafes, art galleries, creative restaurants, the famous Avenida Chapultepec full of bars and restaurants, and a vibrant nightlife, it is the preferred area for young professionals, digital nomads, artists and creatives who value culture and gastronomy above all."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Avenida Chapultepec es el eje de la colonia: varios kilometros de restaurantes, bares, cafes y comercios que crean una atmosfera unica en Guadalajara. Los fines de semana hay mercados artesanales y eventos culturales. La colonia tambien tiene una escena de arte muy activa con galerias, espacios de coworking creativos y talleres de arte." : "Avenida Chapultepec is the backbone of the neighborhood: several kilometers of restaurants, bars, cafes and shops that create a unique atmosphere in Guadalajara. On weekends there are artisan markets and cultural events. The neighborhood also has a very active art scene with galleries, creative coworking spaces and art workshops."}
+            {es ? "La Avenida Chapultepec es el eje de la colonia: varios kilometros de restaurantes, bares, cafes y comercios que crean una atmosfera unica en Guadalajara. Los fines de semana hay mercados artesanales y eventos culturales. La colonia también tiene una escena de arte muy activa con galerias, espacios de coworking creativos y talleres de arte." : "Avenida Chapultepec is the backbone of the neighborhood: several kilometers of restaurants, bars, cafes and shops that create a unique atmosphere in Guadalajara. On weekends there are artisan markets and cultural events. The neighborhood also has a very active art scene with galleries, creative coworking spaces and art workshops."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Nomadas digitales, creativos, artistas y jovenes profesionales que valoran la cultura, la gastronomia y la vida bohemia." : "Digital nomads, creatives, artists and young professionals who value culture, gastronomy and bohemian life."}
+            {es ? "Nomadas digitales, creativos, artistas y jóvenes profesionales que valoran la cultura, la gastronomia y la vida bohemia." : "Digital nomads, creatives, artists and young professionals who value culture, gastronomy and bohemian life."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
             { icon: "☕", title_es: "Capital del cafe", title_en: "Coffee capital", desc_es: "La mejor escena de cafes de especialidad de Guadalajara con granos de origen y baristas expertos", desc_en: "The best specialty coffee scene in Guadalajara with single-origin beans and expert baristas" },
-            { icon: "🍷", title_es: "Av. Chapultepec", title_en: "Av. Chapultepec", desc_es: "La avenida mas vibrante de Guadalajara con decenas de restaurantes, bares y vida nocturna activa", desc_en: "The most vibrant avenue in Guadalajara with dozens of restaurants, bars and active nightlife" },
+            { icon: "🍷", title_es: "Av. Chapultepec", title_en: "Av. Chapultepec", desc_es: "La avenida más vibrante de Guadalajara con decenas de restaurantes, bares y vida nocturna activa", desc_en: "The most vibrant avenue in Guadalajara with dozens of restaurants, bars and active nightlife" },
             { icon: "🎨", title_es: "Vida cultural", title_en: "Cultural life", desc_es: "Galerias, teatro, musica en vivo, mercados artesanales y eventos culturales durante todo el ano", desc_en: "Galleries, theater, live music, artisan markets and cultural events throughout the year" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -38,10 +38,10 @@ export default async function LaVeletaPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Tulum</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>La Veleta</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Veleta es una de las colonias residenciales con mayor crecimiento y transformacion en Tulum. Con calles rodeadas de selva maya, un ambiente tranquilo y autentico, y nuevos desarrollos modernos de lujo que ofrecen la combinacion perfecta de naturaleza y confort, es la opcion preferida para quienes buscan el espiritu genuino de Tulum a precios mas accesibles que Aldea Zama o la zona hotelera." : "La Veleta is one of the fastest-growing and most transformed residential neighborhoods in Tulum. With jungle-lined streets, a peaceful and authentic atmosphere, and new modern luxury developments that offer the perfect combination of nature and comfort, it is the preferred option for those seeking the genuine spirit of Tulum at more accessible prices than Aldea Zama or the hotel zone."}
+            {es ? "La Veleta es una de las colonias residenciales con mayor crecimiento y transformacion en Tulum. Con calles rodeadas de selva maya, un ambiente tranquilo y autentico, y nuevos desarrollos modernos de lujo que ofrecen la combinacion perfecta de naturaleza y confort, es la opción preferida para quienes buscan el espiritu genuino de Tulum a precios más accesibles que Aldea Zama o la zona hotelera." : "La Veleta is one of the fastest-growing and most transformed residential neighborhoods in Tulum. With jungle-lined streets, a peaceful and authentic atmosphere, and new modern luxury developments that offer the perfect combination of nature and comfort, it is the preferred option for those seeking the genuine spirit of Tulum at more accessible prices than Aldea Zama or the hotel zone."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La zona ofrece departamentos y casas modernas con albercas, jardines tropicales y vistas a la selva, todo a precios considerablemente mas accesibles. A pocos minutos en coche o bicicleta de las playas, cenotes, restaurantes y el pueblo de Tulum. Es perfecta para quienes quieren vivir en Tulum de forma sostenible sin pagar los precios mas elevados de la zona." : "The area offers modern apartments and houses with pools, tropical gardens and jungle views, all at considerably more accessible prices. Just minutes by car or bicycle from the beaches, cenotes, restaurants and the town of Tulum. It is perfect for those who want to live in Tulum sustainably without paying the highest prices in the area."}
+            {es ? "La zona ofrece departamentos y casas modernas con albercas, jardines tropicales y vistas a la selva, todo a precios considerablemente más accesibles. A pocos minutos en coche o bicicleta de las playas, cenotes, restaurantes y el pueblo de Tulum. Es perfecta para quienes quieren vivir en Tulum de forma sostenible sin pagar los precios más elevados de la zona." : "The area offers modern apartments and houses with pools, tropical gardens and jungle views, all at considerably more accessible prices. Just minutes by car or bicycle from the beaches, cenotes, restaurants and the town of Tulum. It is perfect for those who want to live in Tulum sustainably without paying the highest prices in the area."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
@@ -50,8 +50,8 @@ export default async function LaVeletaPage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🌴", title_es: "Ambiente de selva", title_en: "Jungle atmosphere", desc_es: "Calles rodeadas de selva maya con el ambiente unico y autentico que hace especial a Tulum", desc_en: "Streets surrounded by Mayan jungle with the unique and authentic atmosphere that makes Tulum special" },
-            { icon: "💰", title_es: "Mejor precio", title_en: "Better prices", desc_es: "Propiedades modernas con alberca y jardin a precios considerablemente mas accesibles que la zona hotelera", desc_en: "Modern properties with pool and garden at considerably more accessible prices than the hotel zone" },
+            { icon: "🌴", title_es: "Ambiente de selva", title_en: "Jungle atmosphere", desc_es: "Calles rodeadas de selva maya con el ambiente único y autentico que hace especial a Tulum", desc_en: "Streets surrounded by Mayan jungle with the unique and authentic atmosphere that makes Tulum special" },
+            { icon: "💰", title_es: "Mejor precio", title_en: "Better prices", desc_es: "Propiedades modernas con alberca y jardin a precios considerablemente más accesibles que la zona hotelera", desc_en: "Modern properties with pool and garden at considerably more accessible prices than the hotel zone" },
             { icon: "🚗", title_es: "Todo cerca", title_en: "Everything nearby", desc_es: "A minutos de playas, cenotes, los mejores restaurantes y el animado pueblo de Tulum", desc_en: "Minutes from beaches, cenotes, the best restaurants and the lively town of Tulum" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
@@ -91,7 +91,7 @@ export default async function LaVeletaPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Tulum?" : "Want to know more about living in Tulum?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Tulum?" : "Want to know more about living in Tulum?"}</p>
           <Link href="/blog/vivir-en-tulum" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Tulum →" : "Read our complete guide to Tulum →"}
           </Link>

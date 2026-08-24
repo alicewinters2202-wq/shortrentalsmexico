@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -36,14 +36,14 @@ export default async function PuertoCancunPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Cancún" : "Cancun"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Puerto Cancún</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Puerto Cancun es el desarrollo marina mas moderno y exclusivo de Cancun. Disenado especificamente para residentes de alto nivel que buscan privacidad, exclusividad y amenidades de clase mundial, cuenta con una marina capaz de albergar yates de hasta 200 pies, un campo de golf de 18 hoyos disenado por Tom Weiskopf, torres residenciales con acabados de lujo y acceso controlado 24 horas." : "Puerto Cancun is the most modern and exclusive marina development in Cancun. Designed specifically for high-end residents seeking privacy, exclusivity and world-class amenities, it features a marina capable of accommodating yachts up to 200 feet, an 18-hole golf course designed by Tom Weiskopf, residential towers with luxury finishes and 24-hour controlled access."}
+            {es ? "Puerto Cancun es el desarrollo marina más moderno y exclusivo de Cancun. Disenado especificamente para residentes de alto nivel que buscan privacidad, exclusividad y amenidades de clase mundial, cuenta con una marina capaz de albergar yates de hasta 200 pies, un campo de golf de 18 hoyos disenado por Tom Weiskopf, torres residenciales con acabados de lujo y acceso controlado 24 horas." : "Puerto Cancun is the most modern and exclusive marina development in Cancun. Designed specifically for high-end residents seeking privacy, exclusivity and world-class amenities, it features a marina capable of accommodating yachts up to 200 feet, an 18-hole golf course designed by Tom Weiskopf, residential towers with luxury finishes and 24-hour controlled access."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Las torres residenciales de Puerto Cancun ofrecen vistas panoramicas tanto al Mar Caribe como a la Laguna Nichupte. Los departamentos cuentan con acabados de lujo, cocinas equipadas con electrodomesticos de gama alta, terrazas amplias y acceso a amenidades de primer nivel: albercas, gimnasios, salones de usos multiples, business center y seguridad privada las 24 horas." : "The residential towers of Puerto Cancun offer panoramic views of both the Caribbean Sea and Nichupte Lagoon. The apartments feature luxury finishes, kitchens equipped with high-end appliances, spacious terraces and access to top-tier amenities: pools, gyms, multipurpose rooms, business center and 24-hour private security."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Ejecutivos, expatriados y familias que buscan exclusividad, privacidad, seguridad y vistas al mar en el desarrollo mas premium de Cancun." : "Executives, expats and families seeking exclusivity, privacy, security and sea views in Cancun's most premium development."}
+            {es ? "Ejecutivos, expatriados y familias que buscan exclusividad, privacidad, seguridad y vistas al mar en el desarrollo más premium de Cancun." : "Executives, expats and families seeking exclusivity, privacy, security and sea views in Cancun's most premium development."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">

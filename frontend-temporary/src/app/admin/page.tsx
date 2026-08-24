@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState } from 'react';
 
 const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://shortrentalsmexico-backend.onrender.com';
@@ -140,7 +140,7 @@ export default function AdminPage() {
 
         <input
           type="text"
-          placeholder="Buscar por ciudad o direccion..."
+          placeholder="Buscar por ciudad o dirección..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="w-full px-4 py-3 rounded-xl mb-6 text-sm outline-none"

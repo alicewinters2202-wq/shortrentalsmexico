@@ -6,7 +6,6 @@ const T = {
     signIn: 'Iniciar sesión',
     register: 'Registrarse',
     contact: 'Contacto',
-    langToggle: 'EN',
     // home hero
     tagline: 'Estancias extraordinarias',
     taglineSub: 'en México.',
@@ -196,7 +195,7 @@ const T = {
       },
       {
         q: 'Política de reembolso y cancelación',
-        a: 'Los huéspedes pueden cancelar su reserva sujeto a las siguientes condiciones:\n\n• Reembolso del 100% si la cancelación se solicita 60 días o más antes del check-in.\n\n• Reembolso del 50% si la cancelación se solicita menos de 60 días antes del check-in.\n\n• Reembolso del 25% si la cancelación se solicita dentro de los 14 días previos al check-in.\n\nTodas las solicitudes de cancelación deben enviarse por escrito y ser confirmadas por nuestro equipo. Los reembolsos se enviarán a la misma cuenta que realizó el pago.',
+        a: 'Los huéspedes pueden cancelar su reserva sujeto a las siguientes condiciones:\n\n• Reembolso del 100% si la cancelación se solicita 15 días o más antes del check-in.\n\n• Reembolso del 50% si la cancelación se solicita dentro de los 14 días previos al check-in.\n\nTodas las solicitudes de cancelación deben enviarse por escrito y ser confirmadas por nuestro equipo. Los reembolsos se enviarán a la misma cuenta que realizó el pago.',
       },
     ],
     // requirements
@@ -223,7 +222,7 @@ const T = {
         icon: '📄',
         title: 'Contrato',
         items: [
-          'El contrato se firma en español. Si requieres otro idioma podemos proporcionarlo; sin embargo, por razones legales, el contrato se firma únicamente en español.',
+          'El contrato se firma en español. Si necesitas una copia de referencia en otro idioma, podemos proporcionarla; sin embargo, por razones legales, el documento legalmente vinculante se firma únicamente en español.',
         ],
       },
       {
@@ -306,7 +305,6 @@ const T = {
     signIn: 'Sign in',
     register: 'Sign up',
     contact: 'Contact',
-    langToggle: 'ES',
     tagline: 'Extraordinary stays',
     taglineSub: 'in Mexico.',
     subheading: 'Obsessively curated properties so you can book with total confidence.',
@@ -470,7 +468,7 @@ const T = {
       },
       {
         q: 'Refund & Cancellation Policy',
-        a: '• 100% refund if cancellation is requested 60 days or more before check-in.\n\n• 50% refund if cancellation is requested less than 60 days before check-in.\n\n• 25% refund if cancellation is requested within 14 days of check-in.\n\nAll cancellation requests must be submitted in writing and confirmed by our team. Refunds will be sent to the same account that made the booking.',
+        a: '• 100% refund if cancellation is requested 15 days or more before check-in.\n\n• 50% refund if cancellation is requested within 14 days of check-in.\n\nAll cancellation requests must be submitted in writing and confirmed by our team. Refunds will be sent to the same account that made the booking.',
       },
     ],
     reqNav: 'Requirements',
@@ -496,7 +494,7 @@ const T = {
         icon: '📄',
         title: 'Contract',
         items: [
-          'The contract is signed in Spanish. If you require it in another language, we can provide it; however, for legal reasons, the contract is signed only in Spanish.',
+          'The contract is signed in Spanish. If you need a reference copy in another language, we can provide one; however, for legal reasons, the legally binding document is signed only in Spanish.',
         ],
       },
       {

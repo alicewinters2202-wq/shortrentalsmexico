@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 

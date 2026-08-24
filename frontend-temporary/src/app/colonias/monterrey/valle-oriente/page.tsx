@@ -1,11 +1,11 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Furnished rentals in Valle Oriente, Monterrey | TemporaryRentalsMexico",
-  description: "Furnished apartments in Valle Oriente, Monterrey. The most modern business corridor in northern Mexico with corporate towers, luxury hotels and premium shopping.",
+  description: "Furnished apartments in Valle Oriente, Monterrey. The most modern business corridor in northern México with corporate towers, luxury hotels and premium shopping.",
 };
 
 export default async function ValleOrientePage() {
@@ -39,21 +39,21 @@ export default async function ValleOrientePage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Monterrey</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Valle Oriente</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Valle Oriente es el corredor empresarial y residencial mas moderno de Monterrey. Con torres de oficinas de vidrio y acero, hoteles de lujo internacionales como el Marriott y el Westin, el centro comercial Multiplaza Arboleda, decenas de restaurantes de primer nivel y departamentos residenciales de alto standing, es el epicentro de los negocios del norte de Mexico." : "Valle Oriente is the most modern business and residential corridor in Monterrey. With glass and steel office towers, international luxury hotels like the Marriott and Westin, the Multiplaza Arboleda shopping center, dozens of top-tier restaurants and high-end residential apartments, it is the epicenter of business in northern Mexico."}
+            {es ? "Valle Oriente es el corredor empresarial y residencial más moderno de Monterrey. Con torres de oficinas de vidrio y acero, hoteles de lujo internacionales como el Marriott y el Westin, el centro comercial Multiplaza Arboleda, decenas de restaurantes de primer nivel y departamentos residenciales de alto standing, es el epicentro de los negocios del norte de México." : "Valle Oriente is the most modern business and residential corridor in Monterrey. With glass and steel office towers, international luxury hotels like the Marriott and Westin, the Multiplaza Arboleda shopping center, dozens of top-tier restaurants and high-end residential apartments, it is the epicenter of business in northern Mexico."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "El auge del nearshoring ha convertido a Valle Oriente en uno de los destinos de mayor demanda para rentas temporales en Mexico. Ejecutivos de empresas americanas, canadienses y europeas que vienen a establecer operaciones en Monterrey prefieren esta zona por su modernidad, conectividad y cercania a sus oficinas." : "The nearshoring boom has made Valle Oriente one of the most in-demand destinations for short-term rentals in Mexico. Executives from American, Canadian and European companies who come to establish operations in Monterrey prefer this area for its modernity, connectivity and proximity to their offices."}
+            {es ? "El auge del nearshoring ha convertido a Valle Oriente en uno de los destinos de mayor demanda para rentas temporales en México. Ejecutivos de empresas americanas, canadienses y europeas que vienen a establecer operaciones en Monterrey prefieren esta zona por su modernidad, conectividad y cercania a sus oficinas." : "The nearshoring boom has made Valle Oriente one of the most in-demand destinations for short-term rentals in Mexico. Executives from American, Canadian and European companies who come to establish operations in Monterrey prefer this area for its modernity, connectivity and proximity to their offices."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Ejecutivos, profesionales y expatriados que buscan estar en el corazon empresarial mas moderno de Monterrey." : "Executives, professionals and expats looking to be at the heart of Monterrey's most modern business district."}
+            {es ? "Ejecutivos, profesionales y expatriados que buscan estar en el corazon empresarial más moderno de Monterrey." : "Executives, professionals and expats looking to be at the heart of Monterrey's most modern business district."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🏙️", title_es: "Corredor empresarial", title_en: "Business corridor", desc_es: "El hub corporativo mas importante del norte de Mexico con las principales empresas internacionales", desc_en: "The most important corporate hub in northern Mexico with the leading international companies" },
+            { icon: "🏙️", title_es: "Corredor empresarial", title_en: "Business corridor", desc_es: "El hub corporativo más importante del norte de México con las principales empresas internacionales", desc_en: "The most important corporate hub in northern Mexico with the leading international companies" },
             { icon: "🛍️", title_es: "Multiplaza Arboleda", title_en: "Multiplaza Arboleda", desc_es: "Centro comercial premium con las mejores tiendas, restaurantes y entretenimiento de Monterrey", desc_en: "Premium shopping center with the best stores, restaurants and entertainment in Monterrey" },
-            { icon: "🚗", title_es: "Excelente conectividad", title_en: "Excellent connectivity", desc_es: "Acceso rapido a toda el area metropolitana y al aeropuerto internacional de Monterrey", desc_en: "Quick access to the entire metropolitan area and to Monterrey international airport" },
+            { icon: "🚗", title_es: "Excelente conectividad", title_en: "Excellent connectivity", desc_es: "Acceso rápido a toda el area metropolitana y al aeropuerto internacional de Monterrey", desc_en: "Quick access to the entire metropolitan area and to Monterrey international airport" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>

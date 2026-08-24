@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -43,21 +43,21 @@ export default async function BuceriasPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Nuevo Vallarta</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Bucerías</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Bucerias y Cruz de Huanacaxtle son pueblos costeros autenticos de la Riviera Nayarit, a 10-15 kilometros de Nuevo Vallarta. Con sus malecones locales, playas de aguas tranquilas perfectas para nadar, restaurantes marisqueros con vista al mar, y una comunidad de expatriados muy activa y consolidada que lleva decadas viviendo aqui, ofrecen una experiencia de vida de playa autentica y tranquila." : "Bucerias and Cruz de Huanacaxtle are authentic coastal towns of the Riviera Nayarit, 10-15 kilometers from Nuevo Vallarta. With their local malecóns, calm water beaches perfect for swimming, seafood restaurants with sea views, and a very active and established expat community that has been living here for decades, they offer an authentic and peaceful beach living experience."}
+            {es ? "Bucerias y Cruz de Huanacaxtle son pueblos costeros autenticos de la Riviera Nayarit, a 10-15 kilometros de Nuevo Vallarta. Con sus malecones locales, playas de aguas tranquilas perfectas para nadar, restaurantes marisqueros con vista al mar, y una comunidad de expatriados muy activa y consolidada que lleva decadas viviendo aquí, ofrecen una experiencia de vida de playa autentica y tranquila." : "Bucerias and Cruz de Huanacaxtle are authentic coastal towns of the Riviera Nayarit, 10-15 kilometers from Nuevo Vallarta. With their local malecóns, calm water beaches perfect for swimming, seafood restaurants with sea views, and a very active and established expat community that has been living here for decades, they offer an authentic and peaceful beach living experience."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La zona ha experimentado un gran crecimiento en los ultimos anos, con nuevos desarrollos residenciales modernos de lujo que combinan lo mejor de la vida en pueblo — autenticidad, tranquilidad, precios accesibles — con amenidades modernas completas. Una alternativa excelente a los precios mas elevados de Flamingos o Puerto Vallarta." : "The area has experienced great growth in recent years, with new modern luxury residential developments that combine the best of town life — authenticity, tranquility, accessible prices — with complete modern amenities. An excellent alternative to the higher prices of Flamingos or Puerto Vallarta."}
+            {es ? "La zona ha experimentado un gran crecimiento en los ultimos años, con nuevos desarrollos residenciales modernos de lujo que combinan lo mejor de la vida en pueblo — autenticidad, tranquilidad, precios accesibles — con amenidades modernas completas. Una alternativa excelente a los precios más elevados de Flamingos o Puerto Vallarta." : "The area has experienced great growth in recent years, with new modern luxury residential developments that combine the best of town life — authenticity, tranquility, accessible prices — with complete modern amenities. An excellent alternative to the higher prices of Flamingos or Puerto Vallarta."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Expatriados, nomadas digitales y jubilados que buscan vida autentica de playa en un pueblo costero a precio mas accesible." : "Expats, digital nomads and retirees seeking authentic beach life in a coastal town at more accessible prices."}
+            {es ? "Expatriados, nomadas digitales y jubilados que buscan vida autentica de playa en un pueblo costero a precio más accesible." : "Expats, digital nomads and retirees seeking authentic beach life in a coastal town at more accessible prices."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
             { icon: "🌊", title_es: "Playas tranquilas", title_en: "Calm beaches", desc_es: "Playas poco concurridas con aguas tranquilas del Pacifico perfectas para nadar y relajarse", desc_en: "Uncrowded beaches with calm Pacific waters perfect for swimming and relaxing" },
             { icon: "🏘️", title_es: "Ambiente autentico", title_en: "Authentic atmosphere", desc_es: "Pueblo costero autentico con malecon local, restaurantes marisqueros y vida tranquila de barrio", desc_en: "Authentic coastal town with local malecón, seafood restaurants and peaceful neighborhood life" },
-            { icon: "💰", title_es: "Mejor precio", title_en: "Better prices", desc_es: "Propiedades de lujo modernas a precios significativamente mas accesibles que Flamingos o Puerto Vallarta", desc_en: "Modern luxury properties at significantly more accessible prices than Flamingos or Puerto Vallarta" },
+            { icon: "💰", title_es: "Mejor precio", title_en: "Better prices", desc_es: "Propiedades de lujo modernas a precios significativamente más accesibles que Flamingos o Puerto Vallarta", desc_en: "Modern luxury properties at significantly more accessible prices than Flamingos or Puerto Vallarta" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>

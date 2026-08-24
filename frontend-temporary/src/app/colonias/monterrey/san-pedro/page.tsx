@@ -1,11 +1,11 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Furnished rentals in San Pedro Garza Garcia, Monterrey | TemporaryRentalsMexico",
-  description: "Furnished apartments in San Pedro Garza Garcia, the most exclusive municipality in Mexico. Corporate headquarters, luxury shopping and the best quality of life in northern Mexico.",
+  description: "Furnished apartments in San Pedro Garza Garcia, the most exclusive municipality in México. Corporate headquarters, luxury shopping and the best quality of life in northern México.",
 };
 
 export default async function SanPedroPage() {
@@ -45,21 +45,21 @@ export default async function SanPedroPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Monterrey</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>San Pedro Garza García</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "San Pedro Garza Garcia es el municipio mas exclusivo y prospero del area metropolitana de Monterrey, y uno de los de mayor ingreso per capita de todo Mexico. Concentra las sedes de las principales empresas y corporativos del pais, centros comerciales premium como Chroma y Galerias Valle Oriente, hospitales privados de primer nivel, los mejores restaurantes del norte de Mexico y algunas de las zonas residenciales mas exclusivas del pais." : "San Pedro Garza Garcia is the most exclusive and prosperous municipality in the Monterrey metropolitan area, and one of the highest per capita income in all of Mexico. It concentrates the headquarters of the country's leading companies and corporations, premium shopping centers like Chroma and Galerias Valle Oriente, top-tier private hospitals, the best restaurants in northern Mexico and some of the most exclusive residential areas in the country."}
+            {es ? "San Pedro Garza Garcia es el municipio más exclusivo y prospero del area metropolitana de Monterrey, y uno de los de mayor ingreso per capita de todo México. Concentra las sedes de las principales empresas y corporativos del pais, centros comerciales premium como Chroma y Galerias Valle Oriente, hospitales privados de primer nivel, los mejores restaurantes del norte de México y algunas de las zonas residenciales más exclusivas del pais." : "San Pedro Garza Garcia is the most exclusive and prosperous municipality in the Monterrey metropolitan area, and one of the highest per capita income in all of Mexico. It concentrates the headquarters of the country's leading companies and corporations, premium shopping centers like Chroma and Galerias Valle Oriente, top-tier private hospitals, the best restaurants in northern Mexico and some of the most exclusive residential areas in the country."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "El boom del nearshoring ha traido una ola de ejecutivos internacionales a San Pedro. Cientos de empresas estadounidenses han establecido operaciones en la zona, generando una demanda muy alta de rentas temporales de calidad para ejecutivos y sus familias que vienen por proyectos de 3 a 18 meses." : "The nearshoring boom has brought a wave of international executives to San Pedro. Hundreds of American companies have established operations in the area, generating very high demand for quality short-term rentals for executives and their families who come for projects of 3 to 18 months."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Ejecutivos corporativos internacionales, empresarios, familias de alto nivel y expatriados que buscan lo mejor del norte de Mexico." : "International corporate executives, entrepreneurs, high-end families and expats seeking the best of northern Mexico."}
+            {es ? "Ejecutivos corporativos internacionales, empresarios, familias de alto nivel y expatriados que buscan lo mejor del norte de México." : "International corporate executives, entrepreneurs, high-end families and expats seeking the best of northern Mexico."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🏢", title_es: "Capital empresarial", title_en: "Business capital", desc_es: "Sede de las principales empresas y corporativos de Mexico, epicentro del nearshoring en el norte", desc_en: "Home to Mexico's leading companies and corporations, epicenter of nearshoring in the north" },
+            { icon: "🏢", title_es: "Capital empresarial", title_en: "Business capital", desc_es: "Sede de las principales empresas y corporativos de México, epicentro del nearshoring en el norte", desc_en: "Home to Mexico's leading companies and corporations, epicenter of nearshoring in the north" },
             { icon: "🛍️", title_es: "Comercio de lujo", title_en: "Luxury shopping", desc_es: "Centros comerciales premium como Chroma y Galerias Valle Oriente con las mejores tiendas internacionales", desc_en: "Premium shopping centers like Chroma and Galerias Valle Oriente with the best international stores" },
-            { icon: "🔒", title_es: "Maxima seguridad", title_en: "Maximum security", desc_es: "Una de las zonas mas seguras de todo Mexico con vigilancia privada y acceso controlado en toda la zona", desc_en: "One of the safest areas in all of Mexico with private surveillance and controlled access throughout" },
+            { icon: "🔒", title_es: "Maxima seguridad", title_en: "Maximum security", desc_es: "Una de las zonas más seguras de todo México con vigilancia privada y acceso controlado en toda la zona", desc_en: "One of the safest areas in all of Mexico with private surveillance and controlled access throughout" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -98,7 +98,7 @@ export default async function SanPedroPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Monterrey?" : "Want to know more about living in Monterrey?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Monterrey?" : "Want to know more about living in Monterrey?"}</p>
           <Link href="/blog/vivir-en-monterrey" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Monterrey →" : "Read our complete guide to Monterrey →"}
           </Link>

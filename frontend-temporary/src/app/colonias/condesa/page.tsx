@@ -1,11 +1,11 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   title: "Rentas amuebladas en Condesa, CDMX | TemporaryRentalsMexico",
-  description: "Departamentos amueblados en la Condesa, Ciudad de Mexico. Arquitectura art deco, Parque Mexico, Avenida Amsterdam y la mejor calidad de vida en CDMX.",
+  description: "Departamentos amueblados en la Condesa, Ciudad de México. Arquitectura art deco, Parque México, Avenida Amsterdam y la mejor calidad de vida en CDMX.",
 };
 
 export default async function CondesaPage() {
@@ -34,22 +34,22 @@ export default async function CondesaPage() {
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de México" : "Mexico City"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Condesa</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Condesa es una de las colonias mas queridas y codiciadas de Ciudad de Mexico. Con su arquitectura art deco unica en Mexico — resultado del boom inmobiliario de los anos 30 —, sus calles circulares flanqueadas por jacarandas, el iconico Parque Mexico, la Avenida Amsterdam perfecta para correr y andar en bicicleta, y una excelente oferta gastronomica, es el lugar ideal para quienes buscan calidad de vida, tranquilidad y acceso a todo lo mejor de CDMX." : "Condesa is one of the most beloved and coveted neighborhoods in Mexico City. With its art deco architecture unique in Mexico — the result of the real estate boom of the 1930s —, its circular streets flanked by jacaranda trees, the iconic Parque Mexico, Avenida Amsterdam perfect for running and cycling, and an excellent gastronomic offering, it is the ideal place for those seeking quality of life, tranquility and access to the best of CDMX."}
+            {es ? "La Condesa es una de las colonias más queridas y codiciadas de Ciudad de México. Con su arquitectura art deco unica en México — resultado del boom inmobiliario de los años 30 —, sus calles circulares flanqueadas por jacarandas, el iconico Parque México, la Avenida Amsterdam perfecta para correr y andar en bicicleta, y una excelente oferta gastronomica, es el lugar ideal para quienes buscan calidad de vida, tranquilidad y acceso a todo lo mejor de CDMX." : "Condesa is one of the most beloved and coveted neighborhoods in Mexico City. With its art deco architecture unique in Mexico — the result of the real estate boom of the 1930s —, its circular streets flanked by jacaranda trees, the iconic Parque Mexico, Avenida Amsterdam perfect for running and cycling, and an excellent gastronomic offering, it is the ideal place for those seeking quality of life, tranquility and access to the best of CDMX."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "El Parque Mexico es el corazon de la Condesa. Con sus fuentes art deco, jardines bien cuidados, una pequena laguna con patos y caminos arbolados, es el punto de encuentro social por excelencia. Rodeado de cafes con terraza es perfecto para comenzar el dia. La Avenida Amsterdam, que rodea circularmente el parque, forma uno de los circuitos de running mas populares de toda la ciudad." : "Parque Mexico is the heart of Condesa. With its art deco fountains, well-maintained gardens, a small duck pond and tree-lined paths, it is the social meeting point par excellence. Surrounded by cafes with terraces, it is perfect for starting the day. Avenida Amsterdam, which circularly surrounds the park, forms one of the most popular running circuits in the entire city."}
+            {es ? "El Parque México es el corazon de la Condesa. Con sus fuentes art deco, jardines bien cuidados, una pequena laguna con patos y caminos arbolados, es el punto de encuentro social por excelencia. Rodeado de cafes con terraza es perfecto para comenzar el dia. La Avenida Amsterdam, que rodea circularmente el parque, forma uno de los circuitos de running más populares de toda la ciudad." : "Parque Mexico is the heart of Condesa. With its art deco fountains, well-maintained gardens, a small duck pond and tree-lined paths, it is the social meeting point par excellence. Surrounded by cafes with terraces, it is perfect for starting the day. Avenida Amsterdam, which circularly surrounds the park, forms one of the most popular running circuits in the entire city."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Parejas jovenes, profesionales, nomadas digitales y familias pequenas que buscan tranquilidad, vida de barrio y la mejor calidad de vida de CDMX." : "Young couples, professionals, digital nomads and small families seeking tranquility, neighborhood life and the best quality of life in CDMX."}
+            {es ? "Parejas jóvenes, profesionales, nomadas digitales y familias pequenas que buscan tranquilidad, vida de barrio y la mejor calidad de vida de CDMX." : "Young couples, professionals, digital nomads and small families seeking tranquility, neighborhood life and the best quality of life in CDMX."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🌿", title_es: "Parque Mexico", title_en: "Parque Mexico", desc_es: "El parque mas iconico de CDMX con fuentes art deco, jardines y la famosa laguna con patos", desc_en: "The most iconic park in CDMX with art deco fountains, gardens and the famous duck pond" },
+            { icon: "🌿", title_es: "Parque México", title_en: "Parque Mexico", desc_es: "El parque más iconico de CDMX con fuentes art deco, jardines y la famosa laguna con patos", desc_en: "The most iconic park in CDMX with art deco fountains, gardens and the famous duck pond" },
             { icon: "🚴", title_es: "Ciudad ciclista", title_en: "Cyclist-friendly", desc_es: "Avenida Amsterdam y ciclovias hacen de la Condesa uno de los mejores barrios para andar en bici de CDMX", desc_en: "Avenida Amsterdam and bike lanes make Condesa one of the best neighborhoods for cycling in CDMX" },
             { icon: "🍽️", title_es: "Gastronomia de nivel", title_en: "Top gastronomy", desc_es: "Restaurantes premiados, cafes de especialidad y vida de barrio autentica en cada esquina", desc_en: "Award-winning restaurants, specialty cafes and authentic neighborhood life on every corner" },
           ].map(r => (
@@ -90,7 +90,7 @@ export default async function CondesaPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Condesa?" : "Want to know more about living in Condesa?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Condesa?" : "Want to know more about living in Condesa?"}</p>
           <Link href="/blog/condesa-guia-completa" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Condesa →" : "Read our complete guide to Condesa →"}
           </Link>

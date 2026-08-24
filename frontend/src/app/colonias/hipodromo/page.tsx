@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -6,7 +6,7 @@ import LangToggle from "@/components/layout/LangToggle";
 export const metadata = {
   alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/hipodromo' },
   title: "Rentas amuebladas en Hipodromo Condesa, CDMX | ShortStayMX",
-  description: "Departamentos amueblados en el Hipodromo y Hipodromo Condesa, Ciudad de Mexico. Edificios modernos con alberca, gimnasio y roof garden a mejor precio que Polanco.",
+  description: "Departamentos amueblados en el Hipodromo y Hipodromo Condesa, Ciudad de México. Edificios modernos con alberca, gimnasio y roof garden a mejor precio que Polanco.",
 };
 
 export default async function HipodromoPage() {
@@ -36,24 +36,24 @@ export default async function HipodromoPage() {
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de México" : "Mexico City"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Hipodromo Condesa</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "El Hipodromo y el Hipodromo Condesa son colonias tranquilas y residenciales ubicadas entre la Condesa y la Roma. Su ambiente relajado, calles arboladas y excelente conectividad las hacen ideales para quienes buscan vivir en el corazon de CDMX sin el ruido del centro. La zona cuenta con edificios modernos de lujo con amenidades completas a precios mas accesibles que Polanco." : "Hipodromo and Hipodromo Condesa are quiet and residential neighborhoods located between Condesa and Roma. Their relaxed atmosphere, tree-lined streets and excellent connectivity make them ideal for those who want to live in the heart of CDMX without the noise of the center. The area has modern luxury buildings with full amenities at more accessible prices than Polanco."}
+            {es ? "El Hipodromo y el Hipodromo Condesa son colonias tranquilas y residenciales ubicadas entre la Condesa y la Roma. Su ambiente relajado, calles arboladas y excelente conectividad las hacen ideales para quienes buscan vivir en el corazon de CDMX sin el ruido del centro. La zona cuenta con edificios modernos de lujo con amenidades completas a precios más accesibles que Polanco." : "Hipodromo and Hipodromo Condesa are quiet and residential neighborhoods located between Condesa and Roma. Their relaxed atmosphere, tree-lined streets and excellent connectivity make them ideal for those who want to live in the heart of CDMX without the noise of the center. The area has modern luxury buildings with full amenities at more accessible prices than Polanco."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La ubicacion es privilegiada: a minutos de Roma Norte, Condesa, Reforma y los principales centros de negocios de la ciudad. Los edificios modernos de la zona ofrecen albercas, gimnasios, roof gardens y seguridad privada — las mismas amenidades que en Polanco pero a precios considerablemente mas accesibles. Es la opcion ideal para profesionales y familias que buscan calidad sin pagar de mas." : "The location is privileged: minutes from Roma Norte, Condesa, Reforma and the city's main business centers. The modern buildings in the area offer pools, gyms, roof gardens and private security — the same amenities as in Polanco but at considerably more accessible prices. It is the ideal option for professionals and families who want quality without overpaying."}
+            {es ? "La ubicación es privilegiada: a minutos de Roma Norte, Condesa, Reforma y los principales centros de negocios de la ciudad. Los edificios modernos de la zona ofrecen albercas, gimnasios, roof gardens y seguridad privada — las mismas amenidades que en Polanco pero a precios considerablemente más accesibles. Es la opción ideal para profesionales y familias que buscan calidad sin pagar de más." : "The location is privileged: minutes from Roma Norte, Condesa, Reforma and the city's main business centers. The modern buildings in the area offer pools, gyms, roof gardens and private security — the same amenities as in Polanco but at considerably more accessible prices. It is the ideal option for professionals and families who want quality without overpaying."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Profesionales jovenes, familias y expatriados que buscan calidad de vida y amenidades completas a buen precio en el corazon de CDMX." : "Young professionals, families and expats seeking quality of life and full amenities at a good price in the heart of CDMX."}
+            {es ? "Profesionales jóvenes, familias y expatriados que buscan calidad de vida y amenidades completas a buen precio en el corazon de CDMX." : "Young professionals, families and expats seeking quality of life and full amenities at a good price in the heart of CDMX."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
             { icon: "🏊", title_es: "Amenidades completas", title_en: "Full amenities", desc_es: "Edificios modernos con alberca, gimnasio, roof garden y seguridad privada 24 horas", desc_en: "Modern buildings with pool, gym, roof garden and 24-hour private security" },
-            { icon: "🏙️", title_es: "Ubicacion central", title_en: "Central location", desc_es: "A minutos de Reforma, Condesa, Roma y los principales centros de negocios de CDMX", desc_en: "Minutes from Reforma, Condesa, Roma and CDMX's main business centers" },
-            { icon: "💰", title_es: "Mejor precio/calidad", title_en: "Best value", desc_es: "Departamentos de lujo con todas las amenidades a precios mas accesibles que Polanco", desc_en: "Luxury apartments with all amenities at more accessible prices than Polanco" },
+            { icon: "🏙️", title_es: "Ubicación central", title_en: "Central location", desc_es: "A minutos de Reforma, Condesa, Roma y los principales centros de negocios de CDMX", desc_en: "Minutes from Reforma, Condesa, Roma and CDMX's main business centers" },
+            { icon: "💰", title_es: "Mejor precio/calidad", title_en: "Best value", desc_es: "Departamentos de lujo con todas las amenidades a precios más accesibles que Polanco", desc_en: "Luxury apartments with all amenities at more accessible prices than Polanco" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>

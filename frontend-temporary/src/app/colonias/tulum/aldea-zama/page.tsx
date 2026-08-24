@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -35,20 +35,20 @@ export default async function AldeaZamaPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Tulum</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Aldea Zama</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Aldea Zama es el desarrollo residencial mas exclusivo y completo de Tulum. Estrategicamente ubicado entre la zona hotelera y el pueblo, concentra la mayor cantidad de condominios modernos de lujo, restaurantes de calidad, cafes con buen WiFi y espacios de coworking de todo Tulum. Sus residencias combinan arquitectura biofílica — profundamente integrada con la naturaleza — con amenidades modernas completas." : "Aldea Zama is the most exclusive and complete residential development in Tulum. Strategically located between the hotel zone and the town, it concentrates the largest number of modern luxury condominiums, quality restaurants, cafes with good WiFi and coworking spaces in all of Tulum. Its residences combine biophilic architecture — deeply integrated with nature — with complete modern amenities."}
+            {es ? "Aldea Zama es el desarrollo residencial más exclusivo y completo de Tulum. Estrategicamente ubicado entre la zona hotelera y el pueblo, concentra la mayor cantidad de condominios modernos de lujo, restaurantes de calidad, cafes con buen WiFi y espacios de coworking de todo Tulum. Sus residencias combinan arquitectura biofílica — profundamente integrada con la naturaleza — con amenidades modernas completas." : "Aldea Zama is the most exclusive and complete residential development in Tulum. Strategically located between the hotel zone and the town, it concentrates the largest number of modern luxury condominiums, quality restaurants, cafes with good WiFi and coworking spaces in all of Tulum. Its residences combine biophilic architecture — deeply integrated with nature — with complete modern amenities."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Vivir en Aldea Zama significa tener acceso en bicicleta a las famosas playas de Tulum en 10 minutos, cenotes naturales a pocos kilometros, los mejores restaurantes de la zona y un ambiente que mezcla perfectamente la selva maya con el confort moderno. Es la primera eleccion para expatriados y nomadas digitales que quieren lo mejor de Tulum sin sacrificar comodidades." : "Living in Aldea Zama means having bicycle access to Tulum's famous beaches in 10 minutes, natural cenotes just a few kilometers away, the best restaurants in the area and an atmosphere that perfectly blends the Mayan jungle with modern comfort. It is the first choice for expats and digital nomads who want the best of Tulum without sacrificing amenities."}
+            {es ? "Vivir en Aldea Zama significa tener acceso en bicicleta a las famosas playas de Tulum en 10 minutos, cenotes naturales a pocos kilometros, los mejores restaurantes de la zona y un ambiente que mezcla perfectamente la selva maya con el confort moderno. Es la primera elección para expatriados y nomadas digitales que quieren lo mejor de Tulum sin sacrificar comodidades." : "Living in Aldea Zama means having bicycle access to Tulum's famous beaches in 10 minutes, natural cenotes just a few kilometers away, the best restaurants in the area and an atmosphere that perfectly blends the Mayan jungle with modern comfort. It is the first choice for expats and digital nomads who want the best of Tulum without sacrificing amenities."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Nomadas digitales, expatriados y profesionales creativos que buscan naturaleza, lujo y el estilo de vida unico de Tulum con todas las comodidades modernas." : "Digital nomads, expats and creative professionals seeking nature, luxury and Tulum's unique lifestyle with all modern amenities."}
+            {es ? "Nomadas digitales, expatriados y profesionales creativos que buscan naturaleza, lujo y el estilo de vida único de Tulum con todas las comodidades modernas." : "Digital nomads, expats and creative professionals seeking nature, luxury and Tulum's unique lifestyle with all modern amenities."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
             { icon: "🌿", title_es: "Arquitectura biofílica", title_en: "Biophilic architecture", desc_es: "Condominios integrados con la selva maya con jardines tropicales y acceso a cenotes naturales", desc_en: "Condominiums integrated with the Mayan jungle with tropical gardens and access to natural cenotes" },
-            { icon: "🏊", title_es: "Amenidades de lujo", title_en: "Luxury amenities", desc_es: "Albercas, gimnasios equipados, jardines tropicales y seguridad privada en entorno natural unico", desc_en: "Pools, equipped gyms, tropical gardens and private security in a unique natural setting" },
+            { icon: "🏊", title_es: "Amenidades de lujo", title_en: "Luxury amenities", desc_es: "Albercas, gimnasios equipados, jardines tropicales y seguridad privada en entorno natural único", desc_en: "Pools, equipped gyms, tropical gardens and private security in a unique natural setting" },
             { icon: "🚴", title_es: "A minutos de la playa", title_en: "Minutes from the beach", desc_es: "10 minutos en bicicleta a las famosas playas de la zona hotelera de Tulum consideradas entre las mejores del mundo", desc_en: "10 minutes by bike to Tulum's famous hotel zone beaches considered among the best in the world" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
@@ -88,7 +88,7 @@ export default async function AldeaZamaPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Tulum?" : "Want to know more about living in Tulum?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Tulum?" : "Want to know more about living in Tulum?"}</p>
           <Link href="/blog/vivir-en-tulum" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Tulum →" : "Read our complete guide to Tulum →"}
           </Link>

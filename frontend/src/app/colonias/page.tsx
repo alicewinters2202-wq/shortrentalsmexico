@@ -1,22 +1,22 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
 
 export const metadata = {
   alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias' },
-  title: "Rentas amuebladas por colonia en Mexico | ShortStayMX",
-  description: "Encuentra departamentos amueblados en las mejores colonias de Mexico: Polanco, Roma Norte, Condesa, Cancun, Tulum, Puerto Vallarta y mas.",
+  title: "Rentas amuebladas por colonia en México | ShortStayMX",
+  description: "Encuentra departamentos amueblados en las mejores colonias de México: Polanco, Roma Norte, Condesa, Cancun, Tulum, Puerto Vallarta y más.",
 };
 
 const CITIES = [
   {
-    city_es: "Ciudad de Mexico",
+    city_es: "Ciudad de México",
     city_en: "Mexico City",
     emoji: "🏙️",
     colonias: [
-      { name: "Polanco", slug: "polanco", desc_es: "La zona mas exclusiva de CDMX", desc_en: "The most exclusive area in CDMX" },
+      { name: "Polanco", slug: "polanco", desc_es: "La zona más exclusiva de CDMX", desc_en: "The most exclusive area in CDMX" },
       { name: "Roma Norte", slug: "roma-norte", desc_es: "Bohemia, cafes y gastronomia", desc_en: "Bohemian, cafes and gastronomy" },
-      { name: "Condesa", slug: "condesa", desc_es: "Art deco, Parque Mexico y tranquilidad", desc_en: "Art deco, Parque Mexico and tranquility" },
+      { name: "Condesa", slug: "condesa", desc_es: "Art deco, Parque México y tranquilidad", desc_en: "Art deco, Parque Mexico and tranquility" },
       { name: "Hipodromo Condesa", slug: "hipodromo", desc_es: "Amenidades completas a mejor precio", desc_en: "Full amenities at better prices" },
       { name: "Juarez", slug: "juarez", desc_es: "Zona en auge junto a Reforma", desc_en: "Booming area next to Reforma" },
     ],
@@ -35,7 +35,7 @@ const CITIES = [
     city_en: "Guadalajara",
     emoji: "🌺",
     colonias: [
-      { name: "Puerta de Hierro", slug: "guadalajara/puerta-de-hierro", desc_es: "La zona mas exclusiva de Zapopan", desc_en: "The most exclusive area of Zapopan" },
+      { name: "Puerta de Hierro", slug: "guadalajara/puerta-de-hierro", desc_es: "La zona más exclusiva de Zapopan", desc_en: "The most exclusive area of Zapopan" },
       { name: "Colonia Americana", slug: "guadalajara/americana", desc_es: "Bohemia, Av. Chapultepec y cafes", desc_en: "Bohemian, Av. Chapultepec and cafes" },
       { name: "Providencia", slug: "guadalajara/providencia", desc_es: "Tranquila, elegante y bien ubicada", desc_en: "Quiet, elegant and well located" },
     ],
@@ -45,7 +45,7 @@ const CITIES = [
     city_en: "Monterrey",
     emoji: "🏢",
     colonias: [
-      { name: "San Pedro Garza Garcia", slug: "monterrey/san-pedro", desc_es: "El municipio mas prospero de Mexico", desc_en: "The most prosperous municipality in Mexico" },
+      { name: "San Pedro Garza Garcia", slug: "monterrey/san-pedro", desc_es: "El municipio más prospero de México", desc_en: "The most prosperous municipality in Mexico" },
       { name: "Valle Oriente", slug: "monterrey/valle-oriente", desc_es: "Corredor empresarial moderno", desc_en: "Modern business corridor" },
     ],
   },
@@ -92,7 +92,7 @@ const CITIES = [
     city_en: "Playa del Carmen",
     emoji: "🐚",
     colonias: [
-      { name: "Mayakoba", slug: "playa-del-carmen/mayakoba", desc_es: "El desarrollo mas exclusivo del Caribe", desc_en: "The most exclusive development in the Caribbean" },
+      { name: "Mayakoba", slug: "playa-del-carmen/mayakoba", desc_es: "El desarrollo más exclusivo del Caribe", desc_en: "The most exclusive development in the Caribbean" },
       { name: "Playacar", slug: "playa-del-carmen/playacar", desc_es: "Privado, junto a la Quinta Avenida", desc_en: "Private, next to Fifth Avenue" },
     ],
   },
@@ -101,7 +101,7 @@ const CITIES = [
     city_en: "Tulum",
     emoji: "🌿",
     colonias: [
-      { name: "Aldea Zama", slug: "tulum/aldea-zama", desc_es: "El desarrollo mas exclusivo de Tulum", desc_en: "The most exclusive development in Tulum" },
+      { name: "Aldea Zama", slug: "tulum/aldea-zama", desc_es: "El desarrollo más exclusivo de Tulum", desc_en: "The most exclusive development in Tulum" },
       { name: "La Veleta", slug: "tulum/la-veleta", desc_es: "Selva, tranquilidad y mejor precio", desc_en: "Jungle, tranquility and better prices" },
     ],
   },
@@ -130,7 +130,7 @@ export default async function ColoniasPage() {
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
             {es
-              ? "Explora departamentos amueblados en las mejores colonias de Mexico. Cada zona tiene su propio caracter y se adapta a diferentes estilos de vida. Encuentra la que mejor se adapta a ti."
+              ? "Explora departamentos amueblados en las mejores colonias de México. Cada zona tiene su propio caracter y se adapta a diferentes estilos de vida. Encuentra la que mejor se adapta a ti."
               : "Explore furnished apartments in the best neighborhoods in Mexico. Each area has its own character and suits different lifestyles. Find the one that best suits you."}
           </p>
         </div>

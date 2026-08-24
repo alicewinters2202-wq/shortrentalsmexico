@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
@@ -27,7 +27,7 @@ export default async function ViviriEnMonterrey() {
         </h1>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Monterrey es la capital industrial y empresarial de México. Con el mayor ingreso per cápita del país, una infraestructura de primer nivel, la mejor conectividad aérea con Estados Unidos y una comunidad de negocios muy activa impulsada por el boom del nearshoring, Monterrey es el destino preferido por ejecutivos internacionales y profesionales que vienen a trabajar en las grandes corporaciones del norte de México.' : 'Monterrey is the industrial and business capital of Mexico. With the highest per capita income in the country, first-class infrastructure, the best air connectivity with the United States and a very active business community driven by the nearshoring boom, Monterrey is the preferred destination for international executives and professionals who come to work at the major corporations of northern Mexico.'}
+            {es ? 'Monterrey es la capital industrial y empresarial de México. Con el mayor ingreso per cápita del país, una infraestructura de primer nivel, la mejor conectividad aérea con Estados Unidos y una comunidad de negocios muy activa impulsada por el boom del nearshoring, Monterrey es el destino preferido por ejecutivos internacionales y profesionales que vienen a trabajar en las grandes corporaciones del norte de México.' : 'Monterrey is the industrial and business capital of México. With the highest per capita income in the country, first-class infrastructure, the best air connectivity with the United States and a very active business community driven by the nearshoring boom, Monterrey is the preferred destination for international executives and professionals who come to work at the major corporations of northern México.'}
           </p>
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'El boom del nearshoring' : 'The nearshoring boom'}</h2>
@@ -40,7 +40,7 @@ export default async function ViviriEnMonterrey() {
             {
               name: 'San Pedro Garza García', emoji: '🏢',
               es_desc: 'El municipio más exclusivo y próspero del área metropolitana de Monterrey, y uno de los de mayor ingreso per cápita de México. Concentra las sedes de las principales empresas del país, centros comerciales premium como Chroma y Galerías Valle Oriente, hospitales privados de primer nivel y algunas de las zonas residenciales más exclusivas del norte de México.',
-              en_desc: 'The most exclusive and prosperous municipality in the Monterrey metropolitan area, and one of the highest per capita income in Mexico. It concentrates the headquarters of the country\'s leading companies, premium shopping centers like Chroma and Galerías Valle Oriente, top-tier private hospitals and some of the most exclusive residential areas in northern Mexico.',
+              en_desc: 'The most exclusive and prosperous municipality in the Monterrey metropolitan area, and one of the highest per capita income in México. It concentrates the headquarters of the country\'s leading companies, premium shopping centers like Chroma and Galerías Valle Oriente, top-tier private hospitals and some of the most exclusive residential areas in northern México.',
             },
             {
               name: 'Valle Oriente', emoji: '🏙️',

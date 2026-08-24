@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
@@ -27,7 +27,7 @@ export default async function RentaVsHotel() {
         </h1>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Si planeas quedarte en México por más de 10 días, la pregunta es inevitable: ¿hotel o departamento amueblado? Para estancias cortas de 1-3 noches, el hotel tiene sentido. Pero para estancias de 10 días o más — que es la especialidad de TemporaryRentalsMexico — la respuesta casi siempre favorece al departamento amueblado en prácticamente todos los aspectos.' : 'If you plan to stay in Mexico for more than 10 days, the question is inevitable: hotel or furnished apartment? For short stays of 1-3 nights, the hotel makes sense. But for stays of 10 days or more — which is TemporaryRentalsMexico\'s specialty — the answer almost always favors the furnished apartment in practically every aspect.'}
+            {es ? 'Si planeas quedarte en México por más de 10 días, la pregunta es inevitable: ¿hotel o departamento amueblado? Para estancias cortas de 1-3 noches, el hotel tiene sentido. Pero para estancias de 10 días o más — que es la especialidad de TemporaryRentalsMexico — la respuesta casi siempre favorece al departamento amueblado en prácticamente todos los aspectos.' : 'If you plan to stay in México for more than 10 days, the question is inevitable: hotel or furnished apartment? For short stays of 1-3 nights, the hotel makes sense. But for stays of 10 days or more — which is TemporaryRentalsMexico\'s specialty — the answer almost always favors the furnished apartment in practically every aspect.'}
           </p>
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'El factor precio: la diferencia es enorme' : 'The price factor: the difference is huge'}</h2>
@@ -75,7 +75,7 @@ export default async function RentaVsHotel() {
 
           <div className="rounded-2xl p-8 mt-12 text-center" style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}>
             <p className="font-serif text-2xl mb-3" style={{ color: 'var(--ink)' }}>{es ? 'Encuentra tu depa ideal' : 'Find your ideal apartment'}</p>
-            <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>{es ? 'Propiedades amuebladas verificadas desde 10 noches en las mejores ciudades de México.' : 'Verified furnished properties from 10 nights in the best cities in Mexico.'}</p>
+            <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>{es ? 'Propiedades amuebladas verificadas desde 10 noches en las mejores ciudades de México.' : 'Verified furnished properties from 10 nights in the best cities in México.'}</p>
             <Link href="/properties" className="inline-block px-8 py-3 rounded-full text-sm font-medium text-white" style={{ backgroundColor: 'var(--gold)' }}>
               {es ? 'Ver propiedades' : 'View properties'}
             </Link>

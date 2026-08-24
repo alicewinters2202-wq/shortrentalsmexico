@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -32,7 +32,7 @@ export default async function ProvidenciaPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Guadalajara</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Providencia</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Providencia es una de las colonias mas tranquilas, elegantes y consolidadas de Guadalajara. Con calles arboladas de grandes ficus y liquidambares, excelentes restaurantes, supermercados de calidad y una ubicacion privilegiada entre el centro historico y las zonas empresariales del norte, Providencia ofrece una calidad de vida excepcional para familias y profesionales que buscan tranquilidad sin alejarse de todo." : "Providencia is one of the most peaceful, elegant and established neighborhoods in Guadalajara. With tree-lined streets of large ficus and liquidambar trees, excellent restaurants, quality supermarkets and a privileged location between the historic center and the business areas to the north, Providencia offers exceptional quality of life for families and professionals seeking tranquility without being far from everything."}
+            {es ? "Providencia es una de las colonias más tranquilas, elegantes y consolidadas de Guadalajara. Con calles arboladas de grandes ficus y liquidambares, excelentes restaurantes, supermercados de calidad y una ubicación privilegiada entre el centro historico y las zonas empresariales del norte, Providencia ofrece una calidad de vida excepcional para familias y profesionales que buscan tranquilidad sin alejarse de todo." : "Providencia is one of the most peaceful, elegant and established neighborhoods in Guadalajara. With tree-lined streets of large ficus and liquidambar trees, excellent restaurants, quality supermarkets and a privileged location between the historic center and the business areas to the north, Providencia offers exceptional quality of life for families and professionals seeking tranquility without being far from everything."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La colonia tiene un ambiente de barrio tradicional muy agradable, con plazas, mercados locales y una comunidad muy activa. Los edificios son una mezcla de casas coloniales restauradas y edificios modernos de departamentos, todos con un caracter arquitectonico armonico que le da identidad propia a la colonia." : "The neighborhood has a very pleasant traditional neighborhood atmosphere, with plazas, local markets and a very active community. The buildings are a mix of restored colonial homes and modern apartment buildings, all with a harmonious architectural character that gives the neighborhood its own identity."}
@@ -46,7 +46,7 @@ export default async function ProvidenciaPage() {
           {[
             { icon: "🌳", title_es: "Calles arboladas", title_en: "Tree-lined streets", desc_es: "Ambiente tranquilo y residencial con amplias calles llenas de arboles centenarios", desc_en: "Quiet residential atmosphere with wide streets full of century-old trees" },
             { icon: "🍽️", title_es: "Buena gastronomia", title_en: "Great dining", desc_es: "Restaurantes de calidad, cafes y bares con buena propuesta gastronomica en la colonia", desc_en: "Quality restaurants, cafes and bars with a good gastronomic offering in the neighborhood" },
-            { icon: "📍", title_es: "Ubicacion central", title_en: "Central location", desc_es: "Entre el centro historico de Guadalajara y las zonas empresariales del norte de la ciudad", desc_en: "Between Guadalajara's historic center and the business areas to the north of the city" },
+            { icon: "📍", title_es: "Ubicación central", title_en: "Central location", desc_es: "Entre el centro historico de Guadalajara y las zonas empresariales del norte de la ciudad", desc_en: "Between Guadalajara's historic center and the business areas to the north of the city" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>

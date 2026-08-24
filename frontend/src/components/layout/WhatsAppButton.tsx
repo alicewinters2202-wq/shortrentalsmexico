@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
 
   const message = isEn
     ? 'Hi, I saw your site, shortstaymx.com, and I would like information about your available properties.'
-    : 'Hola, vi su sitio, shortstaymx.com, y quisiera informacion sobre sus propiedades disponibles.';
+    : 'Hola, vi su sitio, shortstaymx.com, y quisiera información sobre sus propiedades disponibles.';
 
   const url = 'https://wa.me/5215643232610?text=' + encodeURIComponent(message);
 

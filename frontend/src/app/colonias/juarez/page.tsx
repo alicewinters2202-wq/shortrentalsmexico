@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -6,7 +6,7 @@ import LangToggle from "@/components/layout/LangToggle";
 export const metadata = {
   alternates: { canonical: 'https://temporaryrentalsmexico.com/colonias/juarez' },
   title: "Rentas amuebladas en Juarez, CDMX | ShortStayMX",
-  description: "Departamentos amueblados en la colonia Juarez, Ciudad de Mexico. Zona centrica en auge a pasos de Reforma, Chapultepec y la Zona Rosa.",
+  description: "Departamentos amueblados en la colonia Juarez, Ciudad de México. Zona centrica en auge a pasos de Reforma, Chapultepec y la Zona Rosa.",
 };
 
 export default async function JuarezPage() {
@@ -35,17 +35,17 @@ export default async function JuarezPage() {
       </nav>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="max-w-3xl mb-16">
-          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de Mexico" : "Mexico City"}</p>
+          <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Ciudad de México" : "Mexico City"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Juarez</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La colonia Juarez es una de las zonas con mayor crecimiento y transformacion en la Ciudad de Mexico. Ubicada entre el Paseo de la Reforma y la Zona Rosa, combina edificios modernos de lujo con cafes creativos, restaurantes de autor y una vida nocturna muy activa. Es la colonia en auge de CDMX, donde nuevos desarrollos inmobiliarios estan transformando el paisaje urbano." : "Colonia Juarez is one of the fastest-growing and most transformed areas in Mexico City. Located between Paseo de la Reforma and Zona Rosa, it combines modern luxury buildings with creative cafes, chef-driven restaurants and a very active nightlife. It is CDMX's booming neighborhood, where new real estate developments are transforming the urban landscape."}
+            {es ? "La colonia Juarez es una de las zonas con mayor crecimiento y transformacion en la Ciudad de México. Ubicada entre el Paseo de la Reforma y la Zona Rosa, combina edificios modernos de lujo con cafes creativos, restaurantes de autor y una vida nocturna muy activa. Es la colonia en auge de CDMX, donde nuevos desarrollos inmobiliarios estan transformando el paisaje urbano." : "Colonia Juarez is one of the fastest-growing and most transformed areas in Mexico City. Located between Paseo de la Reforma and Zona Rosa, it combines modern luxury buildings with creative cafes, chef-driven restaurants and a very active nightlife. It is CDMX's booming neighborhood, where new real estate developments are transforming the urban landscape."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Su ubicacion privilegiada es su mayor activo: a pasos del Paseo de la Reforma con sus torres corporativas, Chapultepec, el Centro Historico y la Condesa. Esta centralidad maxima la convierte en una de las zonas mejor conectadas de toda la ciudad, perfecta para quienes necesitan moverse por todo CDMX." : "Its privileged location is its greatest asset: steps from Paseo de la Reforma with its corporate towers, Chapultepec, the Historic Center and Condesa. This maximum centrality makes it one of the best-connected areas in the entire city, perfect for those who need to move around all of CDMX."}
+            {es ? "Su ubicación privilegiada es su mayor activo: a pasos del Paseo de la Reforma con sus torres corporativas, Chapultepec, el Centro Historico y la Condesa. Esta centralidad maxima la convierte en una de las zonas mejor conectadas de toda la ciudad, perfecta para quienes necesitan moverse por todo CDMX." : "Its privileged location is its greatest asset: steps from Paseo de la Reforma with its corporate towers, Chapultepec, the Historic Center and Condesa. This maximum centrality makes it one of the best-connected areas in the entire city, perfect for those who need to move around all of CDMX."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
-            {es ? "Jovenes profesionales, nomadas digitales y expatriados que buscan centralidad maxima y precio accesible en CDMX." : "Young professionals, digital nomads and expats seeking maximum centrality and accessible prices in CDMX."}
+            {es ? "Jóvenes profesionales, nomadas digitales y expatriados que buscan centralidad maxima y precio accesible en CDMX." : "Young professionals, digital nomads and expats seeking maximum centrality and accessible prices in CDMX."}
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">

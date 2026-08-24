@@ -82,8 +82,8 @@ export default async function HowItWorksPage() {
     {
       q_es: '¿Qué pasa si necesito cancelar?',
       q_en: 'What happens if I need to cancel?',
-      a_es: 'Las políticas de cancelación varían por propiedad y tiempo de anticipación. Contáctanos directamente por WhatsApp para conocer las condiciones específicas de la propiedad que te interesa.',
-      a_en: 'Cancellation policies vary by property and notice period. Contact us directly on WhatsApp to learn the specific conditions for the property you are interested in.',
+      a_es: 'Ofrecemos reembolso completo si cancelas 15 días o más antes del check-in. Para cancelaciones dentro de los 14 días previos al check-in, aplicamos un reembolso del 50%.',
+      a_en: 'We offer a full refund if you cancel 15 days or more before check-in. For cancellations within 14 days of check-in, a 50% refund applies.',
     },
   ];
 
@@ -109,7 +109,7 @@ export default async function HowItWorksPage() {
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
             {es
               ? 'Rentar con TemporaryRentalsMexico es simple, seguro y sin sorpresas. En 5 pasos tienes tu departamento amueblado listo en cualquier ciudad de México.'
-              : 'Renting with TemporaryRentalsMexico is simple, safe and no surprises. In 5 steps you have your furnished apartment ready in any city in Mexico.'}
+              : 'Renting with TemporaryRentalsMexico is simple, safe and no surprises. In 5 steps you have your furnished apartment ready in any city in México.'}
           </p>
         </div>
 

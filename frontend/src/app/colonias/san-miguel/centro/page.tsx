@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -36,7 +36,7 @@ export default async function SmaCentroPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>San Miguel de Allende</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Centro Histórico</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "El Centro Historico de San Miguel de Allende es Patrimonio de la Humanidad por la UNESCO y uno de los lugares mas hermosos de Mexico. Sus calles empedradas del siglo XVII y XVIII, la iconica Parroquia de San Miguel Arcangel con su fachada neogótica de color rosa, los jardines coloniales y la vibrante escena artistica y gastronomica lo convierten en un lugar unico en el mundo." : "The Historic Center of San Miguel de Allende is a UNESCO World Heritage Site and one of the most beautiful places in Mexico. Its 17th and 18th century cobblestone streets, the iconic Parroquia de San Miguel Arcangel with its pink neo-Gothic facade, the colonial gardens and the vibrant artistic and gastronomic scene make it a unique place in the world."}
+            {es ? "El Centro Historico de San Miguel de Allende es Patrimonio de la Humanidad por la UNESCO y uno de los lugares más hermosos de México. Sus calles empedradas del siglo XVII y XVIII, la iconica Parroquia de San Miguel Arcangel con su fachada neogótica de color rosa, los jardines coloniales y la vibrante escena artistica y gastronomica lo convierten en un lugar único en el mundo." : "The Historic Center of San Miguel de Allende is a UNESCO World Heritage Site and one of the most beautiful places in Mexico. Its 17th and 18th century cobblestone streets, the iconic Parroquia de San Miguel Arcangel with its pink neo-Gothic facade, the colonial gardens and the vibrant artistic and gastronomic scene make it a unique place in the world."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Vivir en el Centro de San Miguel significa estar rodeado de galerias de arte, restaurantes de clase mundial reconocidos internacionalmente, mercados artesanales, festivales culturales y una comunidad internacional de artistas, escritores y creativos. Puedes caminar a todo: el Jardin Principal, el mercado, los mejores restaurantes y todas las actividades culturales de la ciudad." : "Living in San Miguel's Centro means being surrounded by art galleries, internationally recognized world-class restaurants, artisan markets, cultural festivals and an international community of artists, writers and creatives. You can walk to everything: the main garden, the market, the best restaurants and all the city's cultural activities."}
@@ -89,7 +89,7 @@ export default async function SmaCentroPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en San Miguel de Allende?" : "Want to know more about living in San Miguel de Allende?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en San Miguel de Allende?" : "Want to know more about living in San Miguel de Allende?"}</p>
           <Link href="/blog/vivir-en-san-miguel-de-allende" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de San Miguel →" : "Read our complete guide to San Miguel →"}
           </Link>

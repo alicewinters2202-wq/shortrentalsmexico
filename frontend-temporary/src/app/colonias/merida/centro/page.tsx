@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -38,7 +38,7 @@ export default async function MeridaCentroPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Mérida" : "Merida"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Centro</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "El Centro de Merida es el corazon historico y cultural de la Ciudad Blanca. Con sus casonas coloniales del siglo XVI y XVII perfectamente conservadas, la Plaza Grande con su Catedral de San Ildefonso, el famoso Paseo de Montejo conocido como el Champs-Elysees mexicano, mercados tradicionales llenos de vida y una gastronomia yucateca sin igual en el mundo, es uno de los centros historicos mas vivos y autenticos de Mexico." : "Merida's Centro is the historic and cultural heart of the White City. With its perfectly preserved 16th and 17th century colonial mansions, the Plaza Grande with its Cathedral of San Ildefonso, the famous Paseo de Montejo known as the Mexican Champs-Élysées, traditional markets full of life and a Yucatecan gastronomy unmatched in the world, it is one of the most vibrant and authentic historic centers in Mexico."}
+            {es ? "El Centro de Merida es el corazon historico y cultural de la Ciudad Blanca. Con sus casonas coloniales del siglo XVI y XVII perfectamente conservadas, la Plaza Grande con su Catedral de San Ildefonso, el famoso Paseo de Montejo conocido como el Champs-Elysees mexicano, mercados tradicionales llenos de vida y una gastronomia yucateca sin igual en el mundo, es uno de los centros historicos más vivos y autenticos de México." : "Merida's Centro is the historic and cultural heart of the White City. With its perfectly preserved 16th and 17th century colonial mansions, the Plaza Grande with its Cathedral of San Ildefonso, the famous Paseo de Montejo known as the Mexican Champs-Élysées, traditional markets full of life and a Yucatecan gastronomy unmatched in the world, it is one of the most vibrant and authentic historic centers in Mexico."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "Vivir en el Centro de Merida significa acceso a pie a todo: los mejores restaurantes de cocina yucateca, el Mercado Lucas de Galvez con sus ingredientes locales, los museos, las galerias de arte, los parques y la animada vida cultural de la ciudad. Los fines de semana hay espectaculos en el Zocalo y en los parques del Centro." : "Living in Merida's Centro means walking access to everything: the best Yucatecan cuisine restaurants, the Lucas de Galvez market with its local ingredients, the museums, art galleries, parks and the city's lively cultural life. On weekends there are shows at the main square and in the Centro's parks."}
@@ -91,7 +91,7 @@ export default async function MeridaCentroPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Merida?" : "Want to know more about living in Merida?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Merida?" : "Want to know more about living in Merida?"}</p>
           <Link href="/blog/vivir-en-merida" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Merida →" : "Read our complete guide to Merida →"}
           </Link>

@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
@@ -28,7 +28,7 @@ export default async function ViviriEnTulum() {
         </h1>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Tulum ha pasado de ser un pequeño pueblo de pescadores a convertirse en uno de los destinos más codiciados del mundo. Con su combinación única de naturaleza extraordinaria, cultura maya ancestral, gastronomía de lujo consciente y una comunidad internacional vibrante, vivir en Tulum es una experiencia completamente diferente a cualquier otra ciudad de México.' : 'Tulum has gone from being a small fishing village to becoming one of the most coveted destinations in the world. With its unique combination of extraordinary nature, ancestral Mayan culture, conscious luxury gastronomy and a vibrant international community, living in Tulum is a completely different experience from any other city in Mexico.'}
+            {es ? 'Tulum ha pasado de ser un pequeño pueblo de pescadores a convertirse en uno de los destinos más codiciados del mundo. Con su combinación única de naturaleza extraordinaria, cultura maya ancestral, gastronomía de lujo consciente y una comunidad internacional vibrante, vivir en Tulum es una experiencia completamente diferente a cualquier otra ciudad de México.' : 'Tulum has gone from being a small fishing village to becoming one of the most coveted destinations in the world. With its unique combination of extraordinary nature, ancestral Mayan culture, conscious luxury gastronomy and a vibrant international community, living in Tulum is a completely different experience from any other city in México.'}
           </p>
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'El estilo de vida único de Tulum' : 'Tulum\'s unique lifestyle'}</h2>

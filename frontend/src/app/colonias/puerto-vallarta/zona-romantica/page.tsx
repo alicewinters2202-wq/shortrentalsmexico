@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -39,10 +39,10 @@ export default async function ZonaRomanticaPage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>Puerto Vallarta</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)", fontFamily: "var(--font-display), serif" }}>Zona Romántica</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Zona Romantica es el corazon bohemio, cultural y autentico de Puerto Vallarta. Con sus calles empedradas del siglo XIX, galerias de arte — PV tiene la concentracion de galerias de arte mas alta de Mexico por habitante —, algunos de los mejores restaurantes de la ciudad, la famosa Playa los Muertos y el icónico Muelle de los Muertos, es el barrio mas querido y con mas caracter de toda la ciudad." : "The Romantic Zone is the bohemian, cultural and authentic heart of Puerto Vallarta. With its 19th century cobblestone streets, art galleries — PV has the highest concentration of art galleries per capita in Mexico —, some of the city's best restaurants, the famous Playa los Muertos and the iconic Muelle de los Muertos, it is the most beloved and characterful neighborhood in the entire city."}
+            {es ? "La Zona Romantica es el corazon bohemio, cultural y autentico de Puerto Vallarta. Con sus calles empedradas del siglo XIX, galerias de arte — PV tiene la concentracion de galerias de arte más alta de México por habitante —, algunos de los mejores restaurantes de la ciudad, la famosa Playa los Muertos y el icónico Muelle de los Muertos, es el barrio más querido y con más caracter de toda la ciudad." : "The Romantic Zone is the bohemian, cultural and authentic heart of Puerto Vallarta. With its 19th century cobblestone streets, art galleries — PV has the highest concentration of art galleries per capita in Mexico —, some of the city's best restaurants, the famous Playa los Muertos and the iconic Muelle de los Muertos, it is the most beloved and characterful neighborhood in the entire city."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "La Zona Romantica tiene una de las comunidades de expatriados mas establecidas de Puerto Vallarta, con grupos sociales, restaurantes de todas las cocinas del mundo, bares con musica en vivo y eventos culturales frecuentes. Es el lugar donde verdaderamente se siente el alma de Puerto Vallarta." : "The Romantic Zone has one of Puerto Vallarta's most established expat communities, with social groups, restaurants from all world cuisines, bars with live music and frequent cultural events. It is the place where you truly feel the soul of Puerto Vallarta."}
+            {es ? "La Zona Romantica tiene una de las comunidades de expatriados más establecidas de Puerto Vallarta, con grupos sociales, restaurantes de todas las cocinas del mundo, bares con musica en vivo y eventos culturales frecuentes. Es el lugar donde verdaderamente se siente el alma de Puerto Vallarta." : "The Romantic Zone has one of Puerto Vallarta's most established expat communities, with social groups, restaurants from all world cuisines, bars with live music and frequent cultural events. It is the place where you truly feel the soul of Puerto Vallarta."}
           </p>
           <p className="text-base leading-relaxed" style={{ color: "var(--muted)" }}>
             <strong style={{ color: "var(--ink)" }}>{es ? "Perfil del residente:" : "Resident profile:"}</strong>{" "}
@@ -51,9 +51,9 @@ export default async function ZonaRomanticaPage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
           {[
-            { icon: "🎨", title_es: "Arte y cultura", title_en: "Art and culture", desc_es: "La mayor concentracion de galerias de arte de Mexico por habitante con eventos culturales continuos", desc_en: "The highest concentration of art galleries per capita in Mexico with continuous cultural events" },
-            { icon: "🏖️", title_es: "Playa los Muertos", title_en: "Playa los Muertos", desc_es: "La playa mas popular y animada de Puerto Vallarta con el Muelle de los Muertos a pasos", desc_en: "Puerto Vallarta's most popular and lively beach with the Muelle de los Muertos steps away" },
-            { icon: "🍽️", title_es: "Mejor gastronomia", title_en: "Best gastronomy", desc_es: "Los restaurantes mas premiados e internacionalmente reconocidos de Puerto Vallarta en la zona", desc_en: "Puerto Vallarta's most award-winning and internationally recognized restaurants in the area" },
+            { icon: "🎨", title_es: "Arte y cultura", title_en: "Art and culture", desc_es: "La mayor concentracion de galerias de arte de México por habitante con eventos culturales continuos", desc_en: "The highest concentration of art galleries per capita in Mexico with continuous cultural events" },
+            { icon: "🏖️", title_es: "Playa los Muertos", title_en: "Playa los Muertos", desc_es: "La playa más popular y animada de Puerto Vallarta con el Muelle de los Muertos a pasos", desc_en: "Puerto Vallarta's most popular and lively beach with the Muelle de los Muertos steps away" },
+            { icon: "🍽️", title_es: "Mejor gastronomia", title_en: "Best gastronomy", desc_es: "Los restaurantes más premiados e internacionalmente reconocidos de Puerto Vallarta en la zona", desc_en: "Puerto Vallarta's most award-winning and internationally recognized restaurants in the area" },
           ].map(r => (
             <div key={r.title_es} className="rounded-2xl p-6" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
               <span className="text-3xl mb-3 block">{r.icon}</span>
@@ -92,7 +92,7 @@ export default async function ZonaRomanticaPage() {
           })}
         </div>
         <div className="mt-12 p-6 rounded-2xl" style={{ backgroundColor: "var(--card)", border: "1px solid var(--border)" }}>
-          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber mas sobre vivir en Puerto Vallarta?" : "Want to know more about living in Puerto Vallarta?"}</p>
+          <p className="text-sm mb-2" style={{ color: "var(--ink)" }}>{es ? "¿Quieres saber más sobre vivir en Puerto Vallarta?" : "Want to know more about living in Puerto Vallarta?"}</p>
           <Link href="/blog/vivir-en-puerto-vallarta" className="text-sm font-semibold" style={{ color: "var(--gold)" }}>
             {es ? "Lee nuestra guia completa de Puerto Vallarta →" : "Read our complete guide to Puerto Vallarta →"}
           </Link>

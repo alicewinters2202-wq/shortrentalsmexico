@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
 
@@ -27,7 +27,7 @@ export default async function ViviriEnPuertoVallarta() {
         </h1>
         <div className="space-y-6">
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Puerto Vallarta es uno de los destinos más queridos por expatriados estadounidenses y canadienses en México. Con su mezcla perfecta de ciudad colonial con carácter, playas espectaculares de la Bahía de Banderas, gastronomía de primer nivel y una comunidad internacional muy consolidada, PV tiene todo para convertirse en tu hogar.' : 'Puerto Vallarta is one of the most beloved destinations for American and Canadian expats in Mexico. With its perfect blend of a colonial city with character, spectacular beaches of Banderas Bay, top-tier gastronomy and a very established international community, PV has everything to become your home.'}
+            {es ? 'Puerto Vallarta es uno de los destinos más queridos por expatriados estadounidenses y canadienses en México. Con su mezcla perfecta de ciudad colonial con carácter, playas espectaculares de la Bahía de Banderas, gastronomía de primer nivel y una comunidad internacional muy consolidada, PV tiene todo para convertirse en tu hogar.' : 'Puerto Vallarta is one of the most beloved destinations for American and Canadian expats in México. With its perfect blend of a colonial city with character, spectacular beaches of Banderas Bay, top-tier gastronomy and a very established international community, PV has everything to become your home.'}
           </p>
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Las mejores zonas para vivir' : 'Best areas to live'}</h2>
@@ -57,7 +57,7 @@ export default async function ViviriEnPuertoVallarta() {
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'La comunidad de expatriados' : 'The expat community'}</h2>
           <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {es ? 'Puerto Vallarta tiene una de las comunidades de expatriados más grandes y consolidadas de México, con una fuerte presencia de estadounidenses y canadienses que llevan décadas viviendo aquí. Hay grupos sociales en inglés, eventos culturales internacionales, restaurantes de todas las cocinas del mundo, y médicos y abogados que hablan inglés. Puedes vivir cómodamente en PV sin hablar español.' : 'Puerto Vallarta has one of the largest and most established expat communities in Mexico, with a strong presence of Americans and Canadians who have been living here for decades. There are English-speaking social groups, international cultural events, restaurants from all world cuisines, and English-speaking doctors and lawyers. You can live comfortably in PV without speaking Spanish.'}
+            {es ? 'Puerto Vallarta tiene una de las comunidades de expatriados más grandes y consolidadas de México, con una fuerte presencia de estadounidenses y canadienses que llevan décadas viviendo aquí. Hay grupos sociales en inglés, eventos culturales internacionales, restaurantes de todas las cocinas del mundo, y médicos y abogados que hablan inglés. Puedes vivir cómodamente en PV sin hablar español.' : 'Puerto Vallarta has one of the largest and most established expat communities in México, with a strong presence of Americans and Canadians who have been living here for decades. There are English-speaking social groups, international cultural events, restaurants from all world cuisines, and English-speaking doctors and lawyers. You can live comfortably in PV without speaking Spanish.'}
           </p>
 
           <h2 className="font-serif text-2xl mt-10 mb-4" style={{ color: 'var(--ink)' }}>{es ? 'Clima y temporadas' : 'Climate and seasons'}</h2>

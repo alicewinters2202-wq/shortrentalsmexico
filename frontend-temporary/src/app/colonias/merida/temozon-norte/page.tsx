@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { fetchPreview, imageUrl, parseAddress, formatMXN } from "@/types/preview";
 import { getT } from "@/lib/lang";
 import LangToggle from "@/components/layout/LangToggle";
@@ -41,7 +41,7 @@ export default async function TemozonNortePage() {
           <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "var(--gold)" }}>{es ? "Mérida" : "Merida"}</p>
           <h1 className="italic text-5xl sm:text-6xl mb-6" style={{ color: "var(--ink)" }}>Temozon Norte</h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-            {es ? "Temozon Norte es la zona mas exclusiva al norte de Merida, donde se concentran los fraccionamientos privados de lujo mas importantes de Yucatan. Con el Yucatan Country Club con campo de golf de 18 hoyos, residencias amplias con jardin y alberca, acceso controlado las 24 horas y una comunidad de altisimo nivel, es el destino premium para quienes buscan lo mejor de Merida sin compromisos." : "Temozon Norte is the most exclusive area north of Merida, where Yucatan's most important luxury private developments are concentrated. With the Yucatan Country Club with an 18-hole golf course, spacious homes with garden and pool, 24-hour controlled access and a very high-end community, it is the premium destination for those seeking the best of Merida without compromise."}
+            {es ? "Temozon Norte es la zona más exclusiva al norte de Merida, donde se concentran los fraccionamientos privados de lujo más importantes de Yucatan. Con el Yucatan Country Club con campo de golf de 18 hoyos, residencias amplias con jardin y alberca, acceso controlado las 24 horas y una comunidad de altisimo nivel, es el destino premium para quienes buscan lo mejor de Merida sin compromisos." : "Temozon Norte is the most exclusive area north of Merida, where Yucatan's most important luxury private developments are concentrated. With the Yucatan Country Club with an 18-hole golf course, spacious homes with garden and pool, 24-hour controlled access and a very high-end community, it is the premium destination for those seeking the best of Merida without compromise."}
           </p>
           <p className="text-base leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
             {es ? "La zona ofrece un estilo de vida tranquilo, exclusivo y seguro, con acceso al club de golf, restaurantes de lujo y la mejor calidad de vida de Yucatan. A solo 20-25 minutos del centro de Merida, es perfecta para quienes valoran el espacio, la privacidad y el contacto con la naturaleza tropical yucateca." : "The area offers a quiet, exclusive and safe lifestyle, with access to the golf club, luxury restaurants and the best quality of life in Yucatan. Just 20-25 minutes from downtown Merida, it is perfect for those who value space, privacy and contact with Yucatan's tropical nature."}

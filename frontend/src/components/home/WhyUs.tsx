@@ -1,4 +1,4 @@
-﻿interface Props { lang: string }
+interface Props { lang: string }
 
 export default function WhyUs({ lang }: Props) {
   const es = lang !== 'en';
@@ -8,14 +8,14 @@ export default function WhyUs({ lang }: Props) {
       icon: '📅',
       title: es ? 'Desde 2021' : 'Since 2021',
       desc: es
-        ? 'Mas de 4 anos conectando a inquilinos con las mejores propiedades amuebladas en Mexico. Conocemos el mercado como nadie.'
-        : 'Over 4 years connecting tenants with the best furnished properties in Mexico. We know the market like no one else.',
+        ? 'Mas de 4 años conectando a inquilinos con las mejores propiedades amuebladas en México. Conocemos el mercado como nadie.'
+        : 'Over 4 years connecting tenants with the best furnished properties in México. We know the market like no one else.',
     },
     {
       icon: '💰',
       title: es ? 'Mejor precio que Airbnb' : 'Better price than Airbnb',
       desc: es
-        ? 'Airbnb cobra hasta un 40% de comision a los duenos. Nosotros cobramos menos, lo que se traduce en precios mas bajos para ti.'
+        ? 'Airbnb cobra hasta un 40% de comision a los duenos. Nosotros cobramos menos, lo que se traduce en precios más bajos para ti.'
         : 'Airbnb charges owners up to 40% commission. We charge less, which translates to lower prices for you.',
     },
     {
@@ -43,7 +43,7 @@ export default function WhyUs({ lang }: Props) {
       icon: '🛡️',
       title: es ? 'Soporte 24/7' : '24/7 Support',
       desc: es
-        ? 'Cualquier inconveniente tiene solucion. Nuestro equipo de soporte esta disponible para resolver cualquier situacion.'
+        ? 'Cualquier inconveniente tiene solución. Nuestro equipo de soporte está disponible para resolver cualquier situación.'
         : 'Any issue has a solution. Our support team is available to resolve any situation.',
     },
   ];
