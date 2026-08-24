@@ -41,7 +41,7 @@ export default async function ViviriEnMonterrey() {
             {
               name: 'San Pedro Garza García', emoji: '🏢',
               es_desc: 'El municipio más exclusivo y próspero del área metropolitana de Monterrey, y uno de los de mayor ingreso per cápita de México. Concentra las sedes de las principales empresas del país, centros comerciales premium como Chroma y Galerías Valle Oriente, hospitales privados de primer nivel y algunas de las zonas residenciales más exclusivas del norte de México.',
-              en_desc: 'The most exclusive and prosperous municipality in the Monterrey metropolitan area, and one of the highest per capita income in México. It concentrates the headquarters of the country\'s leading companies, premium shopping centers like Chroma and Galerías Valle Oriente, top-tier private hospitals and some of the most exclusive residential areas in northern México.',
+              en_desc: 'The most exclusive and prosperous municipality in the Monterrey metropolitan area, and one of the highest per capita income in Mexico. It concentrates the headquarters of the country\'s leading companies, premium shopping centers like Chroma and Galerías Valle Oriente, top-tier private hospitals and some of the most exclusive residential areas in northern Mexico.',
             },
             {
               name: 'Valle Oriente', emoji: '🏙️',

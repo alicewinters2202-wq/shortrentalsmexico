@@ -69,7 +69,7 @@ export default async function ViviriEnTulum() {
                 { item: es ? 'Renta mensual (depa amueblado, Aldea Zama)' : 'Monthly rent (furnished apt, Aldea Zama)', cost: '$25,000 – $80,000 MXN' },
                 { item: es ? 'Renta mensual (La Veleta)' : 'Monthly rent (La Veleta)', cost: '$15,000 – $40,000 MXN' },
                 { item: es ? 'Comida en restaurante zona hotelera' : 'Restaurant meal hotel zone', cost: '$300 – $800 MXN' },
-                { item: es ? 'Transporte (bicicleta o moto recomendable)' : 'Transportation (bike or scooter recommended)', cost: '$500 – $1,500 MXN/mes' },
+                { item: es ? 'Transporte (bicicleta o moto recomendable)' : 'Transportation (bike or scooter recommended)', cost: es ? '$500 – $1,500 MXN/mes' : '$500 – $1,500 MXN/month' },
               ].map(item => (
                 <div key={item.item} className="flex justify-between py-2" style={{ borderBottom: '1px solid var(--border)' }}>
                   <span className="text-sm" style={{ color: 'var(--muted)' }}>{item.item}</span>

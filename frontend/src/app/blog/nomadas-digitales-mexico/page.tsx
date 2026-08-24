@@ -50,7 +50,7 @@ export default async function NomadasDigitalesMexico() {
             {
               city: 'Mérida', emoji: '🏛️', link: '/properties?city=M%C3%A9rida',
               es_desc: 'Mérida es una revelación para muchos nómadas digitales. La ciudad más segura de México tiene costos de vida muy accesibles, una comunidad de expatriados en crecimiento, excelente infraestructura de internet y una calidad de vida extraordinaria. Su arquitectura colonial, gastronomía yucateca única y ritmo de vida tranquilo la hacen perfecta para quienes buscan un equilibrio entre trabajo y bienestar.',
-              en_desc: 'Merida is a revelation for many digital nomads. México\'s safest city has very accessible costs of living, a growing expat community, excellent internet infrastructure and extraordinary quality of life. Its colonial architecture, unique Yucatecan gastronomy and peaceful pace of life make it perfect for those seeking a balance between work and wellness.',
+              en_desc: 'Merida is a revelation for many digital nomads. Mexico\'s safest city has very accessible costs of living, a growing expat community, excellent internet infrastructure and extraordinary quality of life. Its colonial architecture, unique Yucatecan gastronomy and peaceful pace of life make it perfect for those seeking a balance between work and wellness.',
             },
             {
               city: 'Guadalajara', emoji: '🌺', link: '/properties?city=Guadalajara',
