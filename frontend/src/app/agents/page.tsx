@@ -1,12 +1,20 @@
 import Link from 'next/link';
 import LangToggle from '@/components/layout/LangToggle';
-import { getT } from '@/lib/lang';
+import { getT, getServerLang } from '@/lib/lang';
 import { AGENTS } from '@/lib/agents';
 import { FLAG_MAP } from '@/components/Flags';
 
-export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/agents' },
-};
+export async function generateMetadata() {
+  const lang = await getServerLang();
+  const es = lang !== 'en';
+  return {
+    alternates: { canonical: 'https://shortstaymx.com/agents' },
+    title: es ? 'Nuestro equipo | ShortStayMX' : 'Our team | ShortStayMX',
+    description: es
+      ? 'Conoce a nuestro equipo de agentes en ShortStayMX. Cada ciudad tiene un equipo dedicado para atenderte.'
+      : 'Meet our team of agents at ShortStayMX. Each city has a dedicated team ready to assist you.',
+  };
+}
 
 
 export default async function AgentsPage() {

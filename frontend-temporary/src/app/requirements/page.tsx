@@ -1,10 +1,18 @@
 import Link from 'next/link';
 import LangToggle from '@/components/layout/LangToggle';
-import { getT } from '@/lib/lang';
+import { getT, getServerLang } from '@/lib/lang';
 
-export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/requirements' },
-};
+export async function generateMetadata() {
+  const lang = await getServerLang();
+  const es = lang !== 'en';
+  return {
+    alternates: { canonical: 'https://temporaryrentalsmexico.com/requirements' },
+    title: es ? 'Nuestros requisitos | TemporaryRentalsMexico' : 'Our requirements | TemporaryRentalsMexico',
+    description: es
+      ? 'Para reservar cualquiera de nuestras propiedades en TemporaryRentalsMexico, necesitas cumplir con estos requisitos.'
+      : 'To book any of our properties at TemporaryRentalsMexico, you need to meet these requirements.',
+  };
+}
 
 
 export default async function RequirementsPage() {

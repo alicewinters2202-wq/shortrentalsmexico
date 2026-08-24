@@ -1,10 +1,18 @@
 import Link from 'next/link';
 import LangToggle from '@/components/layout/LangToggle';
-import { getT } from '@/lib/lang';
+import { getT, getServerLang } from '@/lib/lang';
 
-export const metadata = {
-  alternates: { canonical: 'https://temporaryrentalsmexico.com/about' },
-};
+export async function generateMetadata() {
+  const lang = await getServerLang();
+  const es = lang !== 'en';
+  return {
+    alternates: { canonical: 'https://temporaryrentalsmexico.com/about' },
+    title: es ? 'Sobre nosotros | TemporaryRentalsMexico' : 'About us | TemporaryRentalsMexico',
+    description: es
+      ? 'Conoce a TemporaryRentalsMexico: hospitalidad profesional en los mejores destinos de México.'
+      : 'Meet TemporaryRentalsMexico: professional hospitality at the best destinations in Mexico.',
+  };
+}
 
 
 export default async function AboutPage() {

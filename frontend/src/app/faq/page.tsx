@@ -1,11 +1,19 @@
 import Link from 'next/link';
 import LangToggle from '@/components/layout/LangToggle';
-import { getT } from '@/lib/lang';
+import { getT, getServerLang } from '@/lib/lang';
 import FaqAccordion from './FaqAccordion';
 
-export const metadata = {
-  alternates: { canonical: 'https://shortstaymx.com/faq' },
-};
+export async function generateMetadata() {
+  const lang = await getServerLang();
+  const es = lang !== 'en';
+  return {
+    alternates: { canonical: 'https://shortstaymx.com/faq' },
+    title: es ? 'Preguntas frecuentes | ShortStayMX' : 'Frequently Asked Questions | ShortStayMX',
+    description: es
+      ? 'Todo lo que necesitas saber antes de reservar con ShortStayMX.'
+      : 'Everything you need to know before booking with ShortStayMX.',
+  };
+}
 
 
 export default async function FaqPage() {
