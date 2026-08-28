@@ -122,6 +122,7 @@ const T = {
     agentsSectionTitle: 'Nuestro equipo',
     agentsSectionSub: 'Cada ciudad tiene un equipo dedicado para atenderte',
     agentsViewProps: 'Ver propiedades',
+    agentsMessage: 'Enviar mensaje',
     // search bar
     destinationLabel: 'Destino',
     chooseCity: 'Elige una ciudad',
@@ -407,6 +408,7 @@ const T = {
     agentsSectionTitle: 'Our team',
     agentsSectionSub: 'Each city has a dedicated team ready to assist you',
     agentsViewProps: 'View properties',
+    agentsMessage: 'Send message',
     destinationLabel: 'Destination',
     chooseCity: 'Choose a city',
     searchBtn: 'Search →',

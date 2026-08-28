@@ -142,6 +142,19 @@ export default async function AgentsPage() {
                 >
                   {t.agentsViewProps} →
                 </Link>
+                <a
+                  href={`https://wa.me/${agent.wa}?text=${encodeURIComponent(
+                    lang === 'en'
+                      ? "Hi, I saw your site, temporaryrentalsmexico.com, and I'd like information about your available properties."
+                      : 'Hola, vi su sitio, temporaryrentalsmexico.com, y me gustaría información sobre sus propiedades disponibles.'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center py-3 rounded-full text-sm font-semibold tracking-wide transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)' }}
+                >
+                  {t.agentsMessage}
+                </a>
               </div>
             );
           })}
