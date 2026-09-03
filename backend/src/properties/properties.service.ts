@@ -54,6 +54,7 @@ export class PropertiesService {
     'san luis potosi 44',
     'tennyson 155',
     'lamartine 136',
+    'campos eliseos 100',
   ];
 
   private readonly NEVER_AVAILABLE: string[] = [];
