@@ -5,6 +5,7 @@ import { PropertyPreview, formatMXN } from '@/types/preview';
 import { useLang } from '@/store/lang.store';
 import { useT } from '@/lib/i18n';
 import AgentModal from '@/components/AgentModal';
+import DateRangeField from './DateRangeField';
 
 // MIN_NIGHTS se obtiene de property.minStay
 
@@ -12,10 +13,6 @@ function addDays(date: string, days: number): string {
   const d = new Date(date);
   d.setDate(d.getDate() + days);
   return d.toISOString().split('T')[0];
-}
-
-function today(): string {
-  return new Date().toISOString().split('T')[0];
 }
 
 export default function BookingPanelPreview({ property }: { property: PropertyPreview }) {
@@ -76,30 +73,18 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
         </div>
 
         {/* Fechas */}
-        <div className="grid grid-cols-2 gap-2">
-          {[
-            { label: t.arrival,   value: checkIn,  min: today(),                         setter: handleCheckInChange },
-            { label: t.departure, value: checkOut, min: checkIn ? addDays(checkIn, MIN_NIGHTS) : today(), setter: setCheckOut },
-          ].map(({ label, value, min, setter }) => (
-            <div
-              key={label}
-              className="rounded-xl p-3"
-              style={{ border: '1px solid var(--border)' }}
-            >
-              <p className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: 'var(--muted)' }}>
-                {label}
-              </p>
-              <input
-                type="date"
-                value={value}
-                min={min}
-                onChange={(e) => setter(e.target.value)}
-                className="text-sm bg-transparent outline-none w-full"
-                style={{ color: 'var(--ink)' }}
-              />
-            </div>
-          ))}
-        </div>
+        <DateRangeField
+          checkIn={checkIn}
+          checkOut={checkOut}
+          minStay={MIN_NIGHTS}
+          lang={lang}
+          labelArrival={t.arrival}
+          labelDeparture={t.departure}
+          onChange={(newCheckIn, newCheckOut) => {
+            handleCheckInChange(newCheckIn);
+            setCheckOut(newCheckOut);
+          }}
+        />
 
         {/* Advertencia mínimo */}
         {tooShort && (
