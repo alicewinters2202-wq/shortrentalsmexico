@@ -148,10 +148,10 @@ const T = {
     sendBtn: 'Enviar mensaje',
     contactSent: '¡Mensaje enviado! Te contactamos pronto.',
     // availability
-    occupiedUntil: (date: string) => `Ocupada · hasta ${date}`,
-    occupiedRange: (from: string, to: string) => `Ocupada: ${from} – ${to}`,
+    occupiedUntil: (date: string) => `Reservada · hasta ${date}`,
+    occupiedRange: (from: string, to: string) => `Reservada: ${from} – ${to}`,
     availableFrom: (date: string) => `Disponible a partir del ${date}`,
-    occupiedBanner: 'Esta propiedad está ocupada',
+    occupiedBanner: 'Esta propiedad está reservada',
     availableTag: 'Disponible',
     // faq
     faqNav: 'FAQ',
@@ -571,10 +571,10 @@ const T = {
       { icon: '🧹', title: 'Professional cleaning', desc: 'Weekly cleaning service included in your stay.' },
       { icon: '💬', title: 'Guest support', desc: 'An agent available to assist you at any time.' },
     ],
-    occupiedUntil: (date: string) => `Occupied · until ${date}`,
-    occupiedRange: (from: string, to: string) => `Occupied: ${from} – ${to}`,
+    occupiedUntil: (date: string) => `Booked · until ${date}`,
+    occupiedRange: (from: string, to: string) => `Booked: ${from} – ${to}`,
     availableFrom: (date: string) => `Available from ${date}`,
-    occupiedBanner: 'This property is currently occupied',
+    occupiedBanner: 'This property is currently booked',
     availableTag: 'Available',
   },
 } as const;
