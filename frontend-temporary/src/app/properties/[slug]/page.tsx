@@ -8,7 +8,7 @@ import PropertyReviews from './PropertyReviews';
 import BackLink from './BackLink';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
-import { getUSDRate, formatUSD } from '@/lib/exchange';
+import { getRates, formatUSD, formatEUR, formatCAD } from '@/lib/exchange';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -33,7 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug }   = await params;
   const { t, lang } = await getT();
-  const [properties, usdRate] = await Promise.all([fetchPreview(), getUSDRate()]);
+  const [properties, rates] = await Promise.all([fetchPreview(), getRates()]);
+  const usdRate = rates.MXN;
   const property   = properties.find((p) => p.slug === slug) ?? properties.find((p) => p.id === Number(slug));
   if (!property) notFound();
   const liveReviews = await fetchReviews(property.slug);
@@ -209,10 +210,10 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 {t.dailySub(formatMXN(dailyRate))}
               </p>
               <div className="rounded-2xl overflow-x-auto" style={{ border: '1px solid var(--border)' }}>
-                <table className="w-full text-sm min-w-[480px]">
+                <table className="w-full text-sm min-w-[640px]">
                   <thead>
                     <tr style={{ backgroundColor: 'var(--card)', borderBottom: '1px solid var(--border)' }}>
-                      {[t.nightsCol, t.perNightCol, 'MXN', 'USD'].map((h, i) => (
+                      {[t.nightsCol, t.perNightCol, 'MXN', 'USD', 'EUR', 'CAD'].map((h, i) => (
                         <th
                           key={h}
                           className={`px-4 py-3 text-xs tracking-widest uppercase font-medium ${i === 0 ? 'text-left' : 'text-right'}`}
@@ -253,6 +254,12 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                           </td>
                           <td className="px-4 py-4 text-right text-xs" style={{ color: 'var(--muted)' }}>
                             {formatUSD(grandTotal, usdRate)}
+                          </td>
+                          <td className="px-4 py-4 text-right text-xs" style={{ color: 'var(--muted)' }}>
+                            {formatEUR(grandTotal, usdRate, rates.EUR)}
+                          </td>
+                          <td className="px-4 py-4 text-right text-xs" style={{ color: 'var(--muted)' }}>
+                            {formatCAD(grandTotal, usdRate, rates.CAD)}
                           </td>
                         </tr>
                       );
