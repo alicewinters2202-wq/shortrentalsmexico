@@ -213,7 +213,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 <table className="w-full text-sm min-w-[640px]">
                   <thead>
                     <tr style={{ backgroundColor: 'var(--card)', borderBottom: '1px solid var(--border)' }}>
-                      {[t.nightsCol, t.perNightCol, 'MXN', 'USD', 'EUR', 'CAD'].map((h, i) => (
+                      {[t.nightsCol, 'MXN', 'USD', 'EUR', 'CAD'].map((h, i) => (
                         <th
                           key={h}
                           className={`px-4 py-3 text-xs tracking-widest uppercase font-medium ${i === 0 ? 'text-left' : 'text-right'}`}
@@ -239,17 +239,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                                 {t.minBadge}
                               </span>
                             )}
-                            {n === 30 && (
-                              <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider" style={{ backgroundColor: "rgba(184,118,58,0.2)", color: "var(--ochre)" }}>
-                                {t.oneMonthBadge}
-                              </span>
-                            )}
                           </td>
-                          <td className="px-4 py-4 text-right" style={{ color: 'var(--muted)' }}>
-                            {formatMXN(dailyRate)}
-                          </td>
-                          <td className="px-4 py-4 text-right font-semibold"
-                            style={{ color: n >= 20 ? 'var(--gold)' : 'var(--ink)' }}>
+                          <td className="px-4 py-4 text-right font-semibold" style={{ color: 'var(--ink)' }}>
                             {formatMXN(grandTotal)}
                           </td>
                           <td className="px-4 py-4 text-right text-xs" style={{ color: 'var(--muted)' }}>

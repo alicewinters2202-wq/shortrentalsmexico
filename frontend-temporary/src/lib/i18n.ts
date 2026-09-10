@@ -79,7 +79,7 @@ const T = {
     totalCol: 'Total',
     minBadge: 'mínimo',
     oneMonthBadge: '1 mes',
-    priceFoot: 'Tarifa diaria = precio mensual ÷ 30. El panel lateral calcula cualquier número de noches.',
+    priceFoot: 'Esta tarifa diaria aplica para estancias de hasta 89 noches. Para 90 noches o más, contáctanos para precios especiales de larga estancia.',
     // wa cta
     moreThan1Month: 'Ver disponibilidad con un agente',
     moreThan1MonthSub: 'Contáctanos por WhatsApp y un agente te atenderá de inmediato.',
@@ -369,7 +369,7 @@ const T = {
     totalCol: 'Total',
     minBadge: 'minimum',
     oneMonthBadge: '1 month',
-    priceFoot: 'Daily rate = monthly price ÷ 30. The side panel calculates any number of nights.',
+    priceFoot: 'This daily rate applies to stays of up to 89 nights. For 90 nights or more, contact us for special long-stay pricing.',
     moreThan1Month: 'Check availability with an agent',
     moreThan1MonthSub: 'Contact us on WhatsApp and an agent will assist you right away.',
     openWA: 'Book now',
