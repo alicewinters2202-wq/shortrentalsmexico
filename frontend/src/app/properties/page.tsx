@@ -3,6 +3,8 @@ import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '
 import { getRatingSummary } from '@/lib/seedReviews';
 import LangToggle from '@/components/layout/LangToggle';
 import SortDropdown from './SortDropdown';
+import PriceRangeFilter from './PriceRangeFilter';
+import { getRates } from '@/lib/exchange';
 import { getT } from '@/lib/lang';
 
 const CITIES = ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala', 'Puerto Vallarta', 'San Miguel de Allende', 'Mérida', 'Cancún', 'Nuevo Vallarta', 'Tulum', 'Playa del Carmen'];
@@ -19,12 +21,14 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string }>;
+  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string; minPrice?: string; maxPrice?: string }>;
 }) {
   let cityParam: string | undefined;
   let guestsParam: number | undefined;
   let sortParam: string | undefined;
   let pageParam = 1;
+  let minPriceParam: number | undefined;
+  let maxPriceParam: number | undefined;
   try {
     const sp = await searchParams;
     cityParam = sp?.city;
@@ -33,14 +37,24 @@ export default async function PropertiesPage({
     sortParam = ['price_asc', 'price_desc', 'bedrooms', 'size'].includes(sp?.sort ?? '') ? sp!.sort : undefined;
     const parsedPage = sp?.page ? parseInt(sp.page, 10) : 1;
     pageParam = !isNaN(parsedPage) && parsedPage > 0 ? parsedPage : 1;
+    minPriceParam = sp?.minPrice ? parseInt(sp.minPrice, 10) : undefined;
+    if (minPriceParam !== undefined && (isNaN(minPriceParam) || minPriceParam < 0)) minPriceParam = undefined;
+    maxPriceParam = sp?.maxPrice ? parseInt(sp.maxPrice, 10) : undefined;
+    if (maxPriceParam !== undefined && (isNaN(maxPriceParam) || maxPriceParam < 0)) maxPriceParam = undefined;
   } catch {
     cityParam = undefined;
     guestsParam = undefined;
     sortParam = undefined;
     pageParam = 1;
+    minPriceParam = undefined;
+    maxPriceParam = undefined;
   }
   const { t, lang } = await getT();
-  const properties = await fetchPreview();
+  const [properties, rates] = await Promise.all([fetchPreview(), getRates()]);
+  const usdRate = rates.MXN;
+  const allPrices = properties.map((p) => p.pricePerMonth).filter((n) => n > 0);
+  const priceMinBound = allPrices.length ? Math.floor(Math.min(...allPrices) / 1000) * 1000 : 0;
+  const priceMaxBound = allPrices.length ? Math.ceil(Math.max(...allPrices) / 1000) * 1000 : 100000;
   let filtered = cityParam
     ? properties.filter((p) => p.city.trim() === cityParam!.trim())
     : properties;
@@ -52,6 +66,13 @@ export default async function PropertiesPage({
     filtered = filtered.filter((p) => p.maxGuests >= guestsParam! && p.available);
   }
   const hiddenByFilterCount = beforeGuestFilterCount - filtered.length;
+
+  if (minPriceParam !== undefined) {
+    filtered = filtered.filter((p) => p.pricePerMonth >= minPriceParam!);
+  }
+  if (maxPriceParam !== undefined) {
+    filtered = filtered.filter((p) => p.pricePerMonth <= maxPriceParam!);
+  }
 
   // Apply the chosen secondary order first...
   const sorted = [...filtered];
@@ -74,6 +95,8 @@ export default async function PropertiesPage({
     if (city) params.set('city', city);
     if (guestsParam !== undefined) params.set('guests', String(guestsParam));
     if (sortParam) params.set('sort', sortParam);
+    if (minPriceParam !== undefined) params.set('minPrice', String(minPriceParam));
+    if (maxPriceParam !== undefined) params.set('maxPrice', String(maxPriceParam));
     const qs = params.toString();
     return `/properties${qs ? `?${qs}` : ''}`;
   };
@@ -87,6 +110,8 @@ export default async function PropertiesPage({
     if (cityParam) params.set('city', cityParam);
     if (guestsParam !== undefined) params.set('guests', String(guestsParam));
     if (sortParam) params.set('sort', sortParam);
+    if (minPriceParam !== undefined) params.set('minPrice', String(minPriceParam));
+    if (maxPriceParam !== undefined) params.set('maxPrice', String(maxPriceParam));
     if (page > 1) params.set('page', String(page));
     const qs = params.toString();
     return `/properties${qs ? `?${qs}` : ''}`;
@@ -168,11 +193,26 @@ export default async function PropertiesPage({
               cityParam={cityParam}
               guestsParam={guestsParam}
               sortParam={sortParam}
+              minPriceParam={minPriceParam}
+              maxPriceParam={maxPriceParam}
               options={SORT_OPTIONS}
               placeholder={lang === 'en' ? 'Default' : 'Predeterminado'}
               accentColor="var(--ochre)"
             />
           </div>
+
+          <PriceRangeFilter
+            cityParam={cityParam}
+            guestsParam={guestsParam}
+            sortParam={sortParam}
+            minBound={priceMinBound}
+            maxBound={priceMaxBound}
+            minPrice={minPriceParam}
+            maxPrice={maxPriceParam}
+            usdRate={usdRate}
+            lang={lang}
+            accentColor="var(--ochre)"
+          />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
