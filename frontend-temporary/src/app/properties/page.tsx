@@ -196,7 +196,6 @@ export default async function PropertiesPage({
                 {c}
               </Link>
             ))}
-            <SavedLink active={idsParam !== undefined} lang={lang} accentColor="var(--gold)" />
           </div>
 
           <div className="flex items-center gap-3 mt-4">
@@ -224,6 +223,7 @@ export default async function PropertiesPage({
               lang={lang}
               accentColor="var(--gold)"
             />
+            <SavedLink active={idsParam !== undefined} lang={lang} accentColor="var(--gold)" />
             <span className="ml-auto">
               <ViewToggle
                 cityParam={cityParam}
@@ -266,7 +266,6 @@ export default async function PropertiesPage({
                 pricePerMonth: p.pricePerMonth,
               }))}
               accentColor="var(--gold)"
-              formatPrice={formatMXN}
             />
             {(() => {
               const mapped = sorted.filter((p) => p.lat !== null && p.lng !== null).length;

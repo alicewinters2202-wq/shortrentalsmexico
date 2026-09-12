@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
+import { formatMXN } from '@/types/preview';
 
 export interface MapPoint {
   id: number;
@@ -16,10 +17,9 @@ export interface MapPoint {
 interface Props {
   points: MapPoint[];
   accentColor: string;
-  formatPrice: (n: number) => string;
 }
 
-export default function PropertiesMap({ points, accentColor, formatPrice }: Props) {
+export default function PropertiesMap({ points, accentColor }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any>(null);
@@ -59,7 +59,7 @@ export default function PropertiesMap({ points, accentColor, formatPrice }: Prop
         marker.bindPopup(
           `<a href="/properties/${p.slug}" style="font-weight:600;text-decoration:none;color:#1C1C1E;display:block;margin-bottom:2px;">${streetName}</a>` +
             `<span style="color:#86868B;font-size:12px;">${p.city.trim()}</span><br/>` +
-            `<strong style="font-size:13px;">${formatPrice(p.pricePerMonth)}/mes</strong>`,
+            `<strong style="font-size:13px;">${formatMXN(p.pricePerMonth)}/mes</strong>`,
         );
         bounds.push([p.lat, p.lng]);
       });
@@ -74,7 +74,7 @@ export default function PropertiesMap({ points, accentColor, formatPrice }: Prop
     return () => {
       cancelled = true;
     };
-  }, [points, accentColor, formatPrice]);
+  }, [points, accentColor]);
 
   useEffect(() => {
     return () => {
