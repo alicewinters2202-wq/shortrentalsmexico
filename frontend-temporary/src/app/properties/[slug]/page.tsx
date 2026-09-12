@@ -7,6 +7,7 @@ import BookingPanelPreview from './BookingPanelPreview';
 import PropertyReviews from './PropertyReviews';
 import BackLink from './BackLink';
 import SaveButton from './SaveButton';
+import PropertiesMap from '../PropertiesMap';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { getRates, formatUSD, formatEUR, formatCAD } from '@/lib/exchange';
@@ -46,6 +47,9 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
   const dailyRate  = Math.round(property.pricePerMonth / 30);
   const sqft       = Math.round(property.sqMeters * 10.764);
   const mapsUrl    = `https://maps.google.com/maps?q=${encodeURIComponent(property.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const cityMapPoints = properties
+    .filter((p) => p.city.trim() === property.city.trim() && p.lat !== null && p.lng !== null)
+    .map((p) => ({ id: p.id, slug: p.slug, lat: p.lat as number, lng: p.lng as number, city: p.city, address: p.address, pricePerMonth: p.pricePerMonth }));
 
   const waMsg = lang === 'en'
     ? `Hello, I'd like to book the property at ${street}. Could you help me confirm my reservation?`
@@ -275,16 +279,20 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             <div>
               <h2 className="font-serif text-2xl mb-4" style={{ color: 'var(--ink)' }}>{t.locationTitle}</h2>
               <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
-                <iframe
-                  src={mapsUrl}
-                  width="100%"
-                  height="360"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`${t.locationTitle} — ${street}`}
-                />
+                {property.lat !== null && property.lng !== null && cityMapPoints.length > 0 ? (
+                  <PropertiesMap points={cityMapPoints} accentColor="var(--gold)" highlightId={property.id} height={360} />
+                ) : (
+                  <iframe
+                    src={mapsUrl}
+                    width="100%"
+                    height="360"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`${t.locationTitle} — ${street}`}
+                  />
+                )}
               </div>
               <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>📍 {property.address}</p>
             </div>
