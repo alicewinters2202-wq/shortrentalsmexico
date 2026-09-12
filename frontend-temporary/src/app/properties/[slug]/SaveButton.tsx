@@ -68,7 +68,7 @@ export default function SaveButton({ propertyId, size = 'md', variant = 'overlay
     <button
       type="button"
       onClick={toggle}
-      aria-label={saved ? 'Remove from saved' : 'Save property'}
+      aria-label={saved ? 'Remove from favorites' : 'Add to favorites'}
       aria-pressed={saved}
       className="rounded-full flex items-center justify-center transition-transform active:scale-90"
       style={{ width: dim, height: dim, backgroundColor: bg, border, backdropFilter: variant === 'overlay' ? 'blur(4px)' : undefined }}

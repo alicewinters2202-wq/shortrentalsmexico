@@ -40,7 +40,7 @@ export default function SavedLink({ active, lang, accentColor }: Props) {
   // Nothing saved yet and not currently on the saved view: no point showing it.
   if (count === null || (count === 0 && !active)) return null;
 
-  const label = lang === 'en' ? 'Saved' : 'Guardadas';
+  const label = lang === 'en' ? 'Favorites' : 'Favoritas';
 
   return (
     <button

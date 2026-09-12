@@ -158,7 +158,7 @@ export default async function PropertiesPage({
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="mb-10">
           <h1 className="italic text-5xl sm:text-6xl mb-2" style={{ color: 'var(--ink)' }}>
-            {idsParam !== undefined ? (lang === 'en' ? 'Your saved properties' : 'Tus propiedades guardadas') : (cityParam ?? t.allProperties)}
+            {idsParam !== undefined ? (lang === 'en' ? 'Your favorite properties' : 'Tus propiedades favoritas') : (cityParam ?? t.allProperties)}
           </h1>
           <p className="text-sm mb-3" style={{ color: 'var(--muted)' }}>
             {t.propertiesCount(filtered.length)}

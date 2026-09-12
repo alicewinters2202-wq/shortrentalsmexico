@@ -169,7 +169,7 @@ export default async function PropertiesPage({
             className="italic mb-3 leading-[0.95] text-5xl sm:text-6xl"
             style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}
           >
-            {idsParam !== undefined ? (lang === 'en' ? 'Your saved properties' : 'Tus propiedades guardadas') : (cityParam ?? t.allProperties)}
+            {idsParam !== undefined ? (lang === 'en' ? 'Your favorite properties' : 'Tus propiedades favoritas') : (cityParam ?? t.allProperties)}
           </h1>
           <p className="text-sm mb-3" style={{ color: 'var(--muted)' }}>
             {t.propertiesCount(filtered.length)}
