@@ -36,14 +36,12 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
 
       if (!mapRef.current) {
         mapRef.current = L.map(containerRef.current, { scrollWheelZoom: true });
-        // Plain OpenStreetMap tiles: the only major raster tile source that's
-        // genuinely free forever with no API key/account required. CARTO,
-        // MapTiler, Stadia, Mapbox etc. all now gate their nicer-looking
-        // styles behind a free registration.
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        // Geoapify's "osm-bright" style: free, no credit card, and
+        // explicitly permits commercial use (unlike MapTiler's free tier).
+        const geoapifyKey = process.env.NEXT_PUBLIC_GEOAPIFY_KEY || 'c82a5a0f3d3948308f2a21a480ba7aa1';
+        L.tileLayer(`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=${geoapifyKey}`, {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://www.geoapify.com/">Geoapify</a>',
           maxZoom: 19,
-          subdomains: 'abc',
         }).addTo(mapRef.current);
       }
       const map = mapRef.current;
