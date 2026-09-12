@@ -36,12 +36,14 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
 
       if (!mapRef.current) {
         mapRef.current = L.map(containerRef.current, { scrollWheelZoom: true });
-        // CARTO's free "Voyager" basemap: clean, labeled, no API key needed —
-        // much closer to a Google Maps look than raw OpenStreetMap tiles.
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        // Plain OpenStreetMap tiles: the only major raster tile source that's
+        // genuinely free forever with no API key/account required. CARTO,
+        // MapTiler, Stadia, Mapbox etc. all now gate their nicer-looking
+        // styles behind a free registration.
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           maxZoom: 19,
-          subdomains: 'abcd',
+          subdomains: 'abc',
         }).addTo(mapRef.current);
       }
       const map = mapRef.current;
