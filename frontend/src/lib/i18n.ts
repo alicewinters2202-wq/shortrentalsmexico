@@ -227,13 +227,6 @@ const T = {
         ],
       },
       {
-        icon: '🏠',
-        title: 'Comprobante de domicilio',
-        items: [
-          'Comprobante de domicilio de la persona que firmará el contrato.',
-        ],
-      },
-      {
         icon: '📋',
         title: 'Reglamento del condominio',
         items: [
@@ -497,13 +490,6 @@ const T = {
         title: 'Contract',
         items: [
           'The contract is signed in Spanish. If you need a reference copy in another language, we can provide one; however, for legal reasons, the legally binding document is signed only in Spanish.',
-        ],
-      },
-      {
-        icon: '🏠',
-        title: 'Proof of Address',
-        items: [
-          'Proof of address of the person who will sign the contract.',
         ],
       },
       {
