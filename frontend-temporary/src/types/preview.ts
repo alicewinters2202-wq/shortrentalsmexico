@@ -14,6 +14,8 @@ export interface PropertyPreview {
   petFriendly: boolean;
   petFriendlyNegotiable: boolean;
   coordinates: string | null;
+  lat: number | null;
+  lng: number | null;
   images: string[];
   coverThumb: string | null;
   coverThumb2: string | null;

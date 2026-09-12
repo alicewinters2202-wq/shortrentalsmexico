@@ -1,7 +1,8 @@
-﻿import { Injectable } from '@nestjs/common';
+﻿import { Injectable, OnModuleInit } from '@nestjs/common';
 import * as xlsx from 'xlsx';
 import * as fs from 'fs';
 import * as path from 'path';
+import { GeocodingService } from './geocoding.service';
 
 export interface PropertyPreview {
   id: number;
@@ -19,6 +20,8 @@ export interface PropertyPreview {
   petFriendly: boolean;
   petFriendlyNegotiable: boolean;
   coordinates: string | null;
+  lat: number | null;
+  lng: number | null;
   images: string[];
   coverThumb: string | null;
   coverThumb2: string | null;
@@ -30,9 +33,20 @@ export interface PropertyPreview {
 }
 
 @Injectable()
-export class PropertiesService {
+export class PropertiesService implements OnModuleInit {
   private readonly imagenesRoot = path.join(__dirname, '..', '..', 'imagenes');
   private readonly WIFI_SPEEDS = [150, 250, 350, 500];
+
+  constructor(private readonly geocodingService: GeocodingService) {}
+
+  onModuleInit() {
+    // Fire-and-forget: don't block server startup on a multi-minute geocoding
+    // pass. getPreview() returns whatever's resolved so far in the meantime.
+    const addressesNeedingGeocode = this.getPreview()
+      .filter((p) => p.lat === null || p.lng === null)
+      .map((p) => p.address);
+    void this.geocodingService.warmUp(addressesNeedingGeocode);
+  }
 
   private readonly ALWAYS_AVAILABLE = [
     'amsterdam 289',
@@ -87,6 +101,17 @@ export class PropertiesService {
    * Stability only breaks if this property's OWN row is moved within its
    * city's spreadsheet (i.e. always append new rows at the end).
    */
+  private resolveCoordinates(coordinates: string | null, address: string): { lat: number | null; lng: number | null } {
+    if (coordinates) {
+      const parts = coordinates.split(',').map((s) => parseFloat(s.trim()));
+      if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+        return { lat: parts[0], lng: parts[1] };
+      }
+    }
+    const geo = this.geocodingService.get(address);
+    return geo ? { lat: geo.lat, lng: geo.lng } : { lat: null, lng: null };
+  }
+
   private generateStableId(cityFolder: string, folderNumber: number): number {
     const str = `${cityFolder}#${folderNumber}`;
     let hash = 0;
@@ -396,6 +421,8 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
         const city = this.normalizeCity(String(row[0] ?? '').trim());
         const frozenKey = `${cityFolder}#${folderNumber}`;
         const avail = this.FROZEN_AVAILABILITY[frozenKey] ?? this.getAvailability(id, address);
+        const coordinates = row[11] ? String(row[11]) : null;
+        const { lat, lng } = this.resolveCoordinates(coordinates, address);
 
         properties.push({
           id,
@@ -412,7 +439,9 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
           balcony: String(row[9] ?? '').toLowerCase() === 'si',
           petFriendly: String(row[10] ?? '').toLowerCase() === 'si',
           petFriendlyNegotiable: String(row[10] ?? '').toLowerCase() === 'negociable',
-          coordinates: row[11] ? String(row[11]) : null,
+          coordinates,
+          lat,
+          lng,
           images,
           coverThumb: this.getCoverThumb(cityFolder, folderNumber),
           coverThumb2: this.getCoverThumb2(cityFolder, folderNumber),

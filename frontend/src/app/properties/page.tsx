@@ -5,6 +5,8 @@ import LangToggle from '@/components/layout/LangToggle';
 import SortDropdown from './SortDropdown';
 import PriceRangeFilter from './PriceRangeFilter';
 import BedroomsFilter from './BedroomsFilter';
+import ViewToggle from './ViewToggle';
+import PropertiesMap from './PropertiesMap';
 import { getRates } from '@/lib/exchange';
 import { getT } from '@/lib/lang';
 
@@ -22,7 +24,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string; minPrice?: string; maxPrice?: string; bedrooms?: string }>;
+  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string; minPrice?: string; maxPrice?: string; bedrooms?: string; view?: string }>;
 }) {
   let cityParam: string | undefined;
   let guestsParam: number | undefined;
@@ -31,6 +33,7 @@ export default async function PropertiesPage({
   let minPriceParam: number | undefined;
   let maxPriceParam: number | undefined;
   let bedroomsParam: number | undefined;
+  let viewParam: 'list' | 'map' = 'list';
   try {
     const sp = await searchParams;
     cityParam = sp?.city;
@@ -45,6 +48,7 @@ export default async function PropertiesPage({
     if (maxPriceParam !== undefined && (isNaN(maxPriceParam) || maxPriceParam < 0)) maxPriceParam = undefined;
     bedroomsParam = sp?.bedrooms ? parseInt(sp.bedrooms, 10) : undefined;
     if (bedroomsParam !== undefined && (isNaN(bedroomsParam) || bedroomsParam < 1)) bedroomsParam = undefined;
+    viewParam = sp?.view === 'map' ? 'map' : 'list';
   } catch {
     cityParam = undefined;
     guestsParam = undefined;
@@ -53,6 +57,7 @@ export default async function PropertiesPage({
     minPriceParam = undefined;
     maxPriceParam = undefined;
     bedroomsParam = undefined;
+    viewParam = 'list';
   }
   const { t, lang } = await getT();
   const [properties, rates] = await Promise.all([fetchPreview(), getRates()]);
@@ -216,6 +221,19 @@ export default async function PropertiesPage({
               lang={lang}
               accentColor="var(--ochre)"
             />
+            <span className="ml-auto">
+              <ViewToggle
+                cityParam={cityParam}
+                guestsParam={guestsParam}
+                sortParam={sortParam}
+                minPriceParam={minPriceParam}
+                maxPriceParam={maxPriceParam}
+                bedroomsParam={bedroomsParam}
+                viewParam={viewParam}
+                lang={lang}
+                accentColor="var(--ochre)"
+              />
+            </span>
           </div>
 
           <PriceRangeFilter
@@ -232,6 +250,34 @@ export default async function PropertiesPage({
           />
         </div>
 
+        {viewParam === 'map' ? (
+          <div>
+            <PropertiesMap
+              points={sorted.filter((p) => p.lat !== null && p.lng !== null).map((p) => ({
+                id: p.id,
+                slug: p.slug,
+                lat: p.lat as number,
+                lng: p.lng as number,
+                city: p.city,
+                address: p.address,
+                pricePerMonth: p.pricePerMonth,
+              }))}
+              accentColor="var(--ochre)"
+              formatPrice={formatMXN}
+            />
+            {(() => {
+              const mapped = sorted.filter((p) => p.lat !== null && p.lng !== null).length;
+              return mapped < sorted.length ? (
+                <p className="text-xs mt-3" style={{ color: 'var(--muted)' }}>
+                  {lang === 'en'
+                    ? `${mapped} of ${sorted.length} properties mapped so far — the rest are being located, check back shortly.`
+                    : `${mapped} de ${sorted.length} propiedades ubicadas hasta ahora — el resto se estan localizando, vuelve a checar en un momento.`}
+                </p>
+              ) : null;
+            })()}
+          </div>
+        ) : (
+        <>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {paginated.map((p) => {
             const { street, neighborhood } = parseAddress(p.address);
@@ -344,6 +390,8 @@ export default async function PropertiesPage({
               {lang === 'en' ? 'Next →' : 'Siguiente →'}
             </Link>
           </div>
+        )}
+        </>
         )}
       </div>
     </div>
