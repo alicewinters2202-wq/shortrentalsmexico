@@ -396,7 +396,20 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
     };
   }
 
+  private previewCache: { data: PropertyPreview[]; expiresAt: number } | null = null;
+  private readonly PREVIEW_CACHE_TTL_MS = 2 * 60 * 1000; // 2 minutes
+
   getPreview(): PropertyPreview[] {
+    const now = Date.now();
+    if (this.previewCache && this.previewCache.expiresAt > now) {
+      return this.previewCache.data;
+    }
+    const data = this.buildPreview();
+    this.previewCache = { data, expiresAt: now + this.PREVIEW_CACHE_TTL_MS };
+    return data;
+  }
+
+  private buildPreview(): PropertyPreview[] {
     const IGNORE = ['Agentes'];
     const cities = fs
       .readdirSync(this.imagenesRoot)
