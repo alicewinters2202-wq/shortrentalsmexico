@@ -7,6 +7,9 @@ import BookingPanelPreview from './BookingPanelPreview';
 import PropertyReviews from './PropertyReviews';
 import BackLink from './BackLink';
 import SaveButton from './SaveButton';
+import ShareButton from './ShareButton';
+import SimilarProperties from './SimilarProperties';
+import WhatsIncluded from './WhatsIncluded';
 import PropertiesMap from '../PropertiesMap';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
@@ -118,6 +121,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
           <div className="flex items-center gap-3 mb-2 flex-wrap">
             <h1 className="italic text-4xl sm:text-5xl" style={{ color: 'var(--ink)' }}>{street}</h1>
             <SaveButton propertyId={property.id} variant="card" />
+            <ShareButton url={`https://temporaryrentalsmexico.com/properties/${property.slug}`} title={street} lang={lang} />
             {property.available ? (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 self-center">
                 ● {t.availableTag}
@@ -273,6 +277,10 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
             <div>
+              <WhatsIncluded lang={lang} accentColor="var(--gold)" />
+            </div>
+
+            <div>
               <PropertyReviews slug={property.slug} initialReviews={reviews} lang={lang} />
             </div>
 
@@ -302,6 +310,15 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             <BookingPanelPreview property={property} />
           </div>
         </div>
+
+        <SimilarProperties
+          properties={properties}
+          currentId={property.id}
+          city={property.city}
+          lang={lang}
+          accentColor="var(--gold)"
+          title={lang === 'en' ? 'Similar properties' : 'Propiedades similares'}
+        />
       </div>
     </div>
   );
