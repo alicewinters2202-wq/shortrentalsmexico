@@ -4,6 +4,10 @@ import PriceRangeFilter from './PriceRangeFilter';
 import BedroomsFilter from './BedroomsFilter';
 import ViewToggle from './ViewToggle';
 import PropertiesMap from './PropertiesMap';
+import SaveButton from './SaveButton';
+import SavedLink from './SavedLink';
+import CompareButton from './CompareButton';
+import CompareBar from './CompareBar';
 import { getRates } from '@/lib/exchange';
 import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import { getRatingSummary } from '@/lib/seedReviews';
@@ -24,7 +28,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string; minPrice?: string; maxPrice?: string; bedrooms?: string; view?: string }>;
+  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string; minPrice?: string; maxPrice?: string; bedrooms?: string; view?: string; ids?: string }>;
 }) {
   let cityParam: string | undefined;
   let guestsParam: number | undefined;
@@ -34,6 +38,7 @@ export default async function PropertiesPage({
   let maxPriceParam: number | undefined;
   let bedroomsParam: number | undefined;
   let viewParam: 'list' | 'map' = 'list';
+  let idsParam: number[] | undefined;
   try {
     const sp = await searchParams;
     cityParam = sp?.city;
@@ -49,6 +54,8 @@ export default async function PropertiesPage({
     bedroomsParam = sp?.bedrooms ? parseInt(sp.bedrooms, 10) : undefined;
     if (bedroomsParam !== undefined && (isNaN(bedroomsParam) || bedroomsParam < 1)) bedroomsParam = undefined;
     viewParam = sp?.view === 'map' ? 'map' : 'list';
+    idsParam = sp?.ids ? sp.ids.split(',').map((s) => parseInt(s, 10)).filter((n) => !isNaN(n)) : undefined;
+    if (idsParam !== undefined && idsParam.length === 0) idsParam = undefined;
   } catch {
     cityParam = undefined;
     guestsParam = undefined;
@@ -58,6 +65,7 @@ export default async function PropertiesPage({
     maxPriceParam = undefined;
     bedroomsParam = undefined;
     viewParam = 'list';
+    idsParam = undefined;
   }
   const { t, lang } = await getT();
   const [properties, rates] = await Promise.all([fetchPreview(), getRates()]);
@@ -65,25 +73,34 @@ export default async function PropertiesPage({
   const allPrices = properties.map((p) => p.pricePerMonth).filter((n) => n > 0);
   const priceMinBound = allPrices.length ? Math.floor(Math.min(...allPrices) / 1000) * 1000 : 0;
   const priceMaxBound = allPrices.length ? Math.ceil(Math.max(...allPrices) / 1000) * 1000 : 100000;
-  let filtered = cityParam
-    ? properties.filter((p) => p.city.trim() === cityParam!.trim())
-    : properties;
+
+  let filtered: typeof properties;
+  if (idsParam !== undefined) {
+    // Saved-properties view: show exactly this set, ignore other filters.
+    const savedSet = new Set(idsParam);
+    filtered = properties.filter((p) => savedSet.has(p.id));
+  } else {
+    filtered = cityParam
+      ? properties.filter((p) => p.city.trim() === cityParam!.trim())
+      : properties;
+  }
   const beforeGuestFilterCount = filtered.length;
 
-  if (guestsParam !== undefined) {
-    filtered = filtered.filter((p) => p.maxGuests >= guestsParam! && p.available);
+  if (idsParam === undefined) {
+    if (guestsParam !== undefined) {
+      filtered = filtered.filter((p) => p.maxGuests >= guestsParam! && p.available);
+    }
+    if (minPriceParam !== undefined) {
+      filtered = filtered.filter((p) => p.pricePerMonth >= minPriceParam!);
+    }
+    if (maxPriceParam !== undefined) {
+      filtered = filtered.filter((p) => p.pricePerMonth <= maxPriceParam!);
+    }
+    if (bedroomsParam !== undefined) {
+      filtered = filtered.filter((p) => p.bedrooms >= bedroomsParam!);
+    }
   }
   const hiddenByFilterCount = beforeGuestFilterCount - filtered.length;
-
-  if (minPriceParam !== undefined) {
-    filtered = filtered.filter((p) => p.pricePerMonth >= minPriceParam!);
-  }
-  if (maxPriceParam !== undefined) {
-    filtered = filtered.filter((p) => p.pricePerMonth <= maxPriceParam!);
-  }
-  if (bedroomsParam !== undefined) {
-    filtered = filtered.filter((p) => p.bedrooms >= bedroomsParam!);
-  }
 
   const sorted = [...filtered];
   if (sortParam === 'price_asc') sorted.sort((a, b) => a.pricePerMonth - b.pricePerMonth);
@@ -141,7 +158,7 @@ export default async function PropertiesPage({
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="mb-10">
           <h1 className="italic text-5xl sm:text-6xl mb-2" style={{ color: 'var(--ink)' }}>
-            {cityParam ?? t.allProperties}
+            {idsParam !== undefined ? (lang === 'en' ? 'Your saved properties' : 'Tus propiedades guardadas') : (cityParam ?? t.allProperties)}
           </h1>
           <p className="text-sm mb-3" style={{ color: 'var(--muted)' }}>
             {t.propertiesCount(filtered.length)}
@@ -179,6 +196,7 @@ export default async function PropertiesPage({
                 {c}
               </Link>
             ))}
+            <SavedLink active={idsParam !== undefined} lang={lang} accentColor="var(--gold)" />
           </div>
 
           <div className="flex items-center gap-3 mt-4">
@@ -280,6 +298,10 @@ export default async function PropertiesPage({
                       <span className="text-sm" style={{ color: 'var(--muted)' }}>{t.noImage}</span>
                     </div>
                   )}
+                  <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5">
+                    <SaveButton propertyId={p.id} size="sm" />
+                    <CompareButton propertyId={p.id} lang={lang} accentColor="var(--gold)" />
+                  </div>
                   <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
@@ -374,6 +396,7 @@ export default async function PropertiesPage({
         </>
         )}
       </div>
+      <CompareBar lang={lang} accentColor="var(--gold)" />
     </div>
   );
 }

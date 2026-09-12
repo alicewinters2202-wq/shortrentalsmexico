@@ -6,6 +6,7 @@ import ImageGallery from './ImageGallery';
 import BookingPanelPreview from './BookingPanelPreview';
 import PropertyReviews from './PropertyReviews';
 import BackLink from './BackLink';
+import SaveButton from './SaveButton';
 import LangToggle from '@/components/layout/LangToggle';
 import { getT } from '@/lib/lang';
 import { getRates, formatUSD, formatEUR, formatCAD } from '@/lib/exchange';
@@ -112,6 +113,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
           </div>
           <div className="flex items-center gap-3 mb-2 flex-wrap">
             <h1 className="italic text-4xl sm:text-5xl" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>{street}</h1>
+            <SaveButton propertyId={property.id} variant="card" />
             {property.available ? (
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 self-center">
                 ● {t.availableTag}
