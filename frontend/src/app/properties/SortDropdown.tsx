@@ -13,12 +13,13 @@ interface Props {
   sortParam?: string;
   minPriceParam?: number;
   maxPriceParam?: number;
+  bedroomsParam?: number;
   options: Option[];
   placeholder: string;
   accentColor: string;
 }
 
-export default function SortDropdown({ cityParam, guestsParam, sortParam, minPriceParam, maxPriceParam, options, placeholder, accentColor }: Props) {
+export default function SortDropdown({ cityParam, guestsParam, sortParam, minPriceParam, maxPriceParam, bedroomsParam, options, placeholder, accentColor }: Props) {
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -29,6 +30,7 @@ export default function SortDropdown({ cityParam, guestsParam, sortParam, minPri
     if (sort) params.set('sort', sort);
     if (minPriceParam !== undefined) params.set('minPrice', String(minPriceParam));
     if (maxPriceParam !== undefined) params.set('maxPrice', String(maxPriceParam));
+    if (bedroomsParam !== undefined) params.set('bedrooms', String(bedroomsParam));
     const qs = params.toString();
     router.push(`/properties${qs ? `?${qs}` : ''}`);
   };
