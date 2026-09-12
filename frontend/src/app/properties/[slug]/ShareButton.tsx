@@ -14,6 +14,8 @@ export default function ShareButton({ url, title, lang }: Props) {
 
   const shareLabel = lang === 'en' ? 'Share' : 'Compartir';
   const whatsappLabel = 'WhatsApp';
+  const facebookLabel = 'Facebook';
+  const xLabel = 'X';
   const copyLabel = copied ? (lang === 'en' ? 'Copied!' : '¡Copiado!') : (lang === 'en' ? 'Copy link' : 'Copiar enlace');
 
   async function handleCopy() {
@@ -59,6 +61,24 @@ export default function ShareButton({ url, title, lang }: Props) {
             style={{ color: 'var(--ink)' }}
           >
             🟢 {whatsappLabel}
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:opacity-80"
+            style={{ color: 'var(--ink)' }}
+          >
+            🔵 {facebookLabel}
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:opacity-80"
+            style={{ color: 'var(--ink)' }}
+          >
+            ⚫ {xLabel}
           </a>
           <button
             type="button"

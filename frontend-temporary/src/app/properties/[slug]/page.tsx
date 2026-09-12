@@ -315,6 +315,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
           properties={properties}
           currentId={property.id}
           city={property.city}
+          bedrooms={property.bedrooms}
           lang={lang}
           accentColor="var(--gold)"
           title={lang === 'en' ? 'Similar properties' : 'Propiedades similares'}

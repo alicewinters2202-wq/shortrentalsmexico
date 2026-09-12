@@ -6,15 +6,23 @@ interface Props {
   properties: PropertyPreview[];
   currentId: number;
   city: string;
+  bedrooms: number;
   lang: 'en' | 'es';
   accentColor: string;
   title: string;
 }
 
-export default function SimilarProperties({ properties, currentId, city, lang, accentColor, title }: Props) {
-  const similar = properties
-    .filter((p) => p.id !== currentId && p.city.trim() === city.trim())
-    .slice(0, 3);
+export default function SimilarProperties({ properties, currentId, city, bedrooms, lang, accentColor, title }: Props) {
+  const inCity = properties.filter((p) => p.id !== currentId && p.city.trim() === city.trim());
+
+  // Prefer exact bedroom matches; if there aren't enough, fill remaining
+  // slots with the closest bedroom counts rather than showing nothing.
+  const exact = inCity.filter((p) => p.bedrooms === bedrooms);
+  const rest = inCity
+    .filter((p) => p.bedrooms !== bedrooms)
+    .sort((a, b) => Math.abs(a.bedrooms - bedrooms) - Math.abs(b.bedrooms - bedrooms));
+
+  const similar = [...exact, ...rest].slice(0, 3);
 
   if (similar.length === 0) return null;
 
