@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getT } from '@/lib/lang';
 import LangToggle from '@/components/layout/LangToggle';
+import WhatsAppLink from '@/components/WhatsAppLink';
 
 export const metadata = {
   alternates: { canonical: 'https://temporaryrentalsmexico.com/como-funciona' },
@@ -168,13 +169,13 @@ export default async function HowItWorksPage() {
             <Link href="/properties" className="inline-block px-8 py-3 rounded-full text-sm font-medium text-white" style={{ backgroundColor: 'var(--gold)' }}>
               {es ? 'Ver propiedades' : 'View properties'}
             </Link>
-            <a href={`https://wa.me/5215643232610?text=${encodeURIComponent(
+            <WhatsAppLink href={`https://wa.me/5215643232610?text=${encodeURIComponent(
                 es
                   ? 'Hola, vi su sitio, temporaryrentalsmexico.com, y me gustaría información sobre sus propiedades disponibles.'
                   : "Hi, I saw your site, temporaryrentalsmexico.com, and I'd like information about your available properties."
-              )}`} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-3 rounded-full text-sm font-medium border" style={{ color: 'var(--ink)', borderColor: 'var(--border)' }}>
+              )}`} source="como_funciona" className="inline-block px-8 py-3 rounded-full text-sm font-medium border" style={{ color: 'var(--ink)', borderColor: 'var(--border)' }}>
               WhatsApp
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </div>

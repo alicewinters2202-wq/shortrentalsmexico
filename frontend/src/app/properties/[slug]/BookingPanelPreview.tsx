@@ -5,6 +5,7 @@ import { PropertyPreview, formatMXN } from '@/types/preview';
 import { useLang } from '@/store/lang.store';
 import { useT } from '@/lib/i18n';
 import AgentModal from '@/components/AgentModal';
+import { trackWhatsAppClick } from '@/lib/analytics';
 import DateRangeField from './DateRangeField';
 
 // MIN_NIGHTS se obtiene de property.minStay
@@ -201,6 +202,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           )}`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppClick('booking_panel_long_stay')}
           className="flex items-center gap-3 rounded-2xl p-4 transition-colors hover:opacity-90"
           style={{ backgroundColor: 'rgba(180,130,255,0.08)', border: '1px solid rgba(180,130,255,0.25)' }}
         >

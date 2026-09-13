@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
@@ -12,6 +13,7 @@ export default function ContactPage() {
     if (!name || !message) return;
     const text = `Hola, vi su sitio, shortstaymx.com.\n\nNombre: ${name}\nEmail: ${email}\nCiudad de interés: ${city}\nMensaje: ${message}`;
     const url = `https://wa.me/525643232610?text=${encodeURIComponent(text)}`;
+    trackWhatsAppClick('contact_form');
     window.open(url, '_blank');
   };
 
@@ -49,7 +51,7 @@ export default function ContactPage() {
                   <p className="text-xs uppercase tracking-widest font-medium mb-1" style={{ color: 'var(--muted)' }}>{item.desc}</p>
                   <p className="font-serif text-xl mb-1" style={{ color: 'var(--ink)' }}>{item.title}</p>
                   {item.href ? (
-                    <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm font-medium hover:opacity-80" style={{ color: 'var(--gold)' }}>{item.value}</a>
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('contact_page_card')} className="text-sm font-medium hover:opacity-80" style={{ color: 'var(--gold)' }}>{item.value}</a>
                   ) : (
                     <p className="text-sm" style={{ color: 'var(--muted)' }}>{item.value}</p>
                   )}
@@ -62,6 +64,7 @@ export default function ContactPage() {
               <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>Nuestro equipo puede ayudarte a encontrar la propiedad ideal según tu presupuesto, ciudad y fechas.</p>
               <a href="https://wa.me/525643232610?text=Hola%2C%20vi%20su%20sitio%2C%20shortstaymx.com%2C%20y%20necesito%20ayuda%20para%20encontrar%20una%20propiedad%20en%20México."
                 target="_blank" rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('contact_page_direct')}
                 className="inline-block px-6 py-3 rounded-full text-sm font-medium text-white hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: 'var(--gold)' }}>
                 Hablar con un agente →

@@ -5,6 +5,7 @@ import { formatMXN } from '@/types/preview';
 import { useT } from '@/lib/i18n';
 import { useLang } from '@/store/lang.store';
 import { AGENTS } from '@/lib/agents';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 interface Quote {
   address: string;
@@ -132,6 +133,7 @@ export default function AgentModal({ quote, onClose }: Props) {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('agent_modal')}
                   className="rounded-2xl p-4 flex flex-col items-center gap-3 transition-colors hover:opacity-90"
                   style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)' }}
                 >

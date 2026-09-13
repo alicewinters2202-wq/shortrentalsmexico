@@ -3,6 +3,7 @@ import LangToggle from '@/components/layout/LangToggle';
 import { getT, getServerLang } from '@/lib/lang';
 import { AGENTS } from '@/lib/agents';
 import { FLAG_MAP } from '@/components/Flags';
+import WhatsAppLink from '@/components/WhatsAppLink';
 
 export async function generateMetadata() {
   const lang = await getServerLang();
@@ -84,19 +85,18 @@ export default async function AgentsPage() {
                   })}
                 </div>
               </div>
-              <a
+              <WhatsAppLink
                 href={`https://wa.me/${camila.wa}?text=${encodeURIComponent(
                   lang === 'en'
                     ? "Hi, I saw your site, shortstaymx.com, and I'd like information about your available properties."
                     : 'Hola, vi su sitio, shortstaymx.com, y me gustaría información sobre sus propiedades disponibles.'
                 )}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                source="agents_page_featured"
                 className="flex-shrink-0 px-7 py-3 rounded-full text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: 'var(--gold)' }}
               >
                 {lang === 'en' ? 'Contact' : 'Contactar'} →
-              </a>
+              </WhatsAppLink>
             </div>
           </section>
         );
@@ -142,19 +142,18 @@ export default async function AgentsPage() {
                 >
                   {t.agentsViewProps} →
                 </Link>
-                <a
+                <WhatsAppLink
                   href={`https://wa.me/${agent.wa}?text=${encodeURIComponent(
                     lang === 'en'
                       ? "Hi, I saw your site, shortstaymx.com, and I'd like information about your available properties."
                       : 'Hola, vi su sitio, shortstaymx.com, y me gustaría información sobre sus propiedades disponibles.'
                   )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  source="agents_page_list"
                   className="w-full text-center py-3 rounded-full text-sm font-semibold tracking-wide transition-opacity hover:opacity-90"
                   style={{ backgroundColor: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)' }}
                 >
                   {t.agentsMessage}
-                </a>
+                </WhatsAppLink>
               </div>
             );
           })}

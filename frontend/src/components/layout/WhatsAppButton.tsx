@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 export default function WhatsAppButton() {
   const [isEn, setIsEn] = useState(false);
@@ -23,7 +24,7 @@ export default function WhatsAppButton() {
   const url = 'https://wa.me/5215643232610?text=' + encodeURIComponent(message);
 
   return (
-    <a href={url} target='_blank' rel='noopener noreferrer' className='fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-110' style={{ backgroundColor: '#25D366' }} aria-label='WhatsApp'>
+    <a href={url} target='_blank' rel='noopener noreferrer' onClick={() => trackWhatsAppClick('floating_button')} className='fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-110' style={{ backgroundColor: '#25D366' }} aria-label='WhatsApp'>
       <FaWhatsapp size={30} color='white' />
     </a>
   );
