@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { fetchPreview, imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
+import { fetchPreview, parseAddress, formatMXN } from '@/types/preview';
+import CompareImageBrowser from './CompareImageBrowser';
 import { getT } from '@/lib/lang';
 import BackLink from './BackLink';
 
@@ -86,20 +87,10 @@ export default async function ComparePage({
                 <th className="p-4 text-left" style={{ color: 'var(--muted)' }}></th>
                 {selected.map((p) => {
                   const { street } = parseAddress(p.address);
-                  const mainImage = p.images[0];
                   return (
                     <th key={p.id} className="p-4 text-left align-top">
+                      <CompareImageBrowser images={p.images} alt={street} />
                       <Link href={`/properties/${p.slug}`} className="block hover-float">
-                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-2" style={{ backgroundColor: 'var(--card)' }}>
-                          {mainImage ? (
-                            /* eslint-disable-next-line @next/next/no-img-element */
-                            <img src={coverImageUrl(p) ?? imageUrl(mainImage)} alt={street} className="w-full h-full object-cover" />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.noImage}</span>
-                            </div>
-                          )}
-                        </div>
                         <p className="font-serif text-base leading-tight" style={{ color: 'var(--ink)' }}>{street}</p>
                       </Link>
                     </th>
