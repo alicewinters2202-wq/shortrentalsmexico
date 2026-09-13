@@ -67,7 +67,12 @@ export default async function ComparePage({
     { label: lang === 'en' ? 'Balcony' : 'Balcón', render: (p) => (p.balcony ? (lang === 'en' ? 'Yes' : 'Sí') : (lang === 'en' ? 'No' : 'No')) },
     {
       label: lang === 'en' ? 'Availability' : 'Disponibilidad',
-      render: (p) => (p.available ? (lang === 'en' ? 'Available now' : 'Disponible ahora') : (lang === 'en' ? 'Currently booked' : 'Actualmente reservada')),
+      render: (p) => {
+        if (p.available) return lang === 'en' ? 'Available now' : 'Disponible ahora';
+        if (!p.availableFrom) return lang === 'en' ? 'Currently booked' : 'Actualmente reservada';
+        const dateStr = new Date(p.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+        return lang === 'en' ? `Booked — available from ${dateStr}` : `Reservada — disponible desde ${dateStr}`;
+      },
     },
     { label: lang === 'en' ? 'Amenities' : 'Amenidades', render: (p) => (p.amenities.length ? p.amenities.join(', ') : '—') },
   ];
