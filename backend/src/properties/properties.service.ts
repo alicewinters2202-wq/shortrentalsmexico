@@ -48,6 +48,22 @@ export class PropertiesService implements OnModuleInit {
     void this.geocodingService.warmUp(addressesNeedingGeocode);
   }
 
+  /**
+   * Properties removed from listing, keyed by "cityFolder#folderNumber"
+   * (the same position-based key FROZEN_AVAILABILITY uses).
+   *
+   * IMPORTANT: never delete a row from the xlsx to remove a property.
+   * folderNumber is derived from row position, so deleting a row shifts
+   * every subsequent property's folder number down by one — silently
+   * pairing them with the wrong image folder and the wrong
+   * FROZEN_AVAILABILITY entry. Add the key here instead; the row stays
+   * in the spreadsheet untouched, and everything after it keeps its
+   * exact position.
+   */
+  private readonly DELISTED_PROPERTIES = new Set<string>([
+    'CDMX#8', // Juan Vázquez de Mella 428 — delisted 2026-09-13
+  ]);
+
   private readonly ALWAYS_AVAILABLE = [
     'amsterdam 289',
     'amsterdam 119',
@@ -428,11 +444,12 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
 
       rows.forEach((row, dataIndex) => {
         const folderNumber = dataIndex + 2;
+        const frozenKey = `${cityFolder}#${folderNumber}`;
+        if (this.DELISTED_PROPERTIES.has(frozenKey)) return;
         const images = this.getImages(cityFolder, folderNumber);
         const id = this.generateStableId(cityFolder, folderNumber);
         const address = String(row[1] ?? '').trim();
         const city = this.normalizeCity(String(row[0] ?? '').trim());
-        const frozenKey = `${cityFolder}#${folderNumber}`;
         const avail = this.FROZEN_AVAILABILITY[frozenKey] ?? this.getAvailability(id, address);
         const coordinates = row[11] ? String(row[11]) : null;
         const { lat, lng } = this.resolveCoordinates(coordinates, address);
