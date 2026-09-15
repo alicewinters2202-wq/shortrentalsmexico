@@ -72,8 +72,8 @@ export default async function HowItWorksPage() {
     {
       q_es: '¿Qué incluye la renta?',
       q_en: 'What does the rent include?',
-      a_es: 'Todas nuestras propiedades incluyen mobiliario completo, WiFi de alta velocidad, agua caliente, electricidad, gas y acceso a las amenidades del edificio. Todo está incluido — sin cargos ocultos.',
-      a_en: 'All our properties include full furniture, high-speed WiFi, hot water, electricity, gas and access to building amenities. Everything is included — no hidden fees.',
+      a_es: 'Todas nuestras propiedades incluyen mobiliario completo, WiFi de alta velocidad, agua caliente, electricidad, gas y acceso a las amenidades del edificio. Sin impuestos ni cargos de servicios ocultos — el precio que ves es el precio que pagas por la renta. Servicios opcionales como cambio de toallas y sábanas se cobran aparte y se muestran claramente antes de reservar.',
+      a_en: 'All our properties include full furniture, high-speed WiFi, hot water, electricity, gas and access to building amenities. No hidden taxes or utility charges — the price you see is the price you pay for rent. Optional services like towel and sheet changes are charged separately and shown clearly before you book.',
     },
     {
       q_es: '¿Puedo pagar en dólares, euros u otra moneda?',

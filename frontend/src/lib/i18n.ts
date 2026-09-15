@@ -289,7 +289,7 @@ const T = {
     aboutPillars: [
       { icon: '🏠', title: 'Hogares verificados', desc: 'Cada propiedad es inspeccionada personalmente antes de publicarse.' },
       { icon: '🛜', title: 'Internet de alta velocidad', desc: 'WiFi de 150–500 Mbps incluido en todas las propiedades.' },
-      { icon: '🧹', title: 'Limpieza profesional', desc: 'Servicio de limpieza semanal incluido en tu estancia.' },
+      { icon: '🧹', title: 'Limpieza profesional', desc: 'Servicio de limpieza semanal disponible por un costo adicional.' },
       { icon: '💬', title: 'Soporte al huésped', desc: 'Un agente disponible para atenderte en todo momento.' },
     ],
     // footer
@@ -554,7 +554,7 @@ const T = {
     aboutPillars: [
       { icon: '🏠', title: 'Verified homes', desc: 'Every property is personally inspected before being listed.' },
       { icon: '🛜', title: 'High-speed internet', desc: '150–500 Mbps WiFi included in all properties.' },
-      { icon: '🧹', title: 'Professional cleaning', desc: 'Weekly cleaning service included in your stay.' },
+      { icon: '🧹', title: 'Professional cleaning', desc: 'Weekly cleaning service available for an extra fee.' },
       { icon: '💬', title: 'Guest support', desc: 'An agent available to assist you at any time.' },
     ],
     occupiedUntil: (date: string) => `Booked · until ${date}`,
