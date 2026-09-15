@@ -10,6 +10,9 @@ type Props = {
   labelArrival: string;
   labelDeparture: string;
   onChange: (checkIn: string, checkOut: string) => void;
+  /** Earliest selectable date (ISO). Defaults to today if not provided —
+   * pass the property's availableFrom date when it's currently booked. */
+  minDate?: string;
 };
 
 function toISO(d: Date): string {
@@ -34,10 +37,12 @@ export default function DateRangeField({
   labelArrival,
   labelDeparture,
   onChange,
+  minDate,
 }: Props) {
   const [open, setOpen] = useState(false);
   const [viewMonth, setViewMonth] = useState(() => {
-    const d = checkIn ? new Date(checkIn + 'T12:00:00') : new Date();
+    const base = checkIn || minDate;
+    const d = base ? new Date(base + 'T12:00:00') : new Date();
     return new Date(d.getFullYear(), d.getMonth(), 1);
   });
   const [hovered, setHovered] = useState<string | null>(null);
@@ -53,6 +58,7 @@ export default function DateRangeField({
 
   const locale = lang === 'en' ? 'en-US' : 'es-MX';
   const todayISO = toISO(new Date());
+  const effectiveMinDate = minDate && minDate > todayISO ? minDate : todayISO;
   const minCheckOut = checkIn ? addDays(checkIn, minStay) : null;
 
   const weekdayLabels = Array.from({ length: 7 }, (_, i) => {
@@ -75,7 +81,7 @@ export default function DateRangeField({
   }
 
   function isDisabled(iso: string): boolean {
-    if (iso < todayISO) return true;
+    if (iso < effectiveMinDate) return true;
     if (checkIn && !checkOut && minCheckOut && iso > checkIn && iso < minCheckOut) return true;
     return false;
   }

@@ -74,6 +74,16 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
         </div>
 
         {/* Fechas */}
+        {!property.available && property.availableFrom && (
+          <p className="text-xs rounded-xl px-3 py-2" style={{ backgroundColor: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', color: '#f87171' }}>
+            {t.occupiedRange(
+              new Date((property.occupiedSince ?? property.availableFrom!) + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long' }),
+              new Date(property.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long', year: 'numeric' }),
+            )}
+            {' — '}
+            {lang === 'en' ? 'you can still pick dates starting from then.' : 'aún puedes elegir fechas a partir de esa fecha.'}
+          </p>
+        )}
         <DateRangeField
           checkIn={checkIn}
           checkOut={checkOut}
@@ -81,6 +91,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           lang={lang}
           labelArrival={t.arrival}
           labelDeparture={t.departure}
+          minDate={!property.available && property.availableFrom ? property.availableFrom : undefined}
           onChange={(newCheckIn, newCheckOut) => {
             handleCheckInChange(newCheckIn);
             setCheckOut(newCheckOut);
@@ -166,32 +177,16 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           </div>
         )}
 
-        {/* Botón Reservar / Ocupada */}
-        {property.available ? (
-          <>
-            <button
-              style={{ backgroundColor: validStay ? 'var(--gold)' : '#444' }}
-              disabled={!validStay}
-              onClick={() => validStay && setShowModal(true)}
-              className="w-full py-4 rounded-full text-white font-semibold tracking-wide transition-opacity hover:opacity-90 disabled:cursor-not-allowed"
-            >
-              {validStay ? t.reserveBtn(nights) : t.selectDates}
-            </button>
-            <p className="text-center text-xs" style={{ color: 'var(--muted)' }}>{t.noCharge}</p>
-          </>
-        ) : (
-          <div className="rounded-2xl p-4 text-center" style={{ backgroundColor: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)' }}>
-            <p className="font-semibold text-sm text-red-400">{t.occupiedBanner}</p>
-            {property.availableFrom && (
-              <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                {t.occupiedRange(
-                  new Date((property.occupiedSince ?? property.availableFrom!) + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long' }),
-                  new Date(property.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long', year: 'numeric' }),
-                )}
-              </p>
-            )}
-          </div>
-        )}
+        {/* Botón Reservar */}
+        <button
+          style={{ backgroundColor: validStay ? 'var(--gold)' : '#444' }}
+          disabled={!validStay}
+          onClick={() => validStay && setShowModal(true)}
+          className="w-full py-4 rounded-full text-white font-semibold tracking-wide transition-opacity hover:opacity-90 disabled:cursor-not-allowed"
+        >
+          {validStay ? t.reserveBtn(nights) : t.selectDates}
+        </button>
+        <p className="text-center text-xs" style={{ color: 'var(--muted)' }}>{t.noCharge}</p>
 
         {/* Contacto especial — 3+ meses */}
         <a
