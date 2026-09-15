@@ -80,8 +80,6 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
               new Date((property.occupiedSince ?? property.availableFrom!) + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long' }),
               new Date(property.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { month: 'long', year: 'numeric' }),
             )}
-            {' — '}
-            {lang === 'en' ? 'you can still pick dates starting from then.' : 'aún puedes elegir fechas a partir de esa fecha.'}
           </p>
         )}
         <DateRangeField
