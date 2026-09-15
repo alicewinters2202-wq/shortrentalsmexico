@@ -293,6 +293,18 @@ export default async function PropertiesPage({
               ) : null;
             })()}
           </div>
+        ) : sorted.length === 0 ? (
+          <div className="text-center py-20">
+            <p className="font-serif text-2xl mb-2" style={{ color: 'var(--ink)' }}>
+              {lang === 'en' ? 'No properties match your filters' : 'Ninguna propiedad coincide con tus filtros'}
+            </p>
+            <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>
+              {lang === 'en' ? 'Try widening your budget, bedroom count, or city.' : 'Intenta ampliar tu presupuesto, número de recámaras o ciudad.'}
+            </p>
+            <Link href="/properties" className="text-sm font-semibold underline" style={{ color: 'var(--ochre)' }}>
+              {lang === 'en' ? 'Clear all filters' : 'Limpiar todos los filtros'}
+            </Link>
+          </div>
         ) : (
         <>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
