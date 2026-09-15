@@ -41,6 +41,8 @@ export default function SearchBar() {
     const params = new URLSearchParams();
     if (destination) params.set('city', destination);
     if (guests > 1)  params.set('guests', String(guests));
+    if (checkIn)     params.set('checkIn', checkIn);
+    if (checkOut)    params.set('checkOut', checkOut);
     router.push(`/properties?${params.toString()}`);
   };
 

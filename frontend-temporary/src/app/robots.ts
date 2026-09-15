@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin', '/api/', '/auth/'],
+      disallow: ['/admin', '/api/'],
     },
     sitemap: 'https://temporaryrentalsmexico.com/sitemap.xml',
   };

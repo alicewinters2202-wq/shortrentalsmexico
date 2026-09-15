@@ -28,7 +28,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function PropertiesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string; minPrice?: string; maxPrice?: string; bedrooms?: string; view?: string; ids?: string }>;
+  searchParams: Promise<{ city?: string; guests?: string; sort?: string; page?: string; minPrice?: string; maxPrice?: string; bedrooms?: string; view?: string; ids?: string; checkIn?: string }>;
 }) {
   let cityParam: string | undefined;
   let guestsParam: number | undefined;
@@ -39,6 +39,7 @@ export default async function PropertiesPage({
   let bedroomsParam: number | undefined;
   let viewParam: 'list' | 'map' = 'list';
   let idsParam: number[] | undefined;
+  let checkInParam: string | undefined;
   try {
     const sp = await searchParams;
     cityParam = sp?.city;
@@ -56,6 +57,7 @@ export default async function PropertiesPage({
     viewParam = sp?.view === 'map' ? 'map' : 'list';
     idsParam = sp?.ids ? sp.ids.split(',').map((s) => parseInt(s, 10)).filter((n) => !isNaN(n)) : undefined;
     if (idsParam !== undefined && idsParam.length === 0) idsParam = undefined;
+    checkInParam = sp?.checkIn && /^\d{4}-\d{2}-\d{2}$/.test(sp.checkIn) ? sp.checkIn : undefined;
   } catch {
     cityParam = undefined;
     guestsParam = undefined;
@@ -66,6 +68,7 @@ export default async function PropertiesPage({
     bedroomsParam = undefined;
     viewParam = 'list';
     idsParam = undefined;
+    checkInParam = undefined;
   }
   const { t, lang } = await getT();
   const [properties, rates] = await Promise.all([fetchPreview(), getRates()]);
@@ -99,6 +102,9 @@ export default async function PropertiesPage({
     if (bedroomsParam !== undefined) {
       filtered = filtered.filter((p) => p.bedrooms >= bedroomsParam!);
     }
+    if (checkInParam !== undefined) {
+      filtered = filtered.filter((p) => p.available || (p.availableFrom !== null && p.availableFrom <= checkInParam!));
+    }
   }
   const hiddenByFilterCount = beforeGuestFilterCount - filtered.length;
 
@@ -119,6 +125,7 @@ export default async function PropertiesPage({
     if (minPriceParam !== undefined) params.set('minPrice', String(minPriceParam));
     if (maxPriceParam !== undefined) params.set('maxPrice', String(maxPriceParam));
     if (bedroomsParam !== undefined) params.set('bedrooms', String(bedroomsParam));
+    if (checkInParam !== undefined) params.set('checkIn', checkInParam);
     const qs = params.toString();
     return `/properties${qs ? `?${qs}` : ''}`;
   };
@@ -135,6 +142,7 @@ export default async function PropertiesPage({
     if (minPriceParam !== undefined) params.set('minPrice', String(minPriceParam));
     if (maxPriceParam !== undefined) params.set('maxPrice', String(maxPriceParam));
     if (bedroomsParam !== undefined) params.set('bedrooms', String(bedroomsParam));
+    if (checkInParam !== undefined) params.set('checkIn', checkInParam);
     if (page > 1) params.set('page', String(page));
     const qs = params.toString();
     return `/properties${qs ? `?${qs}` : ''}`;

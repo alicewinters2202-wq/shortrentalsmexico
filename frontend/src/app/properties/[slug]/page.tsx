@@ -7,6 +7,7 @@ import BookingPanelPreview from './BookingPanelPreview';
 import PropertyReviews from './PropertyReviews';
 import BackLink from './BackLink';
 import SaveButton from './SaveButton';
+import CitySync from './CitySync';
 import ShareButton from './ShareButton';
 import SimilarProperties from './SimilarProperties';
 import WhatsIncluded from './WhatsIncluded';
@@ -60,6 +61,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
 
   return (
     <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
+      <CitySync city={property.city} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

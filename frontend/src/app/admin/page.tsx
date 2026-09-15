@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://shortrentalsmexico-backend.onrender.com';
 
@@ -45,22 +45,42 @@ export default function AdminPage() {
   const [reviewLoading, setReviewLoading] = useState<string | null>(null);
   const [newReview, setNewReview] = useState<Record<string, { name: string; rating: number; comment: string }>>({});
 
-  async function login() {
+  async function login(pw?: string) {
+    const usePw = pw ?? password;
     setLoading(true);
     setError('');
     try {
       const res = await fetch(`${BACKEND}/api/admin/properties`, {
-        headers: { 'x-admin-password': password },
+        headers: { 'x-admin-password': usePw },
       });
-      if (!res.ok) { setError('Contrasena incorrecta'); setLoading(false); return; }
+      if (!res.ok) {
+        setError('Contrasena incorrecta');
+        try { sessionStorage.removeItem('ssmx_admin_pw'); } catch {}
+        setLoading(false);
+        return;
+      }
       const data = await res.json();
       setProperties(data);
+      setPassword(usePw);
       setAuthed(true);
+      try { sessionStorage.setItem('ssmx_admin_pw', usePw); } catch {}
     } catch {
       setError('Error conectando al servidor');
     }
     setLoading(false);
   }
+
+  // Restore a session-persisted login so a page refresh doesn't force
+  // re-typing the password every time.
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem('ssmx_admin_pw');
+      if (saved) login(saved);
+    } catch {
+      // sessionStorage unavailable — just show the login form as normal.
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function reload() {
     try {
@@ -196,7 +216,7 @@ export default function AdminPage() {
             style={{ backgroundColor: 'var(--cream)', border: '1px solid var(--border)', color: 'var(--ink)' }}
           />
           {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
-          <button onClick={login} disabled={loading} className="w-full py-3 rounded-xl font-semibold text-sm text-white" style={{ backgroundColor: 'var(--gold)' }}>
+          <button onClick={() => login()} disabled={loading} className="w-full py-3 rounded-xl font-semibold text-sm text-white" style={{ backgroundColor: 'var(--gold)' }}>
             {loading ? 'Entrando...' : 'Entrar'}
           </button>
         </div>
@@ -209,7 +229,20 @@ export default function AdminPage() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
           <h1 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>Admin Panel</h1>
-          <span className="text-sm" style={{ color: 'var(--muted)' }}>{properties.length} propiedades</span>
+          <div className="flex items-center gap-3">
+            <span className="text-sm" style={{ color: 'var(--muted)' }}>{properties.length} propiedades</span>
+            <button
+              onClick={() => {
+                try { sessionStorage.removeItem('ssmx_admin_pw'); } catch {}
+                setAuthed(false);
+                setPassword('');
+              }}
+              className="text-xs underline"
+              style={{ color: 'var(--muted)' }}
+            >
+              Cerrar sesión
+            </button>
+          </div>
         </div>
 
         <input

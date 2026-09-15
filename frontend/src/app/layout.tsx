@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { Analytics } from '@vercel/analytics/react';
 import { Playfair_Display, DM_Sans, Instrument_Serif } from 'next/font/google';
@@ -89,7 +90,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         {children}
-        <WhatsAppButton />
+        <Suspense fallback={null}>
+          <WhatsAppButton />
+        </Suspense>
         <Analytics />
       </body>
     </html>

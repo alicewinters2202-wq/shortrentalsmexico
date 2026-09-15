@@ -21,6 +21,7 @@ export default function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
           <button
             type="button"
             onClick={() => setOpen(open === i ? null : i)}
+            aria-expanded={open === i}
             className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
           >
             <span className="font-serif text-base sm:text-lg" style={{ color: 'var(--ink)' }}>
