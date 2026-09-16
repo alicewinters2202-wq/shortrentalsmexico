@@ -525,6 +525,14 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
     return fs
       .readdirSync(folderPath)
       .filter((f) => imageExts.includes(path.extname(f).toLowerCase()) && !f.toLowerCase().includes('.thumb.') && !f.toLowerCase().includes('.thumb2.'))
+      .filter((f) => {
+        // Skip corrupted/empty uploads rather than showing a broken slide.
+        try {
+          return fs.statSync(path.join(folderPath, f)).size > 0;
+        } catch {
+          return false;
+        }
+      })
       .sort()
       .map((f) => `/imagenes/${cityFolder.replace(/ /g, '%20')}/${folderNumber}/${encodeURIComponent(f)}`);
   }
