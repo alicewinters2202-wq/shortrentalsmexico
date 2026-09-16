@@ -55,7 +55,7 @@ export default function AdminPage() {
       });
       if (!res.ok) {
         setError('Contrasena incorrecta');
-        try { sessionStorage.removeItem('ssmx_admin_pw'); } catch {}
+        try { localStorage.removeItem('ssmx_admin_pw'); } catch {}
         setLoading(false);
         return;
       }
@@ -63,7 +63,7 @@ export default function AdminPage() {
       setProperties(data);
       setPassword(usePw);
       setAuthed(true);
-      try { sessionStorage.setItem('ssmx_admin_pw', usePw); } catch {}
+      try { localStorage.setItem('ssmx_admin_pw', usePw); } catch {}
     } catch {
       setError('Error conectando al servidor');
     }
@@ -74,10 +74,10 @@ export default function AdminPage() {
   // re-typing the password every time.
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem('ssmx_admin_pw');
+      const saved = localStorage.getItem('ssmx_admin_pw');
       if (saved) login(saved);
     } catch {
-      // sessionStorage unavailable — just show the login form as normal.
+      // localStorage unavailable — just show the login form as normal.
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -233,7 +233,7 @@ export default function AdminPage() {
             <span className="text-sm" style={{ color: 'var(--muted)' }}>{properties.length} propiedades</span>
             <button
               onClick={() => {
-                try { sessionStorage.removeItem('ssmx_admin_pw'); } catch {}
+                try { localStorage.removeItem('ssmx_admin_pw'); } catch {}
                 setAuthed(false);
                 setPassword('');
               }}
