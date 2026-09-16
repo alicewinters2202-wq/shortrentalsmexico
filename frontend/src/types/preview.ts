@@ -19,6 +19,7 @@ export interface PropertyPreview {
   images: string[];
   coverThumb: string | null;
   coverThumb2: string | null;
+  coverThumb3: string | null;
   wifiSpeed: number;
   available: boolean;
   availableFrom: string | null;
@@ -68,7 +69,8 @@ export function imageUrl(path: string): string {
 }
 
 /** Small thumbnail for grid/card views — falls back to the full first image if no thumbnail exists. */
-export function coverImageUrl(p: { coverThumb: string | null; images: string[] }): string | null {
+export function coverImageUrl(p: { coverThumb: string | null; coverThumb3: string | null; images: string[] }): string | null {
+  if (p.coverThumb3) return imageUrl(p.coverThumb3);
   if (p.images.length > 2) return imageUrl(p.images[2]);
   if (p.coverThumb) return imageUrl(p.coverThumb);
   if (p.images.length > 0) return imageUrl(p.images[0]);

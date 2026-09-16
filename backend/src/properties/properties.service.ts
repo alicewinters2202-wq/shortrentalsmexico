@@ -25,6 +25,7 @@ export interface PropertyPreview {
   images: string[];
   coverThumb: string | null;
   coverThumb2: string | null;
+  coverThumb3: string | null;
   wifiSpeed: number;
   available: boolean;
   availableFrom: string | null;
@@ -475,6 +476,7 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
           images,
           coverThumb: this.getCoverThumb(cityFolder, folderNumber),
           coverThumb2: this.getCoverThumb2(cityFolder, folderNumber),
+          coverThumb3: this.getCoverThumb3(cityFolder, folderNumber),
           wifiSpeed: this.WIFI_SPEEDS[id % this.WIFI_SPEEDS.length],
           available: avail.available || (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()),
           availableFrom: (avail.availableFrom !== null && new Date(avail.availableFrom) <= new Date()) ? null : avail.availableFrom,
@@ -550,6 +552,15 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
     const folderPath = path.join(this.imagenesRoot, cityFolder, String(folderNumber));
     if (!fs.existsSync(folderPath)) return null;
     const thumb = fs.readdirSync(folderPath).find((f) => f.toLowerCase().includes('.thumb2.webp'));
+    if (!thumb) return null;
+    return `/imagenes/${cityFolder.replace(/ /g, '%20')}/${folderNumber}/${encodeURIComponent(thumb)}`;
+  }
+
+  /** Same as getCoverThumb, but for the third photo -- used by shortstaymx.com's card grid. */
+  private getCoverThumb3(cityFolder: string, folderNumber: number): string | null {
+    const folderPath = path.join(this.imagenesRoot, cityFolder, String(folderNumber));
+    if (!fs.existsSync(folderPath)) return null;
+    const thumb = fs.readdirSync(folderPath).find((f) => f.toLowerCase().includes('.thumb3.webp'));
     if (!thumb) return null;
     return `/imagenes/${cityFolder.replace(/ /g, '%20')}/${folderNumber}/${encodeURIComponent(thumb)}`;
   }
