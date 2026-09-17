@@ -8,7 +8,7 @@ interface Props {
   protectImages?: boolean;
 }
 
-export default function ImageGallery({ images, address, protectImages = false }: Props) {
+export default function ImageGallery({ images, address, protectImages = true }: Props) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(0);

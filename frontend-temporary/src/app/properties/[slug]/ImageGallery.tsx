@@ -5,9 +5,10 @@ import { imageUrl } from '@/types/preview';
 interface Props {
   images: string[];
   address: string;
+  protectImages?: boolean;
 }
 
-export default function ImageGallery({ images, address }: Props) {
+export default function ImageGallery({ images, address, protectImages = true }: Props) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -67,6 +68,8 @@ export default function ImageGallery({ images, address }: Props) {
           src={imageUrl(images[current])}
           alt={`${address} — ${current + 1}`}
           className="w-full h-full object-cover transition-opacity duration-500"
+          onContextMenu={protectImages ? (e) => e.preventDefault() : undefined}
+          draggable={!protectImages}
         />
 
         {images.length > 1 && (
@@ -100,7 +103,13 @@ export default function ImageGallery({ images, address }: Props) {
                 i === current ? 'border-[--gold] opacity-100 scale-105' : 'border-transparent opacity-60 hover:opacity-100'
               }`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={imageUrl(img)} alt="" className="w-full h-full object-cover" />
+              <img
+                src={imageUrl(img)}
+                alt=""
+                className="w-full h-full object-cover"
+                onContextMenu={protectImages ? (e) => e.preventDefault() : undefined}
+                draggable={!protectImages}
+              />
             </button>
           ))}
         </div>

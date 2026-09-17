@@ -145,15 +145,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
           )}
         </div>
 
-        {/* TEST ONLY: image right-click/drag protection enabled for a single
-            property to evaluate before deciding whether to roll out site-wide.
-            Remove this condition (or change protectImages to a real per-
-            property flag) once a decision is made. */}
-        <ImageGallery
-          images={property.images}
-          address={street}
-          protectImages={property.slug === 'ciudad-de-mexico-calle-arquimedes-189-1983332155'}
-        />
+        <ImageGallery images={property.images} address={street} />
 
       {/* DESCRIPCIÓN AUTOMÁTICA */}
 <div className="mb-8">

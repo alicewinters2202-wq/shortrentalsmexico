@@ -22,10 +22,23 @@ interface Props {
   height?: number;
 }
 
+// Above this zoom level, pins switch from plain dots to price labels
+// (like Airbnb) since there's enough room for them not to overlap.
+const PRICE_LABEL_ZOOM = 13;
+
+function formatPriceShort(price: number): string {
+  const thousands = Math.round(price / 1000);
+  return `$${thousands}k`;
+}
+
 export default function PropertiesMap({ points, accentColor, highlightId, height = 600 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const leafletRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const markersRef = useRef<any[]>([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -33,6 +46,7 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
     (async () => {
       const L = (await import('leaflet')).default;
       if (cancelled || !containerRef.current) return;
+      leafletRef.current = L;
 
       if (!mapRef.current) {
         mapRef.current = L.map(containerRef.current, { scrollWheelZoom: true });
@@ -46,37 +60,63 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
       }
       const map = mapRef.current;
 
-      // Clear previous markers before redrawing (filters may have changed).
-      map.eachLayer((layer: L.Layer) => {
-        if (layer instanceof L.Marker) map.removeLayer(layer);
-      });
+      function buildIcon(p: MapPoint, isHighlighted: boolean, zoom: number) {
+        if (isHighlighted) {
+          return L.divIcon({
+            className: '',
+            html: `<div style="background:${accentColor};width:24px;height:24px;border-radius:9999px;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;font-size:12px;">★</div>`,
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+          });
+        }
+        if (zoom >= PRICE_LABEL_ZOOM) {
+          const label = formatPriceShort(p.pricePerMonth);
+          return L.divIcon({
+            className: '',
+            html: `<div style="background:#fff;color:#1C1C1E;padding:5px 10px;border-radius:9999px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.35);border:1.5px solid ${accentColor};">${label}</div>`,
+            iconSize: [64, 28],
+            iconAnchor: [32, 14],
+          });
+        }
+        return L.divIcon({
+          className: '',
+          html: `<div style="background:${accentColor};width:14px;height:14px;border-radius:9999px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.4)"></div>`,
+          iconSize: [14, 14],
+          iconAnchor: [7, 7],
+        });
+      }
 
-      const normalIcon = L.divIcon({
-        className: '',
-        html: `<div style="background:${accentColor};width:14px;height:14px;border-radius:9999px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.4)"></div>`,
-        iconSize: [14, 14],
-        iconAnchor: [7, 7],
-      });
-      const highlightIcon = L.divIcon({
-        className: '',
-        html: `<div style="background:${accentColor};width:24px;height:24px;border-radius:9999px;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;font-size:12px;">★</div>`,
-        iconSize: [24, 24],
-        iconAnchor: [12, 12],
-      });
+      function drawMarkers() {
+        markersRef.current.forEach((m) => map.removeLayer(m));
+        markersRef.current = [];
 
-      const bounds: [number, number][] = [];
-      points.forEach((p) => {
-        const isHighlighted = p.id === highlightId;
-        const marker = L.marker([p.lat, p.lng], { icon: isHighlighted ? highlightIcon : normalIcon, zIndexOffset: isHighlighted ? 1000 : 0 }).addTo(map);
-        const streetName = p.address.split(',')[0];
-        marker.bindPopup(
-          `<a href="/properties/${p.slug}" style="font-weight:600;text-decoration:none;color:#1C1C1E;display:block;margin-bottom:2px;">${streetName}</a>` +
-            `<span style="color:#86868B;font-size:12px;">${p.city.trim()}</span><br/>` +
-            `<strong style="font-size:13px;">${formatMXN(p.pricePerMonth)}/mes</strong>`,
-        );
-        bounds.push([p.lat, p.lng]);
-      });
+        const zoom = map.getZoom();
+        points.forEach((p) => {
+          const isHighlighted = p.id === highlightId;
+          const marker = L.marker([p.lat, p.lng], {
+            icon: buildIcon(p, isHighlighted, zoom),
+            zIndexOffset: isHighlighted ? 1000 : 0,
+          }).addTo(map);
+          const streetName = p.address.split(',')[0];
+          marker.bindPopup(
+            `<a href="/properties/${p.slug}" style="text-decoration:none;color:inherit;display:block;">` +
+              `<span style="font-weight:600;color:#1C1C1E;display:block;margin-bottom:2px;">${streetName}</span>` +
+              `<span style="color:#86868B;font-size:12px;">${p.city.trim()}</span><br/>` +
+              `<strong style="font-size:13px;color:#1C1C1E;">${formatMXN(p.pricePerMonth)}/mes</strong>` +
+              `</a>`,
+          );
+          markersRef.current.push(marker);
+        });
+      }
 
+      // Redraw markers whenever the zoom level crosses the price-label
+      // threshold, so pins switch style like Airbnb's map does.
+      map.off('zoomend');
+      map.on('zoomend', drawMarkers);
+
+      drawMarkers();
+
+      const bounds: [number, number][] = points.map((p) => [p.lat, p.lng]);
       if (bounds.length > 0) {
         map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
       } else {
