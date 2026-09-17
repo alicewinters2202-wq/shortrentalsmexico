@@ -53,7 +53,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
   const mapsUrl    = `https://maps.google.com/maps?q=${encodeURIComponent(property.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
   const cityMapPoints = properties
     .filter((p) => p.city.trim() === property.city.trim() && p.lat !== null && p.lng !== null)
-    .map((p) => ({ id: p.id, slug: p.slug, lat: p.lat as number, lng: p.lng as number, city: p.city, address: p.address, pricePerMonth: p.pricePerMonth }));
+    .map((p) => ({ id: p.id, slug: p.slug, lat: p.lat as number, lng: p.lng as number, city: p.city, address: p.address, pricePerMonth: p.pricePerMonth, bedrooms: p.bedrooms, bathrooms: p.bathrooms, sqMeters: p.sqMeters }));
 
   const waMsg = lang === 'en'
     ? `Hello, I'd like to book the property at ${street}. Could you help me confirm my reservation?`
@@ -290,7 +290,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               <h2 className="font-serif text-2xl mb-4" style={{ color: 'var(--ink)' }}>{t.locationTitle}</h2>
               <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
                 {property.lat !== null && property.lng !== null && cityMapPoints.length > 0 ? (
-                  <PropertiesMap points={cityMapPoints} accentColor="var(--gold)" highlightId={property.id} height={360} />
+                  <PropertiesMap points={cityMapPoints} accentColor="var(--gold)" highlightId={property.id} height={360} lang={lang} />
                 ) : (
                   <iframe
                     src={mapsUrl}

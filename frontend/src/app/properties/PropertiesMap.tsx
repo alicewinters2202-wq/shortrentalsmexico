@@ -12,6 +12,9 @@ export interface MapPoint {
   city: string;
   address: string;
   pricePerMonth: number;
+  bedrooms: number;
+  bathrooms: number;
+  sqMeters: number;
 }
 
 interface Props {
@@ -20,6 +23,7 @@ interface Props {
   /** id of a property to highlight with a larger marker (e.g. the one being viewed) */
   highlightId?: number;
   height?: number;
+  lang?: 'en' | 'es';
 }
 
 // Above this zoom level, pins switch from plain dots to price labels
@@ -31,7 +35,7 @@ function formatPriceShort(price: number): string {
   return `$${thousands}k`;
 }
 
-export default function PropertiesMap({ points, accentColor, highlightId, height = 600 }: Props) {
+export default function PropertiesMap({ points, accentColor, highlightId, height = 600, lang = 'es' }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any>(null);
@@ -103,6 +107,9 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
         markersRef.current = [];
 
         const zoom = map.getZoom();
+        const distinctCities = new Set(points.map((p) => p.city.trim()));
+        const singleCityView = distinctCities.size <= 1;
+
         points.forEach((p) => {
           const isHighlighted = p.id === highlightId;
           const marker = L.marker([p.lat, p.lng], {
@@ -110,10 +117,20 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
             zIndexOffset: isHighlighted ? 1000 : 0,
           }).addTo(map);
           const streetName = p.address.split(',')[0];
+          // Showing the city is redundant when every pin on this map is
+          // already the same city (e.g. a single property's own nearby-
+          // properties map, or the listings map filtered to one city) --
+          // show specs instead. Keep the city when pins span multiple
+          // cities (e.g. browsing the full unfiltered map).
+          const secondLine = singleCityView
+            ? lang === 'en'
+              ? `${p.bedrooms} bd · ${p.bathrooms} ba · ${p.sqMeters} m²`
+              : `${p.bedrooms} rec · ${p.bathrooms} baños · ${p.sqMeters} m²`
+            : p.city.trim();
           marker.bindPopup(
             `<a href="/properties/${p.slug}" style="text-decoration:none;color:inherit;display:block;">` +
               `<span style="font-weight:600;color:#1C1C1E;display:block;margin-bottom:2px;">${streetName}</span>` +
-              `<span style="color:#86868B;font-size:12px;">${p.city.trim()}</span><br/>` +
+              `<span style="color:#86868B;font-size:12px;">${secondLine}</span><br/>` +
               `<strong style="font-size:13px;color:#1C1C1E;">${formatMXN(p.pricePerMonth)}/mes</strong>` +
               `</a>`,
           );
@@ -132,7 +149,7 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
     return () => {
       cancelled = true;
     };
-  }, [points, accentColor, highlightId]);
+  }, [points, accentColor, highlightId, lang]);
 
   useEffect(() => {
     return () => {

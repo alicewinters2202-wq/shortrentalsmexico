@@ -272,8 +272,12 @@ export default async function PropertiesPage({
                 city: p.city,
                 address: p.address,
                 pricePerMonth: p.pricePerMonth,
+                bedrooms: p.bedrooms,
+                bathrooms: p.bathrooms,
+                sqMeters: p.sqMeters,
               }))}
               accentColor="var(--gold)"
+              lang={lang}
             />
             {(() => {
               const mapped = sorted.filter((p) => p.lat !== null && p.lng !== null).length;
