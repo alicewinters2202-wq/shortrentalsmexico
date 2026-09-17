@@ -60,6 +60,18 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
       }
       const map = mapRef.current;
 
+      // Establish the map's view (center/zoom) BEFORE adding any markers.
+      // Adding markers or calling getZoom() on a brand-new map with no
+      // view set yet throws in Leaflet, which was silently aborting
+      // everything below it -- including this fitBounds call itself,
+      // leaving the map with no viewport and therefore no tiles or pins.
+      const bounds: [number, number][] = points.map((p) => [p.lat, p.lng]);
+      if (bounds.length > 0) {
+        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+      } else {
+        map.setView([23.6345, -102.5528], 5); // Fallback: center of Mexico
+      }
+
       function buildIcon(p: MapPoint, isHighlighted: boolean, zoom: number) {
         if (isHighlighted) {
           return L.divIcon({
@@ -115,13 +127,6 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
       map.on('zoomend', drawMarkers);
 
       drawMarkers();
-
-      const bounds: [number, number][] = points.map((p) => [p.lat, p.lng]);
-      if (bounds.length > 0) {
-        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
-      } else {
-        map.setView([23.6345, -102.5528], 5); // Fallback: center of Mexico
-      }
     })();
 
     return () => {

@@ -2,28 +2,14 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { Analytics } from '@vercel/analytics/react';
-import { Playfair_Display, DM_Sans, Instrument_Serif } from 'next/font/google';
+
 import './globals.css';
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
-});
+const playfair = { variable: '' };
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
-  variable: '--font-display',
-  display: 'swap',
-});
+const instrumentSerif = { variable: '' };
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-});
+const dmSans = { variable: '', className: '' };
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://shortstaymx.com/' },
