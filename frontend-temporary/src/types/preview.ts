@@ -13,6 +13,7 @@ export interface PropertyPreview {
   balcony: boolean;
   petFriendly: boolean;
   selfCheckIn: boolean;
+  alwaysAvailable: boolean;
   petFriendlyNegotiable: boolean;
   coordinates: string | null;
   lat: number | null;

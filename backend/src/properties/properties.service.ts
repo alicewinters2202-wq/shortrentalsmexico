@@ -19,6 +19,7 @@ export interface PropertyPreview {
   balcony: boolean;
   petFriendly: boolean;
   selfCheckIn: boolean;
+  alwaysAvailable: boolean;
   petFriendlyNegotiable: boolean;
   coordinates: string | null;
   lat: number | null;
@@ -455,6 +456,8 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
         const avail = this.FROZEN_AVAILABILITY[frozenKey] ?? this.getAvailability(id, address);
         const coordinates = row[11] ? String(row[11]) : null;
         const { lat, lng } = this.resolveCoordinates(coordinates, address);
+        const normForMatch = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const alwaysAvailable = this.ALWAYS_AVAILABLE.some((p) => normForMatch(address).includes(normForMatch(p)));
 
         properties.push({
           id,
@@ -473,6 +476,7 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
           // Not tracked in the source spreadsheets (like wifiSpeed above) --
           // deterministic per-id assignment giving exactly 90% coverage.
           selfCheckIn: id % 10 !== 0,
+          alwaysAvailable,
           petFriendlyNegotiable: String(row[10] ?? '').toLowerCase() === 'negociable',
           coordinates,
           lat,

@@ -46,9 +46,14 @@ export default async function Home() {
     .slice(0, 6)
     .map((x) => x.p);
 
-  const heroCollage = [...withImages]
-    .sort((a, b) => b.pricePerMonth - a.pricePerMonth)
-    .slice(0, 4);
+  const heroPool = withImages.filter((p) =>
+    p.alwaysAvailable && (p.city.trim() === 'Ciudad de México' || p.city.trim() === 'Puerto Vallarta')
+  );
+  const heroCollage = (heroPool.length > 0 ? heroPool : withImages)
+    .map((p) => ({ p, score: (p.id * 2654435761 + weekSeed * 40503 + 7919) % 100000 }))
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 4)
+    .map((x) => x.p);
 
   return (
     <>
