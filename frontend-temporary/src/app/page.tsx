@@ -215,7 +215,7 @@ export default async function Home() {
             const { street, neighborhood } = parseAddress(p.address);
             return (
               <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/30" style={{ backgroundColor: 'var(--card)' }}>
                   <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
@@ -223,6 +223,10 @@ export default async function Home() {
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'rgba(28,28,30,0.85)', color: 'var(--ink)' }}>
                       {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
+                    </span>
+                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1"
+                      style={{ backgroundColor: 'rgba(0,0,0,0.5)', color: 'var(--ink)', backdropFilter: 'blur(4px)' }}>
+                      <span style={{ color: 'var(--gold)' }}>✓</span> {t.verifiedBadge}
                     </span>
                     {!p.available && p.availableFrom && (
                       <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-red-600/90 text-white">
@@ -251,12 +255,12 @@ export default async function Home() {
                     }
                   </div>
                   <div className="flex items-baseline gap-2 mt-1.5 flex-wrap">
-                    <span className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>·</span>
-                    <span className="text-sm" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="font-semibold text-base" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
                   </div>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
+                    {formatMXN(Math.round(p.pricePerMonth / 30))}{lang === 'en' ? ' / night' : ' / noche'}
+                  </p>
                 </div>
               </Link>
             );

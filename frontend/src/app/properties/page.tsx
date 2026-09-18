@@ -326,7 +326,7 @@ export default async function PropertiesPage({
             const rating = getRatingSummary(p.slug);
             return (
               <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/30" style={{ backgroundColor: 'var(--card)' }}>
                   {mainImage ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img src={coverImageUrl(p) ?? imageUrl(mainImage)} alt={street} loading="lazy"
@@ -336,6 +336,7 @@ export default async function PropertiesPage({
                       <span className="text-sm" style={{ color: 'var(--muted)' }}>{t.noImage}</span>
                     </div>
                   )}
+                  <div className="absolute inset-x-0 bottom-0 h-24 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), transparent)' }} />
                   <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5">
                     <SaveButton propertyId={p.id} size="sm" />
                     <CompareButton propertyId={p.id} lang={lang} accentColor="var(--ochre)" />
@@ -344,6 +345,10 @@ export default async function PropertiesPage({
                     <span className="text-xs font-semibold px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'var(--ochre)', color: 'var(--plaster)' }}>
                       {p.city.trim() === 'Ciudad de México' ? 'CDMX' : p.city.trim()}
+                    </span>
+                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1"
+                      style={{ backgroundColor: 'rgba(0,0,0,0.5)', color: 'var(--plaster)', backdropFilter: 'blur(4px)' }}>
+                      <span style={{ color: 'var(--ochre)' }}>✓</span> {t.verifiedBadge}
                     </span>
                     {!p.available && p.availableFrom && (
                       <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-red-600/90 text-white">
@@ -396,11 +401,11 @@ export default async function PropertiesPage({
                   </div>
                   <div className="mt-3 pt-3 flex items-end justify-between" style={{ borderTop: '1px solid var(--border)' }}>
                     <div>
-                      <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(Math.round(p.pricePerMonth / 30))}</span>
-                      <span className="text-xs ml-1" style={{ color: 'var(--muted)' }}>{lang === 'en' ? '/ night' : '/ noche'}</span>
-                      <span className="text-xs mx-1" style={{ color: 'var(--muted)' }}>·</span>
-                      <span className="font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                      <span className="text-lg font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
                       <span className="text-xs ml-1" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
+                      <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
+                        {formatMXN(Math.round(p.pricePerMonth / 30))}{lang === 'en' ? ' / night' : ' / noche'}
+                      </p>
                     </div>
                   </div>
                 </div>

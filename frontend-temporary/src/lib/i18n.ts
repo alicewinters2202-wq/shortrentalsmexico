@@ -136,6 +136,7 @@ const T = {
     comingSoon: 'Próximamente',
     // cleaning
     cleaningFee: 'Limpieza semanal',
+    verifiedBadge: 'Verificado',
     cleaningFeeNote: 'Cambio de toallas y sábanas · $500 MXN por semana',
     // wifi
     wifiLabel: 'WiFi',
@@ -412,6 +413,7 @@ const T = {
     upcomingSub: 'Expanding to new cities across Mexico',
     comingSoon: 'Coming soon',
     cleaningFee: 'Weekly cleaning',
+    verifiedBadge: 'Verified',
     cleaningFeeNote: 'Towel & sheet change · $500 MXN per week',
     wifiLabel: 'WiFi',
     contactTitle: 'Contact us',
