@@ -52,20 +52,14 @@ export default async function Home() {
     .slice(0, 6)
     .map((x) => x.p);
 
-  const collectionCities = ['Ciudad de México', 'Puerto Vallarta', 'Cancún'];
-  const byCity = collectionCities.map((city) =>
-    withImages.filter((p) => p.city.trim() === city).sort((a, b) => b.pricePerMonth - a.pricePerMonth)
+  const heroPool = withImages.filter((p) =>
+    p.alwaysAvailable && (p.city.trim() === 'Ciudad de México' || p.city.trim() === 'Puerto Vallarta')
   );
-  const filmstrip: typeof withImages = [];
-  for (let i = 0; filmstrip.length < 12; i++) {
-    let addedAny = false;
-    for (const list of byCity) {
-      if (list[i]) { filmstrip.push(list[i]); addedAny = true; }
-    }
-    if (!addedAny) break;
-  }
-
-  const heroCollage = filmstrip.slice(0, 4);
+  const heroCollage = (heroPool.length > 0 ? heroPool : withImages)
+    .map((p) => ({ p, score: (p.id * 2654435761 + weekSeed * 40503 + 7919) % 100000 }))
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 4)
+    .map((x) => x.p);
 
   return (
     <>
@@ -129,16 +123,18 @@ export default async function Home() {
                   { top: '52%', left: '52%', w: 155, rot: -4, z: 3 },
                 ];
                 const pos = positions[i] ?? positions[0];
+                const { street } = parseAddress(p.address);
                 return (
-                  <div
+                  <Link
                     key={p.id}
-                    className="absolute rounded-lg overflow-hidden shadow-2xl bg-white p-1.5"
-                    style={{ top: pos.top, left: pos.left, width: pos.w, transform: `rotate(${pos.rot}deg)`, zIndex: pos.z }}
+                    href={`/properties/${p.slug}`}
+                    className="hero-polaroid absolute rounded-lg overflow-hidden shadow-2xl bg-white p-1.5 cursor-pointer"
+                    style={{ top: pos.top, left: pos.left, width: pos.w, '--rot': `${pos.rot}deg`, zIndex: pos.z } as React.CSSProperties}
                   >
                     <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-                      <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt="" className="w-full h-full object-cover" />
+                      <FadeImage src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} className="w-full h-full object-cover" />
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
