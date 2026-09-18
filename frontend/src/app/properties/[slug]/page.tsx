@@ -116,8 +116,8 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
           <div className="flex items-center gap-3 mb-2">
             <Link
               href={`/properties?city=${encodeURIComponent(property.city)}`}
-              className="text-xs tracking-widest uppercase font-medium hover:opacity-80 transition-opacity"
-              style={{ color: 'var(--muted)' }}
+              className="text-xs tracking-widest uppercase font-semibold hover:underline transition-opacity"
+              style={{ color: 'var(--ochre)' }}
             >
               {property.city}
             </Link>
