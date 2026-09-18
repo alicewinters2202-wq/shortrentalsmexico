@@ -74,7 +74,7 @@ export default async function AgentsPage() {
               )}
               <div className="text-center sm:text-left flex-1">
                 <p className="text-xs tracking-widest uppercase font-semibold mb-1" style={{ color: 'var(--gold)' }}>
-                  {lang === 'en' ? 'Specialized agent' : 'Agente especializada'}
+                  📍 {camila.zone}
                 </p>
                 <p className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>{camila.name}</p>
                 <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{t.agentRole}</p>
