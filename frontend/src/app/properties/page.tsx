@@ -204,7 +204,7 @@ export default async function PropertiesPage({
             )}
           </div>
           <div className="flex flex-wrap gap-2">
-            <Link href={buildCityUrl()} className="px-4 py-2 rounded-full text-sm transition-colors"
+            <Link href={buildCityUrl()} className="px-4 py-2 rounded-full text-sm transition-all duration-200 hover:scale-105 active:scale-95 inline-block"
               style={!cityParam
                 ? { backgroundColor: 'var(--ochre)', color: 'var(--plaster)', border: '1px solid var(--ochre)' }
                 : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
@@ -212,7 +212,7 @@ export default async function PropertiesPage({
             </Link>
             {CITIES.map((c) => (
               <Link key={c} href={buildCityUrl(c)}
-                className="px-4 py-2 rounded-full text-sm transition-colors"
+                className="px-4 py-2 rounded-full text-sm transition-all duration-200 hover:scale-105 active:scale-95 inline-block"
                 style={cityParam === c
                   ? { backgroundColor: 'var(--ochre)', color: 'var(--plaster)', border: '1px solid var(--ochre)' }
                   : { border: '1px solid var(--border)', color: 'var(--muted)' }}>
@@ -418,7 +418,7 @@ export default async function PropertiesPage({
             <Link
               href={buildPageUrl(Math.max(1, currentPage - 1))}
               aria-disabled={currentPage === 1}
-              className="px-4 py-2 rounded-full text-sm transition-colors"
+              className="px-4 py-2 rounded-full text-sm transition-all duration-200 hover:scale-105 active:scale-95 inline-block"
               style={currentPage === 1
                 ? { border: '1px solid var(--border)', color: 'var(--border)', pointerEvents: 'none' }
                 : { border: '1px solid var(--border)', color: 'var(--ink)' }}
@@ -431,7 +431,7 @@ export default async function PropertiesPage({
             <Link
               href={buildPageUrl(Math.min(totalPages, currentPage + 1))}
               aria-disabled={currentPage === totalPages}
-              className="px-4 py-2 rounded-full text-sm transition-colors"
+              className="px-4 py-2 rounded-full text-sm transition-all duration-200 hover:scale-105 active:scale-95 inline-block"
               style={currentPage === totalPages
                 ? { border: '1px solid var(--border)', color: 'var(--border)', pointerEvents: 'none' }
                 : { border: '1px solid var(--border)', color: 'var(--ink)' }}
