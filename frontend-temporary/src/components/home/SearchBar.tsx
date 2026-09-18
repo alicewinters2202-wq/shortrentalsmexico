@@ -108,7 +108,7 @@ export default function SearchBar() {
             type="button"
             onClick={handleSearch}
             style={{ backgroundColor: 'var(--gold)' }}
-            className="px-6 py-3 sm:ml-2 sm:px-5 rounded-full text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity whitespace-nowrap flex-shrink-0"
+            className="px-6 py-3 sm:ml-2 sm:px-5 rounded-full text-white text-sm font-semibold tracking-wide hover:opacity-90 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 whitespace-nowrap flex-shrink-0"
           >
             {t.searchBtn}
           </button>

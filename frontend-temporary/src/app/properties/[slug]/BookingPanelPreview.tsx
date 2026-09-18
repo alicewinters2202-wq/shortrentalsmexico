@@ -180,7 +180,7 @@ export default function BookingPanelPreview({ property }: { property: PropertyPr
           style={{ backgroundColor: validStay ? 'var(--gold)' : '#444' }}
           disabled={!validStay}
           onClick={() => validStay && setShowModal(true)}
-          className="w-full py-4 rounded-full text-white font-semibold tracking-wide transition-opacity hover:opacity-90 disabled:cursor-not-allowed"
+          className="w-full py-4 rounded-full text-white font-semibold tracking-wide transition-all duration-200 hover:opacity-90 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           {validStay ? t.reserveBtn(nights) : t.selectDates}
         </button>

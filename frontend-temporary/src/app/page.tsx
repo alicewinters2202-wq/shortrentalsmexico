@@ -7,6 +7,7 @@ import { getT } from '@/lib/lang';
 import { CAMILA } from '@/lib/agents';
 import { FLAG_MAP } from '@/components/Flags';
 import WhatsAppLink from '@/components/WhatsAppLink';
+import ScrollReveal from '@/components/ScrollReveal';
 const CITIES = [
   { name: 'Ciudad de México', label: 'CDMX' },
   { name: 'Puerto Vallarta',  label: 'Puerto Vallarta' },
@@ -128,6 +129,7 @@ export default async function Home() {
 
       {/* CIUDADES */}
       <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 py-20 max-w-7xl mx-auto">
+        <ScrollReveal>
         <h2 className="font-serif text-3xl mb-2" style={{ color: 'var(--ink)' }}>{t.popularDests}</h2>
         <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>{t.exploreDests}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -154,6 +156,7 @@ export default async function Home() {
             );
           })}
         </div>
+        </ScrollReveal>
       </section>
 
       {/* TODOS LOS DESTINOS */}
@@ -201,6 +204,7 @@ export default async function Home() {
 
       {/* PROPIEDADES DESTACADAS */}
       <section style={{ backgroundColor: 'var(--cream)' }} className="px-6 pb-24 max-w-7xl mx-auto">
+        <ScrollReveal>
         <div className="flex items-end justify-between mb-10">
           <div>
             <h2 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>{t.featuredProps}</h2>
@@ -274,6 +278,7 @@ export default async function Home() {
             {t.viewAllBtn}
           </Link>
         </div>
+        </ScrollReveal>
       </section>
 
       {/* PRÓXIMOS DESTINOS */}
