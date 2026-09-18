@@ -279,7 +279,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
             </div>
 
             <div>
-              <WhatsIncluded lang={lang} accentColor="var(--ochre)" />
+              <WhatsIncluded lang={lang} accentColor="var(--ochre)" selfCheckIn={property.selfCheckIn} />
             </div>
 
             <div>

@@ -297,6 +297,7 @@ export default async function Home() {
                       ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾 {t.petFriendlyNeg}</span>
                       : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
                     }
+                    {p.selfCheckIn && <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-900/30 text-emerald-400">🔑 {t.selfCheckIn}</span>}
                   </div>
                 </div>
               </Link>

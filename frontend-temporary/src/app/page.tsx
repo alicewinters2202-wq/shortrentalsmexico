@@ -107,16 +107,18 @@ export default async function Home() {
                   { top: '52%', left: '52%', w: 155, rot: -4, z: 3 },
                 ];
                 const pos = positions[i] ?? positions[0];
+                const { street } = parseAddress(p.address);
                 return (
-                  <div
+                  <Link
                     key={p.id}
-                    className="absolute rounded-lg overflow-hidden shadow-2xl p-1.5"
-                    style={{ top: pos.top, left: pos.left, width: pos.w, transform: `rotate(${pos.rot}deg)`, zIndex: pos.z, backgroundColor: '#0D2A2A', border: '1px solid rgba(63,184,175,0.3)' }}
+                    href={`/properties/${p.slug}`}
+                    className="hero-polaroid absolute rounded-lg overflow-hidden shadow-2xl p-1.5 cursor-pointer"
+                    style={{ top: pos.top, left: pos.left, width: pos.w, '--rot': `${pos.rot}deg`, zIndex: pos.z, backgroundColor: '#0D2A2A', border: '1px solid rgba(63,184,175,0.3)' } as React.CSSProperties}
                   >
                     <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-                      <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt="" className="w-full h-full object-cover" />
+                      <FadeImage src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} className="w-full h-full object-cover" />
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -270,6 +272,7 @@ export default async function Home() {
                       ? <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾 {t.petFriendlyNeg}</span>
                       : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
                     }
+                    {p.selfCheckIn && <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-900/30 text-emerald-400">🔑 {t.selfCheckIn}</span>}
                   </div>
                 </div>
               </Link>

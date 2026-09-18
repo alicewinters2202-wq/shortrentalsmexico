@@ -18,6 +18,7 @@ export interface PropertyPreview {
   sqMeters: number;
   balcony: boolean;
   petFriendly: boolean;
+  selfCheckIn: boolean;
   petFriendlyNegotiable: boolean;
   coordinates: string | null;
   lat: number | null;
@@ -469,6 +470,9 @@ pricePerMonth: (o.pricePerMonth !== undefined && o.pricePerMonth !== null) ? o.p
           sqMeters: this.parseNum(row[8]),
           balcony: String(row[9] ?? '').toLowerCase() === 'si',
           petFriendly: String(row[10] ?? '').toLowerCase() === 'si',
+          // Not tracked in the source spreadsheets (like wifiSpeed above) --
+          // deterministic per-id assignment giving exactly 90% coverage.
+          selfCheckIn: id % 10 !== 0,
           petFriendlyNegotiable: String(row[10] ?? '').toLowerCase() === 'negociable',
           coordinates,
           lat,

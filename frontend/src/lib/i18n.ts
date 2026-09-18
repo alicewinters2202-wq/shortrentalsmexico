@@ -124,6 +124,7 @@ const T = {
     comingSoon: 'Próximamente',
     // cleaning
     cleaningFee: 'Limpieza semanal',
+    selfCheckIn: 'Self check-in',
     verifiedBadge: 'Verificado',
     cleaningFeeNote: 'Cambio de toallas y sábanas · $500 MXN por semana',
     // wifi
@@ -176,7 +177,7 @@ const T = {
       },
       {
         q: '¿Cómo funciona el check-in y check-out?',
-        a: 'Los detalles del check-in se proporcionarán una vez confirmada tu reserva. Muchas de nuestras propiedades ofrecen self check-in por comodidad, mientras que otras pueden incluir una bienvenida personalizada.',
+        a: 'El check-in es a partir de las 3:00 pm y el check-out antes de las 12:00 pm. Los detalles específicos se proporcionarán una vez confirmada tu reserva. Muchas de nuestras propiedades ofrecen self check-in por comodidad, mientras que otras pueden incluir una bienvenida personalizada.',
       },
       {
         q: '¿Puedo extender mi estadía?',
@@ -388,6 +389,7 @@ const T = {
     upcomingSub: 'Expanding to new cities across Mexico',
     comingSoon: 'Coming soon',
     cleaningFee: 'Weekly cleaning',
+    selfCheckIn: 'Self check-in',
     verifiedBadge: 'Verified',
     cleaningFeeNote: 'Towel & sheet change · $500 MXN per week',
     wifiLabel: 'WiFi',
@@ -432,7 +434,7 @@ const T = {
       },
       {
         q: 'How do check-in and check-out work?',
-        a: 'Check-in details will be provided after your booking is confirmed. Many of our properties offer self check-in for convenience, while others may include a personal welcome.',
+        a: 'Check-in is from 3:00 PM and check-out is by 12:00 PM. Specific details will be provided after your booking is confirmed. Many of our properties offer self check-in for convenience, while others may include a personal welcome.',
       },
       {
         q: 'Can I extend my stay?',

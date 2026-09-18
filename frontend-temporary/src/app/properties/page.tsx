@@ -386,6 +386,7 @@ export default async function PropertiesPage({
                       : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🐾</span>
                     }
                     {p.balcony && <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🌿</span>}
+                    {p.selfCheckIn && <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🔑 {t.selfCheckIn}</span>}
                   </div>
                 </div>
               </Link>

@@ -97,3 +97,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: translateY(-5px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.18);
 }
+
+/* Hero polaroid photos: rotation set per-item via --rot custom property,
+   so hover can add scale without an inline transform silently overriding it. */
+.hero-polaroid {
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.3s ease, z-index 0s;
+}
+.hero-polaroid:hover {
+  transform: rotate(var(--rot, 0deg)) scale(1.08);
+  z-index: 50;
+}

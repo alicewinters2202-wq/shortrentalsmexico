@@ -1,9 +1,10 @@
 interface Props {
   lang: 'en' | 'es';
   accentColor: string;
+  selfCheckIn?: boolean;
 }
 
-export default function WhatsIncluded({ lang, accentColor }: Props) {
+export default function WhatsIncluded({ lang, accentColor, selfCheckIn }: Props) {
   const items =
     lang === 'en'
       ? [
@@ -11,12 +12,16 @@ export default function WhatsIncluded({ lang, accentColor }: Props) {
           'Bed linens and towels provided',
           'Basic cooking essentials & spices',
           'High-speed WiFi',
+          'Check-in from 3:00 PM, check-out by 12:00 PM',
+          ...(selfCheckIn ? ['Self check-in (no need to coordinate arrival time)'] : []),
         ]
       : [
           'Cocina completamente equipada con electrodomésticos',
           'Sábanas y toallas incluidas',
           'Básicos de cocina y especias',
           'WiFi de alta velocidad',
+          'Check-in a partir de las 3:00 pm, check-out antes de las 12:00 pm',
+          ...(selfCheckIn ? ['Self check-in (sin necesidad de coordinar hora de llegada)'] : []),
         ];
 
   const title = lang === 'en' ? "What's included" : 'Qué incluye';
