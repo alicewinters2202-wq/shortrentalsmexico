@@ -243,7 +243,15 @@ export default async function Home() {
                   </div>
                 </div>
                 <div className="mt-3 px-1">
-                  <p className="text-xs" style={{ color: 'var(--muted)' }}>
+                  <div className="flex items-baseline gap-2 flex-wrap">
+                    <span className="font-semibold text-base" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
+                    <span style={{ color: 'var(--border)' }}>·</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>
+                      {formatMXN(Math.round(p.pricePerMonth / 30))}{lang === 'en' ? ' / night' : ' / noche'}
+                    </span>
+                  </div>
+                  <p className="text-xs mt-1.5" style={{ color: 'var(--muted)' }}>
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural}
                   </p>
                   <div className="flex gap-1 mt-1.5 flex-wrap">
@@ -254,13 +262,6 @@ export default async function Home() {
                       : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-900/30 text-amber-400">🐾</span>
                     }
                   </div>
-                  <div className="flex items-baseline gap-2 mt-1.5 flex-wrap">
-                    <span className="font-semibold text-base" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
-                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
-                  </div>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-                    {formatMXN(Math.round(p.pricePerMonth / 30))}{lang === 'en' ? ' / night' : ' / noche'}
-                  </p>
                 </div>
               </Link>
             );

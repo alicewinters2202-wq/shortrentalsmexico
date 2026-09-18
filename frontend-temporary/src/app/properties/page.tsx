@@ -367,7 +367,15 @@ export default async function PropertiesPage({
                       </>
                     )}
                   </div>
-                  <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <span className="text-lg font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
+                    <span style={{ color: 'var(--border)' }}>·</span>
+                    <span className="text-xs" style={{ color: 'var(--muted)' }}>
+                      {formatMXN(Math.round(p.pricePerMonth / 30))}{lang === 'en' ? ' / night' : ' / noche'}
+                    </span>
+                  </div>
+                  <p className="text-xs mt-3 pt-3" style={{ color: 'var(--muted)', borderTop: '1px solid var(--border)' }}>
                     {p.bedrooms} {t.rec} · {p.bathrooms} {t.baths} · {p.maxGuests} {t.guestsPlural} · {p.sqMeters} {t.sqm}
                   </p>
                   <div className="flex gap-1 mt-2 flex-wrap">
@@ -378,15 +386,6 @@ export default async function PropertiesPage({
                       : p.petFriendly && <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🐾</span>
                     }
                     {p.balcony && <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: "rgba(63,184,175,0.15)", color: "var(--gold)" }}>🌿</span>}
-                  </div>
-                  <div className="mt-3 pt-3 flex items-end justify-between" style={{ borderTop: '1px solid var(--border)' }}>
-                    <div>
-                      <span className="text-lg font-semibold" style={{ color: 'var(--ink)' }}>{formatMXN(p.pricePerMonth)}</span>
-                      <span className="text-xs ml-1" style={{ color: 'var(--muted)' }}>{t.perMonth}</span>
-                      <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-                        {formatMXN(Math.round(p.pricePerMonth / 30))}{lang === 'en' ? ' / night' : ' / noche'}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </Link>
