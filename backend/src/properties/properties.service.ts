@@ -45,7 +45,7 @@ export class PropertiesService implements OnModuleInit {
     // pass. getPreview() returns whatever's resolved so far in the meantime.
     const addressesNeedingGeocode = this.getPreview()
       .filter((p) => p.lat === null || p.lng === null)
-      .map((p) => p.address);
+      .map((p) => ({ address: p.address, city: p.city }));
     void this.geocodingService.warmUp(addressesNeedingGeocode);
   }
 
