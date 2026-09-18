@@ -8,6 +8,7 @@ import { CAMILA } from '@/lib/agents';
 import { FLAG_MAP } from '@/components/Flags';
 import WhatsAppLink from '@/components/WhatsAppLink';
 import ScrollReveal from '@/components/ScrollReveal';
+import FadeImage from '@/components/FadeImage';
 
 const ROSA = '#B33A63';
 const ROSA_DEEP = '#8F2C4E';
@@ -164,8 +165,8 @@ export default async function Home() {
               <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
                 className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
                 {coverImg ? (
-                  <img src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <FadeImage src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105" />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600 group-hover:scale-105 transition-transform duration-500" />
                 )}
@@ -202,8 +203,8 @@ export default async function Home() {
               <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
                 className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
                 {coverImg ? (
-                  <img src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <FadeImage src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105" />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-600" />
                 )}
@@ -252,8 +253,8 @@ export default async function Home() {
             return (
               <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/30" style={{ backgroundColor: 'var(--card)' }}>
-                  <img src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <FadeImage src={coverImageUrl(p) ?? imageUrl(p.images[0])} alt={street} loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105" />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
                   <div className="absolute top-3 right-3 flex flex-col items-end gap-1">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full" style={{ backgroundColor: OCHRE, color: PLASTER }}>

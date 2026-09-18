@@ -13,6 +13,7 @@ import CompareButton from './CompareButton';
 import CompareBar from './CompareBar';
 import { getRates } from '@/lib/exchange';
 import { getT } from '@/lib/lang';
+import FadeImage from '@/components/FadeImage';
 
 const CITIES = ['Ciudad de México', 'Guadalajara', 'Monterrey', 'Santiago', 'Chapala', 'Puerto Vallarta', 'San Miguel de Allende', 'Mérida', 'Cancún', 'Nuevo Vallarta', 'Tulum', 'Playa del Carmen'];
 export const dynamic = 'force-dynamic';
@@ -328,9 +329,8 @@ export default async function PropertiesPage({
               <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/30" style={{ backgroundColor: 'var(--card)' }}>
                   {mainImage ? (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={coverImageUrl(p) ?? imageUrl(mainImage)} alt={street} loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <FadeImage src={coverImageUrl(p) ?? imageUrl(mainImage)} alt={street} loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
                       <span className="text-sm" style={{ color: 'var(--muted)' }}>{t.noImage}</span>

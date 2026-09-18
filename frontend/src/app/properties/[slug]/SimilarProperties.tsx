@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import FadeImage from '@/components/FadeImage';
 import { imageUrl, coverImageUrl, parseAddress, formatMXN } from '@/types/preview';
 import type { PropertyPreview } from '@/types/preview';
 
@@ -37,12 +38,11 @@ export default function SimilarProperties({ properties, currentId, city, bedroom
             <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/30" style={{ backgroundColor: 'var(--card)' }}>
                 {mainImage ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
+                  <FadeImage
                     src={coverImageUrl(p) ?? imageUrl(mainImage)}
                     alt={street}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105"
                   />
                 ) : (
                   <div className="w-full h-full" />

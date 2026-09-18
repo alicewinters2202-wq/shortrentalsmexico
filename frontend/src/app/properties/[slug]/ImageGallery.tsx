@@ -10,11 +10,16 @@ interface Props {
 
 export default function ImageGallery({ images, address, protectImages = true }: Props) {
   const [current, setCurrent] = useState(0);
+  const [imgLoaded, setImgLoaded] = useState(false);
   const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const progressRef = useRef<NodeJS.Timeout | null>(null);
   const INTERVAL = 4000;
+
+  useEffect(() => {
+    setImgLoaded(false);
+  }, [current]);
 
   useEffect(() => {
     if (images.length <= 1 || paused) { setProgress(0); return; }
@@ -67,7 +72,8 @@ export default function ImageGallery({ images, address, protectImages = true }: 
         <img
           src={imageUrl(images[current])}
           alt={`${address} — ${current + 1}`}
-          className="w-full h-full object-cover transition-opacity duration-500"
+          onLoad={() => setImgLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-500 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
           onContextMenu={protectImages ? (e) => e.preventDefault() : undefined}
           draggable={!protectImages}
         />
