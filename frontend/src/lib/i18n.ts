@@ -3,8 +3,6 @@ import type { Lang } from '@/store/lang.store';
 const T = {
   es: {
     // nav
-    signIn: 'Iniciar sesión',
-    register: 'Registrarse',
     contact: 'Contacto',
     // home hero
     tagline: 'Estancias extraordinarias',
@@ -75,18 +73,10 @@ const T = {
     priceTitle: 'Precio de renta',
     dailySub: (rate: string) => `Tarifa: ${rate} / día · Mínimo 10 noches`,
     nightsCol: 'Noches',
-    perNightCol: 'Por noche',
-    totalCol: 'Total',
     minBadge: 'mínimo',
-    oneMonthBadge: '1 mes',
     priceFoot: 'Esta tarifa diaria aplica para estancias de hasta 89 noches. Para 90 noches o más, contáctanos para precios especiales de larga estancia.',
     // wa cta
-    moreThan1Month: 'Ver disponibilidad con un agente',
-    moreThan1MonthSub: 'Contáctanos por WhatsApp y un agente te atenderá de inmediato.',
     openWA: 'Apartar ahora',
-    longStayTitle: '¿Más de 3 meses?',
-    longStaySub: 'Para estancias largas tenemos condiciones especiales, depósito de seguridad y tarifas negociables.',
-    longStayBtn: 'Contacto especial →',
     // location
     locationTitle: 'Ubicación',
     // booking panel
@@ -101,8 +91,6 @@ const T = {
     reserveBtn: (n: number) => `Reservar ${n} noche${n !== 1 ? 's' : ''}`,
     selectDates: 'Selecciona las fechas',
     noCharge: 'Mínimo 10 noches · sin cargo todavía',
-    moreThanPanel: '¿Más de 3 meses?',
-    moreThanPanelSub: 'Escríbenos para condiciones especiales y tarifas negociables',
     longStayPanelTitle: '¿Estancia de 3+ meses?',
     longStayPanelSub: 'Depósito de seguridad, contrato especial y tarifas preferenciales.',
     writeUs: 'Escribir →',
@@ -149,7 +137,6 @@ const T = {
     sendBtn: 'Enviar mensaje',
     contactSent: '¡Mensaje enviado! Te contactamos pronto.',
     // availability
-    occupiedUntil: (date: string) => `Reservada · hasta ${date}`,
     occupiedRange: (from: string, to: string) => `Reservada: ${from} – ${to}`,
     availableFrom: (date: string) => `Disponible a partir del ${date}`,
     occupiedBanner: 'Esta propiedad está reservada',
@@ -297,8 +284,6 @@ const T = {
     footerTagline: 'Estancias extraordinarias en los mejores destinos',
   },
   en: {
-    signIn: 'Sign in',
-    register: 'Sign up',
     contact: 'Contact',
     tagline: 'Extraordinary stays',
     taglineSub: 'in Mexico.',
@@ -359,17 +344,9 @@ const T = {
     priceTitle: 'Rental pricing',
     dailySub: (rate: string) => `Rate: ${rate} / day · Minimum 10 nights`,
     nightsCol: 'Nights',
-    perNightCol: 'Per night',
-    totalCol: 'Total',
     minBadge: 'minimum',
-    oneMonthBadge: '1 month',
     priceFoot: 'This daily rate applies to stays of up to 89 nights. For 90 nights or more, contact us for special long-stay pricing.',
-    moreThan1Month: 'Check availability with an agent',
-    moreThan1MonthSub: 'Contact us on WhatsApp and an agent will assist you right away.',
     openWA: 'Book now',
-    longStayTitle: 'Staying more than 3 months?',
-    longStaySub: 'Long-term stays come with special conditions, a security deposit, and negotiable rates.',
-    longStayBtn: 'Special contact →',
     locationTitle: 'Location',
     perDay: '/ day',
     arrival: 'Check-in',
@@ -382,8 +359,6 @@ const T = {
     reserveBtn: (n: number) => `Reserve ${n} night${n !== 1 ? 's' : ''}`,
     selectDates: 'Select dates',
     noCharge: 'Minimum 10 nights · no charge yet',
-    moreThanPanel: 'More than 3 months?',
-    moreThanPanelSub: 'Write to us for special conditions and negotiable rates',
     longStayPanelTitle: '3+ month stay?',
     longStayPanelSub: 'Security deposit, special contract and preferential rates.',
     writeUs: 'Write →',
@@ -559,7 +534,6 @@ const T = {
       { icon: '🧹', title: 'Professional cleaning', desc: 'Weekly cleaning service available for an extra fee.' },
       { icon: '💬', title: 'Guest support', desc: 'An agent available to assist you at any time.' },
     ],
-    occupiedUntil: (date: string) => `Booked · until ${date}`,
     occupiedRange: (from: string, to: string) => `Booked: ${from} – ${to}`,
     availableFrom: (date: string) => `Available from ${date}`,
     occupiedBanner: 'This property is currently booked',
