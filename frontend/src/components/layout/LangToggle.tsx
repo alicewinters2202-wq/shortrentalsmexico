@@ -12,8 +12,18 @@ interface Props {
 
 // Pages that have a dedicated, separately-crawlable English URL (under /en/...)
 // rather than just rendering a different language at the same URL. Extend this
-// as more pages get real /en counterparts.
-const BILINGUAL_PATHS = new Set(['/', '/properties']);
+// as more pages get real /en counterparts. Handles both fixed paths and the
+// dynamic /properties/{slug} pattern.
+const BILINGUAL_FIXED_PATHS = new Set([
+  '/', '/properties', '/faq', '/requirements', '/como-funciona', '/why-us', '/about', '/agents',
+]);
+
+function isBilingualPath(basePath: string): boolean {
+  if (BILINGUAL_FIXED_PATHS.has(basePath)) return true;
+  // /properties/{slug} (but not /properties/compare, which has no /en version yet)
+  if (/^\/properties\/[^/]+$/.test(basePath) && basePath !== '/properties/compare') return true;
+  return false;
+}
 
 export default function LangToggle({ currentLang, className = '' }: Props) {
   const { lang, set } = useLang();
@@ -36,7 +46,7 @@ export default function LangToggle({ currentLang, className = '' }: Props) {
     // Suspense boundary requirement onto every page that renders it.
     const isEnglishUrl = pathname === '/en' || pathname.startsWith('/en/');
     const basePath = isEnglishUrl ? (pathname === '/en' ? '/' : pathname.slice(3)) : pathname;
-    if (BILINGUAL_PATHS.has(basePath)) {
+    if (isBilingualPath(basePath)) {
       set(next);
       document.cookie = `lang=${next};path=/;max-age=31536000`;
       const targetPath = next === 'en' ? (basePath === '/' ? '/en' : `/en${basePath}`) : basePath;

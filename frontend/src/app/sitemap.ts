@@ -59,7 +59,9 @@ export default async function sitemap() {
     { url: 'https://shortstaymx.com/properties', lastModified: new Date(), changeFrequency: 'daily' as const, priority: 0.9 },
     { url: 'https://shortstaymx.com/blog', lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.6 },
     { url: 'https://shortstaymx.com/about', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
+    { url: 'https://shortstaymx.com/en/about', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
     { url: 'https://shortstaymx.com/why-us', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
+    { url: 'https://shortstaymx.com/en/why-us', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
     { url: 'https://shortstaymx.com/como-funciona', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
     { url: 'https://shortstaymx.com/en/como-funciona', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
     { url: 'https://shortstaymx.com/contact', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
@@ -68,6 +70,7 @@ export default async function sitemap() {
     { url: 'https://shortstaymx.com/requirements', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
     { url: 'https://shortstaymx.com/en/requirements', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
     { url: 'https://shortstaymx.com/agents', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
+    { url: 'https://shortstaymx.com/en/agents', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.3 },
   ];
 
   return [...staticUrls, ...propertyUrls, ...propertyUrlsEn, ...colonasUrls, ...blogUrls];
