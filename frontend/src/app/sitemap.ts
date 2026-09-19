@@ -31,6 +31,13 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
+  const propertyUrlsEn = properties.map((p) => ({
+    url: `https://shortstaymx.com/en/properties/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
   const colonasUrls = COLONIAS_SLUGS.map((slug) => ({
     url: `https://shortstaymx.com/colonias${slug ? `/${slug}` : ''}`,
     lastModified: new Date(),
@@ -60,5 +67,5 @@ export default async function sitemap() {
     { url: 'https://shortstaymx.com/agents', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
   ];
 
-  return [...staticUrls, ...propertyUrls, ...colonasUrls, ...blogUrls];
+  return [...staticUrls, ...propertyUrls, ...propertyUrlsEn, ...colonasUrls, ...blogUrls];
 }

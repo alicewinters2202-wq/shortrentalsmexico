@@ -128,7 +128,7 @@ export default function PropertiesMap({ points, accentColor, highlightId, height
               : `${p.bedrooms} rec · ${p.bathrooms} baños · ${p.sqMeters} m²`
             : p.city.trim();
           marker.bindPopup(
-            `<a href="/properties/${p.slug}" style="text-decoration:none;color:inherit;display:block;">` +
+            `<a href="${lang === 'en' ? '/en' : ''}/properties/${p.slug}" style="text-decoration:none;color:inherit;display:block;">` +
               `<span style="font-weight:600;color:#1C1C1E;display:block;margin-bottom:2px;">${streetName}</span>` +
               `<span style="color:#86868B;font-size:12px;">${secondLine}</span><br/>` +
               `<strong style="font-size:13px;color:#1C1C1E;">${formatMXN(p.pricePerMonth)}/mes</strong>` +

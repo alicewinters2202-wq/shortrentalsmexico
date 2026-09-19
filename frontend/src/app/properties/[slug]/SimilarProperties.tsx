@@ -35,7 +35,7 @@ export default function SimilarProperties({ properties, currentId, city, bedroom
           const { street } = parseAddress(p.address);
           const mainImage = p.images[0];
           return (
-            <Link key={p.id} href={`/properties/${p.slug}`} className="group block hover-float">
+            <Link key={p.id} href={`${lang === 'en' ? '/en' : ''}/properties/${p.slug}`} className="group block hover-float">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg shadow-black/30" style={{ backgroundColor: 'var(--card)' }}>
                 {mainImage ? (
                   <FadeImage

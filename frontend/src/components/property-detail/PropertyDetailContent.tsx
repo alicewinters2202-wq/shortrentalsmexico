@@ -1,0 +1,312 @@
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { fetchPreview, fetchReviews, parseAddress, formatMXN, imageUrl } from '@/types/preview';
+import { SEED_REVIEWS } from '@/lib/seedReviews';
+import ImageGallery from '@/app/properties/[slug]/ImageGallery';
+import BookingPanelPreview from '@/app/properties/[slug]/BookingPanelPreview';
+import PropertyReviews from '@/app/properties/[slug]/PropertyReviews';
+import BackLink from '@/app/properties/[slug]/BackLink';
+import SaveButton from '@/app/properties/[slug]/SaveButton';
+import CitySync from '@/app/properties/[slug]/CitySync';
+import ShareButton from '@/app/properties/[slug]/ShareButton';
+import SimilarProperties from '@/app/properties/[slug]/SimilarProperties';
+import WhatsIncluded from '@/app/properties/[slug]/WhatsIncluded';
+import PropertiesMap from '@/app/properties/PropertiesMap';
+import LangToggle from '@/components/layout/LangToggle';
+import { T, type TType } from '@/lib/i18n';
+import { getRates, formatUSD, formatEUR, formatCAD } from '@/lib/exchange';
+
+export default async function PropertyDetailContent({ slug, lang }: { slug: string; lang: 'es' | 'en' }) {
+  const t = T[lang] as unknown as TType;
+  const propertiesBasePath = lang === 'en' ? '/en/properties' : '/properties';
+  const [properties, rates] = await Promise.all([fetchPreview(), getRates()]);
+  const usdRate = rates.MXN;
+  const property   = properties.find((p) => p.slug === slug) ?? properties.find((p) => p.id === Number(slug));
+  if (!property) notFound();
+  const liveReviews = await fetchReviews(property.slug);
+  const seedForThis = (SEED_REVIEWS[property.slug] || []).map((r) => ({ ...r, approved: true, slug: property.slug }));
+  const reviews    = [...liveReviews, ...seedForThis].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+
+  const { street, neighborhood } = parseAddress(property.address);
+  const dailyRate  = Math.round(property.pricePerMonth / 30);
+  const sqft       = Math.round(property.sqMeters * 10.764);
+  const mapsUrl    = `https://maps.google.com/maps?q=${encodeURIComponent(property.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const cityMapPoints = properties
+    .filter((p) => p.city.trim() === property.city.trim() && p.lat !== null && p.lng !== null)
+    .map((p) => ({ id: p.id, slug: p.slug, lat: p.lat as number, lng: p.lng as number, city: p.city, address: p.address, pricePerMonth: p.pricePerMonth, bedrooms: p.bedrooms, bathrooms: p.bathrooms, sqMeters: p.sqMeters }));
+
+  const waMsg = lang === 'en'
+    ? `Hello, I'd like to book the property at ${street}. Could you help me confirm my reservation?`
+    : `Hola, me gustaría apartar la propiedad en ${street}. ¿Me pueden ayudar a confirmar mi reserva?`;
+
+  return (
+    <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
+      <CitySync city={property.city} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Apartment",
+            "name": `${street}, ${property.city}`,
+            "description": `Departamento de ${property.bedrooms} recámaras y ${property.bathrooms} baños, completamente amueblado, en ${neighborhood}, ${property.city}. ${property.sqMeters} m² de superficie, WiFi de ${property.wifiSpeed} Mbps incluido.`,
+            "url": `https://shortstaymx.com/properties/${property.slug}`,
+            "image": property.images[0] ? imageUrl(property.images[0]) : undefined,
+            "numberOfRooms": property.bedrooms,
+            "floorSize": { "@type": "QuantitativeValue", "value": property.sqMeters, "unitCode": "MTK" },
+            "petsAllowed": property.petFriendly,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": property.address,
+              "addressLocality": property.city,
+              "addressCountry": "MX"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": property.pricePerMonth,
+              "priceCurrency": "MXN",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": property.pricePerMonth,
+                "priceCurrency": "MXN",
+                "unitText": "MONTH"
+              }
+            }
+          })
+        }}
+      />
+      <nav
+        className="sticky top-0 z-40 backdrop-blur-md"
+        style={{ backgroundColor: 'rgba(28,28,30,0.9)', borderBottom: '1px solid var(--border)' }}
+      >
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-4">
+          <BackLink label={t.backToProps} fallbackHref={propertiesBasePath} />
+          <span style={{ color: 'var(--border)' }}>|</span>
+          <Link href="/" className="font-serif font-medium" style={{ color: 'var(--ink)' }}>
+            ShortStayMX
+          </Link>
+          <div className="ml-auto">
+            <LangToggle currentLang={lang} className="text-[--muted] hover:text-[--ink]" />
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="mb-6">
+          <div className="flex items-center gap-3 mb-2">
+            <Link
+              href={`${propertiesBasePath}?city=${encodeURIComponent(property.city)}`}
+              className="text-xs tracking-widest uppercase font-semibold hover:underline transition-opacity"
+              style={{ color: 'var(--ochre)' }}
+            >
+              {property.city}
+            </Link>
+            <span style={{ color: 'var(--border)' }}>·</span>
+            <span className="text-xs" style={{ color: 'var(--muted)' }}>{neighborhood}</span>
+          </div>
+          <div className="flex items-center gap-3 mb-2 flex-wrap">
+            <h1 className="italic text-4xl sm:text-5xl" style={{ color: 'var(--ink)', fontFamily: 'var(--font-display), serif' }}>{street}</h1>
+            <SaveButton propertyId={property.id} variant="card" />
+            <ShareButton url={`https://shortstaymx.com/properties/${property.slug}`} title={street} lang={lang} />
+            {property.available ? (
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 self-center">
+                ● {t.availableTag}
+              </span>
+            ) : (
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-red-900/40 text-red-400 self-center">
+                ● {t.occupiedBanner}
+              </span>
+            )}
+          </div>
+          <p className="text-base mt-2" style={{ color: 'var(--muted)' }}>{property.address}</p>
+          {!property.available && property.availableFrom && (
+            <p className="text-sm mt-2 font-medium" style={{ color: 'var(--gold)' }}>
+              {t.occupiedRange(
+                new Date((property.occupiedSince ?? property.availableFrom!) + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { day: 'numeric', month: 'long', year: 'numeric' }),
+                new Date(property.availableFrom + 'T12:00:00').toLocaleDateString(lang === 'en' ? 'en-US' : 'es-MX', { day: 'numeric', month: 'long', year: 'numeric' }),
+              )}
+            </p>
+          )}
+        </div>
+
+        <ImageGallery images={property.images} address={street} />
+
+      {/* DESCRIPCIÓN AUTOMÁTICA */}
+<div className="mb-8">
+  <p className="text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
+    {lang === 'en'
+      ? `This fully furnished apartment is set in ${neighborhood}, ${property.city}, offering ${property.bedrooms} bedroom${property.bedrooms > 1 ? 's' : ''} and ${property.bathrooms} bathroom${property.bathrooms > 1 ? 's' : ''} across ${property.sqMeters} m² of living space. It welcomes up to ${property.maxGuests} guests${property.balcony ? ', features a private balcony' : ''}${property.parkingSpots > 0 ? `, and includes ${property.parkingSpots} parking spot${property.parkingSpots > 1 ? 's' : ''}` : ''}. ${property.petFriendly ? 'Pet-friendly. ' : ''}${property.amenities.length > 0 ? `Property amenities: ${property.amenities.flatMap(a => a.split(/,| y /i).map(x => x.trim())).filter(Boolean).map(a => ({'alberca': 'pool', 'kids club': 'kids club', 'gym': 'gym', 'spa': 'spa', 'cine': 'movie theater', 'salon de fiestas': 'event room', 'terraza': 'terrace', 'boliche': 'bowling alley', 'roof garden': 'roof garden', 'coworking': 'coworking', 'sauna': 'sauna', 'paddle': 'paddle court', 'squash': 'squash court', 'salon de yoga': 'yoga room', 'areas verdes': 'green areas', 'juegos infantiles': 'playground', 'vigilancia 24h': '24h security', 'concierge': 'concierge'} as Record<string,string>)[a.toLowerCase()] ?? a).join(', ')}.` : ''} High-speed WiFi (${property.wifiSpeed} Mbps) is included. Monthly rates start at ${Math.round(property.pricePerMonth).toLocaleString('en-US')} MXN.`
+      : `Ubicado en ${neighborhood}, ${property.city}, este departamento completamente amueblado cuenta con ${property.bedrooms} recámara${property.bedrooms > 1 ? 's' : ''} y ${property.bathrooms} baño${property.bathrooms > 1 ? 's' : ''} en ${property.sqMeters} m². Recibe hasta ${property.maxGuests} huéspedes${property.balcony ? ', ofrece balcón privado' : ''}${property.parkingSpots > 0 ? ` y cuenta con ${property.parkingSpots} espacio${property.parkingSpots > 1 ? 's' : ''} de estacionamiento` : ''}. ${property.petFriendly ? 'Acepta mascotas. ' : ''}${property.amenities.length > 0 ? `Entre sus amenidades: ${property.amenities.join(', ')}.` : ''} Conexión WiFi de alta velocidad (${property.wifiSpeed} Mbps) incluida en la renta. Precio mensual desde ${Math.round(property.pricePerMonth).toLocaleString('es-MX')} MXN.`
+    }
+  </p>
+</div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { label: t.guests,    value: String(property.maxGuests), sub: null },
+                { label: t.bedrooms,  value: String(property.bedrooms),  sub: null },
+                { label: t.bathrooms, value: String(property.bathrooms), sub: null },
+                { label: `${t.sqm}`, value: String(property.sqMeters),  sub: `${sqft} sqft` },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl p-4 text-center"
+                  style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}
+                >
+                  <p className="text-3xl font-serif" style={{ color: 'var(--ink)' }}>{s.value}</p>
+                  <p className="text-xs mt-1 uppercase tracking-widest" style={{ color: 'var(--muted)' }}>{s.label}</p>
+                  {s.sub && <p className="text-[10px] mt-0.5" style={{ color: 'var(--muted)' }}>{s.sub}</p>}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {property.balcony && (
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(184,118,58,0.15)", color: "var(--ochre)" }}>🌿 {t.balcony}</span>
+              )}
+              {property.petFriendlyNegotiable ? (
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(184,118,58,0.15)", color: "var(--ochre)" }}>🐾 {t.petFriendlyNeg}</span>
+              ) : property.petFriendly && (
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(184,118,58,0.15)", color: "var(--ochre)" }}>🐾 {t.petFriendly}</span>
+              )}
+              {property.parkingSpots > 0 && (
+                <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(184,118,58,0.15)", color: "var(--ochre)" }}>
+                  🚗 {t.parking(property.parkingSpots)}
+                </span>
+              )}
+              <span className="text-xs px-3 py-1.5 rounded-full font-medium" style={{ backgroundColor: "rgba(184,118,58,0.15)", color: "var(--ochre)" }}>
+                🛜 {t.wifiLabel} {property.wifiSpeed} Mbps
+              </span>
+            </div>
+
+            {property.amenities.length > 0 && (
+              <div>
+                <h2 className="font-serif text-2xl mb-4" style={{ color: 'var(--ink)' }}>{t.amenities}</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {property.amenities.map((a) => (
+                    <div
+                      key={a}
+                      className="flex items-center gap-3 rounded-xl p-3"
+                      style={{ backgroundColor: 'var(--card)', border: '1px solid var(--border)' }}
+                    >
+                      <span style={{ color: 'var(--gold)' }}>✓</span>
+                      <span className="text-sm capitalize" style={{ color: 'var(--ink)' }}>
+                        {lang === 'en' ? a.split(/,| y /i).map(x => x.trim()).filter(Boolean).map(x => ({'alberca': 'Pool', 'kids club': 'Kids club', 'gym': 'Gym', 'spa': 'Spa', 'cine': 'Movie theater', 'salon de fiestas': 'Event room', 'terraza': 'Terrace', 'boliche': 'Bowling alley', 'roof garden': 'Roof garden', 'coworking': 'Coworking', 'sauna': 'Sauna', 'paddle': 'Paddle court', 'squash': 'Squash court', 'salon de yoga': 'Yoga room', 'areas verdes': 'Green areas', 'juegos infantiles': 'Playground', 'vigilancia 24h': '24h security', 'concierge': 'Concierge', 'business center': 'Business center'} as Record<string,string>)[x.toLowerCase()] ?? x).join(', ') : a}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div>
+              <h2 className="font-serif text-2xl mb-1" style={{ color: 'var(--ink)' }}>{t.priceTitle}</h2>
+              <p className="text-sm mb-4" style={{ color: 'var(--muted)' }}>
+                {t.dailySub(formatMXN(dailyRate))}
+              </p>
+              <div className="rounded-2xl overflow-x-auto" style={{ border: '1px solid var(--border)' }}>
+                <table className="w-full text-sm min-w-[640px]">
+                  <thead>
+                    <tr style={{ backgroundColor: 'var(--card)', borderBottom: '1px solid var(--border)' }}>
+                      {[t.nightsCol, 'MXN', 'USD', 'EUR', 'CAD'].map((h, i) => (
+                        <th
+                          key={h}
+                          className={`px-4 py-3 text-xs tracking-widest uppercase font-medium ${i === 0 ? 'text-left' : 'text-right'}`}
+                          style={{ color: 'var(--muted)' }}
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[10, 15, 20, 30].map((n) => {
+                      const weeks       = Math.ceil(n / 7);                  
+                      const rentTotal   = dailyRate * n;
+                      const grandTotal  = rentTotal;
+                      return (
+                        <tr key={n} className="transition-colors" style={{ borderBottom: '1px solid var(--border)' }}>
+                          <td className="px-4 py-4" style={{ color: 'var(--ink)' }}>
+                            {n} {t.nightsCol}
+                            {n === 10 && (
+                              <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider"
+                                style={{ backgroundColor: 'var(--cream)', color: 'var(--muted)' }}>
+                                {t.minBadge}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-4 py-4 text-right font-semibold" style={{ color: 'var(--ink)' }}>
+                            {formatMXN(grandTotal)}
+                          </td>
+                          <td className="px-4 py-4 text-right text-xs" style={{ color: 'var(--muted)' }}>
+                            {formatUSD(grandTotal, usdRate)}
+                          </td>
+                          <td className="px-4 py-4 text-right text-xs" style={{ color: 'var(--muted)' }}>
+                            {formatEUR(grandTotal, usdRate, rates.EUR)}
+                          </td>
+                          <td className="px-4 py-4 text-right text-xs" style={{ color: 'var(--muted)' }}>
+                            {formatCAD(grandTotal, usdRate, rates.CAD)}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>
+                * {t.priceFoot}
+              </p>
+              <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
+                🧹 {t.cleaningFeeNote}
+              </p>
+            </div>
+
+            <div>
+              <WhatsIncluded lang={lang} accentColor="var(--ochre)" selfCheckIn={property.selfCheckIn} />
+            </div>
+
+            <div>
+              <PropertyReviews slug={property.slug} initialReviews={reviews} lang={lang} />
+            </div>
+
+            <div>
+              <h2 className="font-serif text-2xl mb-4" style={{ color: 'var(--ink)' }}>{t.locationTitle}</h2>
+              <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
+                {property.lat !== null && property.lng !== null && cityMapPoints.length > 0 ? (
+                  <PropertiesMap points={cityMapPoints} accentColor="var(--ochre)" highlightId={property.id} height={360} lang={lang} />
+                ) : (
+                  <iframe
+                    src={mapsUrl}
+                    width="100%"
+                    height="360"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`${t.locationTitle} — ${street}`}
+                  />
+                )}
+              </div>
+              <p className="text-xs mt-2" style={{ color: 'var(--muted)' }}>📍 {property.address}</p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-1">
+            <BookingPanelPreview property={property} />
+          </div>
+        </div>
+
+        <SimilarProperties
+          properties={properties}
+          currentId={property.id}
+          city={property.city}
+          bedrooms={property.bedrooms}
+          lang={lang}
+          accentColor="var(--ochre)"
+          title={lang === 'en' ? 'Similar properties' : 'Propiedades similares'}
+        />
+      </div>
+    </div>
+  );
+}
