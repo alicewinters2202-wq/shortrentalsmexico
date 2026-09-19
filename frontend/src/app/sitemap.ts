@@ -65,6 +65,7 @@ export default async function sitemap() {
     { url: 'https://shortstaymx.com/como-funciona', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
     { url: 'https://shortstaymx.com/en/como-funciona', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
     { url: 'https://shortstaymx.com/contact', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
+    { url: 'https://shortstaymx.com/en/contact', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.3 },
     { url: 'https://shortstaymx.com/faq', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
     { url: 'https://shortstaymx.com/en/faq', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
     { url: 'https://shortstaymx.com/requirements', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
