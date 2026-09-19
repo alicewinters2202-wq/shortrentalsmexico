@@ -15,7 +15,7 @@ interface Props {
 // as more pages get real /en counterparts. Handles both fixed paths and the
 // dynamic /properties/{slug} pattern.
 const BILINGUAL_FIXED_PATHS = new Set([
-  '/', '/properties', '/faq', '/requirements', '/como-funciona', '/why-us', '/about', '/agents', '/contact',
+  '/', '/properties', '/faq', '/requirements', '/como-funciona', '/why-us', '/about', '/agents', '/contact', '/blog',
 ]);
 
 function isBilingualPath(basePath: string): boolean {
