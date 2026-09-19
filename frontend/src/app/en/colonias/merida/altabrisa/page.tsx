@@ -1,0 +1,19 @@
+import type { Metadata } from 'next';
+import AltabrisaContent from '@/components/pages/AltabrisaContent';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://shortstaymx.com/en/colonias/merida/altabrisa',
+    languages: {
+      'es-MX': 'https://shortstaymx.com/colonias/merida/altabrisa',
+      'en-US': 'https://shortstaymx.com/en/colonias/merida/altabrisa',
+      'x-default': 'https://shortstaymx.com/colonias/merida/altabrisa',
+    },
+  },
+  title: "Furnished rentals in Altabrisa, Merida | ShortStayMX",
+  description: "Furnished apartments in Altabrisa and Montecristo, Merida. Modern residential area with Plaza Altabrisa, private hospitals and excellent infrastructure.",
+};
+
+export default function EnglishAltabrisaPage() {
+  return <AltabrisaContent lang="en" />;
+}

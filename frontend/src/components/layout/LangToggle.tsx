@@ -15,13 +15,17 @@ interface Props {
 // as more pages get real /en counterparts. Handles both fixed paths and the
 // dynamic /properties/{slug} pattern.
 const BILINGUAL_FIXED_PATHS = new Set([
-  '/', '/properties', '/faq', '/requirements', '/como-funciona', '/why-us', '/about', '/agents', '/contact', '/blog',
+  '/', '/properties', '/faq', '/requirements', '/como-funciona', '/why-us', '/about', '/agents', '/contact', '/blog', '/colonias',
 ]);
 
 function isBilingualPath(basePath: string): boolean {
   if (BILINGUAL_FIXED_PATHS.has(basePath)) return true;
   // /properties/{slug} (but not /properties/compare, which has no /en version yet)
   if (/^\/properties\/[^/]+$/.test(basePath) && basePath !== '/properties/compare') return true;
+  // /blog/{slug}
+  if (/^\/blog\/[^/]+$/.test(basePath)) return true;
+  // /colonias/{slug} and /colonias/{city}/{slug}
+  if (/^\/colonias\/[^/]+(\/[^/]+)?$/.test(basePath)) return true;
   return false;
 }
 

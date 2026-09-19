@@ -45,6 +45,14 @@ export default async function sitemap() {
     priority: slug ? 0.6 : 0.7,
   }));
 
+  const colonasUrlsEn = COLONIAS_SLUGS.filter((slug) => slug !== '').map((slug) => ({
+    url: `https://shortstaymx.com/en/colonias/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+  colonasUrlsEn.push({ url: 'https://shortstaymx.com/en/colonias', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 });
+
   const blogUrls = BLOG_SLUGS.map((slug) => ({
     url: `https://shortstaymx.com/blog/${slug}`,
     lastModified: new Date(),
@@ -82,5 +90,5 @@ export default async function sitemap() {
     { url: 'https://shortstaymx.com/en/agents', lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.3 },
   ];
 
-  return [...staticUrls, ...propertyUrls, ...propertyUrlsEn, ...colonasUrls, ...blogUrls, ...blogUrlsEn];
+  return [...staticUrls, ...propertyUrls, ...propertyUrlsEn, ...colonasUrls, ...colonasUrlsEn, ...blogUrls, ...blogUrlsEn];
 }
