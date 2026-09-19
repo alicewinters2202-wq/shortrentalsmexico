@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface Option {
   value: string;
@@ -21,6 +21,8 @@ interface Props {
 
 export default function SortDropdown({ cityParam, guestsParam, sortParam, minPriceParam, maxPriceParam, bedroomsParam, options, placeholder, accentColor }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
+  const basePath = pathname?.startsWith('/en/properties') ? '/en/properties' : '/properties';
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const sort = e.target.value;
@@ -32,7 +34,7 @@ export default function SortDropdown({ cityParam, guestsParam, sortParam, minPri
     if (maxPriceParam !== undefined) params.set('maxPrice', String(maxPriceParam));
     if (bedroomsParam !== undefined) params.set('bedrooms', String(bedroomsParam));
     const qs = params.toString();
-    router.push(`/properties${qs ? `?${qs}` : ''}`);
+    router.push(`${basePath}${qs ? `?${qs}` : ''}`);
   };
 
   return (

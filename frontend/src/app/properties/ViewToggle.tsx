@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface Props {
   cityParam?: string;
@@ -26,6 +26,8 @@ export default function ViewToggle({
   accentColor,
 }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
+  const basePath = pathname?.startsWith("/en/properties") ? "/en/properties" : "/properties";
 
   function go(view: 'list' | 'map') {
     const params = new URLSearchParams();
@@ -37,7 +39,7 @@ export default function ViewToggle({
     if (bedroomsParam !== undefined) params.set('bedrooms', String(bedroomsParam));
     if (view === 'map') params.set('view', 'map');
     const qs = params.toString();
-    router.push(`/properties${qs ? `?${qs}` : ''}`);
+    router.push(`${basePath}${qs ? `?${qs}` : ''}`);
   }
 
   const listLabel = lang === 'en' ? 'List' : 'Lista';

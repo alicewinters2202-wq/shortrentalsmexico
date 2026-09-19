@@ -41,6 +41,7 @@ const ALL_CITIES = [
 
 export default async function HomeContent({ lang }: { lang: 'es' | 'en' }) {
   const t = T[lang] as unknown as TType;
+  const propertiesBasePath = lang === 'en' ? '/en/properties' : '/properties';
   const properties  = await fetchPreview();
   const withImages  = properties.filter((p) => p.images.length > 0);
   const weekSeed    = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
@@ -158,7 +159,7 @@ export default async function HomeContent({ lang }: { lang: 'es' | 'en' }) {
             const coverImg  = cityProps.find((p) => p.images.length > 0);
             const count     = cityProps.length;
             return (
-              <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
+              <Link key={c.name} href={`${propertiesBasePath}?city=${encodeURIComponent(c.name)}`}
                 className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
                 {coverImg ? (
                   <FadeImage src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
@@ -196,7 +197,7 @@ export default async function HomeContent({ lang }: { lang: 'es' | 'en' }) {
             const coverImg  = cityProps.find((p) => p.images.length > 0);
             const count     = cityProps.length;
             return (
-              <Link key={c.name} href={`/properties?city=${encodeURIComponent(c.name)}`}
+              <Link key={c.name} href={`${propertiesBasePath}?city=${encodeURIComponent(c.name)}`}
                 className="group relative overflow-hidden rounded-2xl aspect-[3/2]">
                 {coverImg ? (
                   <FadeImage src={coverImageUrl(coverImg) ?? imageUrl(coverImg.images[0])} alt={c.label} loading="lazy"
@@ -239,7 +240,7 @@ export default async function HomeContent({ lang }: { lang: 'es' | 'en' }) {
             <h2 className="font-serif text-3xl" style={{ color: 'var(--ink)' }}>{t.featuredProps}</h2>
             <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>{t.totalProps(properties.length)}</p>
           </div>
-          <Link href="/properties" style={{ color: OCHRE }} className="text-sm font-medium hover:underline hidden sm:block">
+          <Link href={propertiesBasePath} style={{ color: OCHRE }} className="text-sm font-medium hover:underline hidden sm:block">
             {t.viewAll}
           </Link>
         </div>
@@ -301,7 +302,7 @@ export default async function HomeContent({ lang }: { lang: 'es' | 'en' }) {
           })}
         </div>
         <div className="text-center mt-12">
-          <Link href="/properties"
+          <Link href={propertiesBasePath}
             className="inline-block px-10 py-3 rounded-full text-sm font-medium tracking-wide transition-colors border border-[var(--border)] text-[var(--ink)] hover:bg-[var(--ink)] hover:text-[var(--cream)]"
           >
             {t.viewAllBtn}
@@ -375,7 +376,7 @@ export default async function HomeContent({ lang }: { lang: 'es' | 'en' }) {
             </p>
           </div>
           <div className="flex items-center gap-5 text-xs flex-wrap justify-center" style={{ color: 'var(--muted)' }}>
-            <Link href="/properties" className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
+            <Link href={propertiesBasePath} className="hover:opacity-80 transition-opacity">{t.allProperties}</Link>
             <Link href="/agents" className="hover:opacity-80 transition-opacity">{t.agentsSectionTitle}</Link>
             <Link href="/why-us" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'Why us' : 'Por qué nosotros'}</Link>
             <Link href="/colonias" className="hover:opacity-80 transition-opacity">{lang === 'en' ? 'Neighborhoods' : 'Colonias'}</Link>

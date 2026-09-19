@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface Props {
   cityParam?: string;
@@ -24,6 +24,8 @@ export default function BedroomsFilter({
   accentColor,
 }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
+  const basePath = pathname?.startsWith("/en/properties") ? "/en/properties" : "/properties";
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const bedrooms = e.target.value;
@@ -35,7 +37,7 @@ export default function BedroomsFilter({
     if (maxPriceParam !== undefined) params.set('maxPrice', String(maxPriceParam));
     if (bedrooms) params.set('bedrooms', bedrooms);
     const qs = params.toString();
-    router.push(`/properties${qs ? `?${qs}` : ''}`);
+    router.push(`${basePath}${qs ? `?${qs}` : ''}`);
   };
 
   const placeholder = lang === 'en' ? 'Bedrooms' : 'Recámaras';

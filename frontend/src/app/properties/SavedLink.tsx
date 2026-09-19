@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { readSavedIds, SAVED_CHANGED_EVENT } from './SaveButton';
 
 interface Props {
@@ -12,6 +12,8 @@ interface Props {
 
 export default function SavedLink({ active, lang, accentColor }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
+  const basePath = pathname?.startsWith("/en/properties") ? "/en/properties" : "/properties";
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -29,12 +31,12 @@ export default function SavedLink({ active, lang, accentColor }: Props) {
 
   function handleClick() {
     if (active) {
-      router.push('/properties');
+      router.push(basePath);
       return;
     }
     const ids = readSavedIds();
     const qs = ids.length ? `?ids=${ids.join(',')}` : '';
-    router.push(`/properties${qs}`);
+    router.push(`${basePath}${qs}`);
   }
 
   // Nothing saved yet and not currently on the saved view: no point showing it.

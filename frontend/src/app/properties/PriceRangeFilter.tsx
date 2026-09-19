@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface Props {
   cityParam?: string;
@@ -39,6 +39,8 @@ export default function PriceRangeFilter({
   accentColor,
 }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
+  const basePath = pathname?.startsWith("/en/properties") ? "/en/properties" : "/properties";
   const [localMin, setLocalMin] = useState(minPrice ?? minBound);
   const [localMax, setLocalMax] = useState(maxPrice ?? maxBound);
 
@@ -50,7 +52,7 @@ export default function PriceRangeFilter({
     if (newMin > minBound) params.set('minPrice', String(newMin));
     if (newMax < maxBound) params.set('maxPrice', String(newMax));
     const qs = params.toString();
-    router.push(`/properties${qs ? `?${qs}` : ''}`);
+    router.push(`${basePath}${qs ? `?${qs}` : ''}`);
   }
 
   function handleMinChange(e: React.ChangeEvent<HTMLInputElement>) {

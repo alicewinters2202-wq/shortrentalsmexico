@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useLang } from '@/store/lang.store';
 import { useT } from '@/lib/i18n';
 
@@ -22,8 +22,10 @@ const CITIES = [
 
 export default function SearchBar() {
   const router = useRouter();
+  const pathname = usePathname();
   const { lang }  = useLang();
   const t         = useT(lang);
+  const basePath = pathname === '/en' ? '/en/properties' : '/properties';
 
   const [destination, setDestination] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
@@ -43,7 +45,7 @@ export default function SearchBar() {
     if (guests > 1)  params.set('guests', String(guests));
     if (checkIn)     params.set('checkIn', checkIn);
     if (checkOut)    params.set('checkOut', checkOut);
-    router.push(`/properties?${params.toString()}`);
+    router.push(`${basePath}?${params.toString()}`);
   };
 
   return (
