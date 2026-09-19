@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { readCompareIds, writeCompareIds, COMPARE_CHANGED_EVENT } from './CompareButton';
 
 interface Props {
@@ -11,6 +11,8 @@ interface Props {
 
 export default function CompareBar({ lang, accentColor }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
+  const comparePath = pathname?.startsWith('/en/properties') ? '/en/properties/compare' : '/properties/compare';
   const [ids, setIds] = useState<number[]>([]);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ export default function CompareBar({ lang, accentColor }: Props) {
       </button>
       <button
         type="button"
-        onClick={() => router.push(`/properties/compare?ids=${ids.join(',')}`)}
+        onClick={() => router.push(`${comparePath}?ids=${ids.join(',')}`)}
         className="text-sm font-semibold px-4 py-2 rounded-full"
         style={{ backgroundColor: accentColor, color: '#fff' }}
       >

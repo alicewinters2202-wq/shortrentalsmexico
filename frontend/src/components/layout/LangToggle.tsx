@@ -20,8 +20,8 @@ const BILINGUAL_FIXED_PATHS = new Set([
 
 function isBilingualPath(basePath: string): boolean {
   if (BILINGUAL_FIXED_PATHS.has(basePath)) return true;
-  // /properties/{slug} (but not /properties/compare, which has no /en version yet)
-  if (/^\/properties\/[^/]+$/.test(basePath) && basePath !== '/properties/compare') return true;
+  // /properties/{slug} (includes /properties/compare, which now has an English version too)
+  if (/^\/properties\/[^/]+$/.test(basePath)) return true;
   // /blog/{slug}
   if (/^\/blog\/[^/]+$/.test(basePath)) return true;
   // /colonias/{slug} and /colonias/{city}/{slug}
